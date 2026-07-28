@@ -4,7 +4,46 @@ import path from "path";
 import { fileURLToPath } from "url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const SHEET_PATH = path.join(__dirname, "labels-a-imprimer.html");
+
+// ==================================================================
+// DIMENSIONS DE L'ÉTIQUETTE — à ajuster une fois le modèle d'imprimante
+// Xprinter et le rouleau thermique confirmés. Valeurs de départ : 40x30mm.
+// ==================================================================
+const LABEL_WIDTH_MM = 40;
+const LABEL_HEIGHT_MM = 30;
+const LABEL_FONT_SIZE_PT = 10;
+// ==================================================================
+
+// Registre persistant : TOUTES les étiquettes jamais générées (jamais vidé).
+// Committé dans le dépôt Git pour survivre entre deux exécutions séparées
+// de GitHub Actions (chaque run repart d'un checkout propre du dépôt).
+const RECORDS_PATH = path.join(__dirname, "generated-labels.json");
+
+// Horodatage du dernier "vidage" de la liste des nouveautés.
+const RESET_STATE_PATH = path.join(__dirname, "dernier-vidage.json");
+
+const CATALOGUE_PATH = path.join(__dirname, "catalogue-complet.html");
+const NOUVEAUX_PATH = path.join(__dirname, "nouveaux.html");
+
+function loadRecords() {
+  if (!fs.existsSync(RECORDS_PATH)) return [];
+  return JSON.parse(fs.readFileSync(RECORDS_PATH, "utf-8"));
+}
+
+function saveRecords(records) {
+  fs.writeFileSync(RECORDS_PATH, JSON.stringify(records, null, 2), "utf-8");
+}
+
+function loadResetState() {
+  if (!fs.existsSync(RESET_STATE_PATH)) {
+    return { lastReset: "1970-01-01T00:00:00.000Z" };
+  }
+  return JSON.parse(fs.readFileSync(RESET_STATE_PATH, "utf-8"));
+}
+
+function saveResetState(state) {
+  fs.writeFileSync(RESET_STATE_PATH, JSON.stringify(state, null, 2), "utf-8");
+}
 
 /**
  * Génère l'image du code-barres (les vraies barres verticales + le texte),
@@ -23,60 +62,143 @@ async function generateBarcodeImageBase64(code) {
 }
 
 /**
- * Ajoute une étiquette (nom + code-barres) à la feuille d'étiquettes à imprimer.
- * Chaque nouveau produit s'accumule dans le même fichier, que ta patronne peut
- * ouvrir et imprimer quand elle veut (pas besoin de le faire produit par produit).
+ * Enregistre une étiquette (nom + catégorie + code-barres) dans le registre
+ * persistant, puis régénère les deux pages HTML (catalogue complet + nouveaux).
  */
-export async function addLabelToPrintSheet({ name, code }) {
-  const imageDataUri = await generateBarcodeImageBase64(code);
+export async function addLabelToPrintSheet({ name, category, code }) {
+  const records = loadRecords();
+  records.push({
+    name,
+    category: category || "Divers",
+    code,
+    generatedAt: new Date().toISOString(),
+  });
+  saveRecords(records);
 
-  const labelHtml = `
-    <div class="label">
-      <div class="label-name">${escapeHtml(name)}</div>
-      <img src="${imageDataUri}" alt="${code}" />
-    </div>`;
-
-  if (!fs.existsSync(SHEET_PATH)) {
-    fs.writeFileSync(SHEET_PATH, buildSheetSkeleton(), "utf-8");
-  }
-
-  let content = fs.readFileSync(SHEET_PATH, "utf-8");
-  content = content.replace("<!-- LABELS -->", `${labelHtml}\n<!-- LABELS -->`);
-  fs.writeFileSync(SHEET_PATH, content, "utf-8");
-
-  console.log(`Étiquette ajoutée à la feuille d'impression : ${name} (${code})`);
+  await regenerateSheets();
+  console.log(`Étiquette ajoutée au registre : ${name} (${code})`);
 }
 
-function buildSheetSkeleton() {
-  return `<!DOCTYPE html>
+/**
+ * Vide la liste des "nouveaux" (marque tout ce qui existe actuellement comme
+ * déjà imprimé) sans toucher au catalogue complet ni au registre persistant.
+ */
+export async function resetNouveaux() {
+  saveResetState({ lastReset: new Date().toISOString() });
+  await regenerateSheets();
+  console.log("Liste des nouveautés vidée.");
+}
+
+async function regenerateSheets() {
+  const records = loadRecords();
+  const { lastReset } = loadResetState();
+
+  const sorted = [...records].sort((a, b) => {
+    const catCompare = a.category.localeCompare(b.category, "fr");
+    if (catCompare !== 0) return catCompare;
+    return a.name.localeCompare(b.name, "fr");
+  });
+
+  const nouveaux = sorted.filter((r) => new Date(r.generatedAt) > new Date(lastReset));
+
+  await writeSheet({
+    filePath: CATALOGUE_PATH,
+    title: "Catalogue complet des codes-barres",
+    records: sorted,
+    navLinkHref: "nouveaux.html",
+    navLinkText: "→ Voir les nouveaux codes-barres à imprimer",
+  });
+
+  await writeSheet({
+    filePath: NOUVEAUX_PATH,
+    title: "Nouveaux codes-barres à imprimer",
+    records: nouveaux,
+    navLinkHref: "catalogue-complet.html",
+    navLinkText: "→ Voir le catalogue complet",
+  });
+}
+
+async function writeSheet({ filePath, title, records, navLinkHref, navLinkText }) {
+  const labelsHtml = [];
+  for (const r of records) {
+    const imageDataUri = await generateBarcodeImageBase64(r.code);
+    labelsHtml.push(`
+    <div class="label">
+      <div class="label-name">${escapeHtml(r.name)}</div>
+      <img src="${imageDataUri}" alt="${escapeHtml(r.code)}" />
+    </div>`);
+  }
+
+  const html = `<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>Étiquettes à imprimer</title>
+<title>${escapeHtml(title)}</title>
 <style>
   body { font-family: Arial, sans-serif; margin: 20px; }
+  .no-print { }
+
+  /* Aperçu à l'écran : grille compacte pour naviguer/vérifier les étiquettes */
   .sheet { display: flex; flex-wrap: wrap; gap: 10px; }
   .label {
     border: 1px dashed #999;
     padding: 8px 12px;
     text-align: center;
-    width: 220px;
+    width: ${LABEL_WIDTH_MM}mm;
+    height: ${LABEL_HEIGHT_MM}mm;
+    font-size: ${LABEL_FONT_SIZE_PT}pt;
+    box-sizing: border-box;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
-  .label-name { font-size: 13px; margin-bottom: 4px; font-weight: bold; }
+  .label-name { margin-bottom: 4px; font-weight: bold; }
   .label img { max-width: 100%; }
+
+  /* Impression : UNE étiquette par page, taille exacte du rouleau/de l'étiquette
+     (${LABEL_WIDTH_MM}mm x ${LABEL_HEIGHT_MM}mm). Le repère pointillé reste visible
+     à l'impression (découpe ciseaux sur papier continu) et le saut de page à chaque
+     étiquette donne un point net et régulier, repérable aussi par le capteur
+     automatique d'une future imprimante à étiquettes autocollantes. */
   @media print {
-    .label { border: none; }
+    .no-print { display: none; }
+    @page {
+      size: ${LABEL_WIDTH_MM}mm ${LABEL_HEIGHT_MM}mm;
+      margin: 0;
+    }
+    body { margin: 0; }
+    .sheet { display: block; }
+    .label {
+      width: ${LABEL_WIDTH_MM}mm;
+      height: ${LABEL_HEIGHT_MM}mm;
+      border: 1px dashed #999;
+      page-break-after: always;
+      break-after: page;
+    }
+    .label:last-child {
+      page-break-after: auto;
+      break-after: auto;
+    }
   }
 </style>
 </head>
 <body>
-  <h2>Étiquettes à imprimer (code-barres)</h2>
-  <p>Ouvre ce fichier dans ton navigateur puis fais Ctrl+P (ou Cmd+P) pour imprimer.</p>
+  <div class="no-print">
+    <h2>${escapeHtml(title)}</h2>
+    <p>Ouvre ce fichier dans ton navigateur puis fais Ctrl+P (ou Cmd+P) pour imprimer.
+    Chaque étiquette (${LABEL_WIDTH_MM}mm x ${LABEL_HEIGHT_MM}mm) sortira sur son propre
+    repère de découpe, l'une après l'autre.</p>
+    <p><a href="${navLinkHref}">${escapeHtml(navLinkText)}</a></p>
+  </div>
   <div class="sheet">
-<!-- LABELS -->
+${labelsHtml.join("\n")}
   </div>
 </body>
 </html>`;
+
+  fs.writeFileSync(filePath, html, "utf-8");
 }
 
 function escapeHtml(str) {

@@ -27,7 +27,7 @@ async function run() {
       existingCodes.push(barcode);
 
       await assignBarcodeToVariant(item.id, variant.variant_id, barcode);
-      await addLabelToPrintSheet({ name: item.item_name, code: barcode });
+      await addLabelToPrintSheet({ name: item.item_name, category: categoryName, code: barcode });
 
       generated.push({ name: item.item_name, barcode });
       console.log(`  ➕ ${item.item_name} -> ${barcode}`);

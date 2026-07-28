@@ -4,7 +4,8 @@
   "description": "Génération automatique de codes-barres et étiquettes pour les nouveaux articles Loyverse",
   "type": "module",
   "scripts": {
-    "generate-barcodes": "node generate-missing-barcodes.js"
+    "generate-barcodes": "node generate-missing-barcodes.js",
+    "reset-nouveaux": "node reset-nouveaux.js"
   },
   "dependencies": {
     "axios": "^1.7.7",

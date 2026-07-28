@@ -1,8 +1,6 @@
-name: Générer les codes-barres manquants
+name: Marquer les nouveautés comme imprimées
 
 on:
-  schedule:
-    - cron: "*/15 * * * *"
   workflow_dispatch:
 
 permissions:
@@ -10,13 +8,14 @@ permissions:
   pages: write
   id-token: write
 
-# Évite deux exécutions de déploiement Pages en même temps si un run dépasse 15 min
+# Même groupe que generate-barcodes.yml : évite qu'un déploiement Pages de ce
+# workflow et un déploiement du cron toutes les 15 min se marchent dessus.
 concurrency:
   group: pages
   cancel-in-progress: false
 
 jobs:
-  generate:
+  reset:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout du dépôt
@@ -31,33 +30,21 @@ jobs:
       - name: Installer les dépendances
         run: npm ci
 
-      - name: Générer les codes-barres manquants et les étiquettes
-        env:
-          LOYVERSE_ACCESS_TOKEN: ${{ secrets.LOYVERSE_ACCESS_TOKEN }}
-        run: node generate-missing-barcodes.js
+      - name: Vider la liste des nouveautés (sans toucher au catalogue complet)
+        run: node reset-nouveaux.js
 
-      # Sans cette étape, generated-labels.json / catalogue-complet.html / nouveaux.html
-      # ne seraient générés que dans l'environnement temporaire du run et perdus à la fin :
-      # le run suivant repartirait d'un dépôt vide et écraserait tout l'historique.
-      - name: Committer l'état mis à jour (registre + pages HTML)
+      - name: Committer le vidage
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "chore: mise à jour automatique des codes-barres générés"
+          commit_message: "chore: nouveautés marquées comme imprimées"
           file_pattern: >-
-            generated-labels.json
-            catalogue-complet.html
             nouveaux.html
             dernier-vidage.json
-            category-prefix-map.json
 
       - name: Préparer le site à publier
         run: |
           mkdir -p site
-          if [ -f nouveaux.html ]; then
-            cp nouveaux.html site/index.html
-          else
-            echo "<h1>Aucune étiquette à imprimer pour le moment</h1>" > site/index.html
-          fi
+          cp nouveaux.html site/index.html
           if [ -f catalogue-complet.html ]; then
             cp catalogue-complet.html site/catalogue-complet.html
           fi
@@ -68,7 +55,7 @@ jobs:
           path: site
 
   deploy:
-    needs: generate
+    needs: reset
     runs-on: ubuntu-latest
     environment:
       name: github-pages
