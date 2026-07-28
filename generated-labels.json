@@ -766,5 +766,17 @@
     "category": "Accessoires > Cheveux",
     "code": "ACC-001",
     "generatedAt": "2026-07-28T20:06:38.633Z"
+  },
+  {
+    "name": "AQA",
+    "category": "Accessoires > Cheveux",
+    "code": "ACC-009",
+    "generatedAt": "2026-07-28T20:53:56.046Z"
+  },
+  {
+    "name": "Azerty",
+    "category": "Accessoires > Cheveux",
+    "code": "ACC-010",
+    "generatedAt": "2026-07-28T20:53:57.057Z"
   }
 ]
