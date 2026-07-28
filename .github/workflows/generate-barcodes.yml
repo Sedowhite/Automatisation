@@ -67,6 +67,7 @@ jobs:
           mkdir -p site
           if [ -f data/nouveaux.html ]; then
             cp data/nouveaux.html site/index.html
+            cp data/nouveaux.html site/nouveaux.html
           else
             echo "<h1>Aucune étiquette à imprimer pour le moment</h1>" > site/index.html
           fi

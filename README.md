@@ -56,6 +56,14 @@ d'environnement `DATA_DIR` pour savoir où se trouvent leurs fichiers :
   "vidage" (voir workflow 2 ci-dessous). C'est la page à ouvrir au quotidien
   pour imprimer seulement les nouveaux produits.
 
+### URLs une fois publié sur GitHub Pages
+
+- Nouveautés (page d'accueil) : `https://sedowhite.github.io/Automatisation/`
+  — accessible aussi sur `https://sedowhite.github.io/Automatisation/nouveaux.html`
+  (même contenu, publié sous les deux noms pour que le lien de navigation et
+  l'URL directe fonctionnent tous les deux).
+- Catalogue complet : `https://sedowhite.github.io/Automatisation/catalogue-complet.html`
+
 Chaque page a un lien vers l'autre en haut. Les deux sont regénérées à partir
 d'un registre persistant, **`generated-labels.json`**, qui n'est lui-même
 jamais vidé — c'est la source de vérité de tout ce qui a été généré.

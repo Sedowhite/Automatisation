@@ -56,6 +56,7 @@ jobs:
         run: |
           mkdir -p site
           cp data/nouveaux.html site/index.html
+          cp data/nouveaux.html site/nouveaux.html
           if [ -f data/catalogue-complet.html ]; then
             cp data/catalogue-complet.html site/catalogue-complet.html
           fi
