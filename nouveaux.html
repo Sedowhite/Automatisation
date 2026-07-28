@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Nouveaux codes-barres à imprimer</title>
+<style>
+  body { font-family: Arial, sans-serif; margin: 20px; }
+  .no-print { }
+
+  /* Aperçu à l'écran : grille compacte pour naviguer/vérifier les étiquettes */
+  .sheet { display: flex; flex-wrap: wrap; gap: 10px; }
+  .label {
+    border: 1px dashed #999;
+    padding: 8px 12px;
+    text-align: center;
+    width: 40mm;
+    height: 30mm;
+    font-size: 10pt;
+    box-sizing: border-box;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .label-name { margin-bottom: 4px; font-weight: bold; }
+  .label img { max-width: 100%; }
+
+  /* Impression : UNE étiquette par page, taille exacte du rouleau/de l'étiquette
+     (40mm x 30mm). Le repère pointillé reste visible
+     à l'impression (découpe ciseaux sur papier continu) et le saut de page à chaque
+     étiquette donne un point net et régulier, repérable aussi par le capteur
+     automatique d'une future imprimante à étiquettes autocollantes. */
+  @media print {
+    .no-print { display: none; }
+    @page {
+      size: 40mm 30mm;
+      margin: 0;
+    }
+    body { margin: 0; }
+    .sheet { display: block; }
+    .label {
+      width: 40mm;
+      height: 30mm;
+      border: 1px dashed #999;
+      page-break-after: always;
+      break-after: page;
+    }
+    .label:last-child {
+      page-break-after: auto;
+      break-after: auto;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="no-print">
+    <h2>Nouveaux codes-barres à imprimer</h2>
+    <p>Ouvre ce fichier dans ton navigateur puis fais Ctrl+P (ou Cmd+P) pour imprimer.
+    Chaque étiquette (40mm x 30mm) sortira sur son propre
+    repère de découpe, l'une après l'autre.</p>
+    <p><a href="catalogue-complet.html">→ Voir le catalogue complet</a></p>
+  </div>
+  <div class="sheet">
+
+  </div>
+</body>
+</html>

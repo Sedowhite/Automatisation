@@ -1,0 +1,770 @@
+[
+  {
+    "name": "A3 test",
+    "category": "Accessoires > Cheveux",
+    "code": "ACC-009",
+    "generatedAt": "2026-07-28T20:05:58.730Z"
+  },
+  {
+    "name": "A2 test",
+    "category": "Bijoux > Bagues",
+    "code": "BAG-011",
+    "generatedAt": "2026-07-28T20:05:58.757Z"
+  },
+  {
+    "name": "A1 test",
+    "category": "Bijoux > Bagues",
+    "code": "BAG-012",
+    "generatedAt": "2026-07-28T20:05:58.779Z"
+  },
+  {
+    "name": "Montre - Réf.9500",
+    "category": "Montres",
+    "code": "MON-007",
+    "generatedAt": "2026-07-28T20:05:58.798Z"
+  },
+  {
+    "name": "Montre - Réf.20000",
+    "category": "Montres",
+    "code": "MON-009",
+    "generatedAt": "2026-07-28T20:05:58.825Z"
+  },
+  {
+    "name": "Montre - Réf.18000",
+    "category": "Montres",
+    "code": "MON-005",
+    "generatedAt": "2026-07-28T20:05:58.854Z"
+  },
+  {
+    "name": "Montre - Réf.17500",
+    "category": "Montres",
+    "code": "MON-010",
+    "generatedAt": "2026-07-28T20:05:58.891Z"
+  },
+  {
+    "name": "Montre - Réf.17000",
+    "category": "Montres",
+    "code": "MON-011",
+    "generatedAt": "2026-07-28T20:05:58.930Z"
+  },
+  {
+    "name": "Montre - Réf.16500",
+    "category": "Montres",
+    "code": "MON-013",
+    "generatedAt": "2026-07-28T20:05:58.975Z"
+  },
+  {
+    "name": "Montre - Réf.16000",
+    "category": "Montres",
+    "code": "MON-012",
+    "generatedAt": "2026-07-28T20:05:59.024Z"
+  },
+  {
+    "name": "Montre - Réf.15500",
+    "category": "Montres",
+    "code": "MON-001",
+    "generatedAt": "2026-07-28T20:05:59.079Z"
+  },
+  {
+    "name": "Montre - Réf.15000",
+    "category": "Montres",
+    "code": "MON-004",
+    "generatedAt": "2026-07-28T20:05:59.139Z"
+  },
+  {
+    "name": "Montre - Réf.14000",
+    "category": "Montres",
+    "code": "MON-006",
+    "generatedAt": "2026-07-28T20:05:59.205Z"
+  },
+  {
+    "name": "Montre - Réf.13000",
+    "category": "Montres",
+    "code": "MON-002",
+    "generatedAt": "2026-07-28T20:05:59.274Z"
+  },
+  {
+    "name": "Montre - Réf.11000",
+    "category": "Montres",
+    "code": "MON-003",
+    "generatedAt": "2026-07-28T20:05:59.353Z"
+  },
+  {
+    "name": "Montre - Réf.10500",
+    "category": "Montres",
+    "code": "MON-008",
+    "generatedAt": "2026-07-28T20:05:59.437Z"
+  },
+  {
+    "name": "Diffuseur de senteur",
+    "category": "Maison > Parfum d'ambiance",
+    "code": "PAR-001",
+    "generatedAt": "2026-07-28T20:05:59.526Z"
+  },
+  {
+    "name": "Montre + bracelet homme DANLEX",
+    "category": "Ensembles > Ensembles bijoux",
+    "code": "ENS-003",
+    "generatedAt": "2026-07-28T20:05:59.626Z"
+  },
+  {
+    "name": "Ensemble chaineStainless Steel",
+    "category": "Ensembles > Ensembles bijoux",
+    "code": "ENS-014",
+    "generatedAt": "2026-07-28T20:05:59.724Z"
+  },
+  {
+    "name": "Ensemble chaine H. L",
+    "category": "Ensembles > Ensembles bijoux",
+    "code": "ENS-002",
+    "generatedAt": "2026-07-28T20:05:59.825Z"
+  },
+  {
+    "name": "Ensemble chaine 4 pièces Fashion Jewelry",
+    "category": "Ensembles > Ensembles bijoux",
+    "code": "ENS-017",
+    "generatedAt": "2026-07-28T20:05:59.929Z"
+  },
+  {
+    "name": "Ensemble chaine 4 pièces",
+    "category": "Ensembles > Ensembles bijoux",
+    "code": "ENS-005",
+    "generatedAt": "2026-07-28T20:06:00.041Z"
+  },
+  {
+    "name": "Ensemble Chaine Jaycee",
+    "category": "Ensembles > Ensembles bijoux",
+    "code": "ENS-018",
+    "generatedAt": "2026-07-28T20:06:00.160Z"
+  },
+  {
+    "name": "Ensemble 3 pièces",
+    "category": "Ensembles > Ensembles bijoux",
+    "code": "ENS-001",
+    "generatedAt": "2026-07-28T20:06:00.284Z"
+  },
+  {
+    "name": "Chaine+ boucle Stainless Steel",
+    "category": "Ensembles > Ensembles bijoux",
+    "code": "ENS-007",
+    "generatedAt": "2026-07-28T20:06:00.409Z"
+  },
+  {
+    "name": "Chaine Stainless Steel + boucle",
+    "category": "Ensembles > Ensembles bijoux",
+    "code": "ENS-016",
+    "generatedAt": "2026-07-28T20:06:00.534Z"
+  },
+  {
+    "name": "Chaine + boucle simple",
+    "category": "Ensembles > Ensembles bijoux",
+    "code": "ENS-004",
+    "generatedAt": "2026-07-28T20:06:00.667Z"
+  },
+  {
+    "name": "Chaine + boucle en or Stainless Steel",
+    "category": "Ensembles > Ensembles bijoux",
+    "code": "ENS-010",
+    "generatedAt": "2026-07-28T20:06:00.803Z"
+  },
+  {
+    "name": "Chaine + boucle Stainless Steel",
+    "category": "Ensembles > Ensembles bijoux",
+    "code": "ENS-006",
+    "generatedAt": "2026-07-28T20:06:00.943Z"
+  },
+  {
+    "name": "Chaine + boucle OJOJ",
+    "category": "Ensembles > Ensembles bijoux",
+    "code": "ENS-013",
+    "generatedAt": "2026-07-28T20:06:01.090Z"
+  },
+  {
+    "name": "Chaine + boucle D,C,S Jewelry",
+    "category": "Ensembles > Ensembles bijoux",
+    "code": "ENS-015",
+    "generatedAt": "2026-07-28T20:06:01.240Z"
+  },
+  {
+    "name": "Chaine + boucle Boxin",
+    "category": "Ensembles > Ensembles bijoux",
+    "code": "ENS-008",
+    "generatedAt": "2026-07-28T20:06:01.398Z"
+  },
+  {
+    "name": "Chaine + boucle + bracelet + bague",
+    "category": "Ensembles > Ensembles bijoux",
+    "code": "ENS-012",
+    "generatedAt": "2026-07-28T20:06:01.560Z"
+  },
+  {
+    "name": "Bracelet + chaine + boucle",
+    "category": "Ensembles > Ensembles bijoux",
+    "code": "ENS-011",
+    "generatedAt": "2026-07-28T20:06:01.726Z"
+  },
+  {
+    "name": "Boucle + chaine fashion Jewelry",
+    "category": "Ensembles > Ensembles bijoux",
+    "code": "ENS-009",
+    "generatedAt": "2026-07-28T20:06:01.903Z"
+  },
+  {
+    "name": "Faux ongles",
+    "category": "Cosmétiques > Ongles",
+    "code": "ONG-001",
+    "generatedAt": "2026-07-28T20:06:02.088Z"
+  },
+  {
+    "name": "Rouge à lèvre",
+    "category": "Cosmétiques > Lèvres",
+    "code": "LEV-003",
+    "generatedAt": "2026-07-28T20:06:02.268Z"
+  },
+  {
+    "name": "New lips gloss",
+    "category": "Cosmétiques > Lèvres",
+    "code": "LEV-013",
+    "generatedAt": "2026-07-28T20:06:02.450Z"
+  },
+  {
+    "name": "Gommage à lèvre",
+    "category": "Cosmétiques > Lèvres",
+    "code": "LEV-001",
+    "generatedAt": "2026-07-28T20:06:02.636Z"
+  },
+  {
+    "name": "Gloss magic lips oil",
+    "category": "Cosmétiques > Lèvres",
+    "code": "LEV-014",
+    "generatedAt": "2026-07-28T20:06:02.832Z"
+  },
+  {
+    "name": "Gloss gulf girl",
+    "category": "Cosmétiques > Lèvres",
+    "code": "LEV-010",
+    "generatedAt": "2026-07-28T20:06:03.032Z"
+  },
+  {
+    "name": "Gloss SIHEGLAN",
+    "category": "Cosmétiques > Lèvres",
+    "code": "LEV-012",
+    "generatedAt": "2026-07-28T20:06:03.233Z"
+  },
+  {
+    "name": "Gloss Pola aylr",
+    "category": "Cosmétiques > Lèvres",
+    "code": "LEV-011",
+    "generatedAt": "2026-07-28T20:06:03.443Z"
+  },
+  {
+    "name": "Gloss Pola Aylr",
+    "category": "Cosmétiques > Lèvres",
+    "code": "LEV-004",
+    "generatedAt": "2026-07-28T20:06:03.653Z"
+  },
+  {
+    "name": "Gloss Juice 4p oil",
+    "category": "Cosmétiques > Lèvres",
+    "code": "LEV-007",
+    "generatedAt": "2026-07-28T20:06:03.870Z"
+  },
+  {
+    "name": "Gloss Crasy",
+    "category": "Cosmétiques > Lèvres",
+    "code": "LEV-005",
+    "generatedAt": "2026-07-28T20:06:04.084Z"
+  },
+  {
+    "name": "Gloss 4p",
+    "category": "Cosmétiques > Lèvres",
+    "code": "LEV-006",
+    "generatedAt": "2026-07-28T20:06:04.305Z"
+  },
+  {
+    "name": "Crème lèvre rose",
+    "category": "Cosmétiques > Lèvres",
+    "code": "LEV-008",
+    "generatedAt": "2026-07-28T20:06:04.523Z"
+  },
+  {
+    "name": "Crème lèvre",
+    "category": "Cosmétiques > Lèvres",
+    "code": "LEV-002",
+    "generatedAt": "2026-07-28T20:06:04.746Z"
+  },
+  {
+    "name": "Baby gloss",
+    "category": "Cosmétiques > Lèvres",
+    "code": "LEV-009",
+    "generatedAt": "2026-07-28T20:06:04.977Z"
+  },
+  {
+    "name": "Cofret - Réf.5000",
+    "category": "Coffrets & Cadeaux",
+    "code": "COF-001",
+    "generatedAt": "2026-07-28T20:06:05.209Z"
+  },
+  {
+    "name": "Cofret - Réf.30000",
+    "category": "Coffrets & Cadeaux",
+    "code": "COF-002",
+    "generatedAt": "2026-07-28T20:06:05.454Z"
+  },
+  {
+    "name": "Médaille pour homme gros",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-024",
+    "generatedAt": "2026-07-28T20:06:05.699Z"
+  },
+  {
+    "name": "Médaille enfant",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-008",
+    "generatedAt": "2026-07-28T20:06:05.953Z"
+  },
+  {
+    "name": "Médaile pour femme",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-022",
+    "generatedAt": "2026-07-28T20:06:06.208Z"
+  },
+  {
+    "name": "Medaille H grand",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-017",
+    "generatedAt": "2026-07-28T20:06:06.471Z"
+  },
+  {
+    "name": "Collier homme",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-020",
+    "generatedAt": "2026-07-28T20:06:06.742Z"
+  },
+  {
+    "name": "Chaine sotoire",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-006",
+    "generatedAt": "2026-07-28T20:06:07.017Z"
+  },
+  {
+    "name": "Chaine simple sans médaille",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-007",
+    "generatedAt": "2026-07-28T20:06:07.297Z"
+  },
+  {
+    "name": "Chaine simple faux beroute",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-004",
+    "generatedAt": "2026-07-28T20:06:07.589Z"
+  },
+  {
+    "name": "Chaine simple Stainless Steel",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-013",
+    "generatedAt": "2026-07-28T20:06:07.884Z"
+  },
+  {
+    "name": "Chaine sautoir - Réf.13000",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-002",
+    "generatedAt": "2026-07-28T20:06:08.169Z"
+  },
+  {
+    "name": "Chaine sautoir - Réf.10000",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-001",
+    "generatedAt": "2026-07-28T20:06:08.495Z"
+  },
+  {
+    "name": "Chaine price en or",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-025",
+    "generatedAt": "2026-07-28T20:06:08.806Z"
+  },
+  {
+    "name": "Chaine price en argent",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-021",
+    "generatedAt": "2026-07-28T20:06:09.105Z"
+  },
+  {
+    "name": "Chaine price",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-012",
+    "generatedAt": "2026-07-28T20:06:09.433Z"
+  },
+  {
+    "name": "Chaine pied - Réf.6000",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-015",
+    "generatedAt": "2026-07-28T20:06:09.748Z"
+  },
+  {
+    "name": "Chaine pied - Réf.5000",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-009",
+    "generatedAt": "2026-07-28T20:06:10.063Z"
+  },
+  {
+    "name": "Chaine long YIXUAN",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-005",
+    "generatedAt": "2026-07-28T20:06:10.379Z"
+  },
+  {
+    "name": "Chaine homme Stainless Steel",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-018",
+    "generatedAt": "2026-07-28T20:06:10.707Z"
+  },
+  {
+    "name": "Chaine homme",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-016",
+    "generatedAt": "2026-07-28T20:06:11.040Z"
+  },
+  {
+    "name": "Chaine en argent 2 pièces",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-030",
+    "generatedAt": "2026-07-28T20:06:11.377Z"
+  },
+  {
+    "name": "Chaine Z, Y, M",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-019",
+    "generatedAt": "2026-07-28T20:06:11.724Z"
+  },
+  {
+    "name": "Chaine Fashion Jewelry 4 piècesen argent",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-031",
+    "generatedAt": "2026-07-28T20:06:12.090Z"
+  },
+  {
+    "name": "Chaine DCS Jewelry - Réf.1600",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-029",
+    "generatedAt": "2026-07-28T20:06:12.457Z"
+  },
+  {
+    "name": "Chaine DCS Jewelry - Réf.12500",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-023",
+    "generatedAt": "2026-07-28T20:06:12.826Z"
+  },
+  {
+    "name": "Chaine D,S Jewelry avec",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-027",
+    "generatedAt": "2026-07-28T20:06:13.236Z"
+  },
+  {
+    "name": "Chaine Coral Jewelry",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-028",
+    "generatedAt": "2026-07-28T20:06:13.611Z"
+  },
+  {
+    "name": "Chaine 4 pièces Stainless Steel",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-026",
+    "generatedAt": "2026-07-28T20:06:13.990Z"
+  },
+  {
+    "name": "Cartier long homme",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-003",
+    "generatedAt": "2026-07-28T20:06:14.361Z"
+  },
+  {
+    "name": "Cartier femme",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-014",
+    "generatedAt": "2026-07-28T20:06:14.765Z"
+  },
+  {
+    "name": "Cartier croix homme",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-010",
+    "generatedAt": "2026-07-28T20:06:15.167Z"
+  },
+  {
+    "name": "Cartier croix Homme",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-011",
+    "generatedAt": "2026-07-28T20:06:15.589Z"
+  },
+  {
+    "name": "Bronche",
+    "category": "Bijoux > Broches",
+    "code": "BRO-003",
+    "generatedAt": "2026-07-28T20:06:15.994Z"
+  },
+  {
+    "name": "Broche XSL",
+    "category": "Bijoux > Broches",
+    "code": "BRO-002",
+    "generatedAt": "2026-07-28T20:06:16.408Z"
+  },
+  {
+    "name": "Broche Bahafi",
+    "category": "Bijoux > Broches",
+    "code": "BRO-001",
+    "generatedAt": "2026-07-28T20:06:16.827Z"
+  },
+  {
+    "name": "Gros bracelet en or DCS",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-016",
+    "generatedAt": "2026-07-28T20:06:17.284Z"
+  },
+  {
+    "name": "Gros bracelet en argent Dahlia",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-015",
+    "generatedAt": "2026-07-28T20:06:17.739Z"
+  },
+  {
+    "name": "Bracelet price",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-010",
+    "generatedAt": "2026-07-28T20:06:18.162Z"
+  },
+  {
+    "name": "Bracelet pierre cristallisée",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-009",
+    "generatedAt": "2026-07-28T20:06:18.598Z"
+  },
+  {
+    "name": "Bracelet l'œil de Fatima",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-004",
+    "generatedAt": "2026-07-28T20:06:19.070Z"
+  },
+  {
+    "name": "Bracelet homme Fashion JEWELRY",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-006",
+    "generatedAt": "2026-07-28T20:06:19.569Z"
+  },
+  {
+    "name": "Bracelet femme DCS JEWELRY",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-005",
+    "generatedAt": "2026-07-28T20:06:20.030Z"
+  },
+  {
+    "name": "Bracelet en perle 3 pièces",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-008",
+    "generatedAt": "2026-07-28T20:06:20.491Z"
+  },
+  {
+    "name": "Bracelet en boite",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-001",
+    "generatedAt": "2026-07-28T20:06:20.954Z"
+  },
+  {
+    "name": "Bracelet en argent DCS Jewelry",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-011",
+    "generatedAt": "2026-07-28T20:06:21.426Z"
+  },
+  {
+    "name": "Bracelet des signes",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-002",
+    "generatedAt": "2026-07-28T20:06:21.906Z"
+  },
+  {
+    "name": "Bracelet Stainless Steel",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-012",
+    "generatedAt": "2026-07-28T20:06:22.371Z"
+  },
+  {
+    "name": "Bracelet Fashion Jewelry",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-007",
+    "generatedAt": "2026-07-28T20:06:22.842Z"
+  },
+  {
+    "name": "Braca",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-003",
+    "generatedAt": "2026-07-28T20:06:23.343Z"
+  },
+  {
+    "name": "Bango bracelet petit avec foulard",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-014",
+    "generatedAt": "2026-07-28T20:06:23.832Z"
+  },
+  {
+    "name": "Bango bracelet grand",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-013",
+    "generatedAt": "2026-07-28T20:06:24.322Z"
+  },
+  {
+    "name": "Boucle en plaquette - Réf.6000",
+    "category": "Bijoux > Boucles d'oreilles",
+    "code": "BOU-005",
+    "generatedAt": "2026-07-28T20:06:24.816Z"
+  },
+  {
+    "name": "Boucle en plaquette - Réf.500",
+    "category": "Bijoux > Boucles d'oreilles",
+    "code": "BOU-001",
+    "generatedAt": "2026-07-28T20:06:25.339Z"
+  },
+  {
+    "name": "Boucle Vista en plaquette - Réf.800",
+    "category": "Bijoux > Boucles d'oreilles",
+    "code": "BOU-003",
+    "generatedAt": "2026-07-28T20:06:25.848Z"
+  },
+  {
+    "name": "Boucle Vista en plaquette - Réf.500",
+    "category": "Bijoux > Boucles d'oreilles",
+    "code": "BOU-002",
+    "generatedAt": "2026-07-28T20:06:26.350Z"
+  },
+  {
+    "name": "Boucle Stainless Steel",
+    "category": "Bijoux > Boucles d'oreilles",
+    "code": "BOU-004",
+    "generatedAt": "2026-07-28T20:06:26.866Z"
+  },
+  {
+    "name": "Boucle Prince",
+    "category": "Bijoux > Boucles d'oreilles",
+    "code": "BOU-006",
+    "generatedAt": "2026-07-28T20:06:27.375Z"
+  },
+  {
+    "name": "Bracelet avec bague D,S",
+    "category": "Bijoux > Bagues",
+    "code": "BAG-010",
+    "generatedAt": "2026-07-28T20:06:27.896Z"
+  },
+  {
+    "name": "Bague à plaquette",
+    "category": "Bijoux > Bagues",
+    "code": "BAG-009",
+    "generatedAt": "2026-07-28T20:06:28.416Z"
+  },
+  {
+    "name": "Bague homme plusieurs couleurs",
+    "category": "Bijoux > Bagues",
+    "code": "BAG-004",
+    "generatedAt": "2026-07-28T20:06:28.948Z"
+  },
+  {
+    "name": "Bague homme",
+    "category": "Bijoux > Bagues",
+    "code": "BAG-008",
+    "generatedAt": "2026-07-28T20:06:29.479Z"
+  },
+  {
+    "name": "Bague femme - Réf.6000",
+    "category": "Bijoux > Bagues",
+    "code": "BAG-002",
+    "generatedAt": "2026-07-28T20:06:30.016Z"
+  },
+  {
+    "name": "Bague femme - Réf.5500",
+    "category": "Bijoux > Bagues",
+    "code": "BAG-001",
+    "generatedAt": "2026-07-28T20:06:30.556Z"
+  },
+  {
+    "name": "Bague de fiançaille Stainless Steel",
+    "category": "Bijoux > Bagues",
+    "code": "BAG-006",
+    "generatedAt": "2026-07-28T20:06:31.110Z"
+  },
+  {
+    "name": "Bague de fiançaille",
+    "category": "Bijoux > Bagues",
+    "code": "BAG-007",
+    "generatedAt": "2026-07-28T20:06:31.663Z"
+  },
+  {
+    "name": "Bague - Réf.4000",
+    "category": "Bijoux > Bagues",
+    "code": "BAG-005",
+    "generatedAt": "2026-07-28T20:06:32.221Z"
+  },
+  {
+    "name": "Bague - Réf.2500",
+    "category": "Bijoux > Bagues",
+    "code": "BAG-003",
+    "generatedAt": "2026-07-28T20:06:32.785Z"
+  },
+  {
+    "name": "Pose Chame Petit",
+    "category": "Accessoires > Présentoirs",
+    "code": "PRE-001",
+    "generatedAt": "2026-07-28T20:06:33.340Z"
+  },
+  {
+    "name": "Pose Chame Grand",
+    "category": "Accessoires > Présentoirs",
+    "code": "PRE-002",
+    "generatedAt": "2026-07-28T20:06:33.912Z"
+  },
+  {
+    "name": "Pince à cheveux C",
+    "category": "Accessoires > Cheveux",
+    "code": "ACC-004",
+    "generatedAt": "2026-07-28T20:06:34.479Z"
+  },
+  {
+    "name": "Pince à cheveux",
+    "category": "Accessoires > Cheveux",
+    "code": "ACC-003",
+    "generatedAt": "2026-07-28T20:06:35.058Z"
+  },
+  {
+    "name": "Cintete bandeaux",
+    "category": "Accessoires > Cheveux",
+    "code": "ACC-007",
+    "generatedAt": "2026-07-28T20:06:35.631Z"
+  },
+  {
+    "name": "Cintete - Réf.8700",
+    "category": "Accessoires > Cheveux",
+    "code": "ACC-005",
+    "generatedAt": "2026-07-28T20:06:36.224Z"
+  },
+  {
+    "name": "Cintete - Réf.6500",
+    "category": "Accessoires > Cheveux",
+    "code": "ACC-002",
+    "generatedAt": "2026-07-28T20:06:36.811Z"
+  },
+  {
+    "name": "Cintete - Réf.6200",
+    "category": "Accessoires > Cheveux",
+    "code": "ACC-006",
+    "generatedAt": "2026-07-28T20:06:37.411Z"
+  },
+  {
+    "name": "Cintete - Réf.5500",
+    "category": "Accessoires > Cheveux",
+    "code": "ACC-008",
+    "generatedAt": "2026-07-28T20:06:38.011Z"
+  },
+  {
+    "name": "Broche cheveux",
+    "category": "Accessoires > Cheveux",
+    "code": "ACC-001",
+    "generatedAt": "2026-07-28T20:06:38.633Z"
+  }
+]
