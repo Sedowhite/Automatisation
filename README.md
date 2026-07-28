@@ -14,8 +14,38 @@ Ce projet est **100% Loyverse** : il n'y a plus de dépendance à Notion.
 
 `generate-missing-barcodes.js` parcourt tous les articles Loyverse et traite
 ceux sans code-barre en une fois. C'est ce script que le workflow GitHub
-Actions exécute automatiquement toutes les 15 minutes (voir plus bas) — pas
+Actions exécute automatiquement toutes les 5 minutes (voir plus bas) — pas
 besoin d'un serveur ni d'un ordinateur allumé en continu.
+
+## Deux branches Git : `main` (code) et `data` (données auto-générées)
+
+**`main`** contient uniquement le code (scripts, workflows, README, config
+npm). Tu es le seul à y committer/pousser, et **rien n'y écrit jamais
+automatiquement**.
+
+**`data`** contient uniquement les fichiers que le bot écrit tout seul :
+`category-prefix-map.json`, `generated-labels.json`, `catalogue-complet.html`,
+`nouveaux.html`, `dernier-vidage.json`. Les deux workflows GitHub Actions
+committent et poussent **uniquement sur cette branche**, jamais sur `main`.
+Tu n'as normalement jamais besoin de la checkout ou d'y toucher toi-même.
+
+**Pourquoi cette séparation ?** Avant, tout (code + données auto-générées)
+vivait sur `main`. Le workflow tournant toutes les 5 minutes committait
+automatiquement dessus, ce qui rentrait régulièrement en conflit avec tes
+propres push de code (erreurs "non-fast-forward" / branches divergées).
+En isolant les données auto-générées sur une branche séparée que tu ne touches
+jamais en local, ce type de conflit ne peut structurellement plus se produire :
+`main` n'est modifiée que par toi, `data` que par le bot.
+
+### `DATA_DIR` : comment les scripts savent où lire/écrire
+
+`label-generator.js` et `barcode-generator.js` lisent la variable
+d'environnement `DATA_DIR` pour savoir où se trouvent leurs fichiers :
+- **En local** (`DATA_DIR` non défini) : racine du projet, comme avant —
+  pratique pour tester rapidement, mais **ne committe jamais ces fichiers sur
+  main** si tu testes en local (ils sont censés vivre sur `data`).
+- **En CI** : les workflows checkoutent la branche `data` dans un sous-dossier
+  `./data` et lancent les scripts avec `DATA_DIR=data`.
 
 ## Les deux pages d'étiquettes
 
@@ -31,21 +61,23 @@ d'un registre persistant, **`generated-labels.json`**, qui n'est lui-même
 jamais vidé — c'est la source de vérité de tout ce qui a été généré.
 `dernier-vidage.json` retient juste la date du dernier vidage de `nouveaux.html`.
 
-### Le bug corrigé : pourquoi ces fichiers doivent être committés
+Ces fichiers vivent sur la branche `data` (voir plus haut), pas sur `main`.
 
-Avant, `labels-a-imprimer.html` n'était jamais commité dans le dépôt (il était
-même dans `.gitignore`) : chaque exécution GitHub Actions partait d'un
-`checkout` propre du dépôt, générait le fichier dans l'environnement
-temporaire du run, le publiait sur GitHub Pages, puis **tout était perdu** à
-la fin du run. Résultat : un produit généré à une exécution disparaissait à
-la suivante, puisque rien ne persistait entre deux runs.
+### Le bug de persistance corrigé
+
+À l'origine, le fichier d'étiquettes n'était jamais commité (même exclu via
+`.gitignore`) : chaque exécution GitHub Actions partait d'un `checkout` propre
+du dépôt, générait le fichier dans l'environnement temporaire du run, le
+publiait sur GitHub Pages, puis **tout était perdu** à la fin du run. Résultat :
+un produit généré à une exécution disparaissait à la suivante.
 
 Le workflow committe et pousse désormais `generated-labels.json`,
 `catalogue-complet.html`, `nouveaux.html`, `dernier-vidage.json` et
-`category-prefix-map.json` après chaque génération (via
+`category-prefix-map.json` sur la branche `data` après chaque génération (via
 `stefanzweifel/git-auto-commit-action`, avec le `GITHUB_TOKEN` automatique de
 l'action — pas besoin de configurer un token supplémentaire). Le run suivant
-part donc bien de l'état réel du dépôt, jamais d'une page vide.
+part donc bien de l'état réel de `data`, jamais d'une page vide — et comme
+c'est sur une branche séparée, ça ne rentre plus en conflit avec `main`.
 
 ## Dimensions des étiquettes (à ajuster selon l'imprimante)
 
@@ -77,31 +109,47 @@ pour naviguer/vérifier facilement ; c'est uniquement à l'impression que la
 mise en page bascule en "une étiquette par page".
 
 ## Fichiers du projet
+
+### Sur `main` (code, tu es le seul à y toucher)
 - `loyverse.js` : client API Loyverse (articles, catégories, écriture de code-barre)
-- `barcode-generator.js` : génère le prochain code selon la catégorie (`category-prefix-map.json`)
-- `label-generator.js` : registre persistant + génération des 2 pages HTML d'étiquettes
+- `barcode-generator.js` : génère le prochain code selon la catégorie
+- `label-generator.js` : génération des 2 pages HTML d'étiquettes
 - `generate-missing-barcodes.js` : script principal, exécuté par le cron GitHub Actions
 - `reset-nouveaux.js` : vide `nouveaux.html` (voir workflow 2)
+- `.github/workflows/*.yml` : les 2 workflows
+
+### Sur `data` (générées automatiquement, ne jamais éditer à la main)
 - `category-prefix-map.json` : mapping catégorie Loyverse → préfixe de code-barre à 3 lettres
 - `generated-labels.json` : registre persistant de toutes les étiquettes jamais générées
 - `dernier-vidage.json` : date du dernier vidage de `nouveaux.html`
-- `catalogue-complet.html` / `nouveaux.html` : générés automatiquement, ne pas éditer à la main
+- `catalogue-complet.html` / `nouveaux.html` : les 2 pages d'étiquettes
 
 ## Automatisation : deux workflows GitHub Actions
 
-### 1. `generate-barcodes.yml` — génération automatique (toutes les 15 min)
-Récupère les articles Loyverse sans code-barre, génère les codes, les écrit
-dans Loyverse, met à jour le registre et les 2 pages HTML, committe le tout,
-puis publie `nouveaux.html` (page d'accueil) et `catalogue-complet.html` sur
+### 1. `generate-barcodes.yml` — génération automatique (toutes les 5 min)
+Checkout `main` (code) + `data` (données) dans un sous-dossier, récupère les
+articles Loyverse sans code-barre, génère les codes, les écrit dans Loyverse,
+met à jour le registre et les 2 pages HTML **sur la branche `data`**, puis
+publie `nouveaux.html` (page d'accueil) et `catalogue-complet.html` sur
 GitHub Pages.
 
 ### 2. `mark-as-printed.yml` — "Marquer les nouveautés comme imprimées"
 Déclenchement **manuel uniquement** (`workflow_dispatch`, pas de cron) :
 à lancer depuis l'onglet **Actions** du repo une fois que les étiquettes de
 `nouveaux.html` ont été imprimées. Il vide `nouveaux.html` et met à jour
-`dernier-vidage.json`, sans toucher à `catalogue-complet.html`, puis republie
-immédiatement GitHub Pages pour que la page reflète le vidage tout de suite
-(pas besoin d'attendre le prochain cron).
+`dernier-vidage.json` **sur `data`**, sans toucher à `catalogue-complet.html`,
+puis republie immédiatement GitHub Pages pour que la page reflète le vidage
+tout de suite (pas besoin d'attendre le prochain cron).
+
+## GitHub Pages : aucune config à changer avec la séparation main/data
+
+La publication ne lit jamais directement une branche : les deux workflows
+utilisent `actions/upload-pages-artifact` (qui empaquette le contenu du
+dossier `site/` généré pendant le run) puis `actions/deploy-pages` pour le
+publier. Ce mécanisme est indépendant des branches Git — que les fichiers
+sources viennent de `main` ou de `data` ne change rien à la configuration
+GitHub Pages. Tant que **Settings → Pages → Source = "GitHub Actions"** est
+actif (voir ci-dessous), tout continue de fonctionner sans rien retoucher.
 
 ## Configuration à faire une fois (dans GitHub, pas ici)
 
@@ -113,15 +161,16 @@ immédiatement GitHub Pages pour que la page reflète le vidage tout de suite
    Repo GitHub → **Settings** → **Pages** → section **Build and deployment** →
    **Source** → choisir **GitHub Actions** (pas "Deploy from a branch").
 
-3. **Pousser le code sur GitHub** (tu t'en occupes toi-même) :
+3. **Pousser le code sur GitHub** (tu t'en occupes toi-même, sur `main`
+   uniquement — ne pousse jamais sur `data`, c'est réservé au bot) :
    ```bash
    git add .
-   git commit -m "Génération automatique de codes-barres Loyverse"
+   git commit -m "..."
    git push
    ```
 
 Une fois ces 2 réglages faits et le code poussé, le workflow 1 tourne
-automatiquement toutes les 15 minutes. Tu peux aussi déclencher chaque
+automatiquement toutes les 5 minutes. Tu peux aussi déclencher chaque
 workflow manuellement depuis l'onglet **Actions** du repo (bouton "Run
 workflow"), et retrouver le lien de la page publiée dans **Settings → Pages**
 une fois le premier déploiement terminé.
@@ -134,5 +183,7 @@ npm run generate-barcodes   # génère les codes-barres manquants + les 2 pages 
 npm run reset-nouveaux      # vide nouveaux.html (équivalent local du workflow 2)
 ```
 
-`catalogue-complet.html` et `nouveaux.html` sont créés/mis à jour à la racine
-du projet. Ouvre-les dans un navigateur puis Ctrl+P pour imprimer.
+Sans `DATA_DIR` défini, `catalogue-complet.html` et `nouveaux.html` sont
+créés/mis à jour à la racine du projet (pratique pour tester). Ouvre-les dans
+un navigateur puis Ctrl+P pour imprimer. **Ne les committe pas sur `main`** —
+ce sont des fichiers de test locaux, la vraie donnée vit sur `data`.

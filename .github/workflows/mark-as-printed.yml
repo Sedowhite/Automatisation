@@ -9,7 +9,7 @@ permissions:
   id-token: write
 
 # Même groupe que generate-barcodes.yml : évite qu'un déploiement Pages de ce
-# workflow et un déploiement du cron toutes les 15 min se marchent dessus.
+# workflow et un déploiement du cron se marchent dessus.
 concurrency:
   group: pages
   cancel-in-progress: false
@@ -18,8 +18,16 @@ jobs:
   reset:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout du dépôt
+      - name: Checkout du code (branche main)
         uses: actions/checkout@v4
+
+      # Même principe que generate-barcodes.yml : les données vivent sur "data",
+      # jamais sur "main".
+      - name: Checkout des données persistantes (branche data)
+        uses: actions/checkout@v4
+        with:
+          ref: data
+          path: data
 
       - name: Installer Node.js
         uses: actions/setup-node@v4
@@ -31,11 +39,14 @@ jobs:
         run: npm ci
 
       - name: Vider la liste des nouveautés (sans toucher au catalogue complet)
+        env:
+          DATA_DIR: data
         run: node reset-nouveaux.js
 
-      - name: Committer le vidage
+      - name: Committer le vidage sur la branche data
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
+          repository: data
           commit_message: "chore: nouveautés marquées comme imprimées"
           file_pattern: >-
             nouveaux.html
@@ -44,9 +55,9 @@ jobs:
       - name: Préparer le site à publier
         run: |
           mkdir -p site
-          cp nouveaux.html site/index.html
-          if [ -f catalogue-complet.html ]; then
-            cp catalogue-complet.html site/catalogue-complet.html
+          cp data/nouveaux.html site/index.html
+          if [ -f data/catalogue-complet.html ]; then
+            cp data/catalogue-complet.html site/catalogue-complet.html
           fi
 
       - name: Uploader l'artefact GitHub Pages

@@ -5,6 +5,12 @@ import { fileURLToPath } from "url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
+// Dossier où lire/écrire les fichiers persistants (registre + pages HTML).
+// En local (DATA_DIR non défini) : racine du projet, comme avant.
+// En CI : pointe vers le checkout séparé de la branche "data" (voir les
+// workflows .github/workflows/*.yml), pour ne jamais committer sur "main".
+const DATA_DIR = process.env.DATA_DIR ? path.resolve(process.env.DATA_DIR) : __dirname;
+
 // ==================================================================
 // DIMENSIONS DE L'ÉTIQUETTE — à ajuster une fois le modèle d'imprimante
 // Xprinter et le rouleau thermique confirmés. Valeurs de départ : 40x30mm.
@@ -15,15 +21,15 @@ const LABEL_FONT_SIZE_PT = 10;
 // ==================================================================
 
 // Registre persistant : TOUTES les étiquettes jamais générées (jamais vidé).
-// Committé dans le dépôt Git pour survivre entre deux exécutions séparées
+// Committé sur la branche "data" pour survivre entre deux exécutions séparées
 // de GitHub Actions (chaque run repart d'un checkout propre du dépôt).
-const RECORDS_PATH = path.join(__dirname, "generated-labels.json");
+const RECORDS_PATH = path.join(DATA_DIR, "generated-labels.json");
 
 // Horodatage du dernier "vidage" de la liste des nouveautés.
-const RESET_STATE_PATH = path.join(__dirname, "dernier-vidage.json");
+const RESET_STATE_PATH = path.join(DATA_DIR, "dernier-vidage.json");
 
-const CATALOGUE_PATH = path.join(__dirname, "catalogue-complet.html");
-const NOUVEAUX_PATH = path.join(__dirname, "nouveaux.html");
+const CATALOGUE_PATH = path.join(DATA_DIR, "catalogue-complet.html");
+const NOUVEAUX_PATH = path.join(DATA_DIR, "nouveaux.html");
 
 function loadRecords() {
   if (!fs.existsSync(RECORDS_PATH)) return [];

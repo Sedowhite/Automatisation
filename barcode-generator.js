@@ -3,7 +3,12 @@ import path from "path";
 import { fileURLToPath } from "url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const MAP_PATH = path.join(__dirname, "category-prefix-map.json");
+
+// Même logique que label-generator.js : en local, racine du projet ; en CI,
+// le checkout séparé de la branche "data" (category-prefix-map.json est une
+// donnée que le bot peut modifier, pas du code — elle vit sur "data").
+const DATA_DIR = process.env.DATA_DIR ? path.resolve(process.env.DATA_DIR) : __dirname;
+const MAP_PATH = path.join(DATA_DIR, "category-prefix-map.json");
 
 function loadMap() {
   if (!fs.existsSync(MAP_PATH)) return {};

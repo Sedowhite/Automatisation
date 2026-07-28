@@ -10,7 +10,7 @@ permissions:
   pages: write
   id-token: write
 
-# Évite deux exécutions de déploiement Pages en même temps si un run dépasse 15 min
+# Évite deux exécutions de déploiement Pages en même temps si un run dépasse l'intervalle du cron
 concurrency:
   group: pages
   cancel-in-progress: false
@@ -19,8 +19,18 @@ jobs:
   generate:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout du dépôt
+      - name: Checkout du code (branche main)
         uses: actions/checkout@v4
+
+      # Les fichiers auto-générés (registre + pages HTML + mapping catégories)
+      # vivent sur une branche séparée "data", jamais sur "main". Ça évite tout
+      # conflit entre les commits automatiques du bot et les push de code de
+      # l'utilisateur sur main.
+      - name: Checkout des données persistantes (branche data)
+        uses: actions/checkout@v4
+        with:
+          ref: data
+          path: data
 
       - name: Installer Node.js
         uses: actions/setup-node@v4
@@ -34,14 +44,16 @@ jobs:
       - name: Générer les codes-barres manquants et les étiquettes
         env:
           LOYVERSE_ACCESS_TOKEN: ${{ secrets.LOYVERSE_ACCESS_TOKEN }}
+          DATA_DIR: data
         run: node generate-missing-barcodes.js
 
       # Sans cette étape, generated-labels.json / catalogue-complet.html / nouveaux.html
       # ne seraient générés que dans l'environnement temporaire du run et perdus à la fin :
       # le run suivant repartirait d'un dépôt vide et écraserait tout l'historique.
-      - name: Committer l'état mis à jour (registre + pages HTML)
+      - name: Committer l'état mis à jour (registre + pages HTML) sur la branche data
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
+          repository: data
           commit_message: "chore: mise à jour automatique des codes-barres générés"
           file_pattern: >-
             generated-labels.json
@@ -53,13 +65,13 @@ jobs:
       - name: Préparer le site à publier
         run: |
           mkdir -p site
-          if [ -f nouveaux.html ]; then
-            cp nouveaux.html site/index.html
+          if [ -f data/nouveaux.html ]; then
+            cp data/nouveaux.html site/index.html
           else
             echo "<h1>Aucune étiquette à imprimer pour le moment</h1>" > site/index.html
           fi
-          if [ -f catalogue-complet.html ]; then
-            cp catalogue-complet.html site/catalogue-complet.html
+          if [ -f data/catalogue-complet.html ]; then
+            cp data/catalogue-complet.html site/catalogue-complet.html
           fi
 
       - name: Uploader l'artefact GitHub Pages
