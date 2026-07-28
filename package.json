@@ -1,0 +1,14 @@
+{
+  "name": "loyverse-barcode-sync",
+  "version": "1.0.0",
+  "description": "Génération automatique de codes-barres et étiquettes pour les nouveaux articles Loyverse",
+  "type": "module",
+  "scripts": {
+    "generate-barcodes": "node generate-missing-barcodes.js"
+  },
+  "dependencies": {
+    "axios": "^1.7.7",
+    "bwip-js": "^4.11.2",
+    "dotenv": "^16.4.5"
+  }
+}

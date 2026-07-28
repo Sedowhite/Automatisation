@@ -1,0 +1,62 @@
+name: Générer les codes-barres manquants
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Évite deux exécutions de déploiement Pages en même temps si un run dépasse 15 min
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout du dépôt
+        uses: actions/checkout@v4
+
+      - name: Installer Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Installer les dépendances
+        run: npm ci
+
+      - name: Générer les codes-barres manquants et les étiquettes
+        env:
+          LOYVERSE_ACCESS_TOKEN: ${{ secrets.LOYVERSE_ACCESS_TOKEN }}
+        run: node generate-missing-barcodes.js
+
+      - name: Préparer le site à publier (feuille d'étiquettes)
+        run: |
+          mkdir -p site
+          if [ -f labels-a-imprimer.html ]; then
+            cp labels-a-imprimer.html site/index.html
+          else
+            echo "<h1>Aucune étiquette à imprimer pour le moment</h1>" > site/index.html
+          fi
+
+      - name: Uploader l'artefact GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: generate
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Déployer sur GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
