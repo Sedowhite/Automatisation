@@ -14,8 +14,46 @@ Ce projet est **100% Loyverse** : il n'y a plus de dépendance à Notion.
 
 `generate-missing-barcodes.js` parcourt tous les articles Loyverse et traite
 ceux sans code-barre en une fois. C'est ce script que le workflow GitHub
-Actions exécute automatiquement toutes les 5 minutes (voir plus bas) — pas
-besoin d'un serveur ni d'un ordinateur allumé en continu.
+Actions exécute, déclenché toutes les 5 minutes par un **cron externe**
+(voir "Déclenchement fiable" plus bas) — pas besoin d'un serveur ni d'un
+ordinateur allumé en continu.
+
+### Déclenchement fiable : pourquoi un cron externe, pas le `schedule` GitHub natif
+
+Le déclencheur `schedule` natif de GitHub Actions a été testé en conditions
+réelles (produit ajouté dans Loyverse, surveillance de l'API GitHub sur
+plusieurs heures) : réglé sur `*/5 * * * *`, il ne s'est déclenché que 2 fois
+en ~7h, avec des écarts réels observés de 4h, 10h, et une fois plus de 6h45
+sans aucun déclenchement. GitHub documente que ce déclencheur "peut être
+retardé en période de forte charge" et n'est "pas recommandé pour les
+scénarios nécessitant une précision élevée" — nos mesures montrent que
+c'est largement en dessous de ce que ce projet nécessite (un nouveau produit
+en boutique doit avoir son code-barre en quelques minutes, pas en heures).
+
+**Solution retenue** : le workflow n'a plus de déclencheur `schedule` du
+tout — uniquement `workflow_dispatch`. Un service de cron externe (ex:
+[cron-job.org](https://cron-job.org), gratuit) appelle toutes les 5 minutes
+l'API GitHub pour déclencher ce `workflow_dispatch`, ce qui est bien plus
+fiable qu'un cron interne à GitHub Actions.
+
+**Configuration (à faire une fois, dans cron-job.org — pas ici) :**
+1. Crée un **Personal Access Token GitHub** (Settings → Developer settings →
+   Personal access tokens → Fine-grained tokens) avec la permission
+   **Actions: Read and write** sur ce dépôt uniquement. Copie le token
+   (il ne sera plus affichable ensuite).
+2. Crée un compte gratuit sur [cron-job.org](https://cron-job.org) (ou un
+   service équivalent).
+3. Crée une nouvelle tâche ("cronjob") avec :
+   - **URL** : `https://api.github.com/repos/Sedowhite/Automatisation/actions/workflows/generate-barcodes.yml/dispatches`
+   - **Méthode** : `POST`
+   - **En-têtes (headers)** :
+     - `Authorization: Bearer <ton_token_PAT>`
+     - `Accept: application/vnd.github+json`
+     - `Content-Type: application/json`
+   - **Corps (body)** : `{"ref":"main"}`
+   - **Fréquence** : toutes les 5 minutes
+4. Le token PAT reste uniquement dans la configuration de cron-job.org — il
+   n'est jamais mis dans ce dépôt.
 
 ## Deux branches Git : `main` (code) et `data` (données auto-générées)
 
@@ -134,12 +172,14 @@ mise en page bascule en "une étiquette par page".
 
 ## Automatisation : deux workflows GitHub Actions
 
-### 1. `generate-barcodes.yml` — génération automatique (toutes les 5 min)
-Checkout `main` (code) + `data` (données) dans un sous-dossier, récupère les
-articles Loyverse sans code-barre, génère les codes, les écrit dans Loyverse,
-met à jour le registre et les 2 pages HTML **sur la branche `data`**, puis
-publie `nouveaux.html` (page d'accueil) et `catalogue-complet.html` sur
-GitHub Pages.
+### 1. `generate-barcodes.yml` — génération automatique
+Déclenché par `workflow_dispatch`, appelé toutes les 5 minutes par le cron
+externe (voir "Déclenchement fiable" plus haut) — plus de `schedule` GitHub
+natif, jugé trop peu fiable. Checkout `main` (code) + `data` (données) dans
+un sous-dossier, récupère les articles Loyverse sans code-barre, génère les
+codes, les écrit dans Loyverse, met à jour le registre et les 2 pages HTML
+**sur la branche `data`**, puis publie `nouveaux.html` (page d'accueil) et
+`catalogue-complet.html` sur GitHub Pages.
 
 ### 2. `mark-as-printed.yml` — "Marquer les nouveautés comme imprimées"
 Déclenchement **manuel uniquement** (`workflow_dispatch`, pas de cron) :
@@ -177,10 +217,13 @@ actif (voir ci-dessous), tout continue de fonctionner sans rien retoucher.
    git push
    ```
 
-Une fois ces 2 réglages faits et le code poussé, le workflow 1 tourne
-automatiquement toutes les 5 minutes. Tu peux aussi déclencher chaque
-workflow manuellement depuis l'onglet **Actions** du repo (bouton "Run
-workflow"), et retrouver le lien de la page publiée dans **Settings → Pages**
+3bis. **Configurer le cron externe** : voir la section "Déclenchement fiable"
+   plus haut (token GitHub + cron-job.org). Sans ça, le workflow 1 ne se
+   déclenche plus tout seul (il n'a plus de `schedule` GitHub).
+
+Tu peux toujours déclencher chaque workflow manuellement depuis l'onglet
+**Actions** du repo (bouton "Run workflow") en attendant d'avoir configuré le
+cron externe, et retrouver le lien de la page publiée dans **Settings → Pages**
 une fois le premier déploiement terminé.
 
 ## Tester en local

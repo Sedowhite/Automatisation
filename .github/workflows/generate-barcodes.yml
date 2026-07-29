@@ -1,8 +1,11 @@
 name: Générer les codes-barres manquants
 
 on:
-  schedule:
-    - cron: "*/5 * * * *"
+  # Le déclencheur "schedule" natif de GitHub Actions n'est plus utilisé :
+  # testé en conditions réelles (voir README), il a montré des écarts de
+  # plusieurs heures malgré un cron réglé sur 5 minutes. Le déclenchement
+  # fiable se fait désormais via un cron externe (cron-job.org) qui appelle
+  # l'API GitHub pour déclencher ce workflow_dispatch toutes les 5 minutes.
   workflow_dispatch:
 
 permissions:
