@@ -1,23 +1,5 @@
 [
   {
-    "name": "A3 test",
-    "category": "Accessoires > Cheveux",
-    "code": "ACC-009",
-    "generatedAt": "2026-07-28T20:05:58.730Z"
-  },
-  {
-    "name": "A2 test",
-    "category": "Bijoux > Bagues",
-    "code": "BAG-011",
-    "generatedAt": "2026-07-28T20:05:58.757Z"
-  },
-  {
-    "name": "A1 test",
-    "category": "Bijoux > Bagues",
-    "code": "BAG-012",
-    "generatedAt": "2026-07-28T20:05:58.779Z"
-  },
-  {
     "name": "Montre - Réf.9500",
     "category": "Montres",
     "code": "MON-007",
@@ -766,23 +748,5 @@
     "category": "Accessoires > Cheveux",
     "code": "ACC-001",
     "generatedAt": "2026-07-28T20:06:38.633Z"
-  },
-  {
-    "name": "AQA",
-    "category": "Accessoires > Cheveux",
-    "code": "ACC-009",
-    "generatedAt": "2026-07-28T20:53:56.046Z"
-  },
-  {
-    "name": "Azerty",
-    "category": "Accessoires > Cheveux",
-    "code": "ACC-010",
-    "generatedAt": "2026-07-28T20:53:57.057Z"
-  },
-  {
-    "name": "Aziguidi test",
-    "category": "Accessoires > Présentoirs",
-    "code": "PRE-003",
-    "generatedAt": "2026-07-29T10:33:40.379Z"
   }
 ]
