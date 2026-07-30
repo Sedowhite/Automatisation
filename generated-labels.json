@@ -748,5 +748,11 @@
     "category": "Accessoires > Cheveux",
     "code": "ACC-001",
     "generatedAt": "2026-07-28T20:06:38.633Z"
+  },
+  {
+    "name": "Article test",
+    "category": "Accessoires > Cheveux",
+    "code": "ACC-009",
+    "generatedAt": "2026-07-30T10:50:21.828Z"
   }
 ]
