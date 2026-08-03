@@ -18,6 +18,18 @@ const DATA_DIR = process.env.DATA_DIR ? path.resolve(process.env.DATA_DIR) : __d
 const LABEL_WIDTH_MM = 40;
 const LABEL_HEIGHT_MM = 30;
 const LABEL_FONT_SIZE_PT = 10;
+
+// MODE_PAPIER_CONTINU = true  -> Xprinter XP-80T actuelle : rouleau thermique
+//   CONTINU, pas de découpe auto ni de capteur de gap. Toutes les étiquettes
+//   s'enchaînent sur UNE seule "page" d'impression (sans saut de page), avec
+//   juste un repère pointillé entre chaque pour guider la découpe aux ciseaux.
+// MODE_PAPIER_CONTINU = false -> future Xprinter XP-365B : vraies étiquettes
+//   autocollantes PRÉ-DÉCOUPÉES 40x30mm + capteur de gap automatique. Chaque
+//   étiquette DOIT correspondre à une "page" d'impression distincte (saut de
+//   page après chaque étiquette), pour que le capteur retrouve la frontière
+//   physique de chaque étiquette.
+// À bascule le jour où l'imprimante change : aucune autre valeur à toucher.
+const MODE_PAPIER_CONTINU = true;
 // ==================================================================
 
 // Registre persistant : TOUTES les étiquettes jamais générées (jamais vidé).
@@ -60,7 +72,10 @@ async function generateBarcodeImageBase64(code) {
     bcid: "code128",
     text: code,
     scale: 3,
-    height: 12,
+    // Hauteur des barres proportionnelle à l'étiquette (laisse la place au nom
+    // du produit au-dessus) plutôt qu'une valeur fixe qui peut être trop
+    // petite (ou trop grande) selon LABEL_HEIGHT_MM.
+    height: Math.round(LABEL_HEIGHT_MM * 0.5),
     includetext: true,
     textxalign: "center",
   });
@@ -135,6 +150,28 @@ async function writeSheet({ filePath, title, records, navLinkHref, navLinkText }
     </div>`);
   }
 
+  // Taille de la "page" d'impression et gestion des sauts de page : dépend de
+  // MODE_PAPIER_CONTINU (voir la constante en haut du fichier).
+  const labelCount = Math.max(records.length, 1);
+  const pageWidthMm = LABEL_WIDTH_MM;
+  const pageHeightMm = MODE_PAPIER_CONTINU ? labelCount * LABEL_HEIGHT_MM : LABEL_HEIGHT_MM;
+
+  const printBreakCss = MODE_PAPIER_CONTINU
+    ? `
+    .label {
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }`
+    : `
+    .label {
+      page-break-after: always;
+      break-after: page;
+    }
+    .label:last-child {
+      page-break-after: auto;
+      break-after: auto;
+    }`;
+
   const html = `<!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -161,32 +198,27 @@ async function writeSheet({ filePath, title, records, navLinkHref, navLinkText }
     justify-content: center;
   }
   .label-name { margin-bottom: 4px; font-weight: bold; }
-  .label img { max-width: 100%; }
+  .label img { width: 90%; height: auto; max-height: 65%; object-fit: contain; }
 
-  /* Impression : UNE étiquette par page, taille exacte du rouleau/de l'étiquette
-     (${LABEL_WIDTH_MM}mm x ${LABEL_HEIGHT_MM}mm). Le repère pointillé reste visible
-     à l'impression (découpe ciseaux sur papier continu) et le saut de page à chaque
-     étiquette donne un point net et régulier, repérable aussi par le capteur
-     automatique d'une future imprimante à étiquettes autocollantes. */
+  /* Taille de "page" forcée à celle de l'étiquette (ou du lot entier en mode
+     papier continu) — sans ça, Chrome imprime en A4 par défaut avec le
+     code-barre isolé dans un coin. Cette règle @page est volontairement HORS
+     de @media print : @page n'a de toute façon aucun effet à l'écran, et
+     l'imbriquer dans @media print peut empêcher Chrome de l'appliquer. */
+  @page {
+    size: ${pageWidthMm}mm ${pageHeightMm}mm;
+    margin: 0;
+  }
+
   @media print {
     .no-print { display: none; }
-    @page {
-      size: ${LABEL_WIDTH_MM}mm ${LABEL_HEIGHT_MM}mm;
-      margin: 0;
-    }
     body { margin: 0; }
     .sheet { display: block; }
     .label {
       width: ${LABEL_WIDTH_MM}mm;
       height: ${LABEL_HEIGHT_MM}mm;
       border: 1px dashed #999;
-      page-break-after: always;
-      break-after: page;
-    }
-    .label:last-child {
-      page-break-after: auto;
-      break-after: auto;
-    }
+    }${printBreakCss}
   }
 </style>
 </head>
@@ -194,8 +226,8 @@ async function writeSheet({ filePath, title, records, navLinkHref, navLinkText }
   <div class="no-print">
     <h2>${escapeHtml(title)}</h2>
     <p>Ouvre ce fichier dans ton navigateur puis fais Ctrl+P (ou Cmd+P) pour imprimer.
-    Chaque étiquette (${LABEL_WIDTH_MM}mm x ${LABEL_HEIGHT_MM}mm) sortira sur son propre
-    repère de découpe, l'une après l'autre.</p>
+    Chaque étiquette (${LABEL_WIDTH_MM}mm x ${LABEL_HEIGHT_MM}mm) sortira l'une après
+    l'autre, avec un repère pointillé net entre chaque pour guider la découpe.</p>
     <p><a href="${navLinkHref}">${escapeHtml(navLinkText)}</a></p>
   </div>
   <div class="sheet">
