@@ -1,4 +1,5 @@
 import bwipjs from "bwip-js";
+import { createCanvas, loadImage } from "canvas";
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
@@ -64,22 +65,95 @@ function saveResetState(state) {
 }
 
 /**
- * Génère l'image du code-barres (les vraies barres verticales + le texte),
- * au format Code-128, encodée en base64 pour être intégrée directement dans une page HTML.
+ * Génère UNE SEULE image (nom du produit + code-barres) au format PNG, encodée
+ * en base64. Fusionnés dans le même visuel (via un canvas) plutôt que deux
+ * éléments HTML séparés : sur mobile, un "enregistrer l'image" en appui long
+ * ne capture qu'un seul élément — s'ils étaient séparés, le nom du produit
+ * disparaissait de l'image sauvegardée.
  */
-async function generateBarcodeImageBase64(code) {
-  const png = await bwipjs.toBuffer({
+async function generateLabelImageBase64({ name, code }) {
+  const barcodePng = await bwipjs.toBuffer({
     bcid: "code128",
     text: code,
     scale: 3,
     // Hauteur des barres proportionnelle à l'étiquette (laisse la place au nom
     // du produit au-dessus) plutôt qu'une valeur fixe qui peut être trop
     // petite (ou trop grande) selon LABEL_HEIGHT_MM.
-    height: Math.round(LABEL_HEIGHT_MM * 0.5),
+    height: Math.round(LABEL_HEIGHT_MM * 0.4),
     includetext: true,
     textxalign: "center",
+    // Marge de silence (quiet zone) généreuse autour des barres : indispensable
+    // pour que les lecteurs de code-barres (scanner ou appli mobile) accrochent
+    // le code de façon fiable.
+    paddingwidth: 10,
+    paddingheight: 6,
   });
-  return `data:image/png;base64,${png.toString("base64")}`;
+  const barcodeImg = await loadImage(barcodePng);
+
+  const PADDING = 14;
+  const FONT_SIZE = 26;
+  const LINE_HEIGHT = Math.round(FONT_SIZE * 1.2);
+  const MAX_NAME_LINES = 3;
+  const canvasWidth = Math.max(barcodeImg.width + PADDING * 2, 260);
+  const maxTextWidth = canvasWidth - PADDING * 2;
+
+  const measureCtx = createCanvas(1, 1).getContext("2d");
+  measureCtx.font = `bold ${FONT_SIZE}px sans-serif`;
+  const nameLines = wrapText(measureCtx, name, maxTextWidth, MAX_NAME_LINES);
+
+  const textBlockHeight = nameLines.length * LINE_HEIGHT;
+  const canvasHeight = PADDING + textBlockHeight + Math.round(PADDING / 2) + barcodeImg.height + PADDING;
+
+  const canvas = createCanvas(canvasWidth, canvasHeight);
+  const ctx = canvas.getContext("2d");
+  ctx.fillStyle = "#ffffff";
+  ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+
+  ctx.fillStyle = "#000000";
+  ctx.font = `bold ${FONT_SIZE}px sans-serif`;
+  ctx.textAlign = "center";
+  ctx.textBaseline = "top";
+  nameLines.forEach((line, i) => {
+    ctx.fillText(line, canvasWidth / 2, PADDING + i * LINE_HEIGHT, maxTextWidth);
+  });
+
+  const barcodeX = Math.round((canvasWidth - barcodeImg.width) / 2);
+  const barcodeY = PADDING + textBlockHeight + Math.round(PADDING / 2);
+  ctx.drawImage(barcodeImg, barcodeX, barcodeY);
+
+  return `data:image/png;base64,${canvas.toBuffer("image/png").toString("base64")}`;
+}
+
+/**
+ * Découpe un texte en lignes qui tiennent dans maxWidth (mesure réelle via
+ * le contexte canvas, pas une estimation au nombre de caractères). Si le
+ * texte dépasse maxLines, la dernière ligne gardée est tronquée avec "…".
+ */
+function wrapText(ctx, text, maxWidth, maxLines) {
+  const words = text.split(/\s+/).filter(Boolean);
+  const lines = [];
+  let current = "";
+
+  for (const word of words) {
+    const candidate = current ? `${current} ${word}` : word;
+    if (current && ctx.measureText(candidate).width > maxWidth) {
+      lines.push(current);
+      current = word;
+    } else {
+      current = candidate;
+    }
+  }
+  if (current) lines.push(current);
+
+  if (lines.length <= maxLines) return lines;
+
+  const kept = lines.slice(0, maxLines);
+  let lastLine = kept[maxLines - 1];
+  while (lastLine.length > 1 && ctx.measureText(`${lastLine}…`).width > maxWidth) {
+    lastLine = lastLine.slice(0, -1);
+  }
+  kept[maxLines - 1] = `${lastLine}…`;
+  return kept;
 }
 
 /**
@@ -142,11 +216,10 @@ async function regenerateSheets() {
 async function writeSheet({ filePath, title, records, navLinkHref, navLinkText }) {
   const labelsHtml = [];
   for (const r of records) {
-    const imageDataUri = await generateBarcodeImageBase64(r.code);
+    const imageDataUri = await generateLabelImageBase64({ name: r.name, code: r.code });
     labelsHtml.push(`
     <div class="label">
-      <div class="label-name">${escapeHtml(r.name)}</div>
-      <img src="${imageDataUri}" alt="${escapeHtml(r.code)}" />
+      <img src="${imageDataUri}" alt="${escapeHtml(r.name)} (${escapeHtml(r.code)})" />
     </div>`);
   }
 
@@ -197,8 +270,7 @@ async function writeSheet({ filePath, title, records, navLinkHref, navLinkText }
     align-items: center;
     justify-content: center;
   }
-  .label-name { margin-bottom: 4px; font-weight: bold; }
-  .label img { width: 90%; height: auto; max-height: 65%; object-fit: contain; }
+  .label img { width: 94%; height: auto; max-height: 92%; object-fit: contain; }
 
   /* Taille de "page" forcée à celle de l'étiquette (ou du lot entier en mode
      papier continu) — sans ça, Chrome imprime en A4 par défaut avec le
