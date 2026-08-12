@@ -62,6 +62,9 @@ jobs:
             generated-labels.json
             catalogue-complet.html
             nouveaux.html
+            catalogue-gros.html
+            catalogue-detail.html
+            styles.css
             dernier-vidage.json
             category-prefix-map.json
 
@@ -74,9 +77,11 @@ jobs:
           else
             echo "<h1>Aucune étiquette à imprimer pour le moment</h1>" > site/index.html
           fi
-          if [ -f data/catalogue-complet.html ]; then
-            cp data/catalogue-complet.html site/catalogue-complet.html
-          fi
+          for f in catalogue-complet.html catalogue-gros.html catalogue-detail.html styles.css; do
+            if [ -f "data/$f" ]; then
+              cp "data/$f" "site/$f"
+            fi
+          done
 
       - name: Uploader l'artefact GitHub Pages
         uses: actions/upload-pages-artifact@v3

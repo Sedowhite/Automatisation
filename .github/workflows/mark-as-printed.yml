@@ -57,9 +57,11 @@ jobs:
           mkdir -p site
           cp data/nouveaux.html site/index.html
           cp data/nouveaux.html site/nouveaux.html
-          if [ -f data/catalogue-complet.html ]; then
-            cp data/catalogue-complet.html site/catalogue-complet.html
-          fi
+          for f in catalogue-complet.html catalogue-gros.html catalogue-detail.html styles.css; do
+            if [ -f "data/$f" ]; then
+              cp "data/$f" "site/$f"
+            fi
+          done
 
       - name: Uploader l'artefact GitHub Pages
         uses: actions/upload-pages-artifact@v3

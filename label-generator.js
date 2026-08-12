@@ -47,8 +47,29 @@ const RECORDS_PATH = path.join(DATA_DIR, "generated-labels.json");
 // Horodatage du dernier "vidage" de la liste des nouveautés.
 const RESET_STATE_PATH = path.join(DATA_DIR, "dernier-vidage.json");
 
+// Page héritée, conservée telle quelle (ancien design) le temps de valider
+// les 3 nouvelles pages ci-dessous — PAS encore supprimée, à confirmer avec
+// l'utilisateur avant suppression définitive.
 const CATALOGUE_PATH = path.join(DATA_DIR, "catalogue-complet.html");
+
 const NOUVEAUX_PATH = path.join(DATA_DIR, "nouveaux.html");
+const GROS_PATH = path.join(DATA_DIR, "catalogue-gros.html");
+const DETAIL_PATH = path.join(DATA_DIR, "catalogue-detail.html");
+const STYLES_PATH = path.join(DATA_DIR, "styles.css");
+
+// Un produit va sur catalogue-gros.html si son nom contient "(gros)"
+// (insensible à la casse). Tout le reste (suffixe "(détail)" explicite OU
+// aucun suffixe du tout — anciens produits créés avant cette distinction)
+// va sur catalogue-detail.html.
+function isGros(name) {
+  return /\(gros\)/i.test(name);
+}
+
+const PAGES = [
+  { key: "nouveaux", label: "Nouveautés", href: "nouveaux.html", bg: "#e5e7eb", fg: "#374151" },
+  { key: "gros", label: "Gros", href: "catalogue-gros.html", bg: "#fef3c7", fg: "#92400e" },
+  { key: "detail", label: "Détail", href: "catalogue-detail.html", bg: "#dbeafe", fg: "#1e40af" },
+];
 
 function loadRecords() {
   if (!fs.existsSync(RECORDS_PATH)) return [];
@@ -204,8 +225,11 @@ async function regenerateSheets() {
   });
 
   const nouveaux = sorted.filter((r) => new Date(r.generatedAt) > new Date(lastReset));
+  const gros = sorted.filter((r) => isGros(r.name));
+  const detail = sorted.filter((r) => !isGros(r.name));
 
-  await writeSheet({
+  // Page héritée, ancien design, conservée le temps de valider les 3 nouvelles.
+  await writeLegacySheet({
     filePath: CATALOGUE_PATH,
     title: "Catalogue complet des codes-barres",
     records: sorted,
@@ -213,16 +237,34 @@ async function regenerateSheets() {
     navLinkText: "→ Voir les nouveaux codes-barres à imprimer",
   });
 
-  await writeSheet({
+  await writeStylesheet();
+
+  await writeCategorizedSheet({
     filePath: NOUVEAUX_PATH,
+    pageKey: "nouveaux",
     title: "Nouveaux codes-barres à imprimer",
+    intro: "Codes générés depuis le dernier vidage (voir le workflow \"Marquer les nouveautés comme imprimées\").",
     records: nouveaux,
-    navLinkHref: "catalogue-complet.html",
-    navLinkText: "→ Voir le catalogue complet",
+  });
+
+  await writeCategorizedSheet({
+    filePath: GROS_PATH,
+    pageKey: "gros",
+    title: "Catalogue Gros",
+    intro: "Uniquement les produits dont le nom contient « (gros) ». Page de référence pour l'impression des étiquettes cartons.",
+    records: gros,
+  });
+
+  await writeCategorizedSheet({
+    filePath: DETAIL_PATH,
+    pageKey: "detail",
+    title: "Catalogue Détail",
+    intro: "Produits « (détail) » ou sans suffixe (anciens produits). Page de référence, pas destinée à l'impression.",
+    records: detail,
   });
 }
 
-async function writeSheet({ filePath, title, records, navLinkHref, navLinkText }) {
+async function writeLegacySheet({ filePath, title, records, navLinkHref, navLinkText }) {
   const labelsHtml = [];
   for (const r of records) {
     const imageDataUri = await generateLabelImageBase64({ name: r.name, code: r.code });
@@ -318,6 +360,218 @@ async function writeSheet({ filePath, title, records, navLinkHref, navLinkText }
   <div class="sheet">
 ${labelsHtml.join("\n")}
   </div>
+</body>
+</html>`;
+
+  fs.writeFileSync(filePath, html, "utf-8");
+}
+
+/**
+ * Feuille de style partagée par les 3 pages "nouveau design" (nouveaux,
+ * gros, detail) : nav, badges, regroupement par catégorie, responsive.
+ * Ne contient AUCUNE règle d'impression — le CSS d'impression (@page +
+ * @media print) reste spécifique à chaque page (voir writeCategorizedSheet),
+ * car la hauteur de page dépend du nombre d'étiquettes de CETTE page.
+ */
+async function writeStylesheet() {
+  const css = `
+* { box-sizing: border-box; }
+body { font-family: Arial, sans-serif; margin: 20px; background: #fafafa; color: #111827; }
+
+.topnav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #e5e7eb;
+}
+.nav-link {
+  padding: 6px 14px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+  color: #374151;
+  background: #f3f4f6;
+  border: 1px solid #d1d5db;
+}
+.nav-link.active { background: #111827; color: #fff; border-color: #111827; }
+
+.page-header { margin-bottom: 20px; }
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 8px;
+}
+${PAGES.map((p) => `.badge-${p.key} { background: ${p.bg}; color: ${p.fg}; }`).join("\n")}
+
+.page-header h1 { margin: 4px 0 8px; font-size: 22px; }
+.page-header p { margin: 0 0 6px; color: #4b5563; font-size: 14px; }
+.page-header a { color: #2563eb; }
+
+.category-section { margin-bottom: 28px; }
+.category-heading {
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #6b7280;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 6px;
+  margin-bottom: 12px;
+}
+
+.empty-state { color: #6b7280; font-style: italic; }
+
+.sheet { display: flex; flex-wrap: wrap; gap: 14px; }
+.label {
+  border: 1px dashed #999;
+  padding: 8px 12px;
+  text-align: center;
+  width: ${LABEL_WIDTH_MM * SCREEN_PREVIEW_SCALE_PX_PER_MM}px;
+  height: ${LABEL_HEIGHT_MM * SCREEN_PREVIEW_SCALE_PX_PER_MM}px;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: 6px;
+}
+.label img { width: 96%; height: auto; max-height: 94%; object-fit: contain; }
+
+@media (max-width: 480px) {
+  body { margin: 12px; }
+  .nav-link { font-size: 13px; padding: 5px 10px; }
+  .page-header h1 { font-size: 19px; }
+  .label {
+    width: ${Math.round(LABEL_WIDTH_MM * SCREEN_PREVIEW_SCALE_PX_PER_MM * 0.8)}px;
+    height: ${Math.round(LABEL_HEIGHT_MM * SCREEN_PREVIEW_SCALE_PX_PER_MM * 0.8)}px;
+  }
+}
+`;
+
+  fs.writeFileSync(STYLES_PATH, css, "utf-8");
+}
+
+/**
+ * Génère une page "nouveau design" (nouveaux / gros / detail) : bandeau de
+ * navigation, badge de couleur, produits regroupés par catégorie. Utilise la
+ * feuille de style partagée (styles.css) pour tout ce qui est écran.
+ *
+ * Le CSS d'impression (@page + @media print) reste inline, page par page,
+ * IDENTIQUE dans sa logique à avant (même sélecteurs, mêmes propriétés) :
+ * seule la hauteur de page calculée change, car elle dépend du nombre
+ * d'étiquettes de CETTE page précise. Deux règles sont ajoutées (pas
+ * modifiées) pour que les nouveaux éléments (nav, titres de catégorie)
+ * n'apparaissent jamais à l'impression et ne décalent pas le calcul de
+ * hauteur de page.
+ */
+async function writeCategorizedSheet({ filePath, pageKey, title, intro, records }) {
+  const groups = new Map();
+  for (const r of records) {
+    if (!groups.has(r.category)) groups.set(r.category, []);
+    groups.get(r.category).push(r);
+  }
+
+  const sectionsHtml = [];
+  for (const [category, categoryRecords] of groups) {
+    const labelsHtml = [];
+    for (const r of categoryRecords) {
+      const imageDataUri = await generateLabelImageBase64({ name: r.name, code: r.code });
+      labelsHtml.push(`
+      <div class="label">
+        <img src="${imageDataUri}" alt="${escapeHtml(r.name)} (${escapeHtml(r.code)})" />
+      </div>`);
+    }
+    sectionsHtml.push(`
+    <section class="category-section">
+      <h2 class="category-heading">${escapeHtml(category)}</h2>
+      <div class="sheet">
+${labelsHtml.join("\n")}
+      </div>
+    </section>`);
+  }
+
+  // Taille de la "page" d'impression et gestion des sauts de page : dépend de
+  // MODE_PAPIER_CONTINU (voir la constante en haut du fichier). Logique
+  // strictement identique à avant.
+  const labelCount = Math.max(records.length, 1);
+  const pageWidthMm = LABEL_WIDTH_MM;
+  const pageHeightMm = MODE_PAPIER_CONTINU ? labelCount * LABEL_HEIGHT_MM : LABEL_HEIGHT_MM;
+
+  const printBreakCss = MODE_PAPIER_CONTINU
+    ? `
+    .label {
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }`
+    : `
+    .label {
+      page-break-after: always;
+      break-after: page;
+    }
+    .label:last-child {
+      page-break-after: auto;
+      break-after: auto;
+    }`;
+
+  const theme = PAGES.find((p) => p.key === pageKey);
+  const navHtml = PAGES.map(
+    (p) => `<a class="nav-link${p.key === pageKey ? " active" : ""}" href="${p.href}">${escapeHtml(p.label)}</a>`
+  ).join("\n    ");
+
+  const html = `<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>${escapeHtml(title)}</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  /* Impression : taille de page = celle de l'étiquette (ou du lot entier en
+     mode papier continu). Logique inchangée par rapport à avant. */
+  @page {
+    size: ${pageWidthMm}mm ${pageHeightMm}mm;
+    margin: 0;
+  }
+
+  @media print {
+    .no-print { display: none; }
+    body { margin: 0; }
+    .sheet { display: block; }
+    .label {
+      width: ${LABEL_WIDTH_MM}mm;
+      height: ${LABEL_HEIGHT_MM}mm;
+      border: 1px dashed #999;
+    }${printBreakCss}
+    /* Nouveau par rapport à avant : le nom de catégorie et l'espacement de
+       section n'existaient pas dans l'ancien design. Sans ces 2 règles, ils
+       s'imprimeraient et décaleraient le calcul de hauteur de page ci-dessus. */
+    .category-heading { display: none; }
+    .category-section { margin: 0; padding: 0; }
+  }
+</style>
+</head>
+<body>
+  <nav class="topnav no-print">
+    ${navHtml}
+  </nav>
+  <div class="page-header no-print">
+    <span class="badge badge-${pageKey}">${escapeHtml(theme.label)}</span>
+    <h1>${escapeHtml(title)}</h1>
+    <p>${escapeHtml(intro)}</p>
+    <p>Ouvre cette page puis fais Ctrl+P (ou Cmd+P) pour imprimer. Chaque étiquette
+    (${LABEL_WIDTH_MM}mm x ${LABEL_HEIGHT_MM}mm) sortira l'une après l'autre, avec un
+    repère pointillé net entre chaque pour guider la découpe.</p>
+  </div>
+  ${sectionsHtml.join("\n") || `<p class="no-print empty-state">Aucune étiquette pour le moment.</p>`}
 </body>
 </html>`;
 

@@ -5,8 +5,9 @@ Quand un nouveau produit est créé dans Loyverse **sans code-barre**, ce projet
 1. Génère un code au format `PREFIXE-NNN` selon la catégorie du produit
    (préfixe défini dans `category-prefix-map.json`, numéro séquentiel suivant).
 2. Écrit ce code directement dans la fiche Loyverse (`barcode` et `sku` de la variante).
-3. Génère l'image du code-barres (vraies barres verticales + texte) et l'ajoute
-   à **deux pages HTML** prêtes à imprimer (voir ci-dessous).
+3. Génère UNE SEULE image (nom du produit + vraies barres verticales) et
+   l'ajoute aux pages HTML prêtes à imprimer, triées gros/détail/nouveaux
+   (voir ci-dessous).
 
 Ce projet est **100% Loyverse** : il n'y a plus de dépendance à Notion.
 
@@ -63,9 +64,10 @@ automatiquement**.
 
 **`data`** contient uniquement les fichiers que le bot écrit tout seul :
 `category-prefix-map.json`, `generated-labels.json`, `catalogue-complet.html`,
-`nouveaux.html`, `dernier-vidage.json`. Les deux workflows GitHub Actions
-committent et poussent **uniquement sur cette branche**, jamais sur `main`.
-Tu n'as normalement jamais besoin de la checkout ou d'y toucher toi-même.
+`nouveaux.html`, `catalogue-gros.html`, `catalogue-detail.html`, `styles.css`,
+`dernier-vidage.json`. Les deux workflows GitHub Actions committent et
+poussent **uniquement sur cette branche**, jamais sur `main`. Tu n'as
+normalement jamais besoin de la checkout ou d'y toucher toi-même.
 
 **Pourquoi cette séparation ?** Avant, tout (code + données auto-générées)
 vivait sur `main`. Le workflow tournant toutes les 5 minutes committait
@@ -85,27 +87,42 @@ d'environnement `DATA_DIR` pour savoir où se trouvent leurs fichiers :
 - **En CI** : les workflows checkoutent la branche `data` dans un sous-dossier
   `./data` et lancent les scripts avec `DATA_DIR=data`.
 
-## Les deux pages d'étiquettes
+## Les pages d'étiquettes
 
-- **`catalogue-complet.html`** : TOUTES les étiquettes jamais générées, pour
-  toujours, triées par catégorie puis par nom de produit. Elle ne se vide
-  jamais.
-- **`nouveaux.html`** : uniquement les étiquettes générées depuis le dernier
-  "vidage" (voir workflow 2 ci-dessous). C'est la page à ouvrir au quotidien
-  pour imprimer seulement les nouveaux produits.
+Trois pages "nouveau design" (bandeau de navigation, badge de couleur,
+produits regroupés par catégorie, feuille de style partagée `styles.css`) :
+
+- **`catalogue-gros.html`** (badge orange) : uniquement les produits dont le
+  nom contient `(gros)` (insensible à la casse). **C'est la seule page qui
+  compte vraiment pour l'impression des étiquettes cartons.**
+- **`catalogue-detail.html`** (badge bleu) : produits dont le nom contient
+  `(détail)`, ou sans aucun suffixe du tout (anciens produits créés avant
+  cette distinction). Page de référence uniquement, pas destinée à
+  l'impression de codes-barres.
+- **`nouveaux.html`** (badge neutre) : uniquement les étiquettes générées
+  depuis le dernier "vidage" (voir workflow 2 ci-dessous), tous suffixes
+  confondus — comportement inchangé par rapport à avant. C'est la page
+  d'accueil (`index.html`).
+
+Plus une page héritée, **conservée pour l'instant, pas encore supprimée** :
+- **`catalogue-complet.html`** (ancien design, sans nav/badge) : TOUTES les
+  étiquettes jamais générées, sans filtrage par `(gros)`/`(détail)`. À
+  supprimer une fois les 3 pages ci-dessus validées — demander confirmation
+  avant.
 
 ### URLs une fois publié sur GitHub Pages
 
 - Nouveautés (page d'accueil) : `https://sedowhite.github.io/Automatisation/`
-  — accessible aussi sur `https://sedowhite.github.io/Automatisation/nouveaux.html`
-  (même contenu, publié sous les deux noms pour que le lien de navigation et
-  l'URL directe fonctionnent tous les deux).
-- Catalogue complet : `https://sedowhite.github.io/Automatisation/catalogue-complet.html`
+  — accessible aussi sur `https://sedowhite.github.io/Automatisation/nouveaux.html`.
+- Gros : `https://sedowhite.github.io/Automatisation/catalogue-gros.html`
+- Détail : `https://sedowhite.github.io/Automatisation/catalogue-detail.html`
+- Catalogue complet (héritée) : `https://sedowhite.github.io/Automatisation/catalogue-complet.html`
 
-Chaque page a un lien vers l'autre en haut. Les deux sont regénérées à partir
-d'un registre persistant, **`generated-labels.json`**, qui n'est lui-même
-jamais vidé — c'est la source de vérité de tout ce qui a été généré.
-`dernier-vidage.json` retient juste la date du dernier vidage de `nouveaux.html`.
+Les 3 pages "nouveau design" partagent un bandeau de navigation entre elles.
+Toutes sont regénérées à partir d'un registre persistant,
+**`generated-labels.json`**, qui n'est lui-même jamais vidé — c'est la source
+de vérité de tout ce qui a été généré. `dernier-vidage.json` retient juste la
+date du dernier vidage de `nouveaux.html`.
 
 Ces fichiers vivent sur la branche `data` (voir plus haut), pas sur `main`.
 
@@ -130,15 +147,14 @@ c'est sur une branche séparée, ça ne rentre plus en conflit avec `main`.
 En haut de `label-generator.js` :
 
 ```js
-const LABEL_WIDTH_MM = 40;
-const LABEL_HEIGHT_MM = 30;
+const LABEL_WIDTH_MM = 50;
+const LABEL_HEIGHT_MM = 25;
 const LABEL_FONT_SIZE_PT = 10;
 ```
 
-Le modèle d'imprimante Xprinter et le rouleau thermique ne sont pas encore
-confirmés : ces valeurs sont un point de départ (40×30mm). **Pour changer la
-taille**, modifie juste ces 3 constantes — tout le reste (mise en page,
-impression) s'adapte automatiquement.
+Format physique confirmé : 50×25mm. **Pour changer la taille**, modifie juste
+ces 3 constantes — tout le reste (mise en page, impression, taille de l'aperçu
+écran) s'adapte automatiquement.
 
 Chaque étiquette est un bloc indépendant avec un repère pointillé net, imprimé
 **une étiquette par page** (taille de page = taille de l'étiquette, via
@@ -159,7 +175,7 @@ mise en page bascule en "une étiquette par page".
 ### Sur `main` (code, tu es le seul à y toucher)
 - `loyverse.js` : client API Loyverse (articles, catégories, écriture de code-barre)
 - `barcode-generator.js` : génère le prochain code selon la catégorie
-- `label-generator.js` : génération des 2 pages HTML d'étiquettes
+- `label-generator.js` : génération des pages HTML d'étiquettes (gros/détail/nouveaux + page héritée)
 - `generate-missing-barcodes.js` : script principal, exécuté par le cron GitHub Actions
 - `reset-nouveaux.js` : vide `nouveaux.html` (voir workflow 2)
 - `.github/workflows/*.yml` : les 2 workflows
@@ -168,7 +184,9 @@ mise en page bascule en "une étiquette par page".
 - `category-prefix-map.json` : mapping catégorie Loyverse → préfixe de code-barre à 3 lettres
 - `generated-labels.json` : registre persistant de toutes les étiquettes jamais générées
 - `dernier-vidage.json` : date du dernier vidage de `nouveaux.html`
-- `catalogue-complet.html` / `nouveaux.html` : les 2 pages d'étiquettes
+- `styles.css` : feuille de style partagée par `nouveaux.html` / `catalogue-gros.html` / `catalogue-detail.html`
+- `nouveaux.html` / `catalogue-gros.html` / `catalogue-detail.html` : les 3 pages "nouveau design"
+- `catalogue-complet.html` : page héritée (ancien design), conservée temporairement
 
 ## Automatisation : deux workflows GitHub Actions
 
@@ -177,9 +195,10 @@ Déclenché par `workflow_dispatch`, appelé toutes les 5 minutes par le cron
 externe (voir "Déclenchement fiable" plus haut) — plus de `schedule` GitHub
 natif, jugé trop peu fiable. Checkout `main` (code) + `data` (données) dans
 un sous-dossier, récupère les articles Loyverse sans code-barre, génère les
-codes, les écrit dans Loyverse, met à jour le registre et les 2 pages HTML
-**sur la branche `data`**, puis publie `nouveaux.html` (page d'accueil) et
-`catalogue-complet.html` sur GitHub Pages.
+codes, les écrit dans Loyverse, met à jour le registre et toutes les pages HTML
+**sur la branche `data`**, puis publie `nouveaux.html` (page d'accueil),
+`catalogue-gros.html`, `catalogue-detail.html`, `styles.css` et
+`catalogue-complet.html` (héritée) sur GitHub Pages.
 
 ### 2. `mark-as-printed.yml` — "Marquer les nouveautés comme imprimées"
 Déclenchement **manuel uniquement** (`workflow_dispatch`, pas de cron) :
@@ -230,11 +249,13 @@ une fois le premier déploiement terminé.
 
 ```bash
 npm install
-npm run generate-barcodes   # génère les codes-barres manquants + les 2 pages HTML
+npm run generate-barcodes   # génère les codes-barres manquants + toutes les pages HTML
 npm run reset-nouveaux      # vide nouveaux.html (équivalent local du workflow 2)
 ```
 
-Sans `DATA_DIR` défini, `catalogue-complet.html` et `nouveaux.html` sont
-créés/mis à jour à la racine du projet (pratique pour tester). Ouvre-les dans
-un navigateur puis Ctrl+P pour imprimer. **Ne les committe pas sur `main`** —
-ce sont des fichiers de test locaux, la vraie donnée vit sur `data`.
+Sans `DATA_DIR` défini, toutes les pages (`catalogue-complet.html`,
+`nouveaux.html`, `catalogue-gros.html`, `catalogue-detail.html`, `styles.css`)
+sont créées/mises à jour à la racine du projet (pratique pour tester).
+Ouvre-les dans un navigateur puis Ctrl+P pour imprimer. **Ne les committe pas
+sur `main`** — ce sont des fichiers de test locaux, la vraie donnée vit sur
+`data`.
