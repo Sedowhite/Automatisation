@@ -510,7 +510,7 @@
     "generatedAt": "2026-07-28T20:06:17.739Z"
   },
   {
-    "name": "Bracelet price",
+    "name": "Bracelet price (gros)",
     "category": "Bijoux > Bracelets",
     "code": "BRA-010",
     "generatedAt": "2026-07-28T20:06:18.162Z"
@@ -748,18 +748,6 @@
     "category": "Accessoires > Cheveux",
     "code": "ACC-001",
     "generatedAt": "2026-07-28T20:06:38.633Z"
-  },
-  {
-    "name": "Article test",
-    "category": "Accessoires > Cheveux",
-    "code": "ACC-009",
-    "generatedAt": "2026-07-30T10:50:21.828Z"
-  },
-  {
-    "name": "Baby gloss (detail)",
-    "category": "Cosmétiques > Lèvres",
-    "code": "LEV-015",
-    "generatedAt": "2026-08-12T08:30:24.253Z"
   },
   {
     "name": "Cintete - Réf.6200 (gros)",
@@ -1462,23 +1450,5 @@
     "category": "Accessoires > Cheveux",
     "code": "ACC-017",
     "generatedAt": "2026-08-12T18:13:13.436Z"
-  },
-  {
-    "name": "Cintete - Réf.6200 (gros)",
-    "category": "Accessoires > Cheveux",
-    "code": "ACC-018",
-    "generatedAt": "2026-08-12T18:13:22.650Z"
-  },
-  {
-    "name": "Cintete - Réf.5500 (gros)",
-    "category": "Accessoires > Cheveux",
-    "code": "ACC-019",
-    "generatedAt": "2026-08-12T18:13:32.512Z"
-  },
-  {
-    "name": "Broche cheveux (gros)",
-    "category": "Accessoires > Cheveux",
-    "code": "ACC-020",
-    "generatedAt": "2026-08-12T18:13:41.672Z"
   }
 ]
