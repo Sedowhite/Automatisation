@@ -13,12 +13,17 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DATA_DIR = process.env.DATA_DIR ? path.resolve(process.env.DATA_DIR) : __dirname;
 
 // ==================================================================
-// DIMENSIONS DE L'ÉTIQUETTE — à ajuster une fois le modèle d'imprimante
-// Xprinter et le rouleau thermique confirmés. Valeurs de départ : 40x30mm.
+// DIMENSIONS DE L'ÉTIQUETTE — format physique confirmé : 50x25mm.
 // ==================================================================
-const LABEL_WIDTH_MM = 40;
-const LABEL_HEIGHT_MM = 30;
+const LABEL_WIDTH_MM = 50;
+const LABEL_HEIGHT_MM = 25;
 const LABEL_FONT_SIZE_PT = 10;
+
+// Grossissement de l'aperçu à L'ÉCRAN (px par mm). Sans ça, un aperçu qui
+// respecte les vraies dimensions mm (50x25mm) tient dans ~190x94px sur un
+// écran classique — minuscule et illisible. Purement cosmétique : n'affecte
+// jamais l'impression (@media print garde les vraies dimensions en mm).
+const SCREEN_PREVIEW_SCALE_PX_PER_MM = 6;
 
 // MODE_PAPIER_CONTINU = true  -> Xprinter XP-80T actuelle : rouleau thermique
 //   CONTINU, pas de découpe auto ni de capteur de gap. Toutes les étiquettes
@@ -75,24 +80,27 @@ async function generateLabelImageBase64({ name, code }) {
   const barcodePng = await bwipjs.toBuffer({
     bcid: "code128",
     text: code,
-    scale: 3,
+    // Résolution plus élevée (5 au lieu de 3) : agrandit le code-barre tout
+    // en gardant un bon rendu net, à l'écran comme à l'impression.
+    scale: 5,
     // Hauteur des barres proportionnelle à l'étiquette (laisse la place au nom
     // du produit au-dessus) plutôt qu'une valeur fixe qui peut être trop
     // petite (ou trop grande) selon LABEL_HEIGHT_MM.
-    height: Math.round(LABEL_HEIGHT_MM * 0.4),
+    height: Math.round(LABEL_HEIGHT_MM * 0.55),
     includetext: true,
     textxalign: "center",
+    textsize: 11,
     // Marge de silence (quiet zone) généreuse autour des barres : indispensable
     // pour que les lecteurs de code-barres (scanner ou appli mobile) accrochent
-    // le code de façon fiable.
-    paddingwidth: 10,
-    paddingheight: 6,
+    // le code de façon fiable. Gardée intacte malgré l'agrandissement.
+    paddingwidth: 12,
+    paddingheight: 8,
   });
   const barcodeImg = await loadImage(barcodePng);
 
-  const PADDING = 14;
-  const FONT_SIZE = 26;
-  const LINE_HEIGHT = Math.round(FONT_SIZE * 1.2);
+  const PADDING = 18;
+  const FONT_SIZE = 38;
+  const LINE_HEIGHT = Math.round(FONT_SIZE * 1.15);
   const MAX_NAME_LINES = 3;
   const canvasWidth = Math.max(barcodeImg.width + PADDING * 2, 260);
   const maxTextWidth = canvasWidth - PADDING * 2;
@@ -254,14 +262,18 @@ async function writeSheet({ filePath, title, records, navLinkHref, navLinkText }
   body { font-family: Arial, sans-serif; margin: 20px; }
   .no-print { }
 
-  /* Aperçu à l'écran : grille compacte pour naviguer/vérifier les étiquettes */
-  .sheet { display: flex; flex-wrap: wrap; gap: 10px; }
+  /* Aperçu à l'écran : grille compacte pour naviguer/vérifier les étiquettes.
+     Volontairement agrandie (SCREEN_PREVIEW_SCALE_PX_PER_MM) par rapport aux
+     vraies dimensions mm, pour rester lisible sur un écran classique — ça
+     n'affecte jamais l'impression, qui garde les vraies dimensions physiques
+     (voir @media print plus bas). */
+  .sheet { display: flex; flex-wrap: wrap; gap: 14px; }
   .label {
     border: 1px dashed #999;
     padding: 8px 12px;
     text-align: center;
-    width: ${LABEL_WIDTH_MM}mm;
-    height: ${LABEL_HEIGHT_MM}mm;
+    width: ${LABEL_WIDTH_MM * SCREEN_PREVIEW_SCALE_PX_PER_MM}px;
+    height: ${LABEL_HEIGHT_MM * SCREEN_PREVIEW_SCALE_PX_PER_MM}px;
     font-size: ${LABEL_FONT_SIZE_PT}pt;
     box-sizing: border-box;
     overflow: hidden;
@@ -270,7 +282,7 @@ async function writeSheet({ filePath, title, records, navLinkHref, navLinkText }
     align-items: center;
     justify-content: center;
   }
-  .label img { width: 94%; height: auto; max-height: 92%; object-fit: contain; }
+  .label img { width: 96%; height: auto; max-height: 94%; object-fit: contain; }
 
   /* Taille de "page" forcée à celle de l'étiquette (ou du lot entier en mode
      papier continu) — sans ça, Chrome imprime en A4 par défaut avec le
