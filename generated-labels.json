@@ -760,5 +760,23 @@
     "category": "Cosmétiques > Lèvres",
     "code": "LEV-015",
     "generatedAt": "2026-08-12T08:30:24.253Z"
+  },
+  {
+    "name": "Cintete - Réf.6200 (gros)",
+    "category": "Accessoires > Cheveux",
+    "code": "ACC-010",
+    "generatedAt": "2026-08-12T17:45:21.374Z"
+  },
+  {
+    "name": "Cintete - Réf.5500 (gros)",
+    "category": "Accessoires > Cheveux",
+    "code": "ACC-011",
+    "generatedAt": "2026-08-12T17:45:25.671Z"
+  },
+  {
+    "name": "Broche cheveux (gros)",
+    "category": "Accessoires > Cheveux",
+    "code": "ACC-012",
+    "generatedAt": "2026-08-12T17:45:29.195Z"
   }
 ]
