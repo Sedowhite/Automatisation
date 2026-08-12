@@ -778,5 +778,707 @@
     "category": "Accessoires > Cheveux",
     "code": "ACC-012",
     "generatedAt": "2026-08-12T17:45:29.195Z"
+  },
+  {
+    "name": "Montre - Réf.9500 (gros)",
+    "category": "Montres",
+    "code": "MON-014",
+    "generatedAt": "2026-08-12T18:00:34.004Z"
+  },
+  {
+    "name": "Montre - Réf.20000 (gros)",
+    "category": "Montres",
+    "code": "MON-015",
+    "generatedAt": "2026-08-12T18:00:38.465Z"
+  },
+  {
+    "name": "Montre - Réf.18000 (gros)",
+    "category": "Montres",
+    "code": "MON-016",
+    "generatedAt": "2026-08-12T18:00:42.706Z"
+  },
+  {
+    "name": "Montre - Réf.17500 (gros)",
+    "category": "Montres",
+    "code": "MON-017",
+    "generatedAt": "2026-08-12T18:00:46.745Z"
+  },
+  {
+    "name": "Montre - Réf.17000 (gros)",
+    "category": "Montres",
+    "code": "MON-018",
+    "generatedAt": "2026-08-12T18:00:50.563Z"
+  },
+  {
+    "name": "Montre - Réf.16500 (gros)",
+    "category": "Montres",
+    "code": "MON-019",
+    "generatedAt": "2026-08-12T18:00:54.872Z"
+  },
+  {
+    "name": "Montre - Réf.16000 (gros)",
+    "category": "Montres",
+    "code": "MON-020",
+    "generatedAt": "2026-08-12T18:00:58.715Z"
+  },
+  {
+    "name": "Montre - Réf.15500 (gros)",
+    "category": "Montres",
+    "code": "MON-021",
+    "generatedAt": "2026-08-12T18:01:03.134Z"
+  },
+  {
+    "name": "Montre - Réf.15000 (gros)",
+    "category": "Montres",
+    "code": "MON-022",
+    "generatedAt": "2026-08-12T18:01:07.573Z"
+  },
+  {
+    "name": "Montre - Réf.14000 (gros)",
+    "category": "Montres",
+    "code": "MON-023",
+    "generatedAt": "2026-08-12T18:01:11.527Z"
+  },
+  {
+    "name": "Montre - Réf.13000 (gros)",
+    "category": "Montres",
+    "code": "MON-024",
+    "generatedAt": "2026-08-12T18:01:15.612Z"
+  },
+  {
+    "name": "Montre - Réf.11000 (gros)",
+    "category": "Montres",
+    "code": "MON-025",
+    "generatedAt": "2026-08-12T18:01:20.121Z"
+  },
+  {
+    "name": "Montre - Réf.10500 (gros)",
+    "category": "Montres",
+    "code": "MON-026",
+    "generatedAt": "2026-08-12T18:01:24.341Z"
+  },
+  {
+    "name": "Diffuseur de senteur (gros)",
+    "category": "Maison > Parfum d'ambiance",
+    "code": "PAR-002",
+    "generatedAt": "2026-08-12T18:01:28.613Z"
+  },
+  {
+    "name": "Montre + bracelet homme DANLEX (gros)",
+    "category": "Ensembles > Ensembles bijoux",
+    "code": "ENS-019",
+    "generatedAt": "2026-08-12T18:01:33.401Z"
+  },
+  {
+    "name": "Ensemble chaineStainless Steel (gros)",
+    "category": "Ensembles > Ensembles bijoux",
+    "code": "ENS-020",
+    "generatedAt": "2026-08-12T18:01:37.665Z"
+  },
+  {
+    "name": "Ensemble chaine 4 pièces Fashion Jewelry (gros)",
+    "category": "Ensembles > Ensembles bijoux",
+    "code": "ENS-021",
+    "generatedAt": "2026-08-12T18:01:41.930Z"
+  },
+  {
+    "name": "Ensemble chaine 4 pièces (gros)",
+    "category": "Ensembles > Ensembles bijoux",
+    "code": "ENS-022",
+    "generatedAt": "2026-08-12T18:01:46.696Z"
+  },
+  {
+    "name": "Ensemble Chaine Jaycee (gros)",
+    "category": "Ensembles > Ensembles bijoux",
+    "code": "ENS-023",
+    "generatedAt": "2026-08-12T18:01:51.023Z"
+  },
+  {
+    "name": "Ensemble 3 pièces (gros)",
+    "category": "Ensembles > Ensembles bijoux",
+    "code": "ENS-024",
+    "generatedAt": "2026-08-12T18:01:55.508Z"
+  },
+  {
+    "name": "Chaine+ boucle Stainless Steel (gros)",
+    "category": "Ensembles > Ensembles bijoux",
+    "code": "ENS-025",
+    "generatedAt": "2026-08-12T18:02:00.604Z"
+  },
+  {
+    "name": "Chaine Stainless Steel + boucle (gros)",
+    "category": "Ensembles > Ensembles bijoux",
+    "code": "ENS-026",
+    "generatedAt": "2026-08-12T18:02:05.257Z"
+  },
+  {
+    "name": "Chaine + boucle simple (gros)",
+    "category": "Ensembles > Ensembles bijoux",
+    "code": "ENS-027",
+    "generatedAt": "2026-08-12T18:02:09.890Z"
+  },
+  {
+    "name": "Chaine + boucle en or Stainless Steel (gros)",
+    "category": "Ensembles > Ensembles bijoux",
+    "code": "ENS-028",
+    "generatedAt": "2026-08-12T18:02:15.068Z"
+  },
+  {
+    "name": "Chaine + boucle Stainless Steel (gros)",
+    "category": "Ensembles > Ensembles bijoux",
+    "code": "ENS-029",
+    "generatedAt": "2026-08-12T18:02:19.671Z"
+  },
+  {
+    "name": "Chaine + boucle OJOJ (gros)",
+    "category": "Ensembles > Ensembles bijoux",
+    "code": "ENS-030",
+    "generatedAt": "2026-08-12T18:02:24.411Z"
+  },
+  {
+    "name": "Chaine + boucle D,C,S Jewelry (gros)",
+    "category": "Ensembles > Ensembles bijoux",
+    "code": "ENS-031",
+    "generatedAt": "2026-08-12T18:02:29.647Z"
+  },
+  {
+    "name": "Chaine + boucle Boxin (gros)",
+    "category": "Ensembles > Ensembles bijoux",
+    "code": "ENS-032",
+    "generatedAt": "2026-08-12T18:02:34.480Z"
+  },
+  {
+    "name": "Chaine + boucle + bracelet + bague (gros)",
+    "category": "Ensembles > Ensembles bijoux",
+    "code": "ENS-033",
+    "generatedAt": "2026-08-12T18:02:39.328Z"
+  },
+  {
+    "name": "Bracelet + chaine + boucle (gros)",
+    "category": "Ensembles > Ensembles bijoux",
+    "code": "ENS-034",
+    "generatedAt": "2026-08-12T18:02:44.857Z"
+  },
+  {
+    "name": "Boucle + chaine fashion Jewelry (gros)",
+    "category": "Ensembles > Ensembles bijoux",
+    "code": "ENS-035",
+    "generatedAt": "2026-08-12T18:02:49.732Z"
+  },
+  {
+    "name": "Faux ongles (gros)",
+    "category": "Cosmétiques > Ongles",
+    "code": "ONG-002",
+    "generatedAt": "2026-08-12T18:02:55.124Z"
+  },
+  {
+    "name": "Rouge à lèvre (gros)",
+    "category": "Cosmétiques > Lèvres",
+    "code": "LEV-016",
+    "generatedAt": "2026-08-12T18:03:00.036Z"
+  },
+  {
+    "name": "New lips gloss (gros)",
+    "category": "Cosmétiques > Lèvres",
+    "code": "LEV-017",
+    "generatedAt": "2026-08-12T18:03:05.742Z"
+  },
+  {
+    "name": "Gommage à lèvre (gros)",
+    "category": "Cosmétiques > Lèvres",
+    "code": "LEV-018",
+    "generatedAt": "2026-08-12T18:03:10.835Z"
+  },
+  {
+    "name": "Gloss magic lips oil (gros)",
+    "category": "Cosmétiques > Lèvres",
+    "code": "LEV-019",
+    "generatedAt": "2026-08-12T18:03:16.542Z"
+  },
+  {
+    "name": "Gloss gulf girl (gros)",
+    "category": "Cosmétiques > Lèvres",
+    "code": "LEV-020",
+    "generatedAt": "2026-08-12T18:03:21.726Z"
+  },
+  {
+    "name": "Gloss SIHEGLAN (gros)",
+    "category": "Cosmétiques > Lèvres",
+    "code": "LEV-021",
+    "generatedAt": "2026-08-12T18:03:27.308Z"
+  },
+  {
+    "name": "Gloss Pola aylr (gros)",
+    "category": "Cosmétiques > Lèvres",
+    "code": "LEV-022",
+    "generatedAt": "2026-08-12T18:03:32.477Z"
+  },
+  {
+    "name": "Gloss Pola Aylr (gros)",
+    "category": "Cosmétiques > Lèvres",
+    "code": "LEV-023",
+    "generatedAt": "2026-08-12T18:03:38.319Z"
+  },
+  {
+    "name": "Gloss Juice 4p oil (gros)",
+    "category": "Cosmétiques > Lèvres",
+    "code": "LEV-024",
+    "generatedAt": "2026-08-12T18:03:43.703Z"
+  },
+  {
+    "name": "Gloss Crasy (gros)",
+    "category": "Cosmétiques > Lèvres",
+    "code": "LEV-025",
+    "generatedAt": "2026-08-12T18:03:49.552Z"
+  },
+  {
+    "name": "Gloss 4p (gros)",
+    "category": "Cosmétiques > Lèvres",
+    "code": "LEV-026",
+    "generatedAt": "2026-08-12T18:03:54.966Z"
+  },
+  {
+    "name": "Crème lèvre rose (gros)",
+    "category": "Cosmétiques > Lèvres",
+    "code": "LEV-027",
+    "generatedAt": "2026-08-12T18:04:00.985Z"
+  },
+  {
+    "name": "Crème lèvre (gros)",
+    "category": "Cosmétiques > Lèvres",
+    "code": "LEV-028",
+    "generatedAt": "2026-08-12T18:04:06.450Z"
+  },
+  {
+    "name": "Baby gloss (gros)",
+    "category": "Cosmétiques > Lèvres",
+    "code": "LEV-029",
+    "generatedAt": "2026-08-12T18:04:12.335Z"
+  },
+  {
+    "name": "Cofret - Réf.30000 (gros)",
+    "category": "Coffrets & Cadeaux",
+    "code": "COF-003",
+    "generatedAt": "2026-08-12T18:04:18.574Z"
+  },
+  {
+    "name": "Médaille pour homme gros (gros)",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-032",
+    "generatedAt": "2026-08-12T18:04:25.337Z"
+  },
+  {
+    "name": "Médaille enfant (gros)",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-033",
+    "generatedAt": "2026-08-12T18:04:31.421Z"
+  },
+  {
+    "name": "Médaile pour femme (gros)",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-034",
+    "generatedAt": "2026-08-12T18:04:37.896Z"
+  },
+  {
+    "name": "Medaille H grand (gros)",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-035",
+    "generatedAt": "2026-08-12T18:04:46.121Z"
+  },
+  {
+    "name": "Collier homme (gros)",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-036",
+    "generatedAt": "2026-08-12T18:04:52.937Z"
+  },
+  {
+    "name": "Chaine sotoire (gros)",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-037",
+    "generatedAt": "2026-08-12T18:04:59.389Z"
+  },
+  {
+    "name": "Chaine simple sans médaille (gros)",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-038",
+    "generatedAt": "2026-08-12T18:05:06.738Z"
+  },
+  {
+    "name": "Chaine simple faux beroute (gros)",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-039",
+    "generatedAt": "2026-08-12T18:05:13.286Z"
+  },
+  {
+    "name": "Chaine simple Stainless Steel (gros)",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-040",
+    "generatedAt": "2026-08-12T18:05:20.613Z"
+  },
+  {
+    "name": "Chaine sautoir - Réf.13000 (gros)",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-041",
+    "generatedAt": "2026-08-12T18:05:27.256Z"
+  },
+  {
+    "name": "Chaine sautoir - Réf.10000 (gros)",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-042",
+    "generatedAt": "2026-08-12T18:05:34.307Z"
+  },
+  {
+    "name": "Chaine price en or (gros)",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-043",
+    "generatedAt": "2026-08-12T18:05:40.998Z"
+  },
+  {
+    "name": "Chaine price en argent (gros)",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-044",
+    "generatedAt": "2026-08-12T18:05:48.094Z"
+  },
+  {
+    "name": "Chaine price (gros)",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-045",
+    "generatedAt": "2026-08-12T18:05:54.766Z"
+  },
+  {
+    "name": "Chaine pied - Réf.6000 (gros)",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-046",
+    "generatedAt": "2026-08-12T18:06:03.898Z"
+  },
+  {
+    "name": "Chaine pied - Réf.5000 (gros)",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-047",
+    "generatedAt": "2026-08-12T18:06:10.814Z"
+  },
+  {
+    "name": "Chaine long YIXUAN (gros)",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-048",
+    "generatedAt": "2026-08-12T18:06:18.209Z"
+  },
+  {
+    "name": "Chaine homme Stainless Steel (gros)",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-049",
+    "generatedAt": "2026-08-12T18:06:25.257Z"
+  },
+  {
+    "name": "Chaine homme (gros)",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-050",
+    "generatedAt": "2026-08-12T18:06:32.889Z"
+  },
+  {
+    "name": "Chaine en argent 2 pièces (gros)",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-051",
+    "generatedAt": "2026-08-12T18:06:39.804Z"
+  },
+  {
+    "name": "Chaine Z, Y, M (gros)",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-052",
+    "generatedAt": "2026-08-12T18:06:47.303Z"
+  },
+  {
+    "name": "Chaine Fashion Jewelry 4 piècesen argent (gros)",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-053",
+    "generatedAt": "2026-08-12T18:06:54.194Z"
+  },
+  {
+    "name": "Chaine DCS Jewelry - Réf.1600 (gros)",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-054",
+    "generatedAt": "2026-08-12T18:07:01.922Z"
+  },
+  {
+    "name": "Chaine DCS Jewelry - Réf.12500 (gros)",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-055",
+    "generatedAt": "2026-08-12T18:07:09.095Z"
+  },
+  {
+    "name": "Chaine Coral Jewelry (gros)",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-056",
+    "generatedAt": "2026-08-12T18:07:16.700Z"
+  },
+  {
+    "name": "Chaine 4 pièces Stainless Steel (gros)",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-057",
+    "generatedAt": "2026-08-12T18:07:23.848Z"
+  },
+  {
+    "name": "Cartier long homme (gros)",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-058",
+    "generatedAt": "2026-08-12T18:07:31.565Z"
+  },
+  {
+    "name": "Cartier femme (gros)",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-059",
+    "generatedAt": "2026-08-12T18:07:38.937Z"
+  },
+  {
+    "name": "Bronche (gros)",
+    "category": "Bijoux > Broches",
+    "code": "BRO-004",
+    "generatedAt": "2026-08-12T18:07:46.672Z"
+  },
+  {
+    "name": "Broche XSL (gros)",
+    "category": "Bijoux > Broches",
+    "code": "BRO-005",
+    "generatedAt": "2026-08-12T18:07:53.929Z"
+  },
+  {
+    "name": "Broche Bahafi (gros)",
+    "category": "Bijoux > Broches",
+    "code": "BRO-006",
+    "generatedAt": "2026-08-12T18:08:02.006Z"
+  },
+  {
+    "name": "Gros bracelet en or DCS (gros)",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-017",
+    "generatedAt": "2026-08-12T18:08:09.555Z"
+  },
+  {
+    "name": "Gros bracelet en argent Dahlia (gros)",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-018",
+    "generatedAt": "2026-08-12T18:08:17.785Z"
+  },
+  {
+    "name": "Bracelet pierre cristallisée (gros)",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-019",
+    "generatedAt": "2026-08-12T18:08:25.332Z"
+  },
+  {
+    "name": "Bracelet l'œil de Fatima (gros)",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-020",
+    "generatedAt": "2026-08-12T18:08:33.592Z"
+  },
+  {
+    "name": "Bracelet homme Fashion JEWELRY (gros)",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-021",
+    "generatedAt": "2026-08-12T18:08:41.388Z"
+  },
+  {
+    "name": "Bracelet femme DCS JEWELRY (gros)",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-022",
+    "generatedAt": "2026-08-12T18:08:49.338Z"
+  },
+  {
+    "name": "Bracelet en perle 3 pièces (gros)",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-023",
+    "generatedAt": "2026-08-12T18:08:57.145Z"
+  },
+  {
+    "name": "Bracelet en boite (gros)",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-024",
+    "generatedAt": "2026-08-12T18:09:05.644Z"
+  },
+  {
+    "name": "Bracelet en argent DCS Jewelry (gros)",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-025",
+    "generatedAt": "2026-08-12T18:09:13.405Z"
+  },
+  {
+    "name": "Bracelet des signes (gros)",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-026",
+    "generatedAt": "2026-08-12T18:09:21.993Z"
+  },
+  {
+    "name": "Bracelet Stainless Steel (gros)",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-027",
+    "generatedAt": "2026-08-12T18:09:29.963Z"
+  },
+  {
+    "name": "Bracelet Fashion Jewelry (gros)",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-028",
+    "generatedAt": "2026-08-12T18:09:38.542Z"
+  },
+  {
+    "name": "Braca (gros)",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-029",
+    "generatedAt": "2026-08-12T18:09:46.853Z"
+  },
+  {
+    "name": "Bango bracelet petit avec foulard (gros)",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-030",
+    "generatedAt": "2026-08-12T18:09:55.221Z"
+  },
+  {
+    "name": "Bango bracelet grand (gros)",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-031",
+    "generatedAt": "2026-08-12T18:10:03.914Z"
+  },
+  {
+    "name": "Boucle en plaquette - Réf.6000 (gros)",
+    "category": "Bijoux > Boucles d'oreilles",
+    "code": "BOU-007",
+    "generatedAt": "2026-08-12T18:10:12.931Z"
+  },
+  {
+    "name": "Boucle en plaquette - Réf.500 (gros)",
+    "category": "Bijoux > Boucles d'oreilles",
+    "code": "BOU-008",
+    "generatedAt": "2026-08-12T18:10:21.354Z"
+  },
+  {
+    "name": "Boucle Vista en plaquette - Réf.800 (gros)",
+    "category": "Bijoux > Boucles d'oreilles",
+    "code": "BOU-009",
+    "generatedAt": "2026-08-12T18:10:30.323Z"
+  },
+  {
+    "name": "Boucle Vista en plaquette - Réf.500 (gros)",
+    "category": "Bijoux > Boucles d'oreilles",
+    "code": "BOU-010",
+    "generatedAt": "2026-08-12T18:10:38.738Z"
+  },
+  {
+    "name": "Boucle Stainless Steel (gros)",
+    "category": "Bijoux > Boucles d'oreilles",
+    "code": "BOU-011",
+    "generatedAt": "2026-08-12T18:10:47.771Z"
+  },
+  {
+    "name": "Boucle Prince (gros)",
+    "category": "Bijoux > Boucles d'oreilles",
+    "code": "BOU-012",
+    "generatedAt": "2026-08-12T18:10:56.207Z"
+  },
+  {
+    "name": "Bracelet avec bague D,S (gros)",
+    "category": "Bijoux > Bagues",
+    "code": "BAG-011",
+    "generatedAt": "2026-08-12T18:11:05.303Z"
+  },
+  {
+    "name": "Bague à plaquette (gros)",
+    "category": "Bijoux > Bagues",
+    "code": "BAG-012",
+    "generatedAt": "2026-08-12T18:11:13.765Z"
+  },
+  {
+    "name": "Bague homme plusieurs couleurs (gros)",
+    "category": "Bijoux > Bagues",
+    "code": "BAG-013",
+    "generatedAt": "2026-08-12T18:11:22.951Z"
+  },
+  {
+    "name": "Bague homme (gros)",
+    "category": "Bijoux > Bagues",
+    "code": "BAG-014",
+    "generatedAt": "2026-08-12T18:11:31.595Z"
+  },
+  {
+    "name": "Bague femme - Réf.6000 (gros)",
+    "category": "Bijoux > Bagues",
+    "code": "BAG-015",
+    "generatedAt": "2026-08-12T18:11:40.797Z"
+  },
+  {
+    "name": "Bague femme - Réf.5500 (gros)",
+    "category": "Bijoux > Bagues",
+    "code": "BAG-016",
+    "generatedAt": "2026-08-12T18:11:49.481Z"
+  },
+  {
+    "name": "Bague de fiançaille Stainless Steel (gros)",
+    "category": "Bijoux > Bagues",
+    "code": "BAG-017",
+    "generatedAt": "2026-08-12T18:11:58.845Z"
+  },
+  {
+    "name": "Bague de fiançaille (gros)",
+    "category": "Bijoux > Bagues",
+    "code": "BAG-018",
+    "generatedAt": "2026-08-12T18:12:07.672Z"
+  },
+  {
+    "name": "Bague - Réf.4000 (gros)",
+    "category": "Bijoux > Bagues",
+    "code": "BAG-019",
+    "generatedAt": "2026-08-12T18:12:17.259Z"
+  },
+  {
+    "name": "Bague - Réf.2500 (gros)",
+    "category": "Bijoux > Bagues",
+    "code": "BAG-020",
+    "generatedAt": "2026-08-12T18:12:26.316Z"
+  },
+  {
+    "name": "Pince à cheveux C (gros)",
+    "category": "Accessoires > Cheveux",
+    "code": "ACC-013",
+    "generatedAt": "2026-08-12T18:12:35.775Z"
+  },
+  {
+    "name": "Pince à cheveux (gros)",
+    "category": "Accessoires > Cheveux",
+    "code": "ACC-014",
+    "generatedAt": "2026-08-12T18:12:44.913Z"
+  },
+  {
+    "name": "Cintete bandeaux (gros)",
+    "category": "Accessoires > Cheveux",
+    "code": "ACC-015",
+    "generatedAt": "2026-08-12T18:12:54.288Z"
+  },
+  {
+    "name": "Cintete - Réf.8700 (gros)",
+    "category": "Accessoires > Cheveux",
+    "code": "ACC-016",
+    "generatedAt": "2026-08-12T18:13:03.731Z"
+  },
+  {
+    "name": "Cintete - Réf.6500 (gros)",
+    "category": "Accessoires > Cheveux",
+    "code": "ACC-017",
+    "generatedAt": "2026-08-12T18:13:13.436Z"
+  },
+  {
+    "name": "Cintete - Réf.6200 (gros)",
+    "category": "Accessoires > Cheveux",
+    "code": "ACC-018",
+    "generatedAt": "2026-08-12T18:13:22.650Z"
+  },
+  {
+    "name": "Cintete - Réf.5500 (gros)",
+    "category": "Accessoires > Cheveux",
+    "code": "ACC-019",
+    "generatedAt": "2026-08-12T18:13:32.512Z"
+  },
+  {
+    "name": "Broche cheveux (gros)",
+    "category": "Accessoires > Cheveux",
+    "code": "ACC-020",
+    "generatedAt": "2026-08-12T18:13:41.672Z"
   }
 ]
