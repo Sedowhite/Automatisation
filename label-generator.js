@@ -30,7 +30,8 @@ const SCREEN_PREVIEW_SCALE_PX_PER_MM = 6;
 //   s'enchaînent sur UNE seule "page" d'impression (sans saut de page), avec
 //   juste un repère pointillé entre chaque pour guider la découpe aux ciseaux.
 // MODE_PAPIER_CONTINU = false -> future Xprinter XP-365B : vraies étiquettes
-//   autocollantes PRÉ-DÉCOUPÉES 40x30mm + capteur de gap automatique. Chaque
+//   autocollantes PRÉ-DÉCOUPÉES (taille LABEL_WIDTH_MM x LABEL_HEIGHT_MM) +
+//   capteur de gap automatique. Chaque
 //   étiquette DOIT correspondre à une "page" d'impression distincte (saut de
 //   page après chaque étiquette), pour que le capteur retrouve la frontière
 //   physique de chaque étiquette.
