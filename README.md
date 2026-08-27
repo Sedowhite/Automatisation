@@ -65,7 +65,7 @@ automatiquement**.
 **`data`** contient uniquement les fichiers que le bot écrit tout seul :
 `category-prefix-map.json`, `generated-labels.json`, `catalogue-complet.html`,
 `nouveaux.html`, `catalogue-gros.html`, `catalogue-detail.html`, `styles.css`,
-`dernier-vidage.json`. Les deux workflows GitHub Actions committent et
+`search.js`, `dernier-vidage.json`. Les deux workflows GitHub Actions committent et
 poussent **uniquement sur cette branche**, jamais sur `main`. Tu n'as
 normalement jamais besoin de la checkout ou d'y toucher toi-même.
 
@@ -90,7 +90,8 @@ d'environnement `DATA_DIR` pour savoir où se trouvent leurs fichiers :
 ## Les pages d'étiquettes
 
 Trois pages "nouveau design" (bandeau de navigation, badge de couleur,
-produits regroupés par catégorie, feuille de style partagée `styles.css`) :
+produits regroupés par catégorie, feuille de style partagée `styles.css`,
+barre de recherche partagée `search.js`) :
 
 - **`catalogue-gros.html`** (badge orange) : uniquement les produits dont le
   nom contient `(gros)` (insensible à la casse). **C'est la seule page qui
@@ -99,6 +100,18 @@ produits regroupés par catégorie, feuille de style partagée `styles.css`) :
   `(détail)`, ou sans aucun suffixe du tout (anciens produits créés avant
   cette distinction). Page de référence uniquement, pas destinée à
   l'impression de codes-barres.
+
+### Barre de recherche (sur les 3 pages)
+
+Chaque page a sa propre barre de recherche, juste sous le titre — filtrage en
+temps réel (aucun bouton, aucun rechargement), sur le nom du produit,
+insensible à la casse et aux accents ("ete" trouve "Été"). 100% JS navigateur
+(`search.js`, partagé par les 3 pages), aucun appel réseau. La recherche
+est strictement limitée à la page où elle est tapée — pas de recherche
+croisée entre gros/détail/nouveaux. Un message "Aucun produit trouvé"
+s'affiche si rien ne correspond. La barre de recherche et ce message ont la
+classe `no-print` : ils n'apparaissent jamais à l'impression, comme le
+bandeau de navigation.
 - **`nouveaux.html`** (badge neutre) : uniquement les étiquettes générées
   depuis le dernier "vidage" (voir workflow 2 ci-dessous), tous suffixes
   confondus — comportement inchangé par rapport à avant. C'est la page
@@ -185,6 +198,7 @@ mise en page bascule en "une étiquette par page".
 - `generated-labels.json` : registre persistant de toutes les étiquettes jamais générées
 - `dernier-vidage.json` : date du dernier vidage de `nouveaux.html`
 - `styles.css` : feuille de style partagée par `nouveaux.html` / `catalogue-gros.html` / `catalogue-detail.html`
+- `search.js` : script de recherche partagé par les 3 mêmes pages (filtrage en temps réel, par page)
 - `nouveaux.html` / `catalogue-gros.html` / `catalogue-detail.html` : les 3 pages "nouveau design"
 - `catalogue-complet.html` : page héritée (ancien design), conservée temporairement
 
@@ -197,8 +211,8 @@ natif, jugé trop peu fiable. Checkout `main` (code) + `data` (données) dans
 un sous-dossier, récupère les articles Loyverse sans code-barre, génère les
 codes, les écrit dans Loyverse, met à jour le registre et toutes les pages HTML
 **sur la branche `data`**, puis publie `nouveaux.html` (page d'accueil),
-`catalogue-gros.html`, `catalogue-detail.html`, `styles.css` et
-`catalogue-complet.html` (héritée) sur GitHub Pages.
+`catalogue-gros.html`, `catalogue-detail.html`, `styles.css`, `search.js`
+et `catalogue-complet.html` (héritée) sur GitHub Pages.
 
 ### 2. `mark-as-printed.yml` — "Marquer les nouveautés comme imprimées"
 Déclenchement **manuel uniquement** (`workflow_dispatch`, pas de cron) :
@@ -254,8 +268,8 @@ npm run reset-nouveaux      # vide nouveaux.html (équivalent local du workflow 
 ```
 
 Sans `DATA_DIR` défini, toutes les pages (`catalogue-complet.html`,
-`nouveaux.html`, `catalogue-gros.html`, `catalogue-detail.html`, `styles.css`)
-sont créées/mises à jour à la racine du projet (pratique pour tester).
+`nouveaux.html`, `catalogue-gros.html`, `catalogue-detail.html`, `styles.css`,
+`search.js`) sont créées/mises à jour à la racine du projet (pratique pour tester).
 Ouvre-les dans un navigateur puis Ctrl+P pour imprimer. **Ne les committe pas
 sur `main`** — ce sont des fichiers de test locaux, la vraie donnée vit sur
 `data`.

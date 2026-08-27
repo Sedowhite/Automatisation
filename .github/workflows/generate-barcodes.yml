@@ -65,6 +65,7 @@ jobs:
             catalogue-gros.html
             catalogue-detail.html
             styles.css
+            search.js
             dernier-vidage.json
             category-prefix-map.json
 
@@ -77,7 +78,7 @@ jobs:
           else
             echo "<h1>Aucune étiquette à imprimer pour le moment</h1>" > site/index.html
           fi
-          for f in catalogue-complet.html catalogue-gros.html catalogue-detail.html styles.css; do
+          for f in catalogue-complet.html catalogue-gros.html catalogue-detail.html styles.css search.js; do
             if [ -f "data/$f" ]; then
               cp "data/$f" "site/$f"
             fi

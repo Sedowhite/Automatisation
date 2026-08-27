@@ -56,6 +56,7 @@ const NOUVEAUX_PATH = path.join(DATA_DIR, "nouveaux.html");
 const GROS_PATH = path.join(DATA_DIR, "catalogue-gros.html");
 const DETAIL_PATH = path.join(DATA_DIR, "catalogue-detail.html");
 const STYLES_PATH = path.join(DATA_DIR, "styles.css");
+const SEARCH_SCRIPT_PATH = path.join(DATA_DIR, "search.js");
 
 // Un produit va sur catalogue-gros.html si son nom contient "(gros)"
 // (insensible à la casse). Tout le reste (suffixe "(détail)" explicite OU
@@ -238,6 +239,7 @@ async function regenerateSheets() {
   });
 
   await writeStylesheet();
+  await writeSearchScript();
 
   await writeCategorizedSheet({
     filePath: NOUVEAUX_PATH,
@@ -415,6 +417,24 @@ ${PAGES.map((p) => `.badge-${p.key} { background: ${p.bg}; color: ${p.fg}; }`).j
 .page-header p { margin: 0 0 6px; color: #4b5563; font-size: 14px; }
 .page-header a { color: #2563eb; }
 
+.search-box {
+  display: block;
+  width: 100%;
+  max-width: 420px;
+  box-sizing: border-box;
+  margin: 4px 0 12px;
+  padding: 8px 14px;
+  font-size: 14px;
+  font-family: inherit;
+  color: #111827;
+  background: #fff;
+  border: 1px solid #d1d5db;
+  border-radius: 999px;
+  outline: none;
+}
+.search-box:focus { border-color: #111827; box-shadow: 0 0 0 2px rgba(17, 24, 39, 0.1); }
+.search-box::placeholder { color: #9ca3af; }
+
 .category-section { margin-bottom: 28px; }
 .category-heading {
   font-size: 15px;
@@ -461,6 +481,56 @@ ${PAGES.map((p) => `.badge-${p.key} { background: ${p.bg}; color: ${p.fg}; }`).j
 }
 
 /**
+ * Script partagé par les 3 pages "nouveau design" : filtre en temps réel les
+ * étiquettes de LA PAGE COURANTE UNIQUEMENT (chaque page charge ce même
+ * fichier mais ne touche qu'à son propre DOM — pas de recherche croisée
+ * entre pages). Pur JS navigateur, aucun appel réseau. Insensible à la
+ * casse et aux accents (normalisation NFD + retrait des diacritiques).
+ */
+async function writeSearchScript() {
+  const js = `
+document.addEventListener("DOMContentLoaded", () => {
+  const input = document.querySelector(".search-box");
+  if (!input) return;
+
+  const labels = Array.from(document.querySelectorAll(".label"));
+  const sections = Array.from(document.querySelectorAll(".category-section"));
+  const noResults = document.querySelector(".search-no-results");
+
+  function normalize(s) {
+    return (s || "")
+      .normalize("NFD")
+      .replace(/[\\u0300-\\u036f]/g, "")
+      .toLowerCase()
+      .trim();
+  }
+
+  input.addEventListener("input", () => {
+    const query = normalize(input.value);
+    let visibleCount = 0;
+
+    labels.forEach((label) => {
+      const match = query === "" || normalize(label.dataset.name).includes(query);
+      label.style.display = match ? "" : "none";
+      if (match) visibleCount++;
+    });
+
+    sections.forEach((section) => {
+      const anyVisible = Array.from(section.querySelectorAll(".label")).some(
+        (l) => l.style.display !== "none"
+      );
+      section.style.display = anyVisible ? "" : "none";
+    });
+
+    if (noResults) noResults.style.display = visibleCount === 0 ? "" : "none";
+  });
+});
+`;
+
+  fs.writeFileSync(SEARCH_SCRIPT_PATH, js, "utf-8");
+}
+
+/**
  * Génère une page "nouveau design" (nouveaux / gros / detail) : bandeau de
  * navigation, badge de couleur, produits regroupés par catégorie. Utilise la
  * feuille de style partagée (styles.css) pour tout ce qui est écran.
@@ -486,7 +556,7 @@ async function writeCategorizedSheet({ filePath, pageKey, title, intro, records 
     for (const r of categoryRecords) {
       const imageDataUri = await generateLabelImageBase64({ name: r.name, code: r.code });
       labelsHtml.push(`
-      <div class="label">
+      <div class="label" data-name="${escapeHtml(r.name)}">
         <img src="${imageDataUri}" alt="${escapeHtml(r.name)} (${escapeHtml(r.code)})" />
       </div>`);
     }
@@ -534,6 +604,7 @@ ${labelsHtml.join("\n")}
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${escapeHtml(title)}</title>
 <link rel="stylesheet" href="styles.css">
+<script src="search.js" defer></script>
 <style>
   /* Impression : taille de page = celle de l'étiquette (ou du lot entier en
      mode papier continu). Logique inchangée par rapport à avant. */
@@ -566,11 +637,13 @@ ${labelsHtml.join("\n")}
   <div class="page-header no-print">
     <span class="badge badge-${pageKey}">${escapeHtml(theme.label)}</span>
     <h1>${escapeHtml(title)}</h1>
+    <input type="search" class="search-box no-print" placeholder="Rechercher un produit..." aria-label="Rechercher un produit sur cette page">
     <p>${escapeHtml(intro)}</p>
     <p>Ouvre cette page puis fais Ctrl+P (ou Cmd+P) pour imprimer. Chaque étiquette
     (${LABEL_WIDTH_MM}mm x ${LABEL_HEIGHT_MM}mm) sortira l'une après l'autre, avec un
     repère pointillé net entre chaque pour guider la découpe.</p>
   </div>
+  <p class="no-print empty-state search-no-results" style="display: none;">Aucun produit trouvé.</p>
   ${sectionsHtml.join("\n") || `<p class="no-print empty-state">Aucune étiquette pour le moment.</p>`}
 </body>
 </html>`;
