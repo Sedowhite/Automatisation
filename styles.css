@@ -59,6 +59,19 @@ body { font-family: Arial, sans-serif; margin: 20px; background: #fafafa; color:
 .search-box:focus { border-color: #111827; box-shadow: 0 0 0 2px rgba(17, 24, 39, 0.1); }
 .search-box::placeholder { color: #9ca3af; }
 
+.warning-banner {
+  display: block;
+  background: #fee2e2;
+  color: #b91c1c;
+  border: 2px solid #b91c1c;
+  border-radius: 8px;
+  padding: 10px 16px;
+  margin: 6px 0 12px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+}
+
 .category-section { margin-bottom: 28px; }
 .category-heading {
   font-size: 15px;
