@@ -255,7 +255,7 @@ async function regenerateSheets() {
     pageKey: "gros",
     title: "Catalogue Gros",
     intro: "Uniquement les produits dont le nom contient « (gros) ». Page de référence pour l'impression des étiquettes cartons.",
-    printInstructions: "Télécharge l'image du produit voulu, puis imprime-la via l'app sur la tablette.",
+    printInstructions: "Télécharge l'image du produit concerné, puis imprime-la via l'app sur la tablette.",
     records: gros,
   });
 
