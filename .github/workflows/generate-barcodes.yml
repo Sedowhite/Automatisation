@@ -23,22 +23,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout du code (branche main)
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       # Les fichiers auto-générés (registre + pages HTML + mapping catégories)
       # vivent sur une branche séparée "data", jamais sur "main". Ça évite tout
       # conflit entre les commits automatiques du bot et les push de code de
       # l'utilisateur sur main.
       - name: Checkout des données persistantes (branche data)
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           ref: data
           path: data
 
       - name: Installer Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
-          node-version: 20
+          node-version: 24
           cache: npm
 
       - name: Installer les dépendances
@@ -54,7 +54,7 @@ jobs:
       # ne seraient générés que dans l'environnement temporaire du run et perdus à la fin :
       # le run suivant repartirait d'un dépôt vide et écraserait tout l'historique.
       - name: Committer l'état mis à jour (registre + pages HTML) sur la branche data
-        uses: stefanzweifel/git-auto-commit-action@v5
+        uses: stefanzweifel/git-auto-commit-action@v7
         with:
           repository: data
           commit_message: "chore: mise à jour automatique des codes-barres générés"
@@ -85,7 +85,7 @@ jobs:
           done
 
       - name: Uploader l'artefact GitHub Pages
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: site
 
@@ -98,4 +98,4 @@ jobs:
     steps:
       - name: Déployer sur GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5

@@ -19,20 +19,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout du code (branche main)
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       # Même principe que generate-barcodes.yml : les données vivent sur "data",
       # jamais sur "main".
       - name: Checkout des données persistantes (branche data)
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           ref: data
           path: data
 
       - name: Installer Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
-          node-version: 20
+          node-version: 24
           cache: npm
 
       - name: Installer les dépendances
@@ -44,7 +44,7 @@ jobs:
         run: node reset-nouveaux.js
 
       - name: Committer le vidage sur la branche data
-        uses: stefanzweifel/git-auto-commit-action@v5
+        uses: stefanzweifel/git-auto-commit-action@v7
         with:
           repository: data
           commit_message: "chore: nouveautés marquées comme imprimées"
@@ -64,7 +64,7 @@ jobs:
           done
 
       - name: Uploader l'artefact GitHub Pages
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: site
 
@@ -77,4 +77,4 @@ jobs:
     steps:
       - name: Déployer sur GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
