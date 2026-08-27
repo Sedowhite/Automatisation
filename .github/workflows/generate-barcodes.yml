@@ -69,15 +69,18 @@ jobs:
             dernier-vidage.json
             category-prefix-map.json
 
+      # nouveaux.html est TOUJOURS écrit par regenerateSheets() (même quand la
+      # liste des nouveautés est vide, il garde nav/titre/style — voir
+      # label-generator.js), donc plus besoin d'un fallback "fichier absent".
+      # Un ancien fallback ici produisait un <h1> brut sans aucun style : si tu
+      # as vu une page vide sans mise en page, c'était ce fallback (probablement
+      # déployé une seule fois, juste après la séparation main/data, avant le
+      # premier remplissage du registre) — supprimé, ce cas ne peut plus se reproduire.
       - name: Préparer le site à publier
         run: |
           mkdir -p site
-          if [ -f data/nouveaux.html ]; then
-            cp data/nouveaux.html site/index.html
-            cp data/nouveaux.html site/nouveaux.html
-          else
-            echo "<h1>Aucune étiquette à imprimer pour le moment</h1>" > site/index.html
-          fi
+          cp data/nouveaux.html site/index.html
+          cp data/nouveaux.html site/nouveaux.html
           for f in catalogue-complet.html catalogue-gros.html catalogue-detail.html styles.css search.js; do
             if [ -f "data/$f" ]; then
               cp "data/$f" "site/$f"
