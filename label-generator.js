@@ -246,6 +246,7 @@ async function regenerateSheets() {
     pageKey: "nouveaux",
     title: "Nouveaux codes-barres à imprimer",
     intro: "Codes générés depuis le dernier vidage (voir le workflow \"Marquer les nouveautés comme imprimées\").",
+    printInstructions: `Ouvre cette page puis fais Ctrl+P (ou Cmd+P) pour imprimer. Chaque étiquette (${LABEL_WIDTH_MM}mm x ${LABEL_HEIGHT_MM}mm) sortira l'une après l'autre, avec un repère pointillé net entre chaque pour guider la découpe.`,
     records: nouveaux,
   });
 
@@ -254,6 +255,7 @@ async function regenerateSheets() {
     pageKey: "gros",
     title: "Catalogue Gros",
     intro: "Uniquement les produits dont le nom contient « (gros) ». Page de référence pour l'impression des étiquettes cartons.",
+    printInstructions: "Télécharge l'image du produit voulu, puis imprime-la via l'app sur la tablette.",
     records: gros,
   });
 
@@ -262,6 +264,8 @@ async function regenerateSheets() {
     pageKey: "detail",
     title: "Catalogue Détail",
     intro: "Produits « (détail) » ou sans suffixe (anciens produits). Page de référence, pas destinée à l'impression.",
+    printInstructions: null,
+    warningBanner: "CES CODES NE SONT PAS À IMPRIMER POUR LE MOMENT",
     records: detail,
   });
 }
@@ -435,6 +439,19 @@ ${PAGES.map((p) => `.badge-${p.key} { background: ${p.bg}; color: ${p.fg}; }`).j
 .search-box:focus { border-color: #111827; box-shadow: 0 0 0 2px rgba(17, 24, 39, 0.1); }
 .search-box::placeholder { color: #9ca3af; }
 
+.warning-banner {
+  display: block;
+  background: #fee2e2;
+  color: #b91c1c;
+  border: 2px solid #b91c1c;
+  border-radius: 8px;
+  padding: 10px 16px;
+  margin: 6px 0 12px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+}
+
 .category-section { margin-bottom: 28px; }
 .category-heading {
   font-size: 15px;
@@ -543,7 +560,7 @@ document.addEventListener("DOMContentLoaded", () => {
  * n'apparaissent jamais à l'impression et ne décalent pas le calcul de
  * hauteur de page.
  */
-async function writeCategorizedSheet({ filePath, pageKey, title, intro, records }) {
+async function writeCategorizedSheet({ filePath, pageKey, title, intro, printInstructions = null, warningBanner = null, records }) {
   const groups = new Map();
   for (const r of records) {
     if (!groups.has(r.category)) groups.set(r.category, []);
@@ -637,11 +654,10 @@ ${labelsHtml.join("\n")}
   <div class="page-header no-print">
     <span class="badge badge-${pageKey}">${escapeHtml(theme.label)}</span>
     <h1>${escapeHtml(title)}</h1>
+    ${warningBanner ? `<div class="warning-banner">${escapeHtml(warningBanner)}</div>` : ""}
     <input type="search" class="search-box no-print" placeholder="Rechercher un produit..." aria-label="Rechercher un produit sur cette page">
     <p>${escapeHtml(intro)}</p>
-    <p>Ouvre cette page puis fais Ctrl+P (ou Cmd+P) pour imprimer. Chaque étiquette
-    (${LABEL_WIDTH_MM}mm x ${LABEL_HEIGHT_MM}mm) sortira l'une après l'autre, avec un
-    repère pointillé net entre chaque pour guider la découpe.</p>
+    ${printInstructions ? `<p>${escapeHtml(printInstructions)}</p>` : ""}
   </div>
   <p class="no-print empty-state search-no-results" style="display: none;">Aucun produit trouvé.</p>
   ${sectionsHtml.join("\n") || `<p class="no-print empty-state">Aucune étiquette pour le moment.</p>`}
