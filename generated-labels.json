@@ -1480,5 +1480,17 @@
     "category": "Divers",
     "code": "DIV-004",
     "generatedAt": "2026-08-28T17:35:33.576Z"
+  },
+  {
+    "name": "Brume (details)",
+    "category": "Maison > Parfum d'ambiance",
+    "code": "PAR-004",
+    "generatedAt": "2026-08-28T17:40:19.369Z"
+  },
+  {
+    "name": "Brume (gros)",
+    "category": "Maison > Parfum d'ambiance",
+    "code": "PAR-005",
+    "generatedAt": "2026-08-28T17:40:35.354Z"
   }
 ]
