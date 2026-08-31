@@ -1492,5 +1492,11 @@
     "category": "Maison > Parfum d'ambiance",
     "code": "PAR-005",
     "generatedAt": "2026-08-28T17:40:35.354Z"
+  },
+  {
+    "name": "Test Token",
+    "category": "Accessoires > Cheveux",
+    "code": "ACC-009",
+    "generatedAt": "2026-08-31T08:29:11.853Z"
   }
 ]
