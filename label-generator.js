@@ -101,7 +101,9 @@ const PRICE_PENDING_CODES = new Set([
 
 function formatPriceLabel(price, code) {
   if (PRICE_PENDING_CODES.has(code)) return "Prix à confirmer";
-  return `${Number(price).toFixed(2)} FCFA`;
+  // FCFA n'a pas de sous-unité (pas de centimes) : le prix Loyverse est déjà
+  // le montant réel, pas des centimes à diviser par 100 — affiché en entier.
+  return `${Math.round(Number(price))} FCFA`;
 }
 
 /**

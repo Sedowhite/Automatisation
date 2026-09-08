@@ -31,7 +31,7 @@ async function run() {
         name: item.item_name,
         category: categoryName,
         code: barcode,
-        price: variant.default_price / 100,
+        price: variant.default_price,
       });
 
       generated.push({ name: item.item_name, barcode });
