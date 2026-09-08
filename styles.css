@@ -34,7 +34,6 @@ body { font-family: Arial, sans-serif; margin: 20px; background: #fafafa; color:
   margin-bottom: 8px;
 }
 .badge-nouveaux { background: #e5e7eb; color: #374151; }
-.badge-gros { background: #fef3c7; color: #92400e; }
 .badge-detail { background: #dbeafe; color: #1e40af; }
 
 .page-header h1 { margin: 4px 0 8px; font-size: 22px; }
