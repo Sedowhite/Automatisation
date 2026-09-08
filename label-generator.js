@@ -47,29 +47,14 @@ const RECORDS_PATH = path.join(DATA_DIR, "generated-labels.json");
 // Horodatage du dernier "vidage" de la liste des nouveautés.
 const RESET_STATE_PATH = path.join(DATA_DIR, "dernier-vidage.json");
 
-// Page héritée, conservée telle quelle (ancien design) le temps de valider
-// les 3 nouvelles pages ci-dessous — PAS encore supprimée, à confirmer avec
-// l'utilisateur avant suppression définitive.
-const CATALOGUE_PATH = path.join(DATA_DIR, "catalogue-complet.html");
-
 const NOUVEAUX_PATH = path.join(DATA_DIR, "nouveaux.html");
-const GROS_PATH = path.join(DATA_DIR, "catalogue-gros.html");
 const DETAIL_PATH = path.join(DATA_DIR, "catalogue-detail.html");
 const STYLES_PATH = path.join(DATA_DIR, "styles.css");
 const SEARCH_SCRIPT_PATH = path.join(DATA_DIR, "search.js");
 
-// Un produit va sur catalogue-gros.html si son nom contient "(gros)"
-// (insensible à la casse). Tout le reste (suffixe "(détail)" explicite OU
-// aucun suffixe du tout — anciens produits créés avant cette distinction)
-// va sur catalogue-detail.html.
-function isGros(name) {
-  return /\(gros\)/i.test(name);
-}
-
 const PAGES = [
   { key: "nouveaux", label: "Nouveautés", href: "nouveaux.html", bg: "#e5e7eb", fg: "#374151" },
-  { key: "gros", label: "Gros", href: "catalogue-gros.html", bg: "#fef3c7", fg: "#92400e" },
-  { key: "detail", label: "Détail", href: "catalogue-detail.html", bg: "#dbeafe", fg: "#1e40af" },
+  { key: "detail", label: "Catalogue", href: "catalogue-detail.html", bg: "#dbeafe", fg: "#1e40af" },
 ];
 
 function loadRecords() {
@@ -99,7 +84,46 @@ function saveResetState(state) {
  * ne capture qu'un seul élément — s'ils étaient séparés, le nom du produit
  * disparaissait de l'image sauvegardée.
  */
-async function generateLabelImageBase64({ name, code }) {
+// MÉCANISME TEMPORAIRE — prix pas encore connus pour certains SKU précis.
+// Ces produits ont un prix Loyverse à 0 (valeur technique minimale : l'API
+// refuse un prix vide en pricing_type FIXED), mais 0 ne doit pas s'afficher
+// comme un vrai prix sur l'étiquette. Tant qu'un SKU est dans cet ensemble,
+// son étiquette affiche "Prix à confirmer" à la place du prix.
+// CE N'EST PAS une règle générale sur tout prix à 0 — seulement ces SKU
+// précis, ajoutés ici au cas par cas.
+// -> Dès que le vrai prix est connu pour un SKU : 1) mettre à jour son
+//    default_price/stores[].price réel dans Loyverse, 2) le retirer de cet
+//    ensemble. L'étiquette repassera alors automatiquement à l'affichage
+//    normal du prix, sans autre changement de code.
+const PRICE_PENDING_CODES = new Set([
+  "BRA-010", // Bracelet price - prix jamais fourni depuis la recréation post-restructuration gros/détail
+]);
+
+function formatPriceLabel(price, code) {
+  if (PRICE_PENDING_CODES.has(code)) return "Prix à confirmer";
+  return `${Number(price).toFixed(2)} FCFA`;
+}
+
+/**
+ * Réduit la taille de police jusqu'à ce que `text` tienne dans maxWidth (sans
+ * jamais descendre sous MIN_PRICE_FONT_SIZE). Utilisé UNIQUEMENT pour la
+ * ligne de prix : si le texte est trop long, c'est cette police qui rétrécit,
+ * jamais le code-barre (le bloc réservé pour cette ligne garde toujours la
+ * même hauteur, calculée sur la taille de police maximale — donc la position
+ * du code-barre en dessous ne bouge jamais, quelle que soit la taille réelle
+ * choisie ici).
+ */
+function fitPriceFontSize(ctx, text, maxWidth, maxSize, minSize) {
+  let size = maxSize;
+  while (size > minSize) {
+    ctx.font = `bold ${size}px sans-serif`;
+    if (ctx.measureText(text).width <= maxWidth) break;
+    size -= 2;
+  }
+  return size;
+}
+
+export async function generateLabelImageBase64({ name, code, price }) {
   const barcodePng = await bwipjs.toBuffer({
     bcid: "code128",
     text: code,
@@ -123,7 +147,14 @@ async function generateLabelImageBase64({ name, code }) {
 
   const PADDING = 18;
   const FONT_SIZE = 38;
+  const PRICE_FONT_SIZE_MAX = 34;
+  const PRICE_FONT_SIZE_MIN = 18;
   const LINE_HEIGHT = Math.round(FONT_SIZE * 1.15);
+  // Hauteur du bloc prix TOUJOURS calculée sur la taille de police MAXIMALE,
+  // jamais sur la taille réellement utilisée : ainsi, même si le texte du
+  // prix rétrécit pour tenir en largeur, la position verticale du code-barre
+  // en dessous ne change jamais.
+  const PRICE_LINE_HEIGHT = Math.round(PRICE_FONT_SIZE_MAX * 1.15);
   const MAX_NAME_LINES = 3;
   const canvasWidth = Math.max(barcodeImg.width + PADDING * 2, 260);
   const maxTextWidth = canvasWidth - PADDING * 2;
@@ -131,9 +162,12 @@ async function generateLabelImageBase64({ name, code }) {
   const measureCtx = createCanvas(1, 1).getContext("2d");
   measureCtx.font = `bold ${FONT_SIZE}px sans-serif`;
   const nameLines = wrapText(measureCtx, name, maxTextWidth, MAX_NAME_LINES);
+  const priceText = formatPriceLabel(price, code);
+  const priceFontSize = fitPriceFontSize(measureCtx, priceText, maxTextWidth, PRICE_FONT_SIZE_MAX, PRICE_FONT_SIZE_MIN);
 
-  const textBlockHeight = nameLines.length * LINE_HEIGHT;
-  const canvasHeight = PADDING + textBlockHeight + Math.round(PADDING / 2) + barcodeImg.height + PADDING;
+  const nameBlockHeight = nameLines.length * LINE_HEIGHT;
+  const canvasHeight =
+    PADDING + nameBlockHeight + Math.round(PADDING / 3) + PRICE_LINE_HEIGHT + Math.round(PADDING / 2) + barcodeImg.height + PADDING;
 
   const canvas = createCanvas(canvasWidth, canvasHeight);
   const ctx = canvas.getContext("2d");
@@ -148,8 +182,18 @@ async function generateLabelImageBase64({ name, code }) {
     ctx.fillText(line, canvasWidth / 2, PADDING + i * LINE_HEIGHT, maxTextWidth);
   });
 
+  // Bloc réservé de hauteur fixe (PRICE_LINE_HEIGHT) ; le texte est centré
+  // verticalement dedans quelle que soit la taille de police retenue.
+  const priceBlockTop = PADDING + nameBlockHeight + Math.round(PADDING / 3);
+  const priceTextY = priceBlockTop + Math.round((PRICE_LINE_HEIGHT - priceFontSize * 1.15) / 2);
+  ctx.font = `bold ${priceFontSize}px sans-serif`;
+  ctx.fillText(priceText, canvasWidth / 2, priceTextY, maxTextWidth);
+
   const barcodeX = Math.round((canvasWidth - barcodeImg.width) / 2);
-  const barcodeY = PADDING + textBlockHeight + Math.round(PADDING / 2);
+  const barcodeY = priceBlockTop + PRICE_LINE_HEIGHT + Math.round(PADDING / 2);
+  // drawImage sans redimensionnement : le code-barre est posé à sa taille
+  // native (barcodeImg.width x barcodeImg.height), jamais compressé ou
+  // redimensionné pour faire de la place au prix.
   ctx.drawImage(barcodeImg, barcodeX, barcodeY);
 
   return `data:image/png;base64,${canvas.toBuffer("image/png").toString("base64")}`;
@@ -191,12 +235,13 @@ function wrapText(ctx, text, maxWidth, maxLines) {
  * Enregistre une étiquette (nom + catégorie + code-barres) dans le registre
  * persistant, puis régénère les deux pages HTML (catalogue complet + nouveaux).
  */
-export async function addLabelToPrintSheet({ name, category, code }) {
+export async function addLabelToPrintSheet({ name, category, code, price }) {
   const records = loadRecords();
   records.push({
     name,
     category: category || "Divers",
     code,
+    price,
     generatedAt: new Date().toISOString(),
   });
   saveRecords(records);
@@ -215,7 +260,7 @@ export async function resetNouveaux() {
   console.log("Liste des nouveautés vidée.");
 }
 
-async function regenerateSheets() {
+export async function regenerateSheets() {
   const records = loadRecords();
   const { lastReset } = loadResetState();
 
@@ -226,17 +271,6 @@ async function regenerateSheets() {
   });
 
   const nouveaux = sorted.filter((r) => new Date(r.generatedAt) > new Date(lastReset));
-  const gros = sorted.filter((r) => isGros(r.name));
-  const detail = sorted.filter((r) => !isGros(r.name));
-
-  // Page héritée, ancien design, conservée le temps de valider les 3 nouvelles.
-  await writeLegacySheet({
-    filePath: CATALOGUE_PATH,
-    title: "Catalogue complet des codes-barres",
-    records: sorted,
-    navLinkHref: "nouveaux.html",
-    navLinkText: "→ Voir les nouveaux codes-barres à imprimer",
-  });
 
   await writeStylesheet();
   await writeSearchScript();
@@ -251,125 +285,13 @@ async function regenerateSheets() {
   });
 
   await writeCategorizedSheet({
-    filePath: GROS_PATH,
-    pageKey: "gros",
-    title: "Catalogue Gros",
-    intro: "Uniquement les produits dont le nom contient « (gros) ». Page de référence pour l'impression des étiquettes cartons.",
-    printInstructions: "Télécharge l'image du produit concerné, puis imprime-la via l'app sur la tablette.",
-    records: gros,
-  });
-
-  await writeCategorizedSheet({
     filePath: DETAIL_PATH,
     pageKey: "detail",
-    title: "Catalogue Détail",
-    intro: "Produits « (détail) » ou sans suffixe (anciens produits). Page de référence, pas destinée à l'impression.",
-    printInstructions: null,
-    warningBanner: "CES CODES NE SONT PAS À IMPRIMER POUR LE MOMENT",
-    records: detail,
+    title: "Catalogue",
+    intro: "Un seul article par produit (plus de distinction gros/détail). Page de référence pour l'impression des étiquettes.",
+    printInstructions: `Ouvre cette page puis fais Ctrl+P (ou Cmd+P) pour imprimer. Chaque étiquette (${LABEL_WIDTH_MM}mm x ${LABEL_HEIGHT_MM}mm) sortira l'une après l'autre, avec un repère pointillé net entre chaque pour guider la découpe.`,
+    records: sorted,
   });
-}
-
-async function writeLegacySheet({ filePath, title, records, navLinkHref, navLinkText }) {
-  const labelsHtml = [];
-  for (const r of records) {
-    const imageDataUri = await generateLabelImageBase64({ name: r.name, code: r.code });
-    labelsHtml.push(`
-    <div class="label">
-      <img src="${imageDataUri}" alt="${escapeHtml(r.name)} (${escapeHtml(r.code)})" />
-    </div>`);
-  }
-
-  // Taille de la "page" d'impression et gestion des sauts de page : dépend de
-  // MODE_PAPIER_CONTINU (voir la constante en haut du fichier).
-  const labelCount = Math.max(records.length, 1);
-  const pageWidthMm = LABEL_WIDTH_MM;
-  const pageHeightMm = MODE_PAPIER_CONTINU ? labelCount * LABEL_HEIGHT_MM : LABEL_HEIGHT_MM;
-
-  const printBreakCss = MODE_PAPIER_CONTINU
-    ? `
-    .label {
-      page-break-inside: avoid;
-      break-inside: avoid;
-    }`
-    : `
-    .label {
-      page-break-after: always;
-      break-after: page;
-    }
-    .label:last-child {
-      page-break-after: auto;
-      break-after: auto;
-    }`;
-
-  const html = `<!DOCTYPE html>
-<html lang="fr">
-<head>
-<meta charset="UTF-8">
-<title>${escapeHtml(title)}</title>
-<style>
-  body { font-family: Arial, sans-serif; margin: 20px; }
-  .no-print { }
-
-  /* Aperçu à l'écran : grille compacte pour naviguer/vérifier les étiquettes.
-     Volontairement agrandie (SCREEN_PREVIEW_SCALE_PX_PER_MM) par rapport aux
-     vraies dimensions mm, pour rester lisible sur un écran classique — ça
-     n'affecte jamais l'impression, qui garde les vraies dimensions physiques
-     (voir @media print plus bas). */
-  .sheet { display: flex; flex-wrap: wrap; gap: 14px; }
-  .label {
-    border: 1px dashed #999;
-    padding: 8px 12px;
-    text-align: center;
-    width: ${LABEL_WIDTH_MM * SCREEN_PREVIEW_SCALE_PX_PER_MM}px;
-    height: ${LABEL_HEIGHT_MM * SCREEN_PREVIEW_SCALE_PX_PER_MM}px;
-    font-size: ${LABEL_FONT_SIZE_PT}pt;
-    box-sizing: border-box;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  .label img { width: 96%; height: auto; max-height: 94%; object-fit: contain; }
-
-  /* Taille de "page" forcée à celle de l'étiquette (ou du lot entier en mode
-     papier continu) — sans ça, Chrome imprime en A4 par défaut avec le
-     code-barre isolé dans un coin. Cette règle @page est volontairement HORS
-     de @media print : @page n'a de toute façon aucun effet à l'écran, et
-     l'imbriquer dans @media print peut empêcher Chrome de l'appliquer. */
-  @page {
-    size: ${pageWidthMm}mm ${pageHeightMm}mm;
-    margin: 0;
-  }
-
-  @media print {
-    .no-print { display: none; }
-    body { margin: 0; }
-    .sheet { display: block; }
-    .label {
-      width: ${LABEL_WIDTH_MM}mm;
-      height: ${LABEL_HEIGHT_MM}mm;
-      border: 1px dashed #999;
-    }${printBreakCss}
-  }
-</style>
-</head>
-<body>
-  <div class="no-print">
-    <h2>${escapeHtml(title)}</h2>
-    <p>Ouvre ce fichier dans ton navigateur puis fais Ctrl+P (ou Cmd+P) pour imprimer.
-    Chaque étiquette (${LABEL_WIDTH_MM}mm x ${LABEL_HEIGHT_MM}mm) sortira l'une après
-    l'autre, avec un repère pointillé net entre chaque pour guider la découpe.</p>
-    <p><a href="${navLinkHref}">${escapeHtml(navLinkText)}</a></p>
-  </div>
-  <div class="sheet">
-${labelsHtml.join("\n")}
-  </div>
-</body>
-</html>`;
-
-  fs.writeFileSync(filePath, html, "utf-8");
 }
 
 /**
@@ -571,7 +493,7 @@ async function writeCategorizedSheet({ filePath, pageKey, title, intro, printIns
   for (const [category, categoryRecords] of groups) {
     const labelsHtml = [];
     for (const r of categoryRecords) {
-      const imageDataUri = await generateLabelImageBase64({ name: r.name, code: r.code });
+      const imageDataUri = await generateLabelImageBase64({ name: r.name, code: r.code, price: r.price });
       labelsHtml.push(`
       <div class="label" data-name="${escapeHtml(r.name)}">
         <img src="${imageDataUri}" alt="${escapeHtml(r.name)} (${escapeHtml(r.code)})" />

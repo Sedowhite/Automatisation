@@ -2,13 +2,40 @@ import axios from "axios";
 
 const BASE_URL = "https://api.loyverse.com/v1.0";
 
+/**
+ * Toute erreur Axios embarque sa config d'origine (donc l'en-tête Authorization
+ * en clair) dans `error.config`/`error.request`. Si un script laisse une erreur
+ * remonter sans l'attraper, Node affiche la pile complète -> le token se
+ * retrouve en clair dans les logs/le terminal. Cet intercepteur remplace
+ * systématiquement l'erreur Axios par une erreur "propre" (juste method, url,
+ * status, data) avant qu'elle ne puisse remonter plus loin, y compris en cas
+ * d'exception non gérée.
+ */
+function sanitizeAxiosError(error) {
+  const clean = new Error(
+    error.response
+      ? `Loyverse API a répondu ${error.response.status} sur ${error.config?.method?.toUpperCase()} ${error.config?.url}`
+      : `Appel Loyverse API échoué sur ${error.config?.method?.toUpperCase()} ${error.config?.url} : ${error.message}`
+  );
+  clean.method = error.config?.method;
+  clean.url = error.config?.url;
+  clean.status = error.response?.status;
+  clean.data = error.response?.data;
+  return clean;
+}
+
 function client() {
-  return axios.create({
+  const instance = axios.create({
     baseURL: BASE_URL,
     headers: {
       Authorization: `Bearer ${process.env.LOYVERSE_ACCESS_TOKEN}`,
     },
   });
+  instance.interceptors.response.use(
+    (response) => response,
+    (error) => Promise.reject(sanitizeAxiosError(error))
+  );
+  return instance;
 }
 
 /**

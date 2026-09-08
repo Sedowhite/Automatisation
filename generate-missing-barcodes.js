@@ -27,7 +27,12 @@ async function run() {
       existingCodes.push(barcode);
 
       await assignBarcodeToVariant(item.id, variant.variant_id, barcode);
-      await addLabelToPrintSheet({ name: item.item_name, category: categoryName, code: barcode });
+      await addLabelToPrintSheet({
+        name: item.item_name,
+        category: categoryName,
+        code: barcode,
+        price: variant.default_price / 100,
+      });
 
       generated.push({ name: item.item_name, barcode });
       console.log(`  ➕ ${item.item_name} -> ${barcode}`);
@@ -45,8 +50,8 @@ async function run() {
 
 run().catch((err) => {
   console.error("❌ Erreur pendant la génération des codes-barres");
-  console.error("URL appelée :", err.config?.method?.toUpperCase(), err.config?.url);
-  console.error("Code HTTP :", err.response?.status);
-  console.error("Réponse :", typeof err.response?.data === "string" ? err.response.data.slice(0, 300) : err.response?.data);
+  console.error("URL appelée :", err.method?.toUpperCase(), err.url);
+  console.error("Code HTTP :", err.status);
+  console.error("Réponse :", typeof err.data === "string" ? err.data.slice(0, 300) : err.data);
   process.exit(1);
 });

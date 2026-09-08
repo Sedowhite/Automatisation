@@ -50,8 +50,8 @@ jobs:
           DATA_DIR: data
         run: node generate-missing-barcodes.js
 
-      # Sans cette étape, generated-labels.json / catalogue-complet.html / nouveaux.html
-      # ne seraient générés que dans l'environnement temporaire du run et perdus à la fin :
+      # Sans cette étape, generated-labels.json / nouveaux.html ne seraient
+      # générés que dans l'environnement temporaire du run et perdus à la fin :
       # le run suivant repartirait d'un dépôt vide et écraserait tout l'historique.
       - name: Committer l'état mis à jour (registre + pages HTML) sur la branche data
         uses: stefanzweifel/git-auto-commit-action@v7
@@ -60,9 +60,7 @@ jobs:
           commit_message: "chore: mise à jour automatique des codes-barres générés"
           file_pattern: >-
             generated-labels.json
-            catalogue-complet.html
             nouveaux.html
-            catalogue-gros.html
             catalogue-detail.html
             styles.css
             search.js
@@ -81,7 +79,7 @@ jobs:
           mkdir -p site
           cp data/nouveaux.html site/index.html
           cp data/nouveaux.html site/nouveaux.html
-          for f in catalogue-complet.html catalogue-gros.html catalogue-detail.html styles.css search.js; do
+          for f in catalogue-detail.html styles.css search.js; do
             if [ -f "data/$f" ]; then
               cp "data/$f" "site/$f"
             fi

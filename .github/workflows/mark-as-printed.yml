@@ -38,7 +38,7 @@ jobs:
       - name: Installer les dépendances
         run: npm ci
 
-      - name: Vider la liste des nouveautés (sans toucher au catalogue complet)
+      - name: Vider la liste des nouveautés (sans toucher au catalogue)
         env:
           DATA_DIR: data
         run: node reset-nouveaux.js
@@ -57,7 +57,7 @@ jobs:
           mkdir -p site
           cp data/nouveaux.html site/index.html
           cp data/nouveaux.html site/nouveaux.html
-          for f in catalogue-complet.html catalogue-gros.html catalogue-detail.html styles.css search.js; do
+          for f in catalogue-detail.html styles.css search.js; do
             if [ -f "data/$f" ]; then
               cp "data/$f" "site/$f"
             fi

@@ -5,11 +5,12 @@ Quand un nouveau produit est créé dans Loyverse **sans code-barre**, ce projet
 1. Génère un code au format `PREFIXE-NNN` selon la catégorie du produit
    (préfixe défini dans `category-prefix-map.json`, numéro séquentiel suivant).
 2. Écrit ce code directement dans la fiche Loyverse (`barcode` et `sku` de la variante).
-3. Génère UNE SEULE image (nom du produit + vraies barres verticales) et
-   l'ajoute aux pages HTML prêtes à imprimer, triées gros/détail/nouveaux
-   (voir ci-dessous).
+3. Génère UNE SEULE image (nom du produit + prix + vraies barres verticales) et
+   l'ajoute aux pages HTML prêtes à imprimer (voir ci-dessous).
 
-Ce projet est **100% Loyverse** : il n'y a plus de dépendance à Notion.
+Ce projet est **100% Loyverse** : il n'y a plus de dépendance à Notion. Tous
+les articles sont des fiches simples à **prix fixe** — il n'y a plus de
+distinction gros/détail ni de prix modifiable.
 
 ## Comment ça tourne
 
@@ -56,6 +57,10 @@ fiable qu'un cron interne à GitHub Actions.
 4. Le token PAT reste uniquement dans la configuration de cron-job.org — il
    n'est jamais mis dans ce dépôt.
 
+**Important** : ce cron republie automatiquement le site public à chaque
+déclenchement (~toutes les 5 minutes), sans validation manuelle intermédiaire.
+Tout ce qui est poussé sur `data` finit sur GitHub Pages en quelques minutes.
+
 ## Deux branches Git : `main` (code) et `data` (données auto-générées)
 
 **`main`** contient uniquement le code (scripts, workflows, README, config
@@ -63,11 +68,11 @@ npm). Tu es le seul à y committer/pousser, et **rien n'y écrit jamais
 automatiquement**.
 
 **`data`** contient uniquement les fichiers que le bot écrit tout seul :
-`category-prefix-map.json`, `generated-labels.json`, `catalogue-complet.html`,
-`nouveaux.html`, `catalogue-gros.html`, `catalogue-detail.html`, `styles.css`,
-`search.js`, `dernier-vidage.json`. Les deux workflows GitHub Actions committent et
-poussent **uniquement sur cette branche**, jamais sur `main`. Tu n'as
-normalement jamais besoin de la checkout ou d'y toucher toi-même.
+`category-prefix-map.json`, `generated-labels.json`, `nouveaux.html`,
+`catalogue-detail.html`, `styles.css`, `search.js`, `dernier-vidage.json`.
+Les deux workflows GitHub Actions committent et poussent **uniquement sur
+cette branche**, jamais sur `main`. Tu n'as normalement jamais besoin de la
+checkout ou d'y toucher toi-même.
 
 **Pourquoi cette séparation ?** Avant, tout (code + données auto-générées)
 vivait sur `main`. Le workflow tournant toutes les 5 minutes committait
@@ -89,53 +94,56 @@ d'environnement `DATA_DIR` pour savoir où se trouvent leurs fichiers :
 
 ## Les pages d'étiquettes
 
-Trois pages "nouveau design" (bandeau de navigation, badge de couleur,
-produits regroupés par catégorie, feuille de style partagée `styles.css`,
-barre de recherche partagée `search.js`) :
+Deux pages (bandeau de navigation, badge de couleur, produits regroupés par
+catégorie, feuille de style partagée `styles.css`, barre de recherche
+partagée `search.js`) :
 
-- **`catalogue-gros.html`** (badge orange) : uniquement les produits dont le
-  nom contient `(gros)` (insensible à la casse). **C'est la seule page qui
-  compte vraiment pour l'impression des étiquettes cartons.**
-- **`catalogue-detail.html`** (badge bleu) : produits dont le nom contient
-  `(détail)`, ou sans aucun suffixe du tout (anciens produits créés avant
-  cette distinction). Page de référence uniquement, pas destinée à
-  l'impression de codes-barres.
+- **`catalogue-detail.html`** (badge bleu, "Catalogue") : **la** page de
+  référence — tous les produits, un seul par fiche (plus de distinction
+  gros/détail). Destinée à l'impression, comme `nouveaux.html`.
+- **`nouveaux.html`** (badge neutre) : uniquement les étiquettes générées
+  depuis le dernier "vidage" (voir workflow 2 ci-dessous). C'est la page
+  d'accueil (`index.html`).
 
-### Barre de recherche (sur les 3 pages)
+Chaque étiquette (image fusionnée nom + prix + code-barre, voir
+`generateLabelImageBase64` dans `label-generator.js`) affiche le prix au
+format `"XX.XX FCFA"` entre le nom et le code-barre. Le bloc réservé à cette
+ligne a une hauteur fixe (calculée sur la taille de police maximale) : si le
+texte du prix est trop large, c'est sa police qui rétrécit — **jamais** le
+code-barre, qui garde toujours ses dimensions natives.
+
+**Cas particulier temporaire — `BRA-010`** : ce produit n'a pas encore de
+prix réel connu (voir `PRICE_PENDING_CODES` dans `label-generator.js`). Son
+prix Loyverse est techniquement à `0` (valeur minimale acceptée par l'API —
+`FIXED` refuse un prix vide), mais l'étiquette affiche `"Prix à confirmer"`
+à la place de `"0.00 FCFA"` pour ce SKU précis. **Dès que le vrai prix est
+connu** : mettre à jour le prix réel dans Loyverse (`default_price` /
+`stores[].price`) ET retirer `"BRA-010"` de `PRICE_PENDING_CODES` — l'étiquette
+repassera alors automatiquement à l'affichage normal du prix.
+
+### Barre de recherche (sur les 2 pages)
 
 Chaque page a sa propre barre de recherche, juste sous le titre — filtrage en
 temps réel (aucun bouton, aucun rechargement), sur le nom du produit,
 insensible à la casse et aux accents ("ete" trouve "Été"). 100% JS navigateur
-(`search.js`, partagé par les 3 pages), aucun appel réseau. La recherche
+(`search.js`, partagé par les 2 pages), aucun appel réseau. La recherche
 est strictement limitée à la page où elle est tapée — pas de recherche
-croisée entre gros/détail/nouveaux. Un message "Aucun produit trouvé"
-s'affiche si rien ne correspond. La barre de recherche et ce message ont la
-classe `no-print` : ils n'apparaissent jamais à l'impression, comme le
-bandeau de navigation.
-- **`nouveaux.html`** (badge neutre) : uniquement les étiquettes générées
-  depuis le dernier "vidage" (voir workflow 2 ci-dessous), tous suffixes
-  confondus — comportement inchangé par rapport à avant. C'est la page
-  d'accueil (`index.html`).
-
-Plus une page héritée, **conservée pour l'instant, pas encore supprimée** :
-- **`catalogue-complet.html`** (ancien design, sans nav/badge) : TOUTES les
-  étiquettes jamais générées, sans filtrage par `(gros)`/`(détail)`. À
-  supprimer une fois les 3 pages ci-dessus validées — demander confirmation
-  avant.
+croisée entre les 2 pages. Un message "Aucun produit trouvé" s'affiche si
+rien ne correspond. La barre de recherche et ce message ont la classe
+`no-print` : ils n'apparaissent jamais à l'impression, comme le bandeau de
+navigation.
 
 ### URLs une fois publié sur GitHub Pages
 
 - Nouveautés (page d'accueil) : `https://sedowhite.github.io/Automatisation/`
   — accessible aussi sur `https://sedowhite.github.io/Automatisation/nouveaux.html`.
-- Gros : `https://sedowhite.github.io/Automatisation/catalogue-gros.html`
-- Détail : `https://sedowhite.github.io/Automatisation/catalogue-detail.html`
-- Catalogue complet (héritée) : `https://sedowhite.github.io/Automatisation/catalogue-complet.html`
+- Catalogue : `https://sedowhite.github.io/Automatisation/catalogue-detail.html`
 
-Les 3 pages "nouveau design" partagent un bandeau de navigation entre elles.
-Toutes sont regénérées à partir d'un registre persistant,
-**`generated-labels.json`**, qui n'est lui-même jamais vidé — c'est la source
-de vérité de tout ce qui a été généré. `dernier-vidage.json` retient juste la
-date du dernier vidage de `nouveaux.html`.
+Les 2 pages partagent un bandeau de navigation entre elles. Toutes sont
+régénérées à partir d'un registre persistant, **`generated-labels.json`**,
+qui n'est lui-même jamais vidé — c'est la source de vérité de tout ce qui a
+été généré (nom, catégorie, code, prix). `dernier-vidage.json` retient juste
+la date du dernier vidage de `nouveaux.html`.
 
 Ces fichiers vivent sur la branche `data` (voir plus haut), pas sur `main`.
 
@@ -148,7 +156,7 @@ publiait sur GitHub Pages, puis **tout était perdu** à la fin du run. Résulta
 un produit généré à une exécution disparaissait à la suivante.
 
 Le workflow committe et pousse désormais `generated-labels.json`,
-`catalogue-complet.html`, `nouveaux.html`, `dernier-vidage.json` et
+`catalogue-detail.html`, `nouveaux.html`, `dernier-vidage.json` et
 `category-prefix-map.json` sur la branche `data` après chaque génération (via
 `stefanzweifel/git-auto-commit-action`, avec le `GITHUB_TOKEN` automatique de
 l'action — pas besoin de configurer un token supplémentaire). Le run suivant
@@ -188,19 +196,18 @@ mise en page bascule en "une étiquette par page".
 ### Sur `main` (code, tu es le seul à y toucher)
 - `loyverse.js` : client API Loyverse (articles, catégories, écriture de code-barre)
 - `barcode-generator.js` : génère le prochain code selon la catégorie
-- `label-generator.js` : génération des pages HTML d'étiquettes (gros/détail/nouveaux + page héritée)
+- `label-generator.js` : génération des pages HTML d'étiquettes (catalogue + nouveaux)
 - `generate-missing-barcodes.js` : script principal, exécuté par le cron GitHub Actions
 - `reset-nouveaux.js` : vide `nouveaux.html` (voir workflow 2)
 - `.github/workflows/*.yml` : les 2 workflows
 
 ### Sur `data` (générées automatiquement, ne jamais éditer à la main)
 - `category-prefix-map.json` : mapping catégorie Loyverse → préfixe de code-barre à 3 lettres
-- `generated-labels.json` : registre persistant de toutes les étiquettes jamais générées
+- `generated-labels.json` : registre persistant de toutes les étiquettes jamais générées (nom, catégorie, code, prix)
 - `dernier-vidage.json` : date du dernier vidage de `nouveaux.html`
-- `styles.css` : feuille de style partagée par `nouveaux.html` / `catalogue-gros.html` / `catalogue-detail.html`
-- `search.js` : script de recherche partagé par les 3 mêmes pages (filtrage en temps réel, par page)
-- `nouveaux.html` / `catalogue-gros.html` / `catalogue-detail.html` : les 3 pages "nouveau design"
-- `catalogue-complet.html` : page héritée (ancien design), conservée temporairement
+- `styles.css` : feuille de style partagée par `nouveaux.html` / `catalogue-detail.html`
+- `search.js` : script de recherche partagé par les 2 mêmes pages (filtrage en temps réel, par page)
+- `nouveaux.html` / `catalogue-detail.html` : les 2 pages
 
 ## Automatisation : deux workflows GitHub Actions
 
@@ -209,16 +216,15 @@ Déclenché par `workflow_dispatch`, appelé toutes les 5 minutes par le cron
 externe (voir "Déclenchement fiable" plus haut) — plus de `schedule` GitHub
 natif, jugé trop peu fiable. Checkout `main` (code) + `data` (données) dans
 un sous-dossier, récupère les articles Loyverse sans code-barre, génère les
-codes, les écrit dans Loyverse, met à jour le registre et toutes les pages HTML
+codes, les écrit dans Loyverse, met à jour le registre et les pages HTML
 **sur la branche `data`**, puis publie `nouveaux.html` (page d'accueil),
-`catalogue-gros.html`, `catalogue-detail.html`, `styles.css`, `search.js`
-et `catalogue-complet.html` (héritée) sur GitHub Pages.
+`catalogue-detail.html`, `styles.css` et `search.js` sur GitHub Pages.
 
 ### 2. `mark-as-printed.yml` — "Marquer les nouveautés comme imprimées"
 Déclenchement **manuel uniquement** (`workflow_dispatch`, pas de cron) :
 à lancer depuis l'onglet **Actions** du repo une fois que les étiquettes de
 `nouveaux.html` ont été imprimées. Il vide `nouveaux.html` et met à jour
-`dernier-vidage.json` **sur `data`**, sans toucher à `catalogue-complet.html`,
+`dernier-vidage.json` **sur `data`**, sans toucher à `catalogue-detail.html`,
 puis republie immédiatement GitHub Pages pour que la page reflète le vidage
 tout de suite (pas besoin d'attendre le prochain cron).
 
@@ -267,9 +273,8 @@ npm run generate-barcodes   # génère les codes-barres manquants + toutes les p
 npm run reset-nouveaux      # vide nouveaux.html (équivalent local du workflow 2)
 ```
 
-Sans `DATA_DIR` défini, toutes les pages (`catalogue-complet.html`,
-`nouveaux.html`, `catalogue-gros.html`, `catalogue-detail.html`, `styles.css`,
-`search.js`) sont créées/mises à jour à la racine du projet (pratique pour tester).
-Ouvre-les dans un navigateur puis Ctrl+P pour imprimer. **Ne les committe pas
-sur `main`** — ce sont des fichiers de test locaux, la vraie donnée vit sur
-`data`.
+Sans `DATA_DIR` défini, toutes les pages (`nouveaux.html`,
+`catalogue-detail.html`, `styles.css`, `search.js`) sont créées/mises à jour
+à la racine du projet (pratique pour tester). Ouvre-les dans un navigateur
+puis Ctrl+P pour imprimer. **Ne les committe pas sur `main`** — ce sont des
+fichiers de test locaux, la vraie donnée vit sur `data`.
