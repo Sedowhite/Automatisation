@@ -1,5 +1,33 @@
 [
   {
+    "name": "Bracelet price",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-010",
+    "price": null,
+    "generatedAt": "2026-07-28T20:06:18.162Z"
+  },
+  {
+    "name": "Brume (details)",
+    "category": "Maison > Parfum d'ambiance",
+    "code": "PAR-004",
+    "price": 1500,
+    "generatedAt": "2026-08-28T17:40:15.000Z"
+  },
+  {
+    "name": "LATAFA ONLYOU (details)",
+    "category": "Divers",
+    "code": "DIV-003",
+    "price": 1500,
+    "generatedAt": "2026-08-28T17:34:20.000Z"
+  },
+  {
+    "name": "Mossuf 50ml(Detail)",
+    "category": "Maison > Parfum d'ambiance",
+    "code": "DIV-002",
+    "price": 2000,
+    "generatedAt": "2026-08-28T17:25:18.000Z"
+  },
+  {
     "name": "Montre 9500",
     "category": "Montres",
     "code": "MON-007",
@@ -119,14 +147,14 @@
     "generatedAt": "2026-07-28T20:05:59.825Z"
   },
   {
-    "name": "Ensemble chaine 4 pièces Fashion Jewelry",
+    "name": "Ensemble chaine 4 pièces Fashion Jewelry",
     "category": "Ensembles > Ensembles bijoux",
     "code": "ENS-017",
     "price": 2000,
     "generatedAt": "2026-07-28T20:05:59.929Z"
   },
   {
-    "name": "Ensemble chaine 4 pièces",
+    "name": "Ensemble chaine 4 pièces",
     "category": "Ensembles > Ensembles bijoux",
     "code": "ENS-005",
     "price": 2000,
@@ -140,7 +168,7 @@
     "generatedAt": "2026-07-28T20:06:00.160Z"
   },
   {
-    "name": "Ensemble 3 pièces",
+    "name": "Ensemble 3 pièces",
     "category": "Ensembles > Ensembles bijoux",
     "code": "ENS-001",
     "price": 3000,
@@ -231,7 +259,7 @@
     "generatedAt": "2026-07-28T20:06:02.088Z"
   },
   {
-    "name": "Rouge à lèvre",
+    "name": "Rouge à lèvre",
     "category": "Cosmétiques > Lèvres",
     "code": "LEV-003",
     "price": 1750,
@@ -245,7 +273,7 @@
     "generatedAt": "2026-07-28T20:06:02.450Z"
   },
   {
-    "name": "Gommage à lèvre",
+    "name": "Gommage à lèvre",
     "category": "Cosmétiques > Lèvres",
     "code": "LEV-001",
     "price": 700,
@@ -308,14 +336,14 @@
     "generatedAt": "2026-07-28T20:06:04.305Z"
   },
   {
-    "name": "Crème lèvre rose",
+    "name": "Crème lèvre rose",
     "category": "Cosmétiques > Lèvres",
     "code": "LEV-008",
     "price": 800,
     "generatedAt": "2026-07-28T20:06:04.523Z"
   },
   {
-    "name": "Crème lèvre",
+    "name": "Crème lèvre",
     "category": "Cosmétiques > Lèvres",
     "code": "LEV-002",
     "price": 800,
@@ -350,7 +378,7 @@
     "generatedAt": "2026-07-28T20:06:05.699Z"
   },
   {
-    "name": "Médaille enfant",
+    "name": "Médaille enfant",
     "category": "Bijoux > Colliers & Chaînes",
     "code": "COL-008",
     "price": 500,
@@ -385,7 +413,7 @@
     "generatedAt": "2026-07-28T20:06:07.017Z"
   },
   {
-    "name": "Chaine simple sans médaille",
+    "name": "Chaine simple sans médaille",
     "category": "Bijoux > Colliers & Chaînes",
     "code": "COL-007",
     "price": 600,
@@ -476,7 +504,7 @@
     "generatedAt": "2026-07-28T20:06:11.040Z"
   },
   {
-    "name": "Chaine en argent 2 pièces",
+    "name": "Chaine en argent 2 pièces",
     "category": "Bijoux > Colliers & Chaînes",
     "code": "COL-030",
     "price": 2000,
@@ -490,7 +518,7 @@
     "generatedAt": "2026-07-28T20:06:11.724Z"
   },
   {
-    "name": "Chaine Fashion Jewelry 4 piècesen argent",
+    "name": "Chaine Fashion Jewelry 4 piècesen argent",
     "category": "Bijoux > Colliers & Chaînes",
     "code": "COL-031",
     "price": 2000,
@@ -525,7 +553,7 @@
     "generatedAt": "2026-07-28T20:06:13.611Z"
   },
   {
-    "name": "Chaine 4 pièces Stainless Steel",
+    "name": "Chaine 4 pièces Stainless Steel",
     "category": "Bijoux > Colliers & Chaînes",
     "code": "COL-026",
     "price": 2500,
@@ -595,14 +623,7 @@
     "generatedAt": "2026-07-28T20:06:17.739Z"
   },
   {
-    "name": "Bracelet price",
-    "category": "Bijoux > Bracelets",
-    "code": "BRA-010",
-    "price": 0,
-    "generatedAt": "2026-07-28T20:06:18.162Z"
-  },
-  {
-    "name": "Bracelet pierre cristallisée",
+    "name": "Bracelet pierre cristallisée",
     "category": "Bijoux > Bracelets",
     "code": "BRA-009",
     "price": 2000,
@@ -630,7 +651,7 @@
     "generatedAt": "2026-07-28T20:06:20.030Z"
   },
   {
-    "name": "Bracelet en perle 3 pièces",
+    "name": "Bracelet en perle 3 pièces",
     "category": "Bijoux > Bracelets",
     "code": "BRA-008",
     "price": 1500,
@@ -742,7 +763,7 @@
     "generatedAt": "2026-07-28T20:06:27.896Z"
   },
   {
-    "name": "Bague à plaquette",
+    "name": "Bague à plaquette",
     "category": "Bijoux > Bagues",
     "code": "BAG-009",
     "price": 1100,
@@ -777,14 +798,14 @@
     "generatedAt": "2026-07-28T20:06:30.556Z"
   },
   {
-    "name": "Bague de fiançaille Stainless Steel",
+    "name": "Bague de fiançaille Stainless Steel",
     "category": "Bijoux > Bagues",
     "code": "BAG-006",
     "price": 1100,
     "generatedAt": "2026-07-28T20:06:31.110Z"
   },
   {
-    "name": "Bague de fiançaille",
+    "name": "Bague de fiançaille",
     "category": "Bijoux > Bagues",
     "code": "BAG-007",
     "price": 1500,
@@ -819,14 +840,14 @@
     "generatedAt": "2026-07-28T20:06:33.912Z"
   },
   {
-    "name": "Pince à cheveux C",
+    "name": "Pince à cheveux C",
     "category": "Accessoires > Cheveux",
     "code": "ACC-004",
     "price": 800,
     "generatedAt": "2026-07-28T20:06:34.479Z"
   },
   {
-    "name": "Pince à cheveux",
+    "name": "Pince à cheveux",
     "category": "Accessoires > Cheveux",
     "code": "ACC-003",
     "price": 700,
@@ -875,24 +896,1263 @@
     "generatedAt": "2026-07-28T20:06:38.633Z"
   },
   {
-    "name": "Brume (details)",
-    "category": "Maison > Parfum d'ambiance",
-    "code": "PAR-004",
-    "price": 1500,
-    "generatedAt": "2026-08-28T17:40:15.000Z"
-  },
-  {
-    "name": "LATAFA ONLYOU (details)",
-    "category": "Divers",
-    "code": "DIV-003",
-    "price": 1500,
-    "generatedAt": "2026-08-28T17:34:20.000Z"
-  },
-  {
-    "name": "Mossuf 50ml(Detail)",
-    "category": "Maison > Parfum d'ambiance",
-    "code": "DIV-002",
+    "name": "Bracelet Femme 2000F",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-017",
     "price": 2000,
-    "generatedAt": "2026-08-28T17:25:18.000Z"
+    "generatedAt": "2026-09-12T08:12:40.000Z"
+  },
+  {
+    "name": "Bracelet Femme 1300F",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-018",
+    "price": 1300,
+    "generatedAt": "2026-09-12T08:12:40.000Z"
+  },
+  {
+    "name": "Bracelet Femme 1100F",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-019",
+    "price": 1100,
+    "generatedAt": "2026-09-12T08:12:41.000Z"
+  },
+  {
+    "name": "Bracelet Femme 1700F",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-020",
+    "price": 1700,
+    "generatedAt": "2026-09-12T08:12:41.000Z"
+  },
+  {
+    "name": "Bracelet Femme 800F",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-021",
+    "price": 800,
+    "generatedAt": "2026-09-12T08:12:42.000Z"
+  },
+  {
+    "name": "Bracelet Femme 1250F",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-022",
+    "price": 1250,
+    "generatedAt": "2026-09-12T08:12:42.000Z"
+  },
+  {
+    "name": "Bracelet Mixte 1300F",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-023",
+    "price": 1300,
+    "generatedAt": "2026-09-12T08:12:43.000Z"
+  },
+  {
+    "name": "Bracelet Homme 1250F",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-024",
+    "price": 1250,
+    "generatedAt": "2026-09-12T08:12:43.000Z"
+  },
+  {
+    "name": "Bracelet Bague 1500F",
+    "category": "Bijoux > Bagues",
+    "code": "BAG-011",
+    "price": 1500,
+    "generatedAt": "2026-09-12T08:12:44.000Z"
+  },
+  {
+    "name": "Bracelet Perles 1300F",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-025",
+    "price": 1300,
+    "generatedAt": "2026-09-12T08:12:45.000Z"
+  },
+  {
+    "name": "Chaine + Boucle d'oreille 1600F",
+    "category": "Ensembles > Ensembles bijoux",
+    "code": "ENS-019",
+    "price": 1600,
+    "generatedAt": "2026-09-12T08:12:45.000Z"
+  },
+  {
+    "name": "Chaine + Boucle d'oreille 2000F",
+    "category": "Ensembles > Ensembles bijoux",
+    "code": "ENS-020",
+    "price": 2000,
+    "generatedAt": "2026-09-12T08:12:46.000Z"
+  },
+  {
+    "name": "Chaine + Boucle d'oreille 1500F",
+    "category": "Ensembles > Ensembles bijoux",
+    "code": "ENS-021",
+    "price": 1500,
+    "generatedAt": "2026-09-12T08:12:46.000Z"
+  },
+  {
+    "name": "Chaine + Boucle d'oreille 1300F",
+    "category": "Ensembles > Ensembles bijoux",
+    "code": "ENS-022",
+    "price": 1300,
+    "generatedAt": "2026-09-12T08:12:47.000Z"
+  },
+  {
+    "name": "Broche 1100F",
+    "category": "Bijoux > Broches",
+    "code": "BRO-004",
+    "price": 1100,
+    "generatedAt": "2026-09-12T08:12:47.000Z"
+  },
+  {
+    "name": "Double Chaine + Boucle d'oreille 1500F",
+    "category": "Ensembles > Ensembles bijoux",
+    "code": "ENS-023",
+    "price": 1500,
+    "generatedAt": "2026-09-12T08:12:48.000Z"
+  },
+  {
+    "name": "3 Pièces Chaine + Boucle d'oreille + Bracelet 2500F",
+    "category": "Ensembles > Ensembles bijoux",
+    "code": "ENS-024",
+    "price": 2500,
+    "generatedAt": "2026-09-12T08:12:48.000Z"
+  },
+  {
+    "name": "2 Pièces Chaine + Boucle d'oreille 1600F",
+    "category": "Ensembles > Ensembles bijoux",
+    "code": "ENS-025",
+    "price": 1600,
+    "generatedAt": "2026-09-12T08:12:49.000Z"
+  },
+  {
+    "name": "Pinceau 1100F",
+    "category": "Cosmétiques > Maquillage",
+    "code": "MAQ-001",
+    "price": 1100,
+    "generatedAt": "2026-09-12T08:12:49.000Z"
+  },
+  {
+    "name": "Chaine de pied 500F",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-032",
+    "price": 500,
+    "generatedAt": "2026-09-12T08:12:50.000Z"
+  },
+  {
+    "name": "Rat de Cou 1500F",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-033",
+    "price": 1500,
+    "generatedAt": "2026-09-12T08:12:51.000Z"
+  },
+  {
+    "name": "Médaille 500F",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-034",
+    "price": 500,
+    "generatedAt": "2026-09-12T08:12:51.000Z"
+  },
+  {
+    "name": "Faux Boucle Percing 500F",
+    "category": "Bijoux > Corps",
+    "code": "COR-001",
+    "price": 500,
+    "generatedAt": "2026-09-12T08:12:52.000Z"
+  },
+  {
+    "name": "Boucle d'oreille Plaquette 500F",
+    "category": "Bijoux > Boucles d'oreilles",
+    "code": "BOU-007",
+    "price": 500,
+    "generatedAt": "2026-09-12T08:12:52.000Z"
+  },
+  {
+    "name": "Boucle d'oreille Fleurie 600F",
+    "category": "Bijoux > Boucles d'oreilles",
+    "code": "BOU-008",
+    "price": 600,
+    "generatedAt": "2026-09-12T08:12:53.000Z"
+  },
+  {
+    "name": "Pinceau maquillage 1300F",
+    "category": "Cosmétiques > Maquillage",
+    "code": "MAQ-002",
+    "price": 1300,
+    "generatedAt": "2026-09-12T08:12:53.000Z"
+  },
+  {
+    "name": "Chaine Homme 1100F",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-035",
+    "price": 1100,
+    "generatedAt": "2026-09-12T08:12:54.000Z"
+  },
+  {
+    "name": "Chaine faux Beinit 1400F",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-036",
+    "price": 1400,
+    "generatedAt": "2026-09-12T08:12:54.000Z"
+  },
+  {
+    "name": "Chaine Homme 1200F",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-037",
+    "price": 1200,
+    "generatedAt": "2026-09-12T08:12:55.000Z"
+  },
+  {
+    "name": "Chaine Simple 1000F",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-038",
+    "price": 1000,
+    "generatedAt": "2026-09-12T08:12:55.000Z"
+  },
+  {
+    "name": "Chaine Femme 1000F",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-039",
+    "price": 1000,
+    "generatedAt": "2026-09-12T08:12:56.000Z"
+  },
+  {
+    "name": "Chaine Femme 1300F",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-040",
+    "price": 1300,
+    "generatedAt": "2026-09-12T08:12:56.000Z"
+  },
+  {
+    "name": "Chaine Femme 1500F",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-041",
+    "price": 1500,
+    "generatedAt": "2026-09-12T08:12:57.000Z"
+  },
+  {
+    "name": "2 Pièces Chaine + Bracelet 2100F",
+    "category": "Ensembles > Ensembles bijoux",
+    "code": "ENS-026",
+    "price": 2100,
+    "generatedAt": "2026-09-12T08:12:57.000Z"
+  },
+  {
+    "name": "Chaine Femme 1200F",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-042",
+    "price": 1200,
+    "generatedAt": "2026-09-12T08:12:58.000Z"
+  },
+  {
+    "name": "Chaine Femme 1100F",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-043",
+    "price": 1100,
+    "generatedAt": "2026-09-12T08:12:59.000Z"
+  },
+  {
+    "name": "Chaine de Pied 1400F",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-044",
+    "price": 1400,
+    "generatedAt": "2026-09-12T08:12:59.000Z"
+  },
+  {
+    "name": "Chaine de Pied 1000F",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-045",
+    "price": 1000,
+    "generatedAt": "2026-09-12T08:13:00.000Z"
+  },
+  {
+    "name": "Montre Homme Omaga/Rolex 1700F",
+    "category": "Montres",
+    "code": "MON-014",
+    "price": 1700,
+    "generatedAt": "2026-09-12T08:13:00.000Z"
+  },
+  {
+    "name": "Montre Homme Niqice 2000F",
+    "category": "Montres",
+    "code": "MON-015",
+    "price": 2000,
+    "generatedAt": "2026-09-12T08:13:02.000Z"
+  },
+  {
+    "name": "Montre Homme IK 2000F",
+    "category": "Montres",
+    "code": "MON-016",
+    "price": 2000,
+    "generatedAt": "2026-09-12T08:13:02.000Z"
+  },
+  {
+    "name": "Montre Femme Jiali 1400F",
+    "category": "Montres",
+    "code": "MON-017",
+    "price": 1400,
+    "generatedAt": "2026-09-12T08:13:03.000Z"
+  },
+  {
+    "name": "Montre Femme 2P 2000F",
+    "category": "Montres",
+    "code": "MON-018",
+    "price": 2000,
+    "generatedAt": "2026-09-12T08:13:04.000Z"
+  },
+  {
+    "name": "Montre Homme CK 2000F",
+    "category": "Montres",
+    "code": "MON-019",
+    "price": 2000,
+    "generatedAt": "2026-09-12T08:13:05.000Z"
+  },
+  {
+    "name": "Montre Homme Electronique 1750F",
+    "category": "Montres",
+    "code": "MON-020",
+    "price": 1750,
+    "generatedAt": "2026-09-12T08:13:05.000Z"
+  },
+  {
+    "name": "Bracelet Horoscope 1000F",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-026",
+    "price": 1000,
+    "generatedAt": "2026-09-12T08:13:06.000Z"
+  },
+  {
+    "name": "bracelt femme 1500F",
+    "category": "Bijoux > Bracelets",
+    "code": "DIV-004",
+    "price": 1500,
+    "generatedAt": "2026-09-12T08:13:06.000Z"
+  },
+  {
+    "name": "Bracelet Perles 1500F",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-027",
+    "price": 1500,
+    "generatedAt": "2026-09-12T08:13:07.000Z"
+  },
+  {
+    "name": "Montre Homme Gacia 2000F",
+    "category": "Montres",
+    "code": "MON-021",
+    "price": 2000,
+    "generatedAt": "2026-09-12T08:13:07.000Z"
+  },
+  {
+    "name": "Montre femme 1750F",
+    "category": "Montres",
+    "code": "MON-022",
+    "price": 1750,
+    "generatedAt": "2026-09-12T08:13:08.000Z"
+  },
+  {
+    "name": "Montre femme 2000F",
+    "category": "Montres",
+    "code": "MON-023",
+    "price": 2000,
+    "generatedAt": "2026-09-12T08:13:08.000Z"
+  },
+  {
+    "name": "Montre homme Collection 2000F",
+    "category": "Montres",
+    "code": "MON-024",
+    "price": 2000,
+    "generatedAt": "2026-09-12T08:13:09.000Z"
+  },
+  {
+    "name": "Montre Homme 2000F",
+    "category": "Montres",
+    "code": "MON-025",
+    "price": 2000,
+    "generatedAt": "2026-09-12T08:13:09.000Z"
+  },
+  {
+    "name": "Montre femme Citystar 2200F",
+    "category": "Montres",
+    "code": "MON-026",
+    "price": 2200,
+    "generatedAt": "2026-09-12T08:13:10.000Z"
+  },
+  {
+    "name": "Montre femme Niqice 2000F",
+    "category": "Montres",
+    "code": "MON-027",
+    "price": 2000,
+    "generatedAt": "2026-09-12T08:13:10.000Z"
+  },
+  {
+    "name": "Montre femme Farola 1800F",
+    "category": "Montres",
+    "code": "MON-028",
+    "price": 1800,
+    "generatedAt": "2026-09-12T08:13:11.000Z"
+  },
+  {
+    "name": "Montre femme 1875F",
+    "category": "Montres",
+    "code": "MON-029",
+    "price": 1875,
+    "generatedAt": "2026-09-12T08:13:11.000Z"
+  },
+  {
+    "name": "Montre Homme 2pieces 2000F",
+    "category": "Ensembles > Ensembles bijoux",
+    "code": "ENS-027",
+    "price": 2000,
+    "generatedAt": "2026-09-12T08:13:12.000Z"
+  },
+  {
+    "name": "Montre Mixte 2000F",
+    "category": "Montres",
+    "code": "MON-030",
+    "price": 2000,
+    "generatedAt": "2026-09-12T08:13:13.000Z"
+  },
+  {
+    "name": "Perle Hanche 3000F",
+    "category": "Bijoux > Corps",
+    "code": "COR-002",
+    "price": 3000,
+    "generatedAt": "2026-09-12T08:13:13.000Z"
+  },
+  {
+    "name": "Boucle Oreille 1000F",
+    "category": "Bijoux > Boucles d'oreilles",
+    "code": "BOU-009",
+    "price": 1000,
+    "generatedAt": "2026-09-12T08:13:14.000Z"
+  },
+  {
+    "name": "Boucle Oreille 700F",
+    "category": "Bijoux > Boucles d'oreilles",
+    "code": "BOU-010",
+    "price": 700,
+    "generatedAt": "2026-09-12T08:13:14.000Z"
+  },
+  {
+    "name": "Boucle Oreille Plaquette 2500F",
+    "category": "Bijoux > Boucles d'oreilles",
+    "code": "BOU-011",
+    "price": 2500,
+    "generatedAt": "2026-09-12T08:13:14.000Z"
+  },
+  {
+    "name": "Boucle Oreille Enfant 1000F",
+    "category": "Bijoux > Boucles d'oreilles",
+    "code": "BOU-012",
+    "price": 1000,
+    "generatedAt": "2026-09-12T08:13:15.000Z"
+  },
+  {
+    "name": "Enseble Hello Kitty 1600F",
+    "category": "Ensembles > Ensembles bijoux",
+    "code": "ENS-028",
+    "price": 1600,
+    "generatedAt": "2026-09-12T08:13:15.000Z"
+  },
+  {
+    "name": "Ensemble triple chaine Boucle 1625F",
+    "category": "Ensembles > Ensembles bijoux",
+    "code": "ENS-029",
+    "price": 1625,
+    "generatedAt": "2026-09-12T08:13:16.000Z"
+  },
+  {
+    "name": "Boucle Oreille Gel 1000F",
+    "category": "Bijoux > Boucles d'oreilles",
+    "code": "BOU-013",
+    "price": 1000,
+    "generatedAt": "2026-09-12T08:13:17.000Z"
+  },
+  {
+    "name": "Bracelet femme 1400F",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-028",
+    "price": 1400,
+    "generatedAt": "2026-09-12T08:13:17.000Z"
+  },
+  {
+    "name": "Boucle d'oreilles pour femme 1500F",
+    "category": "Bijoux > Boucles d'oreilles",
+    "code": "BOU-014",
+    "price": 1500,
+    "generatedAt": "2026-09-12T08:13:18.000Z"
+  },
+  {
+    "name": "Bague de pied 750F",
+    "category": "Bijoux > Bagues",
+    "code": "BAG-012",
+    "price": 750,
+    "generatedAt": "2026-09-12T08:13:18.000Z"
+  },
+  {
+    "name": "Piercing 750F",
+    "category": "Bijoux > Corps",
+    "code": "COR-003",
+    "price": 750,
+    "generatedAt": "2026-09-12T08:13:19.000Z"
+  },
+  {
+    "name": "Ensemble perle 3 pièce 2200F",
+    "category": "Ensembles > Ensembles bijoux",
+    "code": "ENS-030",
+    "price": 2200,
+    "generatedAt": "2026-09-12T08:13:19.000Z"
+  },
+  {
+    "name": "Bracelet Brillant 1250F",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-029",
+    "price": 1250,
+    "generatedAt": "2026-09-12T08:13:20.000Z"
+  },
+  {
+    "name": "Medaille 1100F",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-046",
+    "price": 1100,
+    "generatedAt": "2026-09-12T08:13:20.000Z"
+  },
+  {
+    "name": "Ensemble 2 pièces 1650F",
+    "category": "Ensembles > Ensembles bijoux",
+    "code": "ENS-031",
+    "price": 1650,
+    "generatedAt": "2026-09-12T08:13:21.000Z"
+  },
+  {
+    "name": "Boucle d'oreille 4000F",
+    "category": "Bijoux > Boucles d'oreilles",
+    "code": "BOU-015",
+    "price": 4000,
+    "generatedAt": "2026-09-12T08:13:21.000Z"
+  },
+  {
+    "name": "Boucle d'oreille 3500F",
+    "category": "Bijoux > Boucles d'oreilles",
+    "code": "BOU-016",
+    "price": 3500,
+    "generatedAt": "2026-09-12T08:13:22.000Z"
+  },
+  {
+    "name": "Boucle d'oreille 2000F",
+    "category": "Bijoux > Boucles d'oreilles",
+    "code": "BOU-017",
+    "price": 2000,
+    "generatedAt": "2026-09-12T08:13:22.000Z"
+  },
+  {
+    "name": "Boucle d'oreille 4500F",
+    "category": "Bijoux > Boucles d'oreilles",
+    "code": "BOU-018",
+    "price": 4500,
+    "generatedAt": "2026-09-12T08:13:23.000Z"
+  },
+  {
+    "name": "Boucle d'oreille 2500F",
+    "category": "Bijoux > Boucles d'oreilles",
+    "code": "BOU-019",
+    "price": 2500,
+    "generatedAt": "2026-09-12T08:13:23.000Z"
+  },
+  {
+    "name": "Boucle d'oreille 1500F",
+    "category": "Bijoux > Boucles d'oreilles",
+    "code": "BOU-020",
+    "price": 1500,
+    "generatedAt": "2026-09-12T08:13:24.000Z"
+  },
+  {
+    "name": "Barette pour mariage 2200F",
+    "category": "Accessoires > Cheveux",
+    "code": "ACC-009",
+    "price": 2200,
+    "generatedAt": "2026-09-12T08:13:25.000Z"
+  },
+  {
+    "name": "Ensemble 4 pièces 1600F",
+    "category": "Ensembles > Ensembles bijoux",
+    "code": "ENS-032",
+    "price": 1600,
+    "generatedAt": "2026-09-12T08:13:25.000Z"
+  },
+  {
+    "name": "Ensemble 2 pièces 3500F",
+    "category": "Ensembles > Ensembles bijoux",
+    "code": "ENS-033",
+    "price": 3500,
+    "generatedAt": "2026-09-12T08:13:26.000Z"
+  },
+  {
+    "name": "Ensemble pour enfant 3500F",
+    "category": "Ensembles > Ensembles bijoux",
+    "code": "ENS-034",
+    "price": 3500,
+    "generatedAt": "2026-09-12T08:13:26.000Z"
+  },
+  {
+    "name": "Bracelet Femme 2500F",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-030",
+    "price": 2500,
+    "generatedAt": "2026-09-12T08:13:27.000Z"
+  },
+  {
+    "name": "Bracelet Femme 4000F",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-031",
+    "price": 4000,
+    "generatedAt": "2026-09-12T08:13:27.000Z"
+  },
+  {
+    "name": "Ensemble 3 pièces femme 3500F",
+    "category": "Ensembles > Ensembles bijoux",
+    "code": "ENS-035",
+    "price": 3500,
+    "generatedAt": "2026-09-12T08:13:28.000Z"
+  },
+  {
+    "name": "Ensemble 2 pièces femme 6500F",
+    "category": "Ensembles > Ensembles bijoux",
+    "code": "ENS-036",
+    "price": 6500,
+    "generatedAt": "2026-09-12T08:13:28.000Z"
+  },
+  {
+    "name": "Ensemble 2 pièces femme 5500F",
+    "category": "Ensembles > Ensembles bijoux",
+    "code": "ENS-037",
+    "price": 5500,
+    "generatedAt": "2026-09-12T08:13:29.000Z"
+  },
+  {
+    "name": "Ensemble de dote 5000F",
+    "category": "Ensembles > Ensembles bijoux",
+    "code": "ENS-038",
+    "price": 5000,
+    "generatedAt": "2026-09-12T08:13:30.000Z"
+  },
+  {
+    "name": "Ensemble 2 pièces Sautois 4500F",
+    "category": "Ensembles > Ensembles bijoux",
+    "code": "ENS-039",
+    "price": 4500,
+    "generatedAt": "2026-09-12T08:13:30.000Z"
+  },
+  {
+    "name": "Boucle d'oreille 1100F",
+    "category": "Bijoux > Boucles d'oreilles",
+    "code": "BOU-021",
+    "price": 1100,
+    "generatedAt": "2026-09-12T08:13:31.000Z"
+  },
+  {
+    "name": "Boucle d'oreille 3 pièces 1000F",
+    "category": "Ensembles > Ensembles bijoux",
+    "code": "ENS-040",
+    "price": 1000,
+    "generatedAt": "2026-09-12T08:13:31.000Z"
+  },
+  {
+    "name": "Ensemble 3 pièces 1800F",
+    "category": "Ensembles > Ensembles bijoux",
+    "code": "ENS-041",
+    "price": 1800,
+    "generatedAt": "2026-09-12T08:13:32.000Z"
+  },
+  {
+    "name": "Boucle d'oreille 1700F",
+    "category": "Bijoux > Boucles d'oreilles",
+    "code": "BOU-022",
+    "price": 1700,
+    "generatedAt": "2026-09-12T08:13:32.000Z"
+  },
+  {
+    "name": "Boucle d'oreille 2450F",
+    "category": "Bijoux > Boucles d'oreilles",
+    "code": "BOU-023",
+    "price": 2450,
+    "generatedAt": "2026-09-12T08:13:33.000Z"
+  },
+  {
+    "name": "Boucle d'oreille 3000F",
+    "category": "Bijoux > Boucles d'oreilles",
+    "code": "BOU-024",
+    "price": 3000,
+    "generatedAt": "2026-09-12T08:13:33.000Z"
+  },
+  {
+    "name": "Boucle d'oreille 1000F",
+    "category": "Bijoux > Boucles d'oreilles",
+    "code": "BOU-025",
+    "price": 1000,
+    "generatedAt": "2026-09-12T08:13:34.000Z"
+  },
+  {
+    "name": "Stickers 1500F",
+    "category": "Divers",
+    "code": "DIV-005",
+    "price": 1500,
+    "generatedAt": "2026-09-12T08:13:35.000Z"
+  },
+  {
+    "name": "Bague 500F",
+    "category": "Bijoux > Bagues",
+    "code": "BAG-013",
+    "price": 500,
+    "generatedAt": "2026-09-12T08:13:35.000Z"
+  },
+  {
+    "name": "Bague 350F",
+    "category": "Bijoux > Bagues",
+    "code": "BAG-014",
+    "price": 350,
+    "generatedAt": "2026-09-12T08:13:36.000Z"
+  },
+  {
+    "name": "Bague 300F",
+    "category": "Bijoux > Bagues",
+    "code": "BAG-015",
+    "price": 300,
+    "generatedAt": "2026-09-12T08:13:36.000Z"
+  },
+  {
+    "name": "Bague 600F",
+    "category": "Bijoux > Bagues",
+    "code": "BAG-016",
+    "price": 600,
+    "generatedAt": "2026-09-12T08:13:37.000Z"
+  },
+  {
+    "name": "Bague 450F",
+    "category": "Bijoux > Bagues",
+    "code": "BAG-017",
+    "price": 450,
+    "generatedAt": "2026-09-12T08:13:37.000Z"
+  },
+  {
+    "name": "Bague de mariage 1500F",
+    "category": "Bijoux > Bagues",
+    "code": "BAG-018",
+    "price": 1500,
+    "generatedAt": "2026-09-12T08:13:38.000Z"
+  },
+  {
+    "name": "Bague de mariage 2000F",
+    "category": "Bijoux > Bagues",
+    "code": "BAG-019",
+    "price": 2000,
+    "generatedAt": "2026-09-12T08:13:38.000Z"
+  },
+  {
+    "name": "Bracelet 1500F",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-032",
+    "price": 1500,
+    "generatedAt": "2026-09-12T08:13:39.000Z"
+  },
+  {
+    "name": "Boite de maquillage 6 couleurs 2000F",
+    "category": "Cosmétiques > Maquillage",
+    "code": "MAQ-003",
+    "price": 2000,
+    "generatedAt": "2026-09-12T08:13:39.000Z"
+  },
+  {
+    "name": "Porte clé 500F",
+    "category": "Divers",
+    "code": "DIV-006",
+    "price": 500,
+    "generatedAt": "2026-09-12T08:13:40.000Z"
+  },
+  {
+    "name": "Faux ongles 1250F",
+    "category": "Cosmétiques > Ongles",
+    "code": "ONG-002",
+    "price": 1250,
+    "generatedAt": "2026-09-12T08:13:40.000Z"
+  },
+  {
+    "name": "Serre tete fleurie 800F",
+    "category": "Accessoires > Cheveux",
+    "code": "ACC-010",
+    "price": 800,
+    "generatedAt": "2026-09-12T08:13:41.000Z"
+  },
+  {
+    "name": "Pince à cheveux 1400F",
+    "category": "Accessoires > Cheveux",
+    "code": "ACC-011",
+    "price": 1400,
+    "generatedAt": "2026-09-12T08:13:41.000Z"
+  },
+  {
+    "name": "Boite de maquillage 22 couleurs 1500F",
+    "category": "Cosmétiques > Maquillage",
+    "code": "MAQ-004",
+    "price": 1500,
+    "generatedAt": "2026-09-12T08:13:42.000Z"
+  },
+  {
+    "name": "Crayons de maquillage 1400F",
+    "category": "Cosmétiques > Maquillage",
+    "code": "MAQ-005",
+    "price": 1400,
+    "generatedAt": "2026-09-12T08:13:42.000Z"
+  },
+  {
+    "name": "Pince à cheveux 1000F",
+    "category": "Accessoires > Cheveux",
+    "code": "ACC-012",
+    "price": 1000,
+    "generatedAt": "2026-09-12T08:13:43.000Z"
+  },
+  {
+    "name": "Pince à cheveux 800F",
+    "category": "Accessoires > Cheveux",
+    "code": "ACC-013",
+    "price": 800,
+    "generatedAt": "2026-09-12T08:13:43.000Z"
+  },
+  {
+    "name": "Eyeliner 1000F",
+    "category": "Cosmétiques > Maquillage",
+    "code": "MAQ-006",
+    "price": 1000,
+    "generatedAt": "2026-09-12T08:13:44.000Z"
+  },
+  {
+    "name": "Mascara 1000F",
+    "category": "Cosmétiques > Maquillage",
+    "code": "MAQ-007",
+    "price": 1000,
+    "generatedAt": "2026-09-12T08:13:44.000Z"
+  },
+  {
+    "name": "Boite de rouge à lèvre 15000F",
+    "category": "Cosmétiques > Lèvres",
+    "code": "LEV-015",
+    "price": 15000,
+    "generatedAt": "2026-09-12T08:13:45.000Z"
+  },
+  {
+    "name": "Crème lèvre rose 1000F",
+    "category": "Cosmétiques > Lèvres",
+    "code": "LEV-016",
+    "price": 1000,
+    "generatedAt": "2026-09-12T08:13:46.000Z"
+  },
+  {
+    "name": "Gloss 1250F",
+    "category": "Cosmétiques > Lèvres",
+    "code": "LEV-017",
+    "price": 1250,
+    "generatedAt": "2026-09-12T08:13:46.000Z"
+  },
+  {
+    "name": "Lingette 1100F",
+    "category": "Beauté > Hygiène",
+    "code": "HYG-001",
+    "price": 1100,
+    "generatedAt": "2026-09-12T08:13:47.000Z"
+  },
+  {
+    "name": "Faux ongle Plaquette 5000F",
+    "category": "Cosmétiques > Ongles",
+    "code": "ONG-003",
+    "price": 5000,
+    "generatedAt": "2026-09-12T08:13:47.000Z"
+  },
+  {
+    "name": "Bronzeur 1000F",
+    "category": "Cosmétiques > Maquillage",
+    "code": "MAQ-008",
+    "price": 1000,
+    "generatedAt": "2026-09-12T08:13:48.000Z"
+  },
+  {
+    "name": "Bronzeur 1150F",
+    "category": "Cosmétiques > Maquillage",
+    "code": "MAQ-009",
+    "price": 1150,
+    "generatedAt": "2026-09-12T08:13:48.000Z"
+  },
+  {
+    "name": "Serre tete 2400F",
+    "category": "Accessoires > Cheveux",
+    "code": "ACC-014",
+    "price": 2400,
+    "generatedAt": "2026-09-12T08:13:49.000Z"
+  },
+  {
+    "name": "Bras 1500F",
+    "category": "Divers",
+    "code": "DIV-007",
+    "price": 1500,
+    "generatedAt": "2026-09-12T08:13:49.000Z"
+  },
+  {
+    "name": "Calsilis Homme 3000F",
+    "category": "Divers",
+    "code": "DIV-008",
+    "price": 3000,
+    "generatedAt": "2026-09-12T08:13:50.000Z"
+  },
+  {
+    "name": "Serviette de table 1000F",
+    "category": "Divers",
+    "code": "DIV-009",
+    "price": 1000,
+    "generatedAt": "2026-09-12T08:13:50.000Z"
+  },
+  {
+    "name": "Serre tete 3000F",
+    "category": "Accessoires > Cheveux",
+    "code": "ACC-015",
+    "price": 3000,
+    "generatedAt": "2026-09-12T08:13:51.000Z"
+  },
+  {
+    "name": "BallonHBD 1500F",
+    "category": "Divers",
+    "code": "DIV-010",
+    "price": 1500,
+    "generatedAt": "2026-09-12T08:13:51.000Z"
+  },
+  {
+    "name": "Slip pour enfant 5000F",
+    "category": "Vêtements > Sous-vêtements",
+    "code": "LIN-001",
+    "price": 5000,
+    "generatedAt": "2026-09-12T08:13:52.000Z"
+  },
+  {
+    "name": "Soutien gorge 1500F",
+    "category": "Vêtements > Sous-vêtements",
+    "code": "LIN-002",
+    "price": 1500,
+    "generatedAt": "2026-09-12T08:13:52.000Z"
+  },
+  {
+    "name": "Slip sans trace 1150F",
+    "category": "Vêtements > Sous-vêtements",
+    "code": "LIN-003",
+    "price": 1150,
+    "generatedAt": "2026-09-12T08:13:53.000Z"
+  },
+  {
+    "name": "Slip sans trace 1000F",
+    "category": "Vêtements > Sous-vêtements",
+    "code": "LIN-004",
+    "price": 1000,
+    "generatedAt": "2026-09-12T08:13:53.000Z"
+  },
+  {
+    "name": "Slip sans trace 1050F",
+    "category": "Vêtements > Sous-vêtements",
+    "code": "LIN-005",
+    "price": 1050,
+    "generatedAt": "2026-09-12T08:13:54.000Z"
+  },
+  {
+    "name": "Slip pour enfant petit 4500F",
+    "category": "Vêtements > Sous-vêtements",
+    "code": "LIN-006",
+    "price": 4500,
+    "generatedAt": "2026-09-12T08:13:54.000Z"
+  },
+  {
+    "name": "Slip enfant 8000F",
+    "category": "Vêtements > Sous-vêtements",
+    "code": "LIN-007",
+    "price": 8000,
+    "generatedAt": "2026-09-12T08:13:55.000Z"
+  },
+  {
+    "name": "Slip enfant 7000F",
+    "category": "Vêtements > Sous-vêtements",
+    "code": "LIN-008",
+    "price": 7000,
+    "generatedAt": "2026-09-12T08:13:56.000Z"
+  },
+  {
+    "name": "Slip ordinaire 1050F",
+    "category": "Vêtements > Sous-vêtements",
+    "code": "LIN-009",
+    "price": 1050,
+    "generatedAt": "2026-09-12T08:13:56.000Z"
+  },
+  {
+    "name": "Slip pour femme 1100F",
+    "category": "Vêtements > Sous-vêtements",
+    "code": "LIN-010",
+    "price": 1100,
+    "generatedAt": "2026-09-12T08:13:57.000Z"
+  },
+  {
+    "name": "Brassier femme 1500F",
+    "category": "Vêtements > Sous-vêtements",
+    "code": "LIN-011",
+    "price": 1500,
+    "generatedAt": "2026-09-12T08:13:57.000Z"
+  },
+  {
+    "name": "Slip femme 1250F",
+    "category": "Vêtements > Sous-vêtements",
+    "code": "LIN-012",
+    "price": 1250,
+    "generatedAt": "2026-09-12T08:13:58.000Z"
+  },
+  {
+    "name": "Slip dentelle 1000F",
+    "category": "Vêtements > Sous-vêtements",
+    "code": "LIN-013",
+    "price": 1000,
+    "generatedAt": "2026-09-12T08:13:58.000Z"
+  },
+  {
+    "name": "Slip enfant 1000F",
+    "category": "Vêtements > Sous-vêtements",
+    "code": "LIN-014",
+    "price": 1000,
+    "generatedAt": "2026-09-12T08:13:59.000Z"
+  },
+  {
+    "name": "Coffret de montre 3000F",
+    "category": "Montres",
+    "code": "MON-031",
+    "price": 3000,
+    "generatedAt": "2026-09-12T08:13:59.000Z"
+  },
+  {
+    "name": "Coffret de montre 5000F",
+    "category": "Montres",
+    "code": "MON-032",
+    "price": 5000,
+    "generatedAt": "2026-09-12T08:14:00.000Z"
+  },
+  {
+    "name": "Coffret grand format 7000F",
+    "category": "Coffrets & Cadeaux",
+    "code": "COF-003",
+    "price": 7000,
+    "generatedAt": "2026-09-12T08:14:00.000Z"
+  },
+  {
+    "name": "Coffret grand format 11000F",
+    "category": "Coffrets & Cadeaux",
+    "code": "COF-004",
+    "price": 11000,
+    "generatedAt": "2026-09-12T08:14:01.000Z"
+  },
+  {
+    "name": "Montre Poedagar 9500F",
+    "category": "Montres",
+    "code": "MON-033",
+    "price": 9500,
+    "generatedAt": "2026-09-12T08:14:01.000Z"
+  },
+  {
+    "name": "Montre Alsalah 7500F",
+    "category": "Montres",
+    "code": "MON-034",
+    "price": 7500,
+    "generatedAt": "2026-09-12T08:14:03.000Z"
+  },
+  {
+    "name": "Bracelet 4 en 1 12000F",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-033",
+    "price": 12000,
+    "generatedAt": "2026-09-12T08:14:04.000Z"
+  },
+  {
+    "name": "Coffret montre 3500F",
+    "category": "Montres",
+    "code": "MON-035",
+    "price": 3500,
+    "generatedAt": "2026-09-12T08:14:04.000Z"
+  },
+  {
+    "name": "Mongori 5000F",
+    "category": "Divers",
+    "code": "DIV-011",
+    "price": 5000,
+    "generatedAt": "2026-09-12T08:14:05.000Z"
+  },
+  {
+    "name": "Mongori 500F",
+    "category": "Divers",
+    "code": "DIV-012",
+    "price": 500,
+    "generatedAt": "2026-09-12T08:14:06.000Z"
+  },
+  {
+    "name": "Boite à bijoux 8000F",
+    "category": "Coffrets & Cadeaux",
+    "code": "COF-005",
+    "price": 8000,
+    "generatedAt": "2026-09-12T08:14:07.000Z"
+  },
+  {
+    "name": "Boite à bijoux 4500F",
+    "category": "Coffrets & Cadeaux",
+    "code": "COF-006",
+    "price": 4500,
+    "generatedAt": "2026-09-12T08:14:07.000Z"
+  },
+  {
+    "name": "Boite à bijoux 2500F",
+    "category": "Coffrets & Cadeaux",
+    "code": "COF-007",
+    "price": 2500,
+    "generatedAt": "2026-09-12T08:14:08.000Z"
+  },
+  {
+    "name": "Coffre cœur 7000F",
+    "category": "Coffrets & Cadeaux",
+    "code": "COF-008",
+    "price": 7000,
+    "generatedAt": "2026-09-12T08:14:08.000Z"
+  },
+  {
+    "name": "Coffre diamant 10000F",
+    "category": "Coffrets & Cadeaux",
+    "code": "COF-009",
+    "price": 10000,
+    "generatedAt": "2026-09-12T08:14:09.000Z"
+  },
+  {
+    "name": "Dé sexuelle 500F",
+    "category": "Divers",
+    "code": "DIV-013",
+    "price": 500,
+    "generatedAt": "2026-09-12T08:14:09.000Z"
+  },
+  {
+    "name": "Coffret Viviane",
+    "category": "Coffrets & Cadeaux",
+    "code": "COF-010",
+    "price": null,
+    "generatedAt": "2026-09-12T08:14:10.000Z"
+  },
+  {
+    "name": "Coffret Alphonse",
+    "category": "Coffrets & Cadeaux",
+    "code": "COF-011",
+    "price": null,
+    "generatedAt": "2026-09-12T08:14:10.000Z"
+  },
+  {
+    "name": "Kit onglerie",
+    "category": "Cosmétiques > Ongles",
+    "code": "ONG-004",
+    "price": null,
+    "generatedAt": "2026-09-12T08:14:11.000Z"
+  },
+  {
+    "name": "Kit maquillage",
+    "category": "Cosmétiques > Maquillage",
+    "code": "MAQ-010",
+    "price": null,
+    "generatedAt": "2026-09-12T08:14:11.000Z"
+  },
+  {
+    "name": "Mousuf 12000F",
+    "category": "Maison > Parfum d'ambiance",
+    "code": "PAR-005",
+    "price": 12000,
+    "generatedAt": "2026-09-12T08:14:12.000Z"
+  },
+  {
+    "name": "Latafa 10000F",
+    "category": "Maison > Parfum d'ambiance",
+    "code": "PAR-006",
+    "price": 10000,
+    "generatedAt": "2026-09-12T08:14:12.000Z"
+  },
+  {
+    "name": "Yara 11500F",
+    "category": "Maison > Parfum d'ambiance",
+    "code": "PAR-007",
+    "price": 11500,
+    "generatedAt": "2026-09-12T08:14:13.000Z"
+  },
+  {
+    "name": "Stom Elixir 12000F",
+    "category": "Maison > Parfum d'ambiance",
+    "code": "PAR-008",
+    "price": 12000,
+    "generatedAt": "2026-09-12T08:14:13.000Z"
+  },
+  {
+    "name": "Stom Kids 10000F",
+    "category": "Maison > Parfum d'ambiance",
+    "code": "PAR-009",
+    "price": 10000,
+    "generatedAt": "2026-09-12T08:14:14.000Z"
+  },
+  {
+    "name": "Genie Huil 4500F",
+    "category": "Maison > Parfum d'ambiance",
+    "code": "PAR-010",
+    "price": 4500,
+    "generatedAt": "2026-09-12T08:14:14.000Z"
+  },
+  {
+    "name": "Genie Spray 4000F",
+    "category": "Maison > Parfum d'ambiance",
+    "code": "PAR-011",
+    "price": 4000,
+    "generatedAt": "2026-09-12T08:14:15.000Z"
+  },
+  {
+    "name": "Onlyou 10000F",
+    "category": "Maison > Parfum d'ambiance",
+    "code": "PAR-012",
+    "price": 10000,
+    "generatedAt": "2026-09-12T08:14:15.000Z"
+  },
+  {
+    "name": "Gameplay 8000F",
+    "category": "Maison > Parfum d'ambiance",
+    "code": "PAR-013",
+    "price": 8000,
+    "generatedAt": "2026-09-12T08:14:16.000Z"
+  },
+  {
+    "name": "Diffuseur 1500F",
+    "category": "Maison > Parfum d'ambiance",
+    "code": "PAR-014",
+    "price": 1500,
+    "generatedAt": "2026-09-12T08:14:17.000Z"
+  },
+  {
+    "name": "Essence de Diffuseur 1500F",
+    "category": "Maison > Parfum d'ambiance",
+    "code": "PAR-015",
+    "price": 1500,
+    "generatedAt": "2026-09-12T08:14:18.000Z"
+  },
+  {
+    "name": "Huile de marque 5000F",
+    "category": "Maison > Parfum d'ambiance",
+    "code": "PAR-016",
+    "price": 5000,
+    "generatedAt": "2026-09-12T08:14:18.000Z"
+  },
+  {
+    "name": "Scaling Machine 1000F",
+    "category": "Beauté > Hygiène",
+    "code": "HYG-002",
+    "price": 1000,
+    "generatedAt": "2026-09-12T08:14:19.000Z"
+  },
+  {
+    "name": "Déodorant Adam 9000F",
+    "category": "Beauté > Hygiène",
+    "code": "HYG-003",
+    "price": 9000,
+    "generatedAt": "2026-09-12T08:14:19.000Z"
   }
 ]
