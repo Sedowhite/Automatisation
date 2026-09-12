@@ -1,0 +1,53 @@
+name: Publier le site (sans génération)
+
+# Workflow minimal, déclenchable uniquement à la main. Il ne fait AUCUN appel à
+# l'API Loyverse et n'exécute PAS generate-missing-barcodes.js : il se contente
+# d'empaqueter et publier le contenu déjà présent sur la branche "data", tel quel.
+# Créé pour publier manuellement pendant que generate-barcodes.yml reste désactivé
+# (voir README) sans avoir à le réactiver.
+on:
+  workflow_dispatch:
+
+permissions:
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout des données persistantes (branche data)
+        uses: actions/checkout@v7
+        with:
+          ref: data
+          path: data
+
+      - name: Préparer le site à publier
+        # Copie intégrale de tout le contenu de la branche "data" (hors .git),
+        # plutôt qu'une liste de fichiers codée en dur : évite d'oublier un
+        # fichier si la liste de ce qui vit sur "data" change plus tard.
+        run: |
+          mkdir -p site
+          cp -r data/. site/
+          rm -rf site/.git
+          cp data/nouveaux.html site/index.html
+
+      - name: Uploader l'artefact GitHub Pages
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: site
+
+  deploy:
+    needs: publish
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Déployer sur GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
