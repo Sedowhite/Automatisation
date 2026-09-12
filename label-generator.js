@@ -85,22 +85,29 @@ function saveResetState(state) {
  * disparaissait de l'image sauvegardée.
  */
 // MÉCANISME TEMPORAIRE — prix pas encore connus pour certains SKU précis.
-// Ces produits ont un prix Loyverse à 0 (valeur technique minimale : l'API
-// refuse un prix vide en pricing_type FIXED), mais 0 ne doit pas s'afficher
-// comme un vrai prix sur l'étiquette. Tant qu'un SKU est dans cet ensemble,
-// son étiquette affiche "Prix à confirmer" à la place du prix.
-// CE N'EST PAS une règle générale sur tout prix à 0 — seulement ces SKU
+// Le prix vient du fichier de référence (source de vérité pendant que Loyverse
+// est en VARIABLE sans prix), mais pour ces SKU précis aucun prix réel n'est
+// encore disponible. Tant qu'un SKU est dans cet ensemble, son étiquette
+// affiche "Prix à confirmer" à la place du prix.
+// CE N'EST PAS une règle générale sur tout prix manquant — seulement ces SKU
 // précis, ajoutés ici au cas par cas.
-// -> Dès que le vrai prix est connu pour un SKU : 1) mettre à jour son
-//    default_price/stores[].price réel dans Loyverse, 2) le retirer de cet
-//    ensemble. L'étiquette repassera alors automatiquement à l'affichage
+// -> Dès que le vrai prix est connu pour un SKU : 1) mettre à jour le fichier
+//    de référence (ou remettre un vrai prix dans Loyverse), 2) le retirer de
+//    cet ensemble. L'étiquette repassera alors automatiquement à l'affichage
 //    normal du prix, sans autre changement de code.
 const PRICE_PENDING_CODES = new Set([
   "BRA-010", // Bracelet price - prix jamais fourni depuis la recréation post-restructuration gros/détail
+  "COF-010", // Coffret Viviane - nouveau produit, prix pas encore fourni
+  "COF-011", // Coffret Alphonse - nouveau produit, prix pas encore fourni
+  "ONG-004", // Kit onglerie - nouveau produit, prix pas encore fourni
+  "MAQ-010", // Kit maquillage - nouveau produit, prix pas encore fourni
 ]);
 
+// Retourne null pour un SKU en attente de prix : dans ce cas l'étiquette
+// n'affiche AUCUNE ligne de prix (design à 2 lignes : nom + code-barre),
+// plutôt qu'un texte de substitution.
 function formatPriceLabel(price, code) {
-  if (PRICE_PENDING_CODES.has(code)) return "Prix à confirmer";
+  if (PRICE_PENDING_CODES.has(code)) return null;
   // FCFA n'a pas de sous-unité (pas de centimes) : le prix Loyverse est déjà
   // le montant réel, pas des centimes à diviser par 100 — affiché en entier.
   return `${Math.round(Number(price))} FCFA`;
@@ -149,8 +156,14 @@ export async function generateLabelImageBase64({ name, code, price }) {
 
   const PADDING = 18;
   const FONT_SIZE = 38;
-  const PRICE_FONT_SIZE_MAX = 34;
-  const PRICE_FONT_SIZE_MIN = 18;
+  // Police du prix réduite (était 34/18) pour libérer de la hauteur, réinvestie
+  // ci-dessous dans BARCODE_TOP_GAP comme marge de sécurité autour du code-barre.
+  const PRICE_FONT_SIZE_MAX = 22;
+  const PRICE_FONT_SIZE_MIN = 14;
+  // Marge de sécurité juste au-dessus du code-barre (quiet zone d'impression) :
+  // évite qu'il touche le bord ou déborde à l'impression. Appliquée de façon
+  // identique, avec ou sans ligne de prix, pour un rendu cohérent.
+  const BARCODE_TOP_GAP = 22;
   const LINE_HEIGHT = Math.round(FONT_SIZE * 1.15);
   // Hauteur du bloc prix TOUJOURS calculée sur la taille de police MAXIMALE,
   // jamais sur la taille réellement utilisée : ainsi, même si le texte du
@@ -165,11 +178,13 @@ export async function generateLabelImageBase64({ name, code, price }) {
   measureCtx.font = `bold ${FONT_SIZE}px sans-serif`;
   const nameLines = wrapText(measureCtx, name, maxTextWidth, MAX_NAME_LINES);
   const priceText = formatPriceLabel(price, code);
-  const priceFontSize = fitPriceFontSize(measureCtx, priceText, maxTextWidth, PRICE_FONT_SIZE_MAX, PRICE_FONT_SIZE_MIN);
+  const priceFontSize = priceText
+    ? fitPriceFontSize(measureCtx, priceText, maxTextWidth, PRICE_FONT_SIZE_MAX, PRICE_FONT_SIZE_MIN)
+    : 0;
 
   const nameBlockHeight = nameLines.length * LINE_HEIGHT;
-  const canvasHeight =
-    PADDING + nameBlockHeight + Math.round(PADDING / 3) + PRICE_LINE_HEIGHT + Math.round(PADDING / 2) + barcodeImg.height + PADDING;
+  const priceBlockHeight = priceText ? Math.round(PADDING / 3) + PRICE_LINE_HEIGHT : 0;
+  const canvasHeight = PADDING + nameBlockHeight + priceBlockHeight + BARCODE_TOP_GAP + barcodeImg.height + PADDING;
 
   const canvas = createCanvas(canvasWidth, canvasHeight);
   const ctx = canvas.getContext("2d");
@@ -186,13 +201,17 @@ export async function generateLabelImageBase64({ name, code, price }) {
 
   // Bloc réservé de hauteur fixe (PRICE_LINE_HEIGHT) ; le texte est centré
   // verticalement dedans quelle que soit la taille de police retenue.
-  const priceBlockTop = PADDING + nameBlockHeight + Math.round(PADDING / 3);
-  const priceTextY = priceBlockTop + Math.round((PRICE_LINE_HEIGHT - priceFontSize * 1.15) / 2);
-  ctx.font = `bold ${priceFontSize}px sans-serif`;
-  ctx.fillText(priceText, canvasWidth / 2, priceTextY, maxTextWidth);
+  // Absent entièrement (aucun texte, aucun espace réservé) pour un SKU en
+  // attente de prix : design à 2 lignes (nom + code-barre) uniquement.
+  if (priceText) {
+    const priceBlockTop = PADDING + nameBlockHeight + Math.round(PADDING / 3);
+    const priceTextY = priceBlockTop + Math.round((PRICE_LINE_HEIGHT - priceFontSize * 1.15) / 2);
+    ctx.font = `bold ${priceFontSize}px sans-serif`;
+    ctx.fillText(priceText, canvasWidth / 2, priceTextY, maxTextWidth);
+  }
 
   const barcodeX = Math.round((canvasWidth - barcodeImg.width) / 2);
-  const barcodeY = priceBlockTop + PRICE_LINE_HEIGHT + Math.round(PADDING / 2);
+  const barcodeY = PADDING + nameBlockHeight + priceBlockHeight + BARCODE_TOP_GAP;
   // drawImage sans redimensionnement : le code-barre est posé à sa taille
   // native (barcodeImg.width x barcodeImg.height), jamais compressé ou
   // redimensionné pour faire de la place au prix.
