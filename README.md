@@ -61,6 +61,32 @@ fiable qu'un cron interne à GitHub Actions.
 déclenchement (~toutes les 5 minutes), sans validation manuelle intermédiaire.
 Tout ce qui est poussé sur `data` finit sur GitHub Pages en quelques minutes.
 
+### ⚠️ Règle impérative : jamais de script local pendant que le workflow tourne
+
+`generate-barcodes.yml` écrit directement dans Loyverse (assignation de
+code-barre) pendant son exécution. Son bloc `concurrency` (`group: pages`,
+`cancel-in-progress: false`) empêche deux **runs GitHub Actions** de tourner
+en même temps — mais il ne protège **pas** contre un script lancé en local
+(migration ponctuelle, correction en lot, etc.) qui écrirait dans Loyverse
+pendant qu'un run est en cours : GitHub Actions n'a aucune visibilité sur ce
+qui se passe en dehors de son infrastructure.
+
+**Incident réel (2026-09-12)** : un run resté bloqué de ce workflow a tourné
+en même temps qu'un script de migration lancé en local, les deux écrivant sur
+les mêmes fiches Loyverse au même moment — résultat, 60 SKU corrompus
+(codes-barres/SKU écrasés par le run), détectés et corrigés manuellement
+après coup.
+
+**Règle à respecter désormais** :
+- Avant de lancer un script local qui écrit en masse dans Loyverse, vérifier
+  dans l'onglet **Actions** du repo qu'aucun run de `generate-barcodes.yml`
+  n'est en cours.
+- Ne pas déclencher (ni laisser tourner) `generate-barcodes.yml` pendant
+  qu'un script local d'écriture Loyverse est en cours.
+- En cas de doute, désactiver temporairement le workflow (et le cron externe
+  qui le déclenche) le temps du script local, puis le réactiver une fois
+  celui-ci terminé.
+
 ## Deux branches Git : `main` (code) et `data` (données auto-générées)
 
 **`main`** contient uniquement le code (scripts, workflows, README, config
