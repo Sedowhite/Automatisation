@@ -53,12 +53,15 @@ const RESET_STATE_PATH = path.join(DATA_DIR, "dernier-vidage.json");
 
 const NOUVEAUX_PATH = path.join(DATA_DIR, "nouveaux.html");
 const DETAIL_PATH = path.join(DATA_DIR, "catalogue-detail.html");
+const LEGEND_PATH = path.join(DATA_DIR, "legende.html");
+const LEGEND_DATA_PATH = path.join(DATA_DIR, "legend-data.json");
 const STYLES_PATH = path.join(DATA_DIR, "styles.css");
 const SEARCH_SCRIPT_PATH = path.join(DATA_DIR, "search.js");
 
 const PAGES = [
   { key: "nouveaux", label: "Nouveautés", href: "nouveaux.html", bg: "#e5e7eb", fg: "#374151" },
   { key: "detail", label: "Catalogue", href: "catalogue-detail.html", bg: "#dbeafe", fg: "#1e40af" },
+  { key: "legende", label: "Légende", href: "legende.html", bg: "#fef3c7", fg: "#92400e" },
 ];
 
 function loadRecords() {
@@ -68,6 +71,25 @@ function loadRecords() {
 
 function saveRecords(records) {
   fs.writeFileSync(RECORDS_PATH, JSON.stringify(records, null, 2), "utf-8");
+}
+
+function loadLegendData() {
+  if (!fs.existsSync(LEGEND_DATA_PATH)) return [];
+  return JSON.parse(fs.readFileSync(LEGEND_DATA_PATH, "utf-8"));
+}
+
+/**
+ * Enregistre les données de la page légende (SKU / nom actuel Loyverse / nom
+ * complet d'origine) puis régénère les pages. Séparé du registre principal
+ * (generated-labels.json) car "nom actuel" vient de l'état LIVE Loyverse
+ * (peut diverger du nom stocké localement, ex. après un renommage manuel) —
+ * à fournir par un script qui interroge l'API avant d'appeler cette fonction
+ * (voir generate-missing-barcodes.js pour le même genre de séparation
+ * API/fichiers).
+ */
+export async function updateLegendData(rows) {
+  fs.writeFileSync(LEGEND_DATA_PATH, JSON.stringify(rows, null, 2), "utf-8");
+  await regenerateSheets();
 }
 
 function loadResetState() {
@@ -395,6 +417,8 @@ export async function regenerateSheets() {
     printInstructions: `Ouvre cette page puis fais Ctrl+P (ou Cmd+P) pour imprimer. Chaque étiquette (${LABEL_WIDTH_MM}mm x ${LABEL_HEIGHT_MM}mm) sortira l'une après l'autre, avec un repère pointillé net entre chaque pour guider la découpe.`,
     records: sorted,
   });
+
+  await writeLegendPage(loadLegendData());
 }
 
 /**
@@ -508,6 +532,32 @@ ${PAGES.map((p) => `.badge-${p.key} { background: ${p.bg}; color: ${p.fg}; }`).j
 }
 .label img { width: 96%; height: auto; max-height: 94%; object-fit: contain; }
 
+.legend-table {
+  width: 100%;
+  max-width: 900px;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+.legend-table th, .legend-table td {
+  text-align: left;
+  padding: 10px 14px;
+  font-size: 14px;
+  border-bottom: 1px solid #e5e7eb;
+}
+.legend-table th {
+  background: #f9fafb;
+  color: #6b7280;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.legend-table tbody tr:hover { background: #fafafa; }
+.legend-table .legend-sku { font-family: ui-monospace, Consolas, monospace; font-weight: bold; color: #92400e; white-space: nowrap; }
+.legend-table .legend-muted { color: #6b7280; }
+
 @media (max-width: 480px) {
   body { margin: 12px; }
   .nav-link { font-size: 13px; padding: 5px 10px; }
@@ -537,7 +587,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const input = document.querySelector(".search-box");
   if (!input) return;
 
-  const labels = Array.from(document.querySelectorAll(".label"));
+  // [data-name] plutôt que ".label" : cible aussi bien les étiquettes
+  // (nouveaux/detail) que les lignes du tableau de la page légende, sans
+  // dupliquer la logique de recherche pour cette 3e page.
+  const labels = Array.from(document.querySelectorAll("[data-name]"));
   const sections = Array.from(document.querySelectorAll(".category-section"));
   const noResults = document.querySelector(".search-no-results");
 
@@ -562,7 +615,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     sections.forEach((section) => {
-      const anyVisible = Array.from(section.querySelectorAll(".label")).some(
+      const anyVisible = Array.from(section.querySelectorAll("[data-name]")).some(
         (l) => l.style.display !== "none"
       );
       section.style.display = anyVisible ? "" : "none";
@@ -694,6 +747,64 @@ ${labelsHtml.join("\n")}
 </html>`;
 
   fs.writeFileSync(filePath, html, "utf-8");
+}
+
+/**
+ * Page de référence "Légende" (SKU / nom actuel Loyverse / nom complet
+ * d'origine) — pas des étiquettes à imprimer, juste un tableau consultable.
+ * Réutilise le même bandeau de navigation, la même feuille de style et le
+ * même script de recherche (search.js) que les 2 autres pages : chaque ligne
+ * porte data-name/data-code, exactement comme un `.label`, donc la recherche
+ * déjà en place (nom OU SKU) fonctionne ici sans aucun code de recherche
+ * supplémentaire.
+ */
+async function writeLegendPage(records) {
+  const sorted = [...records].sort((a, b) => a.sku.localeCompare(b.sku));
+
+  const rowsHtml = sorted.map((r) => `
+      <tr data-name="${escapeHtml(r.currentName)}" data-code="${escapeHtml(r.sku)}">
+        <td class="legend-sku">${escapeHtml(r.sku)}</td>
+        <td>${escapeHtml(r.currentName)}</td>
+        <td class="legend-muted">${escapeHtml(r.fullName)}</td>
+      </tr>`).join("\n");
+
+  const navHtml = PAGES.map(
+    (p) => `<a class="nav-link${p.key === "legende" ? " active" : ""}" href="${p.href}">${escapeHtml(p.label)}</a>`
+  ).join("\n    ");
+
+  const html = `<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Légende</title>
+<link rel="stylesheet" href="styles.css">
+<script src="search.js" defer></script>
+</head>
+<body>
+  <nav class="topnav no-print">
+    ${navHtml}
+  </nav>
+  <div class="page-header no-print">
+    <span class="badge badge-legende">Légende</span>
+    <h1>Légende des noms abrégés</h1>
+    <input type="search" class="search-box no-print" placeholder="Rechercher par nom ou par SKU..." aria-label="Rechercher un produit par nom ou par SKU sur cette page">
+    <p>SKU, nom actuel (tel qu'affiché dans Loyverse et sur les étiquettes) et nom complet d'origine — référence pour l'équipe.</p>
+  </div>
+  <p class="no-print empty-state search-no-results" style="display: none;">Aucun produit trouvé.</p>
+  ${sorted.length
+    ? `<table class="legend-table">
+    <thead>
+      <tr><th>SKU</th><th>Nom actuel</th><th>Nom complet d'origine</th></tr>
+    </thead>
+    <tbody>${rowsHtml}
+    </tbody>
+  </table>`
+    : `<p class="no-print empty-state">Aucune donnée de légende pour le moment.</p>`}
+</body>
+</html>`;
+
+  fs.writeFileSync(LEGEND_PATH, html, "utf-8");
 }
 
 function escapeHtml(str) {
