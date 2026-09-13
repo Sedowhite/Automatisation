@@ -13,10 +13,14 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DATA_DIR = process.env.DATA_DIR ? path.resolve(process.env.DATA_DIR) : __dirname;
 
 // ==================================================================
-// DIMENSIONS DE L'ÉTIQUETTE — format physique confirmé : 50x25mm.
+// DIMENSIONS DE L'ÉTIQUETTE — format physique réel confirmé : 40x20mm
+// (corrigé le 2026-09-12 : l'ancien 50x25mm ne correspondait pas au vrai
+// rouleau, ce qui causait un décalage progressif à l'impression physique —
+// le logiciel déclarait une page/étiquette plus grande que la vraie bande,
+// donc le contenu d'une étiquette finissait par déborder sur la suivante).
 // ==================================================================
-const LABEL_WIDTH_MM = 50;
-const LABEL_HEIGHT_MM = 25;
+const LABEL_WIDTH_MM = 40;
+const LABEL_HEIGHT_MM = 20;
 const LABEL_FONT_SIZE_PT = 10;
 
 // Grossissement de l'aperçu à L'ÉCRAN (px par mm). Sans ça, un aperçu qui
@@ -78,39 +82,27 @@ function saveResetState(state) {
 }
 
 /**
- * Génère UNE SEULE image (nom du produit + code-barres) au format PNG, encodée
- * en base64. Fusionnés dans le même visuel (via un canvas) plutôt que deux
- * éléments HTML séparés : sur mobile, un "enregistrer l'image" en appui long
- * ne capture qu'un seul élément — s'ils étaient séparés, le nom du produit
- * disparaissait de l'image sauvegardée.
+ * Génère UNE SEULE image (nom du produit + prix + code-barres) au format PNG,
+ * encodée en base64. Fusionnés dans le même visuel (via un canvas) plutôt que
+ * des éléments HTML séparés : sur mobile, un "enregistrer l'image" en appui
+ * long ne capture qu'un seul élément — s'ils étaient séparés, le nom du
+ * produit disparaissait de l'image sauvegardée.
  */
-// MÉCANISME TEMPORAIRE — prix pas encore connus pour certains SKU précis.
-// Le prix vient du fichier de référence (source de vérité pendant que Loyverse
-// est en VARIABLE sans prix), mais pour ces SKU précis aucun prix réel n'est
-// encore disponible. Tant qu'un SKU est dans cet ensemble, son étiquette
-// affiche "Prix à confirmer" à la place du prix.
-// CE N'EST PAS une règle générale sur tout prix manquant — seulement ces SKU
-// précis, ajoutés ici au cas par cas.
-// -> Dès que le vrai prix est connu pour un SKU : 1) mettre à jour le fichier
-//    de référence (ou remettre un vrai prix dans Loyverse), 2) le retirer de
-//    cet ensemble. L'étiquette repassera alors automatiquement à l'affichage
-//    normal du prix, sans autre changement de code.
-const PRICE_PENDING_CODES = new Set([
-  "BRA-010", // Bracelet price - prix jamais fourni depuis la recréation post-restructuration gros/détail
-  "COF-010", // Coffret Viviane - nouveau produit, prix pas encore fourni
-  "COF-011", // Coffret Alphonse - nouveau produit, prix pas encore fourni
-  "ONG-004", // Kit onglerie - nouveau produit, prix pas encore fourni
-  "MAQ-010", // Kit maquillage - nouveau produit, prix pas encore fourni
-]);
+// Pour les FUTURS produits uniquement (voir generate-missing-barcodes.js) :
+// si le nom Loyverse se termine par un motif "NombreF" (ex. "Collier perle
+// 1500F"), c'est un prix encodé dans le nom faute de prix Loyverse (catalogue
+// en pricing_type VARIABLE, sans prix stocké). Dans ce cas, le prix vient de
+// ce suffixe et le nom affiché sur l'étiquette est le nom SANS ce suffixe.
+// Retourne null si le nom ne correspond pas à ce motif.
+const PRICE_SUFFIX_RE = /\s*(\d+)\s*F\s*$/i;
 
-// Retourne null pour un SKU en attente de prix : dans ce cas l'étiquette
-// n'affiche AUCUNE ligne de prix (design à 2 lignes : nom + code-barre),
-// plutôt qu'un texte de substitution.
-function formatPriceLabel(price, code) {
-  if (PRICE_PENDING_CODES.has(code)) return null;
-  // FCFA n'a pas de sous-unité (pas de centimes) : le prix Loyverse est déjà
-  // le montant réel, pas des centimes à diviser par 100 — affiché en entier.
-  return `${Math.round(Number(price))} FCFA`;
+export function extractPriceFromName(rawName) {
+  const match = rawName.match(PRICE_SUFFIX_RE);
+  if (!match) return null;
+  return {
+    price: Number(match[1]),
+    cleanName: rawName.slice(0, match.index).trim(),
+  };
 }
 
 /**
@@ -132,59 +124,150 @@ function fitPriceFontSize(ctx, text, maxWidth, maxSize, minSize) {
   return size;
 }
 
-export async function generateLabelImageBase64({ name, code, price }) {
+// ==================================================================
+// ABRÉVIATION DES NOMS : uniquement les mots courants listés ci-dessous —
+// tout mot rare/marque/nom propre non listé reste intact (ex. "Boucle Jewly"
+// -> "Bouc Jewly", "Jewly" inchangé). Locutions traitées AVANT les mots seuls
+// (ex. "Pince à cheveux" en entier, pas juste "cheveux" isolé), sinon l'ordre
+// de la liste n'a pas d'importance. Choix d'interprétation à valider : les
+// formes plurielles des mots listés
+// (ex. "Boucles", "Ongles") sont abrégées aussi (même mot, pas une extension
+// à un mot non listé) ; l'accent circonflexe optionnel est toléré
+// (Chaine/Chaîne, Boite/Boîte) car il s'agit clairement du même mot.
+// ==================================================================
+const ABBREVIATION_PHRASES = [
+  [/\b2\s*Pi[eè]ces\b/gi, "2P"],
+  [/\b3\s*Pi[eè]ces\b/gi, "3P"],
+  [/\bSerre[\s-]?t[eê]tes?\b/gi, "Ser Tet"],
+  [/\bPince\s+(?:à|a)?\s*cheveux\b/gi, "Pince Chev"],
+  [/\b[EÉé]lastique\s+(?:à|a)?\s*cheveux\b/gi, "Elas Chev"],
+];
+
+const ABBREVIATION_WORDS = [
+  [/\bEnsembles?\b/gi, "Ens"],
+  [/\bBoucles?\b/gi, "Bouc"],
+  [/\bBracelets?\b/gi, "Brac"],
+  [/\bBagues?\b/gi, "Bag"],
+  [/\bCha[iî]nes?\b/gi, "Chai"],
+  [/\bColliers?\b/gi, "Col"],
+  [/\bMontres?\b/gi, "Montr"],
+  [/\bCoffrets?\b/gi, "Cofr"],
+  [/\bBo[iî]tes?\b/gi, "Boit"],
+  [/\bMaquillage\b/gi, "Maq"],
+  [/\bOnglerie\b/gi, "Ongl"],
+  [/\bOngles?\b/gi, "Ongl"],
+  [/\bPiercing\b/gi, "Pierc"],
+  [/\bFemme\b/gi, "F"],
+  [/\bHomme\b/gi, "H"],
+  [/\bEnfant\b/gi, "Enf"],
+];
+
+/**
+ * Applique la table d'abréviation ci-dessus à un nom. N'abrège QUE les mots
+ * reconnus : tout le reste (marques, noms propres, mots non listés) reste
+ * strictement inchangé.
+ */
+export function abbreviateName(name) {
+  // Normalisation NFC indispensable : certains noms Loyverse stockent les
+  // accents en forme décomposée (ex. "à" = "a" + accent combinant séparé,
+  // U+0061 U+0300) au lieu de la forme composée usuelle (U+00E0) — sans ça,
+  // les regex ci-dessus (écrites en forme composée) ne matchent pas, en
+  // silence, sur ces noms précis (repéré sur "Pince à cheveux" en donnée réelle).
+  let result = name.normalize("NFC");
+  for (const [re, repl] of ABBREVIATION_PHRASES) result = result.replace(re, repl);
+  for (const [re, repl] of ABBREVIATION_WORDS) result = result.replace(re, repl);
+  return result.replace(/\s+/g, " ").trim();
+}
+
+// ==================================================================
+// GÉNÉRATION DE L'ÉTIQUETTE : nom / prix unitaire / prix gros / code-barre,
+// même police pour tout le texte, fusionnés sur une seule ligne quand ça
+// tient (mesure réelle largeur, pas un gabarit à lignes fixes).
+// ==================================================================
+
+/**
+ * Un des deux prix (unitaire OU gros) : retourne le nombre arrondi, ou null
+ * si inconnu (null/0) — jamais de texte de substitution pour un prix
+ * précis manquant.
+ */
+function formatSinglePriceValue(price) {
+  if (price === null || price === undefined || Number(price) <= 0) return null;
+  return Math.round(Number(price));
+}
+
+/**
+ * Prix combiné "{unitaire}F/{gros}F" (ex. "1300F/12000F") si les deux sont
+ * connus ; juste "{prix}F" (sans slash ni 2e valeur) si un seul est connu ;
+ * null si aucun des deux n'est connu (pas de ligne de prix du tout dans ce cas).
+ */
+function formatCombinedPriceText(priceUnit, priceWholesale) {
+  const u = formatSinglePriceValue(priceUnit);
+  const w = formatSinglePriceValue(priceWholesale);
+  if (u !== null && w !== null) return `${u}F/${w}F`;
+  if (u !== null) return `${u}F`;
+  if (w !== null) return `${w}F`;
+  return null;
+}
+
+export async function generateLabelImageBase64({ name: rawName, code, priceUnit, priceWholesale }) {
+  const name = abbreviateName(rawName);
   const barcodePng = await bwipjs.toBuffer({
     bcid: "code128",
     text: code,
-    // Résolution plus élevée (5 au lieu de 3) : agrandit le code-barre tout
-    // en gardant un bon rendu net, à l'écran comme à l'impression.
     scale: 5,
-    // Hauteur des barres proportionnelle à l'étiquette (laisse la place au nom
-    // du produit au-dessus) plutôt qu'une valeur fixe qui peut être trop
-    // petite (ou trop grande) selon LABEL_HEIGHT_MM.
-    height: Math.round(LABEL_HEIGHT_MM * 0.55),
+    height: Math.round(LABEL_HEIGHT_MM * 0.65),
     includetext: true,
     textxalign: "center",
     textsize: 11,
-    // Marge de silence (quiet zone) généreuse autour des barres : indispensable
-    // pour que les lecteurs de code-barres (scanner ou appli mobile) accrochent
-    // le code de façon fiable. Gardée intacte malgré l'agrandissement.
     paddingwidth: 12,
     paddingheight: 8,
   });
   const barcodeImg = await loadImage(barcodePng);
 
-  const PADDING = 18;
-  const FONT_SIZE = 38;
-  // Police du prix réduite (était 34/18) pour libérer de la hauteur, réinvestie
-  // ci-dessous dans BARCODE_TOP_GAP comme marge de sécurité autour du code-barre.
-  const PRICE_FONT_SIZE_MAX = 22;
-  const PRICE_FONT_SIZE_MIN = 14;
-  // Marge de sécurité juste au-dessus du code-barre (quiet zone d'impression) :
-  // évite qu'il touche le bord ou déborde à l'impression. Appliquée de façon
-  // identique, avec ou sans ligne de prix, pour un rendu cohérent.
-  const BARCODE_TOP_GAP = 22;
-  const LINE_HEIGHT = Math.round(FONT_SIZE * 1.15);
-  // Hauteur du bloc prix TOUJOURS calculée sur la taille de police MAXIMALE,
-  // jamais sur la taille réellement utilisée : ainsi, même si le texte du
-  // prix rétrécit pour tenir en largeur, la position verticale du code-barre
-  // en dessous ne change jamais.
-  const PRICE_LINE_HEIGHT = Math.round(PRICE_FONT_SIZE_MAX * 1.15);
-  const MAX_NAME_LINES = 3;
-  const canvasWidth = Math.max(barcodeImg.width + PADDING * 2, 260);
+  const PADDING = 12;
+  // Resserré (12 -> 7) pour réduire la marge de risque de débordement à
+  // l'impression — reste une marge non nulle explicite (le code-barre ne
+  // touche jamais le bloc de texte), dimensions globales et code-barre
+  // inchangés par ailleurs.
+  const BARCODE_TOP_GAP = 7;
+  // Une seule fourchette de police pour TOUT le texte (nom + prix combiné).
+  const FONT_SIZE_MAX = 26;
+  const FONT_SIZE_MIN = 14;
+
+  const priceText = formatCombinedPriceText(priceUnit, priceWholesale);
+
+  const canvasWidth = Math.max(barcodeImg.width + PADDING * 2, 200);
   const maxTextWidth = canvasWidth - PADDING * 2;
-
   const measureCtx = createCanvas(1, 1).getContext("2d");
-  measureCtx.font = `bold ${FONT_SIZE}px sans-serif`;
-  const nameLines = wrapText(measureCtx, name, maxTextWidth, MAX_NAME_LINES);
-  const priceText = formatPriceLabel(price, code);
-  const priceFontSize = priceText
-    ? fitPriceFontSize(measureCtx, priceText, maxTextWidth, PRICE_FONT_SIZE_MAX, PRICE_FONT_SIZE_MIN)
-    : 0;
 
-  const nameBlockHeight = nameLines.length * LINE_HEIGHT;
-  const priceBlockHeight = priceText ? Math.round(PADDING / 3) + PRICE_LINE_HEIGHT : 0;
-  const canvasHeight = PADDING + nameBlockHeight + priceBlockHeight + BARCODE_TOP_GAP + barcodeImg.height + PADDING;
+  // La police commune est dimensionnée pour que le prix (qui ne peut jamais
+  // s'enrouler sur plusieurs lignes) tienne sur une seule ligne ; le nom
+  // utilise cette même taille.
+  const fontSize = priceText
+    ? fitPriceFontSize(measureCtx, priceText, maxTextWidth, FONT_SIZE_MAX, FONT_SIZE_MIN)
+    : FONT_SIZE_MAX;
+  measureCtx.font = `bold ${fontSize}px sans-serif`;
+
+  // Logique dynamique (pas un gabarit à nombre de lignes fixe) : priorité au
+  // MINIMUM de lignes. On mesure d'abord si "nom + prix" tient sur une seule
+  // ligne (measureText réel, pas une estimation) ; seulement si ça déborde
+  // vraiment, le nom passe sur sa/ses propre(s) ligne(s) et le prix (qui, lui,
+  // tient toujours sur une ligne par construction ci-dessus) redescend seul
+  // en dessous.
+  const combinedLine = priceText ? `${name} ${priceText}` : name;
+  const combinedFits = measureCtx.measureText(combinedLine).width <= maxTextWidth;
+
+  let textLines;
+  if (combinedFits) {
+    textLines = [combinedLine];
+  } else {
+    const nameLines = wrapText(measureCtx, name, maxTextWidth, 3);
+    textLines = priceText ? [...nameLines, priceText] : nameLines;
+  }
+
+  const LINE_HEIGHT = Math.round(fontSize * 1.15);
+  const textBlockHeight = textLines.length * LINE_HEIGHT;
+  const canvasHeight = PADDING + textBlockHeight + BARCODE_TOP_GAP + barcodeImg.height + PADDING;
 
   const canvas = createCanvas(canvasWidth, canvasHeight);
   const ctx = canvas.getContext("2d");
@@ -192,29 +275,18 @@ export async function generateLabelImageBase64({ name, code, price }) {
   ctx.fillRect(0, 0, canvasWidth, canvasHeight);
 
   ctx.fillStyle = "#000000";
-  ctx.font = `bold ${FONT_SIZE}px sans-serif`;
+  ctx.font = `bold ${fontSize}px sans-serif`;
   ctx.textAlign = "center";
   ctx.textBaseline = "top";
-  nameLines.forEach((line, i) => {
+
+  textLines.forEach((line, i) => {
     ctx.fillText(line, canvasWidth / 2, PADDING + i * LINE_HEIGHT, maxTextWidth);
   });
 
-  // Bloc réservé de hauteur fixe (PRICE_LINE_HEIGHT) ; le texte est centré
-  // verticalement dedans quelle que soit la taille de police retenue.
-  // Absent entièrement (aucun texte, aucun espace réservé) pour un SKU en
-  // attente de prix : design à 2 lignes (nom + code-barre) uniquement.
-  if (priceText) {
-    const priceBlockTop = PADDING + nameBlockHeight + Math.round(PADDING / 3);
-    const priceTextY = priceBlockTop + Math.round((PRICE_LINE_HEIGHT - priceFontSize * 1.15) / 2);
-    ctx.font = `bold ${priceFontSize}px sans-serif`;
-    ctx.fillText(priceText, canvasWidth / 2, priceTextY, maxTextWidth);
-  }
-
   const barcodeX = Math.round((canvasWidth - barcodeImg.width) / 2);
-  const barcodeY = PADDING + nameBlockHeight + priceBlockHeight + BARCODE_TOP_GAP;
+  const barcodeY = PADDING + textBlockHeight + BARCODE_TOP_GAP;
   // drawImage sans redimensionnement : le code-barre est posé à sa taille
-  // native (barcodeImg.width x barcodeImg.height), jamais compressé ou
-  // redimensionné pour faire de la place au prix.
+  // native, jamais compressé ou redimensionné pour faire de la place au texte.
   ctx.drawImage(barcodeImg, barcodeX, barcodeY);
 
   return `data:image/png;base64,${canvas.toBuffer("image/png").toString("base64")}`;
@@ -256,13 +328,14 @@ function wrapText(ctx, text, maxWidth, maxLines) {
  * Enregistre une étiquette (nom + catégorie + code-barres) dans le registre
  * persistant, puis régénère les deux pages HTML (catalogue complet + nouveaux).
  */
-export async function addLabelToPrintSheet({ name, category, code, price }) {
+export async function addLabelToPrintSheet({ name, category, code, priceUnit, priceWholesale }) {
   const records = loadRecords();
   records.push({
     name,
     category: category || "Divers",
     code,
-    price,
+    priceUnit,
+    priceWholesale,
     generatedAt: new Date().toISOString(),
   });
   saveRecords(records);
@@ -514,7 +587,7 @@ async function writeCategorizedSheet({ filePath, pageKey, title, intro, printIns
   for (const [category, categoryRecords] of groups) {
     const labelsHtml = [];
     for (const r of categoryRecords) {
-      const imageDataUri = await generateLabelImageBase64({ name: r.name, code: r.code, price: r.price });
+      const imageDataUri = await generateLabelImageBase64({ name: r.name, code: r.code, priceUnit: r.priceUnit, priceWholesale: r.priceWholesale });
       labelsHtml.push(`
       <div class="label" data-name="${escapeHtml(r.name)}">
         <img src="${imageDataUri}" alt="${escapeHtml(r.name)} (${escapeHtml(r.code)})" />

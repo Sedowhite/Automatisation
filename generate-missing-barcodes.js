@@ -1,7 +1,7 @@
 import "dotenv/config";
 import { getAllItems, getCategories, assignBarcodeToVariant } from "./loyverse.js";
 import { generateNextCode } from "./barcode-generator.js";
-import { addLabelToPrintSheet } from "./label-generator.js";
+import { addLabelToPrintSheet, extractPriceFromName } from "./label-generator.js";
 
 async function run() {
   console.log(`[${new Date().toISOString()}] Recherche des produits sans code-barre...`);
@@ -27,15 +27,21 @@ async function run() {
       existingCodes.push(barcode);
 
       await assignBarcodeToVariant(item.id, variant.variant_id, barcode);
-      await addLabelToPrintSheet({
-        name: item.item_name,
-        category: categoryName,
-        code: barcode,
-        price: variant.default_price,
-      });
 
-      generated.push({ name: item.item_name, barcode });
-      console.log(`  ➕ ${item.item_name} -> ${barcode}`);
+      // Prix unitaire : priorité au suffixe "NombreF" en fin de nom (ex.
+      // "Collier perle 1500F"), sinon le prix Loyverse (default_price, non
+      // vide en pricing_type FIXED). Le prix de gros n'est pas connu pour un
+      // produit détecté automatiquement ici — fourni séparément plus tard si
+      // besoin (voir formatCombinedPriceText dans label-generator.js, qui
+      // n'affiche que le prix réellement connu).
+      const priceFromName = extractPriceFromName(item.item_name);
+      const name = priceFromName ? priceFromName.cleanName : item.item_name;
+      const priceUnit = priceFromName ? priceFromName.price : variant.default_price;
+
+      await addLabelToPrintSheet({ name, category: categoryName, code: barcode, priceUnit, priceWholesale: null });
+
+      generated.push({ name, barcode });
+      console.log(`  ➕ ${name} -> ${barcode}`);
     }
   }
 
