@@ -215,7 +215,13 @@ export async function generateLabelImageBase64({ name: rawName, code, priceUnit,
     bcid: "code128",
     text: code,
     scale: 5,
-    height: Math.round(LABEL_HEIGHT_MM * 0.65),
+    // Ratio réduit (0.65 -> 0.60) : légère concession délibérée pour absorber
+    // une petite part de la pression d'espace créée par la police du nom plus
+    // grande ci-dessous — UNIQUEMENT la hauteur des barres (~8% de moins),
+    // jamais leur largeur/résolution (scale reste à 5, donc la largeur d'un
+    // module ne change pas). Toute réduction touchant le code-barre, même
+    // minime, est revérifiée par décodage réel (voir le test dédié).
+    height: Math.round(LABEL_HEIGHT_MM * 0.60),
     includetext: true,
     textxalign: "center",
     textsize: 11,
@@ -231,8 +237,11 @@ export async function generateLabelImageBase64({ name: rawName, code, priceUnit,
   // inchangés par ailleurs.
   const BARCODE_TOP_GAP = 7;
   // Une seule fourchette de police pour TOUT le texte (nom + prix combiné).
-  const FONT_SIZE_MAX = 26;
-  const FONT_SIZE_MIN = 14;
+  // Augmentée d'un cran (26/14 -> 30/16) : un nom qui ne tient plus sur une
+  // seule ligne passe simplement sur 2 lignes (accepté), le code-barre absorbe
+  // une petite part de la pression d'espace (voir le ratio de hauteur ci-dessus).
+  const FONT_SIZE_MAX = 30;
+  const FONT_SIZE_MIN = 16;
 
   const priceText = formatCombinedPriceText(priceUnit, priceWholesale);
 
@@ -517,8 +526,10 @@ ${PAGES.map((p) => `.badge-${p.key} { background: ${p.bg}; color: ${p.fg}; }`).j
  * Script partagé par les 3 pages "nouveau design" : filtre en temps réel les
  * étiquettes de LA PAGE COURANTE UNIQUEMENT (chaque page charge ce même
  * fichier mais ne touche qu'à son propre DOM — pas de recherche croisée
- * entre pages). Pur JS navigateur, aucun appel réseau. Insensible à la
- * casse et aux accents (normalisation NFD + retrait des diacritiques).
+ * entre pages). Recherche sur le nom OU le SKU/code produit (les deux
+ * fonctionnent simultanément, pas l'un ou l'autre). Pur JS navigateur, aucun
+ * appel réseau. Insensible à la casse et aux accents (normalisation NFD +
+ * retrait des diacritiques).
  */
 async function writeSearchScript() {
   const js = `
@@ -543,7 +554,9 @@ document.addEventListener("DOMContentLoaded", () => {
     let visibleCount = 0;
 
     labels.forEach((label) => {
-      const match = query === "" || normalize(label.dataset.name).includes(query);
+      const match = query === ""
+        || normalize(label.dataset.name).includes(query)
+        || normalize(label.dataset.code).includes(query);
       label.style.display = match ? "" : "none";
       if (match) visibleCount++;
     });
@@ -589,7 +602,7 @@ async function writeCategorizedSheet({ filePath, pageKey, title, intro, printIns
     for (const r of categoryRecords) {
       const imageDataUri = await generateLabelImageBase64({ name: r.name, code: r.code, priceUnit: r.priceUnit, priceWholesale: r.priceWholesale });
       labelsHtml.push(`
-      <div class="label" data-name="${escapeHtml(r.name)}">
+      <div class="label" data-name="${escapeHtml(r.name)}" data-code="${escapeHtml(r.code)}">
         <img src="${imageDataUri}" alt="${escapeHtml(r.name)} (${escapeHtml(r.code)})" />
       </div>`);
     }
@@ -671,7 +684,7 @@ ${labelsHtml.join("\n")}
     <span class="badge badge-${pageKey}">${escapeHtml(theme.label)}</span>
     <h1>${escapeHtml(title)}</h1>
     ${warningBanner ? `<div class="warning-banner">${escapeHtml(warningBanner)}</div>` : ""}
-    <input type="search" class="search-box no-print" placeholder="Rechercher un produit..." aria-label="Rechercher un produit sur cette page">
+    <input type="search" class="search-box no-print" placeholder="Rechercher par nom ou par SKU..." aria-label="Rechercher un produit par nom ou par SKU sur cette page">
     <p>${escapeHtml(intro)}</p>
     ${printInstructions ? `<p>${escapeHtml(printInstructions)}</p>` : ""}
   </div>
