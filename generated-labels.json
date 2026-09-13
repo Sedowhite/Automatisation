@@ -11,8 +11,8 @@
     "name": "Bouc Plaq",
     "category": "Bijoux > Boucles d'oreilles",
     "code": "BOU-034",
-    "priceUnit": null,
-    "priceWholesale": 3500,
+    "priceUnit": 3500,
+    "priceWholesale": null,
     "generatedAt": "2026-09-13T03:46:19.000Z"
   },
   {
@@ -43,8 +43,8 @@
     "name": "Bouc F",
     "category": "Bijoux > Boucles d'oreilles",
     "code": "BOU-033",
-    "priceUnit": null,
-    "priceWholesale": 10500,
+    "priceUnit": 10500,
+    "priceWholesale": null,
     "generatedAt": "2026-09-13T03:46:18.000Z"
   },
   {
@@ -323,8 +323,8 @@
     "name": "Huil Marq",
     "category": "Maison > Parfum d'ambiance",
     "code": "PAR-019",
-    "priceUnit": null,
-    "priceWholesale": 5000,
+    "priceUnit": 5000,
+    "priceWholesale": null,
     "generatedAt": "2026-09-13T03:46:08.000Z"
   },
   {
@@ -355,40 +355,40 @@
     "name": "Onlyou",
     "category": "Maison > Parfum d'ambiance",
     "code": "PAR-012",
-    "priceUnit": null,
-    "priceWholesale": 10000,
+    "priceUnit": 10000,
+    "priceWholesale": null,
     "generatedAt": "2026-09-13T03:46:07.000Z"
   },
   {
     "name": "Geni Spray",
     "category": "Maison > Parfum d'ambiance",
     "code": "PAR-015",
-    "priceUnit": null,
-    "priceWholesale": 4000,
+    "priceUnit": 4000,
+    "priceWholesale": null,
     "generatedAt": "2026-09-13T03:46:06.000Z"
   },
   {
     "name": "Geni Huil",
     "category": "Maison > Parfum d'ambiance",
     "code": "PAR-014",
-    "priceUnit": null,
-    "priceWholesale": 4500,
+    "priceUnit": 4500,
+    "priceWholesale": null,
     "generatedAt": "2026-09-13T03:46:06.000Z"
   },
   {
     "name": "Stom Kids",
     "category": "Maison > Parfum d'ambiance",
     "code": "PAR-009",
-    "priceUnit": null,
-    "priceWholesale": 10000,
+    "priceUnit": 10000,
+    "priceWholesale": null,
     "generatedAt": "2026-09-13T03:46:06.000Z"
   },
   {
     "name": "Stom Elix",
     "category": "Maison > Parfum d'ambiance",
     "code": "PAR-013",
-    "priceUnit": null,
-    "priceWholesale": 12000,
+    "priceUnit": 12000,
+    "priceWholesale": null,
     "generatedAt": "2026-09-13T03:46:05.000Z"
   },
   {
@@ -603,8 +603,8 @@
     "name": "Bracelet 4 en 1",
     "category": "Bijoux > Bracelets",
     "code": "BRA-033",
-    "priceUnit": null,
-    "priceWholesale": 12000,
+    "priceUnit": 12000,
+    "priceWholesale": null,
     "generatedAt": "2026-09-13T03:45:57.000Z"
   },
   {
@@ -699,15 +699,15 @@
     "name": "Bouc Plaq",
     "category": "Bijoux > Boucles d'oreilles",
     "code": "BOU-031",
-    "priceUnit": null,
-    "priceWholesale": 2500,
+    "priceUnit": 2500,
+    "priceWholesale": null,
     "generatedAt": "2026-09-13T03:45:53.000Z"
   },
   {
     "name": "Bouc",
     "category": "Bijoux > Boucles d'oreilles",
     "code": "BOU-030",
-    "priceUnit": 700,
+    "priceUnit": 600,
     "priceWholesale": 4000,
     "generatedAt": "2026-09-13T03:45:53.000Z"
   },
@@ -715,7 +715,7 @@
     "name": "Bouc",
     "category": "Bijoux > Boucles d'oreilles",
     "code": "BOU-029",
-    "priceUnit": 1000,
+    "priceUnit": 700,
     "priceWholesale": 4500,
     "generatedAt": "2026-09-13T03:45:53.000Z"
   },
@@ -859,24 +859,24 @@
     "name": "Slip enfant",
     "category": "Vêtements > Sous-vêtements",
     "code": "LIN-008",
-    "priceUnit": null,
-    "priceWholesale": 7000,
+    "priceUnit": 7000,
+    "priceWholesale": null,
     "generatedAt": "2026-09-13T03:45:47.000Z"
   },
   {
     "name": "Slip enfant",
     "category": "Vêtements > Sous-vêtements",
     "code": "LIN-007",
-    "priceUnit": null,
-    "priceWholesale": 8000,
+    "priceUnit": 8000,
+    "priceWholesale": null,
     "generatedAt": "2026-09-13T03:45:47.000Z"
   },
   {
     "name": "Slip Enf Pet",
     "category": "Vêtements > Sous-vêtements",
     "code": "LIN-021",
-    "priceUnit": null,
-    "priceWholesale": 4500,
+    "priceUnit": 4500,
+    "priceWholesale": null,
     "generatedAt": "2026-09-13T03:45:46.000Z"
   },
   {
@@ -915,8 +915,8 @@
     "name": "Slip Enf",
     "category": "Vêtements > Sous-vêtements",
     "code": "LIN-016",
-    "priceUnit": null,
-    "priceWholesale": 5000,
+    "priceUnit": 5000,
+    "priceWholesale": null,
     "generatedAt": "2026-09-13T03:45:45.000Z"
   },
   {
@@ -995,8 +995,8 @@
     "name": "Faux Ong Plaq",
     "category": "Cosmétiques > Ongles",
     "code": "ONG-006",
-    "priceUnit": null,
-    "priceWholesale": 5000,
+    "priceUnit": 5000,
+    "priceWholesale": null,
     "generatedAt": "2026-09-13T03:45:42.000Z"
   },
   {
@@ -1056,7 +1056,7 @@
     "generatedAt": "2026-09-13T03:45:39.000Z"
   },
   {
-    "name": "Boite de Maq",
+    "name": "FAR",
     "category": "Cosmétiques > Maquillage",
     "code": "MAQ-012",
     "priceUnit": 1500,
@@ -1096,7 +1096,7 @@
     "generatedAt": "2026-09-13T03:45:38.000Z"
   },
   {
-    "name": "Boite de Maq 6C",
+    "name": "FAR 6C",
     "category": "Cosmétiques > Maquillage",
     "code": "MAQ-011",
     "priceUnit": 2000,
@@ -1643,8 +1643,8 @@
     "name": "Stick",
     "category": "Divers",
     "code": "DIV-008",
-    "priceUnit": null,
-    "priceWholesale": 1500,
+    "priceUnit": 1500,
+    "priceWholesale": null,
     "generatedAt": "2026-09-13T03:45:16.000Z"
   },
   {
@@ -1659,48 +1659,48 @@
     "name": "Bouc",
     "category": "Bijoux > Boucles d'oreilles",
     "code": "BOU-015",
-    "priceUnit": null,
-    "priceWholesale": 1500,
+    "priceUnit": 1500,
+    "priceWholesale": null,
     "generatedAt": "2026-09-13T03:45:16.000Z"
   },
   {
     "name": "Bouc",
     "category": "Bijoux > Boucles d'oreilles",
     "code": "BOU-014",
-    "priceUnit": null,
-    "priceWholesale": 1000,
+    "priceUnit": 1000,
+    "priceWholesale": null,
     "generatedAt": "2026-09-13T03:45:15.000Z"
   },
   {
     "name": "Bouc",
     "category": "Bijoux > Boucles d'oreilles",
     "code": "BOU-013",
-    "priceUnit": null,
-    "priceWholesale": 2500,
+    "priceUnit": 2500,
+    "priceWholesale": null,
     "generatedAt": "2026-09-13T03:45:15.000Z"
   },
   {
     "name": "Bouc",
     "category": "Bijoux > Boucles d'oreilles",
     "code": "BOU-012",
-    "priceUnit": null,
-    "priceWholesale": 3000,
+    "priceUnit": 3000,
+    "priceWholesale": null,
     "generatedAt": "2026-09-13T03:45:15.000Z"
   },
   {
     "name": "Bouc",
     "category": "Bijoux > Boucles d'oreilles",
     "code": "BOU-011",
-    "priceUnit": null,
-    "priceWholesale": 2000,
+    "priceUnit": 2000,
+    "priceWholesale": null,
     "generatedAt": "2026-09-13T03:45:14.000Z"
   },
   {
     "name": "Bouc",
     "category": "Bijoux > Boucles d'oreilles",
     "code": "BOU-010",
-    "priceUnit": null,
-    "priceWholesale": 2450,
+    "priceUnit": 2450,
+    "priceWholesale": null,
     "generatedAt": "2026-09-13T03:45:14.000Z"
   },
   {
@@ -1795,8 +1795,8 @@
     "name": "Bracelet price",
     "category": "Bijoux > Bracelets",
     "code": "BRA-010",
-    "priceUnit": null,
-    "priceWholesale": 10000,
+    "priceUnit": 10000,
+    "priceWholesale": null,
     "generatedAt": "2026-07-28T20:06:18.162Z"
   },
   {
