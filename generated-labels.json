@@ -2838,5 +2838,21 @@
     "priceUnit": 6000,
     "priceWholesale": null,
     "generatedAt": "2026-09-13T12:45:18.525Z"
+  },
+  {
+    "name": "Brac 1400F/",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-046",
+    "priceUnit": 10500,
+    "priceWholesale": null,
+    "generatedAt": "2026-09-13T16:50:18.144Z"
+  },
+  {
+    "name": "Brac Horo 1000F/",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-047",
+    "priceUnit": 5000,
+    "priceWholesale": null,
+    "generatedAt": "2026-09-13T16:50:26.851Z"
   }
 ]
