@@ -89,8 +89,8 @@ body { font-family: Arial, sans-serif; margin: 20px; background: #fafafa; color:
   border: 1px dashed #999;
   padding: 8px 12px;
   text-align: center;
-  width: 300px;
-  height: 150px;
+  width: 240px;
+  height: 120px;
   box-sizing: border-box;
   overflow: hidden;
   display: flex;
@@ -107,7 +107,7 @@ body { font-family: Arial, sans-serif; margin: 20px; background: #fafafa; color:
   .nav-link { font-size: 13px; padding: 5px 10px; }
   .page-header h1 { font-size: 19px; }
   .label {
-    width: 240px;
-    height: 120px;
+    width: 192px;
+    height: 96px;
   }
 }

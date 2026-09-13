@@ -12,5 +12,9 @@
   "Bijoux > Bagues": "BAG",
   "Accessoires > Présentoirs": "PRE",
   "Accessoires > Cheveux": "ACC",
-  "Divers": "DIV"
+  "Divers": "DIV",
+  "Vêtements > Sous-vêtements": "LIN",
+  "Cosmétiques > Maquillage": "MAQ",
+  "Bijoux > Corps": "COR",
+  "Beauté > Hygiène": "HYG"
 }
