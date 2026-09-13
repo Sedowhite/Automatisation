@@ -1,0 +1,1762 @@
+[
+  {
+    "sku": "COL-057",
+    "currentName": "Cofr Chai 2000F/17500F",
+    "fullName": "Cofr Chai"
+  },
+  {
+    "sku": "BOU-034",
+    "currentName": "Bouc Plaq 3500F",
+    "fullName": "Bouc Plaq"
+  },
+  {
+    "sku": "ACC-021",
+    "currentName": "Chou Chev 500F/3000F",
+    "fullName": "Chou Chev"
+  },
+  {
+    "sku": "ENS-063",
+    "currentName": "Ens 4P F 3000F/18500F",
+    "fullName": "Ens 4P F"
+  },
+  {
+    "sku": "ENS-062",
+    "currentName": "Ens 4P F 1400F/25000F",
+    "fullName": "Ens 4P F"
+  },
+  {
+    "sku": "BOU-033",
+    "currentName": "Bouc F 10500F",
+    "fullName": "Bouc F"
+  },
+  {
+    "sku": "ACC-020",
+    "currentName": "Elas Chev 1500F/10500F",
+    "fullName": "Elas Chev"
+  },
+  {
+    "sku": "MON-054",
+    "currentName": "Cofr Montr H 5000F",
+    "fullName": "Cofr Montr H"
+  },
+  {
+    "sku": "ACC-019",
+    "currentName": "Chou Chev 1000F/8000F",
+    "fullName": "Chou Chev"
+  },
+  {
+    "sku": "ACC-018",
+    "currentName": "Bando 500F/3000F",
+    "fullName": "Bando"
+  },
+  {
+    "sku": "ONG-008",
+    "currentName": "Faux Ongl 1400F/10000F",
+    "fullName": "Faux Ongl"
+  },
+  {
+    "sku": "ONG-007",
+    "currentName": "Faux Ongl 1200F/9000F",
+    "fullName": "Faux Ongl"
+  },
+  {
+    "sku": "LEV-020",
+    "currentName": "Glos 700F/5500F",
+    "fullName": "Glos"
+  },
+  {
+    "sku": "LEV-019",
+    "currentName": "Glos 500F/4000F",
+    "fullName": "Glos"
+  },
+  {
+    "sku": "LEV-018",
+    "currentName": "Glos 700F/5000F",
+    "fullName": "Glos"
+  },
+  {
+    "sku": "BRA-045",
+    "currentName": "Brac",
+    "fullName": "Brac"
+  },
+  {
+    "sku": "BOU-032",
+    "currentName": "Bouc 1500F/13000F",
+    "fullName": "Bouc"
+  },
+  {
+    "sku": "PAR-007",
+    "currentName": "Yara 11500F",
+    "fullName": "Yara"
+  },
+  {
+    "sku": "PAR-006",
+    "currentName": "Latafa 10000F",
+    "fullName": "Latafa"
+  },
+  {
+    "sku": "PAR-005",
+    "currentName": "Mousuf 12000F",
+    "fullName": "Mousuf"
+  },
+  {
+    "sku": "MAQ-010",
+    "currentName": "Kit maquillage",
+    "fullName": "Kit maquillage"
+  },
+  {
+    "sku": "ONG-004",
+    "currentName": "Kit onglerie",
+    "fullName": "Kit onglerie"
+  },
+  {
+    "sku": "COF-011",
+    "currentName": "Cofr Alph",
+    "fullName": "Cofr Alph"
+  },
+  {
+    "sku": "COF-010",
+    "currentName": "Cofr Vivi",
+    "fullName": "Cofr Vivi"
+  },
+  {
+    "sku": "DIV-017",
+    "currentName": "Dés Sex 500F",
+    "fullName": "Dés Sex"
+  },
+  {
+    "sku": "COF-009",
+    "currentName": "Cofr Diam 10000F",
+    "fullName": "Cofr Diam"
+  },
+  {
+    "sku": "COF-008",
+    "currentName": "Cofr Cœur 7000F",
+    "fullName": "Cofr Cœur"
+  },
+  {
+    "sku": "COL-056",
+    "currentName": "Chai F Cœur Ouv 1250F/9000F",
+    "fullName": "Chai F Cœur Ouv"
+  },
+  {
+    "sku": "COL-055",
+    "currentName": "Chai F 1250F/9000F",
+    "fullName": "Chai F"
+  },
+  {
+    "sku": "ENS-061",
+    "currentName": "Ens 2P 4500F/4500F",
+    "fullName": "Ens 2P"
+  },
+  {
+    "sku": "COL-054",
+    "currentName": "Chai Fleur 1000F/6000F",
+    "fullName": "Chai Fleur"
+  },
+  {
+    "sku": "ENS-060",
+    "currentName": "Ens 2P 1300F/9500F",
+    "fullName": "Ens 2P"
+  },
+  {
+    "sku": "ENS-059",
+    "currentName": "Ens 4P Tref 1750F/15000F",
+    "fullName": "Ens 4P Tref"
+  },
+  {
+    "sku": "ENS-058",
+    "currentName": "Ens 4P Enf 1500F/12000F",
+    "fullName": "Ens 4P Enf"
+  },
+  {
+    "sku": "DIV-016",
+    "currentName": "Faux Tatou 1000F/6000F",
+    "fullName": "Faux Tatou"
+  },
+  {
+    "sku": "DIV-015",
+    "currentName": "Faux Tatou 500F/4000F",
+    "fullName": "Faux Tatou"
+  },
+  {
+    "sku": "BRA-044",
+    "currentName": "Brac Cart 1250F/9000F",
+    "fullName": "Brac Cart"
+  },
+  {
+    "sku": "ENS-057",
+    "currentName": "Ens 2P 600F/4500F",
+    "fullName": "Ens 2P"
+  },
+  {
+    "sku": "HYG-002",
+    "currentName": "Déo Adam 9000F",
+    "fullName": "Déo Adam"
+  },
+  {
+    "sku": "HYG-001",
+    "currentName": "Scal Mach 1000F",
+    "fullName": "Scal Mach"
+  },
+  {
+    "sku": "PAR-019",
+    "currentName": "Huil Marq 5000F",
+    "fullName": "Huil Marq"
+  },
+  {
+    "sku": "PAR-018",
+    "currentName": "Ess Diffus 1500F/12000F",
+    "fullName": "Ess Diffus"
+  },
+  {
+    "sku": "PAR-017",
+    "currentName": "Diffus 1500F/12000F",
+    "fullName": "Diffus"
+  },
+  {
+    "sku": "PAR-016",
+    "currentName": "Gam Play 8000F",
+    "fullName": "Gam Play"
+  },
+  {
+    "sku": "PAR-012",
+    "currentName": "Onlyou 10000F",
+    "fullName": "Onlyou"
+  },
+  {
+    "sku": "PAR-015",
+    "currentName": "Geni Spray 4000F",
+    "fullName": "Geni Spray"
+  },
+  {
+    "sku": "PAR-014",
+    "currentName": "Geni Huil 4500F",
+    "fullName": "Geni Huil"
+  },
+  {
+    "sku": "PAR-009",
+    "currentName": "Stom Kids 10000F",
+    "fullName": "Stom Kids"
+  },
+  {
+    "sku": "PAR-013",
+    "currentName": "Stom Elix 12000F",
+    "fullName": "Stom Elix"
+  },
+  {
+    "sku": "MON-019",
+    "currentName": "Montr H CK 2000F/16000F",
+    "fullName": "Montre Homme CK"
+  },
+  {
+    "sku": "MON-053",
+    "currentName": "Montr F 2P 2000F/16000F",
+    "fullName": "Montr F 2P"
+  },
+  {
+    "sku": "MON-018",
+    "currentName": "Montr F 2P 2000F/18000F",
+    "fullName": "Montre Femme 2P"
+  },
+  {
+    "sku": "MON-052",
+    "currentName": "Montr F Jial 1400F/10500F",
+    "fullName": "Montr F Jial"
+  },
+  {
+    "sku": "MON-016",
+    "currentName": "Montr H IK 2000F/17500F",
+    "fullName": "Montre Homme IK"
+  },
+  {
+    "sku": "MON-051",
+    "currentName": "Montr H Niq 1700F/14000F",
+    "fullName": "Montr H Niq"
+  },
+  {
+    "sku": "MON-050",
+    "currentName": "Montr H Oma/Rol 2000F/16000F",
+    "fullName": "Montr H Oma/Rol"
+  },
+  {
+    "sku": "COL-039",
+    "currentName": "Chai F 1000F/6000F",
+    "fullName": "Chaine Femme"
+  },
+  {
+    "sku": "COL-053",
+    "currentName": "Chai de pied 1000F/5000F",
+    "fullName": "Chai de pied"
+  },
+  {
+    "sku": "COL-052",
+    "currentName": "Chai de pied 1400F/10000F",
+    "fullName": "Chai de pied"
+  },
+  {
+    "sku": "COL-051",
+    "currentName": "Chai F 1100F/6500F",
+    "fullName": "Chai F"
+  },
+  {
+    "sku": "COL-042",
+    "currentName": "Chai F 1200F/7500F",
+    "fullName": "Chaine Femme"
+  },
+  {
+    "sku": "ENS-026",
+    "currentName": "2P Chai + Brac 2100F/19000F",
+    "fullName": "2 Pièces Chaine + Bracelet"
+  },
+  {
+    "sku": "COL-041",
+    "currentName": "Chai F 1500F",
+    "fullName": "Chaine Femme"
+  },
+  {
+    "sku": "COL-040",
+    "currentName": "Chai F 1300F/9000F",
+    "fullName": "Chaine Femme"
+  },
+  {
+    "sku": "COL-043",
+    "currentName": "Chai F 1100F/7000F",
+    "fullName": "Chaine Femme"
+  },
+  {
+    "sku": "COL-050",
+    "currentName": "Chai S 1000F/4500F",
+    "fullName": "Chai S"
+  },
+  {
+    "sku": "COL-037",
+    "currentName": "Chai H 1200F/7500F",
+    "fullName": "Chaine Homme"
+  },
+  {
+    "sku": "COL-049",
+    "currentName": "Chai Faux Beir 1400F/10000F",
+    "fullName": "Chai Faux Beir"
+  },
+  {
+    "sku": "COL-035",
+    "currentName": "Chai H 1100F/7000F",
+    "fullName": "Chaine Homme"
+  },
+  {
+    "sku": "COF-007",
+    "currentName": "Boit Bij 2500F",
+    "fullName": "Boit Bij"
+  },
+  {
+    "sku": "COF-006",
+    "currentName": "Boit Bij 4500F",
+    "fullName": "Boit Bij"
+  },
+  {
+    "sku": "COF-005",
+    "currentName": "Boit Bij 8000F",
+    "fullName": "Boit Bij"
+  },
+  {
+    "sku": "DIV-014",
+    "currentName": "Mang\" 500F",
+    "fullName": "Mang\""
+  },
+  {
+    "sku": "DIV-013",
+    "currentName": "Mang\" 5000F",
+    "fullName": "Mang\""
+  },
+  {
+    "sku": "MON-035",
+    "currentName": "Cofr Montr 3500F/25000F",
+    "fullName": "Coffret montre"
+  },
+  {
+    "sku": "BRA-033",
+    "currentName": "Brac 4 en 1 12000F",
+    "fullName": "Bracelet 4 en 1"
+  },
+  {
+    "sku": "MON-049",
+    "currentName": "Montr Alsa 7500F",
+    "fullName": "Montr Alsa"
+  },
+  {
+    "sku": "MON-048",
+    "currentName": "Montr Poed 9500F",
+    "fullName": "Montr Poed"
+  },
+  {
+    "sku": "COF-004",
+    "currentName": "Cofr G Form 11000F",
+    "fullName": "Cofr G Form"
+  },
+  {
+    "sku": "COF-003",
+    "currentName": "Cofr G Form 7000F",
+    "fullName": "Cofr G Form"
+  },
+  {
+    "sku": "MON-047",
+    "currentName": "Cofr Montr 5000F",
+    "fullName": "Cofr Montr"
+  },
+  {
+    "sku": "MON-046",
+    "currentName": "Cofr Montr 3000F/30000F",
+    "fullName": "Cofr Montr"
+  },
+  {
+    "sku": "LIN-014",
+    "currentName": "Slip Enf 1000F/5500F",
+    "fullName": "Slip enfant"
+  },
+  {
+    "sku": "LIN-025",
+    "currentName": "Slip Dent 1000F/6500F",
+    "fullName": "Slip Dent"
+  },
+  {
+    "sku": "LIN-012",
+    "currentName": "Slip F 1250F/9000F",
+    "fullName": "Slip femme"
+  },
+  {
+    "sku": "LIN-024",
+    "currentName": "Brass F 1500F/11000F",
+    "fullName": "Brass F"
+  },
+  {
+    "sku": "LIN-023",
+    "currentName": "Slip F 1100F/7500F",
+    "fullName": "Slip F"
+  },
+  {
+    "sku": "BOU-031",
+    "currentName": "Bouc Plaq 2500F",
+    "fullName": "Bouc Plaq"
+  },
+  {
+    "sku": "BOU-030",
+    "currentName": "Bouc 700F/4000F",
+    "fullName": "Bouc"
+  },
+  {
+    "sku": "BOU-029",
+    "currentName": "Bouc 1000F/4500F",
+    "fullName": "Bouc"
+  },
+  {
+    "sku": "COR-002",
+    "currentName": "Perl Hanch 3000F/28000F",
+    "fullName": "Perl Hanch"
+  },
+  {
+    "sku": "MON-045",
+    "currentName": "Montr Mix 2000F/17500F",
+    "fullName": "Montr Mix"
+  },
+  {
+    "sku": "MON-044",
+    "currentName": "Montr H",
+    "fullName": "Montr H"
+  },
+  {
+    "sku": "ENS-027",
+    "currentName": "Montr H 2P 2000F/17500F",
+    "fullName": "Montre Homme 2pieces"
+  },
+  {
+    "sku": "MON-029",
+    "currentName": "Montr F 1875F/16500F",
+    "fullName": "Montre femme"
+  },
+  {
+    "sku": "MON-043",
+    "currentName": "Montr F 2000F/18000F",
+    "fullName": "Montr F"
+  },
+  {
+    "sku": "MON-042",
+    "currentName": "Montr F For 1800F/15500F",
+    "fullName": "Montr F For"
+  },
+  {
+    "sku": "MON-041",
+    "currentName": "Montr F Niq 2000F/17000F",
+    "fullName": "Montr F Niq"
+  },
+  {
+    "sku": "MON-040",
+    "currentName": "Montr F CityStar 2200F/20000F",
+    "fullName": "Montr F CityStar"
+  },
+  {
+    "sku": "MON-025",
+    "currentName": "Montr H 2000F/17500F",
+    "fullName": "Montre Homme"
+  },
+  {
+    "sku": "MON-039",
+    "currentName": "Montr H Coll 2000F/17000F",
+    "fullName": "Montr H Coll"
+  },
+  {
+    "sku": "MON-023",
+    "currentName": "Montr F 2000F/16000F",
+    "fullName": "Montre femme"
+  },
+  {
+    "sku": "MON-022",
+    "currentName": "Montr F 1750F/15000F",
+    "fullName": "Montre femme"
+  },
+  {
+    "sku": "MON-038",
+    "currentName": "Montr H Niq 2000F/18000F",
+    "fullName": "Montr H Niq"
+  },
+  {
+    "sku": "MON-037",
+    "currentName": "Montr H Elec 1750F/15000F",
+    "fullName": "Montr H Elec"
+  },
+  {
+    "sku": "MON-036",
+    "currentName": "Montr H Grac 2000F/16000F",
+    "fullName": "Montr H Grac"
+  },
+  {
+    "sku": "LIN-022",
+    "currentName": "Slip Ordi 1050F/7000F",
+    "fullName": "Slip Ordi"
+  },
+  {
+    "sku": "LIN-008",
+    "currentName": "Slip Enf 7000F",
+    "fullName": "Slip enfant"
+  },
+  {
+    "sku": "LIN-007",
+    "currentName": "Slip Enf 8000F",
+    "fullName": "Slip enfant"
+  },
+  {
+    "sku": "LIN-021",
+    "currentName": "Slip Enf Pet 4500F",
+    "fullName": "Slip Enf Pet"
+  },
+  {
+    "sku": "LIN-020",
+    "currentName": "Slip S Trac 1050F/7000F",
+    "fullName": "Slip S Trac"
+  },
+  {
+    "sku": "LIN-019",
+    "currentName": "Slip S Trac 1000F/6500F",
+    "fullName": "Slip S Trac"
+  },
+  {
+    "sku": "LIN-018",
+    "currentName": "Slip S Trac 1150F/8000F",
+    "fullName": "Slip S Trac"
+  },
+  {
+    "sku": "LIN-017",
+    "currentName": "Soutif 1500F/13000F",
+    "fullName": "Soutif"
+  },
+  {
+    "sku": "LIN-016",
+    "currentName": "Slip Enf 5000F",
+    "fullName": "Slip Enf"
+  },
+  {
+    "sku": "DIV-012",
+    "currentName": "Ball HBD 1500F/12000F",
+    "fullName": "Ball HBD"
+  },
+  {
+    "sku": "ACC-015",
+    "currentName": "Ser Tet 3000F/24000F",
+    "fullName": "Serre tete"
+  },
+  {
+    "sku": "MAQ-018",
+    "currentName": "Masca 1000F/6000F",
+    "fullName": "Masca"
+  },
+  {
+    "sku": "DIV-011",
+    "currentName": "Serv Tble 1000F/5000F",
+    "fullName": "Serv Tble"
+  },
+  {
+    "sku": "LIN-015",
+    "currentName": "Calsip 3000F/20000F",
+    "fullName": "Calsip"
+  },
+  {
+    "sku": "DIV-007",
+    "currentName": "Bras 1500F/10000F",
+    "fullName": "Bras"
+  },
+  {
+    "sku": "ACC-014",
+    "currentName": "Ser Tet 2400F/23000F",
+    "fullName": "Serre tete"
+  },
+  {
+    "sku": "MAQ-017",
+    "currentName": "Bronz 1150F/8000F",
+    "fullName": "Bronz"
+  },
+  {
+    "sku": "MAQ-016",
+    "currentName": "Bronz 1000F/5000F",
+    "fullName": "Bronz"
+  },
+  {
+    "sku": "ONG-006",
+    "currentName": "Faux Ong Plaq 5000F",
+    "fullName": "Faux Ong Plaq"
+  },
+  {
+    "sku": "LEV-017",
+    "currentName": "Glos 1250F/9000F",
+    "fullName": "Glos"
+  },
+  {
+    "sku": "LEV-016",
+    "currentName": "Crèm Lèvr Rose 1000F/6000F",
+    "fullName": "Crèm Lèvr Rose"
+  },
+  {
+    "sku": "LEV-015",
+    "currentName": "Boit Rge Lèvr 1000F/15000F",
+    "fullName": "Boite Rge Lèvr"
+  },
+  {
+    "sku": "MAQ-015",
+    "currentName": "Masca 1000F/5000F",
+    "fullName": "Masca"
+  },
+  {
+    "sku": "MAQ-014",
+    "currentName": "Eyeliner 800F/5000F",
+    "fullName": "Eyeliner"
+  },
+  {
+    "sku": "ACC-012",
+    "currentName": "Pince Chev 1000F/4000F",
+    "fullName": "Pince à cheveux"
+  },
+  {
+    "sku": "MAQ-013",
+    "currentName": "Cray Maq 1400F/6000F",
+    "fullName": "Cray Maq"
+  },
+  {
+    "sku": "MAQ-012",
+    "currentName": "Boit de Maq 1500F/11000F",
+    "fullName": "Boite de Maq"
+  },
+  {
+    "sku": "ACC-011",
+    "currentName": "Pince Chev 1400F/10000F",
+    "fullName": "Pince à cheveux"
+  },
+  {
+    "sku": "ACC-017",
+    "currentName": "Ser Tet Fleu 800F/11000F",
+    "fullName": "Ser Tet Fleu"
+  },
+  {
+    "sku": "ONG-005",
+    "currentName": "Faux Ongl 1250F/3500F",
+    "fullName": "Faux Ongle"
+  },
+  {
+    "sku": "DIV-010",
+    "currentName": "Porte Clé 500F/9000F",
+    "fullName": "Porte Clé"
+  },
+  {
+    "sku": "MAQ-011",
+    "currentName": "Boit de Maq 6C 2000F/3500F",
+    "fullName": "Boite de Maq 6C"
+  },
+  {
+    "sku": "BRA-032",
+    "currentName": "Brac 1500F/18000F",
+    "fullName": "Bracelet"
+  },
+  {
+    "sku": "BAG-022",
+    "currentName": "Bag Mari 1500F/12000F",
+    "fullName": "Bag Mari"
+  },
+  {
+    "sku": "BAG-021",
+    "currentName": "Bag Mari 2000F",
+    "fullName": "Bag Mari"
+  },
+  {
+    "sku": "BAG-020",
+    "currentName": "Bag Mari 1500F/10000F",
+    "fullName": "Bag Mari"
+  },
+  {
+    "sku": "BAG-019",
+    "currentName": "Bag 500F/4000F",
+    "fullName": "Bag"
+  },
+  {
+    "sku": "BAG-017",
+    "currentName": "Bag 450F/3500F",
+    "fullName": "Bague"
+  },
+  {
+    "sku": "BAG-016",
+    "currentName": "Bag 600F/5500F",
+    "fullName": "Bague"
+  },
+  {
+    "sku": "BAG-015",
+    "currentName": "Bag 300F/2000F",
+    "fullName": "Bague"
+  },
+  {
+    "sku": "BAG-014",
+    "currentName": "Bag 350F/2500F",
+    "fullName": "Bague"
+  },
+  {
+    "sku": "ENS-056",
+    "currentName": "Ens Enf 3500F/3500F",
+    "fullName": "Ens Enf"
+  },
+  {
+    "sku": "ENS-033",
+    "currentName": "Ens 2P 3500F/3500F",
+    "fullName": "Ensemble 2 pièces"
+  },
+  {
+    "sku": "ENS-055",
+    "currentName": "Ens 4P 1600F/12500F",
+    "fullName": "Ens 4P"
+  },
+  {
+    "sku": "ACC-016",
+    "currentName": "Barr Mari 2200F/20000F",
+    "fullName": "Barr Mari"
+  },
+  {
+    "sku": "BOU-028",
+    "currentName": "Bouc 1500F/12000F",
+    "fullName": "Bouc"
+  },
+  {
+    "sku": "BOU-027",
+    "currentName": "Bouc 2500F",
+    "fullName": "Bouc"
+  },
+  {
+    "sku": "BOU-026",
+    "currentName": "Bouc 4500F",
+    "fullName": "Bouc"
+  },
+  {
+    "sku": "BOU-025",
+    "currentName": "Bouc 2000F",
+    "fullName": "Bouc"
+  },
+  {
+    "sku": "BOU-024",
+    "currentName": "Bouc 3500F",
+    "fullName": "Bouc"
+  },
+  {
+    "sku": "BOU-023",
+    "currentName": "Bouc 4000F",
+    "fullName": "Bouc"
+  },
+  {
+    "sku": "ENS-054",
+    "currentName": "Ens 2P 1625F/13500F",
+    "fullName": "Ens 2P"
+  },
+  {
+    "sku": "COL-046",
+    "currentName": "Medaille 1100F/7000F",
+    "fullName": "Medaille"
+  },
+  {
+    "sku": "BRA-043",
+    "currentName": "Brac Bril 1250F/9000F",
+    "fullName": "Brac Bril"
+  },
+  {
+    "sku": "ENS-053",
+    "currentName": "Ens Perl 3P 2200F/20000F",
+    "fullName": "Ens Perl 3P"
+  },
+  {
+    "sku": "COR-001",
+    "currentName": "Pierc 750F/3000F",
+    "fullName": "Piercing"
+  },
+  {
+    "sku": "BAG-012",
+    "currentName": "Bag de pied 750F/3000F",
+    "fullName": "Bague de pied"
+  },
+  {
+    "sku": "BOU-022",
+    "currentName": "Bouc F 1500F/11000F",
+    "fullName": "Bouc F"
+  },
+  {
+    "sku": "BRA-028",
+    "currentName": "Brac F 1400F/10000F",
+    "fullName": "Bracelet femme"
+  },
+  {
+    "sku": "BOU-021",
+    "currentName": "Bouc Gel 1000F/6000F",
+    "fullName": "Bouc Gel"
+  },
+  {
+    "sku": "ENS-052",
+    "currentName": "Ens 3 Chai + Bouc 1625F/13500F",
+    "fullName": "Ens 3 Chai + Bouc"
+  },
+  {
+    "sku": "ENS-051",
+    "currentName": "Ens Hel Kit 1600F/12500F",
+    "fullName": "Ens Hel Kit"
+  },
+  {
+    "sku": "BOU-020",
+    "currentName": "Bouc enf 1000F/7500F",
+    "fullName": "Bouc enf"
+  },
+  {
+    "sku": "MAQ-002",
+    "currentName": "Pinceau Maq 1300F/8500F",
+    "fullName": "Pinceau maquillage"
+  },
+  {
+    "sku": "BOU-019",
+    "currentName": "Bouc Fleu 600F/3500F",
+    "fullName": "Bouc Fleu"
+  },
+  {
+    "sku": "BOU-018",
+    "currentName": "Bouc Plaq 500F/500F",
+    "fullName": "Bouc Plaq"
+  },
+  {
+    "sku": "BOU-017",
+    "currentName": "Faux bouc Pierc 500F/6000F",
+    "fullName": "Faux bouc Pierc"
+  },
+  {
+    "sku": "COL-048",
+    "currentName": "Medaille 500F/3000F",
+    "fullName": "Medaille"
+  },
+  {
+    "sku": "COL-047",
+    "currentName": "Rat de cou 1500F/11500F",
+    "fullName": "Rat de cou"
+  },
+  {
+    "sku": "COL-032",
+    "currentName": "Chai de pied 500F/3000F",
+    "fullName": "Chaine de pied"
+  },
+  {
+    "sku": "MAQ-001",
+    "currentName": "Pinceau 1100F/6500F",
+    "fullName": "Pinceau"
+  },
+  {
+    "sku": "ENS-050",
+    "currentName": "2P Chai + Bouc 1600F/13000F",
+    "fullName": "2P Chai + Bouc"
+  },
+  {
+    "sku": "ENS-049",
+    "currentName": "3P Chai + Bouc + Brac 2500F/24000F",
+    "fullName": "3P Chai + Bouc + Brac"
+  },
+  {
+    "sku": "ENS-048",
+    "currentName": "2 Chai + Bouc 1500F/11000F",
+    "fullName": "2 Chai + Bouc"
+  },
+  {
+    "sku": "DIV-009",
+    "currentName": "Broche 1100F/7000F",
+    "fullName": "Broche"
+  },
+  {
+    "sku": "BRO-004",
+    "currentName": "Broche 1100F/6500F",
+    "fullName": "Broche"
+  },
+  {
+    "sku": "ENS-047",
+    "currentName": "Chai + Bouc 1300F/8500F",
+    "fullName": "Chai + Bouc"
+  },
+  {
+    "sku": "ENS-046",
+    "currentName": "Chai + Bouc 1500F/11000F",
+    "fullName": "Chai + Bouc"
+  },
+  {
+    "sku": "ENS-045",
+    "currentName": "Chai + Bouc 2000F/18000F",
+    "fullName": "Chai + Bouc"
+  },
+  {
+    "sku": "ENS-044",
+    "currentName": "Chai + Bouc 1600F/12500F",
+    "fullName": "Chai + Bouc"
+  },
+  {
+    "sku": "ENS-043",
+    "currentName": "Chai + Bouc 1600F/13000F",
+    "fullName": "Chai + Bouc"
+  },
+  {
+    "sku": "BRA-042",
+    "currentName": "Brac P 1300F/9500F",
+    "fullName": "Brac P"
+  },
+  {
+    "sku": "BAG-011",
+    "currentName": "Brac Bag 1500F/11500F",
+    "fullName": "Bracelet Bague"
+  },
+  {
+    "sku": "BRA-041",
+    "currentName": "Brac M 1300F/9500F",
+    "fullName": "Brac M"
+  },
+  {
+    "sku": "BRA-022",
+    "currentName": "Brac F 1250F/9000F",
+    "fullName": "Bracelet Femme"
+  },
+  {
+    "sku": "BRA-021",
+    "currentName": "Brac F 800F/3500F",
+    "fullName": "Bracelet Femme"
+  },
+  {
+    "sku": "BRA-020",
+    "currentName": "Brac F 1700F/14000F",
+    "fullName": "Bracelet Femme"
+  },
+  {
+    "sku": "BRA-040",
+    "currentName": "Brac F 1100F/6500F",
+    "fullName": "Brac F"
+  },
+  {
+    "sku": "BRA-019",
+    "currentName": "Brac F 1100F/7000F",
+    "fullName": "Bracelet Femme"
+  },
+  {
+    "sku": "BRA-018",
+    "currentName": "Brac F 1300F/9500F",
+    "fullName": "Bracelet Femme"
+  },
+  {
+    "sku": "BRA-039",
+    "currentName": "Brac F 2000F/17500F",
+    "fullName": "Brac F"
+  },
+  {
+    "sku": "BRA-038",
+    "currentName": "Brac F 2000F/12000F",
+    "fullName": "Brac F"
+  },
+  {
+    "sku": "BRA-037",
+    "currentName": "Brac F 2000F/15000F",
+    "fullName": "Brac F"
+  },
+  {
+    "sku": "BRA-036",
+    "currentName": "Brac P 1500F/11500F",
+    "fullName": "Brac P"
+  },
+  {
+    "sku": "BRA-035",
+    "currentName": "Brac F 2000F/18000F",
+    "fullName": "Brac F"
+  },
+  {
+    "sku": "BRA-034",
+    "currentName": "Brac F 1500F/11000F",
+    "fullName": "Brac F"
+  },
+  {
+    "sku": "BRA-017",
+    "currentName": "Brac F 2000F/15000F",
+    "fullName": "Bracelet Femme"
+  },
+  {
+    "sku": "BAG-018",
+    "currentName": "Bag",
+    "fullName": "Bag"
+  },
+  {
+    "sku": "BAG-013",
+    "currentName": "Bag 500F",
+    "fullName": "Bague"
+  },
+  {
+    "sku": "DIV-008",
+    "currentName": "Stick 1500F",
+    "fullName": "Stick"
+  },
+  {
+    "sku": "BOU-016",
+    "currentName": "Bouc",
+    "fullName": "Bouc"
+  },
+  {
+    "sku": "BOU-015",
+    "currentName": "Bouc 1500F",
+    "fullName": "Bouc"
+  },
+  {
+    "sku": "BOU-014",
+    "currentName": "Bouc 1000F",
+    "fullName": "Bouc"
+  },
+  {
+    "sku": "BOU-013",
+    "currentName": "Bouc 2500F",
+    "fullName": "Bouc"
+  },
+  {
+    "sku": "BOU-012",
+    "currentName": "Bouc 3000F",
+    "fullName": "Bouc"
+  },
+  {
+    "sku": "BOU-011",
+    "currentName": "Bouc 2000F",
+    "fullName": "Bouc"
+  },
+  {
+    "sku": "BOU-010",
+    "currentName": "Bouc 2450F",
+    "fullName": "Bouc"
+  },
+  {
+    "sku": "BOU-009",
+    "currentName": "Bouc 1700F/14000F",
+    "fullName": "Bouc"
+  },
+  {
+    "sku": "ENS-041",
+    "currentName": "Ens 3P 1800F/15000F",
+    "fullName": "Ensemble 3 pièces"
+  },
+  {
+    "sku": "BOU-008",
+    "currentName": "Bouc 3P 1000F/5000F",
+    "fullName": "Bouc 3P"
+  },
+  {
+    "sku": "BOU-007",
+    "currentName": "Bouc 1100F/6500F",
+    "fullName": "Bouc"
+  },
+  {
+    "sku": "ENS-039",
+    "currentName": "Ens 2P Sautois 4500F",
+    "fullName": "Ensemble 2 pièces Sautois"
+  },
+  {
+    "sku": "ENS-042",
+    "currentName": "Ens Dote 5000F",
+    "fullName": "Ens Dote"
+  },
+  {
+    "sku": "ENS-037",
+    "currentName": "Ens 2P F 5500F",
+    "fullName": "Ensemble 2 pièces femme"
+  },
+  {
+    "sku": "ENS-036",
+    "currentName": "Ens 2P F 6500F",
+    "fullName": "Ensemble 2 pièces femme"
+  },
+  {
+    "sku": "ENS-035",
+    "currentName": "Ens 3P F 3500F",
+    "fullName": "Ensemble 3 pièces femme"
+  },
+  {
+    "sku": "BRA-031",
+    "currentName": "Brac F 4000F",
+    "fullName": "Bracelet Femme"
+  },
+  {
+    "sku": "BRA-030",
+    "currentName": "Brac F 2500F",
+    "fullName": "Bracelet Femme"
+  },
+  {
+    "sku": "BRA-010",
+    "currentName": "Brac price 10000F",
+    "fullName": "Bracelet price"
+  },
+  {
+    "sku": "PAR-004",
+    "currentName": "Brume (details) 1500F/10000F",
+    "fullName": "Brume (details)"
+  },
+  {
+    "sku": "DIV-003",
+    "currentName": "LATAFA ONLYOU (details) 1500F/12000F",
+    "fullName": "LATAFA ONLYOU (details)"
+  },
+  {
+    "sku": "DIV-002",
+    "currentName": "Mossuf 50ml(Detail) 2000F/12000F",
+    "fullName": "Mossuf 50ml(Detail)"
+  },
+  {
+    "sku": "MON-007",
+    "currentName": "Montr 9500 1300F/9500F",
+    "fullName": "Montre 9500"
+  },
+  {
+    "sku": "MON-009",
+    "currentName": "Montr 20000 2200F/20000F",
+    "fullName": "Montre 20000"
+  },
+  {
+    "sku": "MON-005",
+    "currentName": "Montr 18000 2000F/18000F",
+    "fullName": "Montre 18000"
+  },
+  {
+    "sku": "MON-010",
+    "currentName": "Montr 17500 2000F/17500F",
+    "fullName": "Montre 17500"
+  },
+  {
+    "sku": "MON-011",
+    "currentName": "Montr 17000 2000F/17000F",
+    "fullName": "Montre 17000"
+  },
+  {
+    "sku": "MON-013",
+    "currentName": "Montr 16500 1900F/16500F",
+    "fullName": "Montre 16500"
+  },
+  {
+    "sku": "MON-012",
+    "currentName": "Montr 16000 2000F/16000F",
+    "fullName": "Montre 16000"
+  },
+  {
+    "sku": "MON-001",
+    "currentName": "Montr 15500 1800F/15500F",
+    "fullName": "Montre 15500"
+  },
+  {
+    "sku": "MON-004",
+    "currentName": "Montr 15000 1750F/15000F",
+    "fullName": "Montre 15000"
+  },
+  {
+    "sku": "MON-006",
+    "currentName": "Montr 14000 1700F/14000F",
+    "fullName": "Montre 14000"
+  },
+  {
+    "sku": "MON-002",
+    "currentName": "Montr 13000 1600F/13000F",
+    "fullName": "Montre 13000"
+  },
+  {
+    "sku": "MON-003",
+    "currentName": "Montr 11000 1500F/11000F",
+    "fullName": "Montre 11000"
+  },
+  {
+    "sku": "MON-008",
+    "currentName": "Montr 10500 1500F/10500F",
+    "fullName": "Montre 10500"
+  },
+  {
+    "sku": "PAR-001",
+    "currentName": "Diffuseur de senteur 1000F/10000F",
+    "fullName": "Diffuseur de senteur"
+  },
+  {
+    "sku": "ENS-003",
+    "currentName": "Montr + Brac H DANLEX 2000F/18000F",
+    "fullName": "Montre + bracelet homme DANLEX"
+  },
+  {
+    "sku": "ENS-014",
+    "currentName": "Ens chaineStainless Steel 1500F/10000F",
+    "fullName": "Ensemble chaineStainless Steel"
+  },
+  {
+    "sku": "ENS-002",
+    "currentName": "Ens Chai H. L 3500F",
+    "fullName": "Ensemble chaine H. L"
+  },
+  {
+    "sku": "ENS-017",
+    "currentName": "Ens Chai 4 pièces Fashion Jewelry 2000F/13500F",
+    "fullName": "Ensemble chaine 4 pièces Fashion Jewelry"
+  },
+  {
+    "sku": "ENS-005",
+    "currentName": "Ens Chai 4 pièces 2000F/16500F",
+    "fullName": "Ensemble chaine 4 pièces"
+  },
+  {
+    "sku": "ENS-018",
+    "currentName": "Ens Chai Jaycee 2000F/13000F",
+    "fullName": "Ensemble Chaine Jaycee"
+  },
+  {
+    "sku": "ENS-001",
+    "currentName": "Ens 3P 3000F/20000F",
+    "fullName": "Ensemble 3 pièces"
+  },
+  {
+    "sku": "ENS-007",
+    "currentName": "Chai+ Bouc Stainless Steel 1625F/13500F",
+    "fullName": "Chaine+ boucle Stainless Steel"
+  },
+  {
+    "sku": "ENS-016",
+    "currentName": "Chai Stainless Steel + Bouc 1000F/7000F",
+    "fullName": "Chaine Stainless Steel + boucle"
+  },
+  {
+    "sku": "ENS-004",
+    "currentName": "Chai + Bouc simple 1000F/6000F",
+    "fullName": "Chaine + boucle simple"
+  },
+  {
+    "sku": "ENS-010",
+    "currentName": "Chai + Bouc en or Stainless Steel 1500F/10000F",
+    "fullName": "Chaine + boucle en or Stainless Steel"
+  },
+  {
+    "sku": "ENS-006",
+    "currentName": "Chai + Bouc Stainless Steel 1200F/8500F",
+    "fullName": "Chaine + boucle Stainless Steel"
+  },
+  {
+    "sku": "ENS-013",
+    "currentName": "Chai + Bouc OJOJ 1200F/8000F",
+    "fullName": "Chaine + boucle OJOJ"
+  },
+  {
+    "sku": "ENS-015",
+    "currentName": "Chai + Bouc D,C,S Jewelry 1500F/9500F",
+    "fullName": "Chaine + boucle D,C,S Jewelry"
+  },
+  {
+    "sku": "ENS-008",
+    "currentName": "Chai + Bouc Boxin 2000F/18000F",
+    "fullName": "Chaine + boucle Boxin"
+  },
+  {
+    "sku": "ENS-012",
+    "currentName": "Chai + Bouc + Brac + Bag 2000F/15000F",
+    "fullName": "Chaine + boucle + bracelet + bague"
+  },
+  {
+    "sku": "ENS-011",
+    "currentName": "Brac + Chai + Bouc 1500F/11000F",
+    "fullName": "Bracelet + chaine + boucle"
+  },
+  {
+    "sku": "ENS-009",
+    "currentName": "Bouc + Chai fashion Jewelry 1600F/12500F",
+    "fullName": "Boucle + chaine fashion Jewelry"
+  },
+  {
+    "sku": "ONG-001",
+    "currentName": "Faux Ongl 2000F/8000F",
+    "fullName": "Faux ongles"
+  },
+  {
+    "sku": "LEV-003",
+    "currentName": "Rouge à lèvre 1750F/15000F",
+    "fullName": "Rouge à lèvre"
+  },
+  {
+    "sku": "LEV-013",
+    "currentName": "New lips gloss 1000F/4500F",
+    "fullName": "New lips gloss"
+  },
+  {
+    "sku": "LEV-001",
+    "currentName": "Gommage à lèvre 700F/6000F",
+    "fullName": "Gommage à lèvre"
+  },
+  {
+    "sku": "LEV-014",
+    "currentName": "Gloss magic lips oil 1000F/6000F",
+    "fullName": "Gloss magic lips oil"
+  },
+  {
+    "sku": "LEV-010",
+    "currentName": "Gloss gulf girl 1000F/5500F",
+    "fullName": "Gloss gulf girl"
+  },
+  {
+    "sku": "LEV-012",
+    "currentName": "Gloss SIHEGLAN 1000F/5500F",
+    "fullName": "Gloss SIHEGLAN"
+  },
+  {
+    "sku": "LEV-011",
+    "currentName": "Gloss Pola aylr 1000F/4000F",
+    "fullName": "Gloss Pola aylr"
+  },
+  {
+    "sku": "LEV-004",
+    "currentName": "Gloss Pola Aylr 1000F/4000F",
+    "fullName": "Gloss Pola Aylr"
+  },
+  {
+    "sku": "LEV-007",
+    "currentName": "Gloss Juice 4p oil 1000F/7000F",
+    "fullName": "Gloss Juice 4p oil"
+  },
+  {
+    "sku": "LEV-005",
+    "currentName": "Gloss Crasy 1000F/5000F",
+    "fullName": "Gloss Crasy"
+  },
+  {
+    "sku": "LEV-006",
+    "currentName": "Gloss 4p 1000F/9500F",
+    "fullName": "Gloss 4p"
+  },
+  {
+    "sku": "LEV-008",
+    "currentName": "Crème lèvre rose 800F/6000F",
+    "fullName": "Crème lèvre rose"
+  },
+  {
+    "sku": "LEV-002",
+    "currentName": "Crème lèvre 800F/5500F",
+    "fullName": "Crème lèvre"
+  },
+  {
+    "sku": "LEV-009",
+    "currentName": "Baby gloss 1000F/6500F",
+    "fullName": "Baby gloss"
+  },
+  {
+    "sku": "COF-001",
+    "currentName": "Cofret 5000F",
+    "fullName": "Cofret"
+  },
+  {
+    "sku": "COF-002",
+    "currentName": "Cofret 30000 3000F/30000F",
+    "fullName": "Cofret 30000"
+  },
+  {
+    "sku": "COL-024",
+    "currentName": "Médaille H GT 1000F/7000F",
+    "fullName": "Médaille homme GT"
+  },
+  {
+    "sku": "COL-008",
+    "currentName": "Médaille Enf 500F/3000F",
+    "fullName": "Médaille enfant"
+  },
+  {
+    "sku": "COL-022",
+    "currentName": "Médaile F 500F/3000F",
+    "fullName": "Médaile femme"
+  },
+  {
+    "sku": "COL-017",
+    "currentName": "Medaille H grand 500F/3000F",
+    "fullName": "Medaille H grand"
+  },
+  {
+    "sku": "COL-020",
+    "currentName": "Col H 1200F/8500F",
+    "fullName": "Collier homme"
+  },
+  {
+    "sku": "COL-006",
+    "currentName": "Chai sotoire 2100F/19000F",
+    "fullName": "Chaine sotoire"
+  },
+  {
+    "sku": "COL-007",
+    "currentName": "Chai simple sans médaille 600F/4000F",
+    "fullName": "Chaine simple sans médaille"
+  },
+  {
+    "sku": "COL-004",
+    "currentName": "Chai simple faux beroute 2000F/10000F",
+    "fullName": "Chaine simple faux beroute"
+  },
+  {
+    "sku": "COL-013",
+    "currentName": "Chai simple Stainless Steel 1100F/7000F",
+    "fullName": "Chaine simple Stainless Steel"
+  },
+  {
+    "sku": "COL-002",
+    "currentName": "Chai sautoir 13000 1600F/13000F",
+    "fullName": "Chaine sautoir 13000"
+  },
+  {
+    "sku": "COL-001",
+    "currentName": "Chai sautoir 10000 1500F/10000F",
+    "fullName": "Chaine sautoir 10000"
+  },
+  {
+    "sku": "COL-025",
+    "currentName": "Chai price en or 2000F/18000F",
+    "fullName": "Chaine price en or"
+  },
+  {
+    "sku": "COL-021",
+    "currentName": "Chai price en argent 2000F/18000F",
+    "fullName": "Chaine price en argent"
+  },
+  {
+    "sku": "COL-012",
+    "currentName": "Chai price 2000F/9000F",
+    "fullName": "Chaine price"
+  },
+  {
+    "sku": "COL-015",
+    "currentName": "Chai pied 6000 1500F/6000F",
+    "fullName": "Chaine pied 6000"
+  },
+  {
+    "sku": "COL-009",
+    "currentName": "Chai pied 5000 1000F/5000F",
+    "fullName": "Chaine pied 5000"
+  },
+  {
+    "sku": "COL-005",
+    "currentName": "Chai long YIXUAN 1100F/7000F",
+    "fullName": "Chaine long YIXUAN"
+  },
+  {
+    "sku": "COL-018",
+    "currentName": "Chai H Stainless Steel 2000F/16000F",
+    "fullName": "Chaine homme Stainless Steel"
+  },
+  {
+    "sku": "COL-016",
+    "currentName": "Chai H 1250F/9000F",
+    "fullName": "Chaine homme"
+  },
+  {
+    "sku": "COL-030",
+    "currentName": "Chai en argent 2P 2000F/17000F",
+    "fullName": "Chaine en argent 2 pièces"
+  },
+  {
+    "sku": "COL-019",
+    "currentName": "Chai Z, Y, M 1500F/11500F",
+    "fullName": "Chaine Z, Y, M"
+  },
+  {
+    "sku": "COL-031",
+    "currentName": "Chai Fashion Jewelry 4 piècesen argent 2000F/19000F",
+    "fullName": "Chaine Fashion Jewelry 4 piècesen argent"
+  },
+  {
+    "sku": "COL-029",
+    "currentName": "Chai DCS Jewelry 1600 2000F/16000F",
+    "fullName": "Chaine DCS Jewelry 1600"
+  },
+  {
+    "sku": "COL-023",
+    "currentName": "Chai DCS Jewelry 12500 2000F/12500F",
+    "fullName": "Chaine DCS Jewelry 12500"
+  },
+  {
+    "sku": "COL-027",
+    "currentName": "Chai D,S Jewelry 1500F",
+    "fullName": "Chaine D,S Jewelry"
+  },
+  {
+    "sku": "COL-028",
+    "currentName": "Chai Coral Jewelry 2000F/13500F",
+    "fullName": "Chaine Coral Jewelry"
+  },
+  {
+    "sku": "COL-026",
+    "currentName": "Chai 4 pièces Stainless Steel 2500F/24000F",
+    "fullName": "Chaine 4 pièces Stainless Steel"
+  },
+  {
+    "sku": "COL-003",
+    "currentName": "Cartier long H 1125F/7500F",
+    "fullName": "Cartier long homme"
+  },
+  {
+    "sku": "COL-014",
+    "currentName": "Cartier F 1000F/6000F",
+    "fullName": "Cartier femme"
+  },
+  {
+    "sku": "COL-010",
+    "currentName": "Cartier croix H 2000F",
+    "fullName": "Cartier croix homme"
+  },
+  {
+    "sku": "COL-011",
+    "currentName": "Cartier croix H 2500F",
+    "fullName": "Cartier croix Homme"
+  },
+  {
+    "sku": "BRO-003",
+    "currentName": "Bronche 1000F/6500F",
+    "fullName": "Bronche"
+  },
+  {
+    "sku": "BRO-002",
+    "currentName": "Broche XSL 1100F/7000F",
+    "fullName": "Broche XSL"
+  },
+  {
+    "sku": "BRO-001",
+    "currentName": "Broche Bahafi 1050F/6600F",
+    "fullName": "Broche Bahafi"
+  },
+  {
+    "sku": "BRA-016",
+    "currentName": "Gros Brac en or DCS 2000F/15000F",
+    "fullName": "Gros bracelet en or DCS"
+  },
+  {
+    "sku": "BRA-015",
+    "currentName": "Gros Brac en argent Dahlia 1500F/10500F",
+    "fullName": "Gros bracelet en argent Dahlia"
+  },
+  {
+    "sku": "BRA-009",
+    "currentName": "Brac pierre cristallisée 2000F/19000F",
+    "fullName": "Bracelet pierre cristallisée"
+  },
+  {
+    "sku": "BRA-004",
+    "currentName": "Brac l'œil de Fatima 800F/3500F",
+    "fullName": "Bracelet l'œil de Fatima"
+  },
+  {
+    "sku": "BRA-006",
+    "currentName": "Brac H Fashion JEWELRY 2000F/16000F",
+    "fullName": "Bracelet homme Fashion JEWELRY"
+  },
+  {
+    "sku": "BRA-005",
+    "currentName": "Brac F DCS JEWELRY 1500F/12500F",
+    "fullName": "Bracelet femme DCS JEWELRY"
+  },
+  {
+    "sku": "BRA-008",
+    "currentName": "Brac en perle 3P 1500F/11500F",
+    "fullName": "Bracelet en perle 3 pièces"
+  },
+  {
+    "sku": "BRA-001",
+    "currentName": "Brac en Boit 3000F/15000F",
+    "fullName": "Bracelet en boite"
+  },
+  {
+    "sku": "BRA-011",
+    "currentName": "Brac en argent DCS Jewelry 1000F/6500F",
+    "fullName": "Bracelet en argent DCS Jewelry"
+  },
+  {
+    "sku": "BRA-002",
+    "currentName": "Brac des signes 1000F/9000F",
+    "fullName": "Bracelet des signes"
+  },
+  {
+    "sku": "BRA-012",
+    "currentName": "Brac Stainless Steel 1000F/6000F",
+    "fullName": "Bracelet Stainless Steel"
+  },
+  {
+    "sku": "BRA-007",
+    "currentName": "Brac Fashion Jewelry 1200F/8000F",
+    "fullName": "Bracelet Fashion Jewelry"
+  },
+  {
+    "sku": "BRA-003",
+    "currentName": "Braca 1250F/9000F",
+    "fullName": "Braca"
+  },
+  {
+    "sku": "BRA-014",
+    "currentName": "Bango Brac petit avec foulard 1500F/12000F",
+    "fullName": "Bango bracelet petit avec foulard"
+  },
+  {
+    "sku": "BRA-013",
+    "currentName": "Bango Brac grand 2000F/14000F",
+    "fullName": "Bango bracelet grand"
+  },
+  {
+    "sku": "BOU-005",
+    "currentName": "Bouc en plaquette 6000 500F/6000F",
+    "fullName": "Boucle en plaquette 6000"
+  },
+  {
+    "sku": "BOU-001",
+    "currentName": "Bouc en plaquette 500 500F/3500F",
+    "fullName": "Boucle en plaquette 500"
+  },
+  {
+    "sku": "BOU-003",
+    "currentName": "Bouc Vista en plaquette 800 800F/1800F",
+    "fullName": "Boucle Vista en plaquette 800"
+  },
+  {
+    "sku": "BOU-002",
+    "currentName": "Bouc Vista en plaquette 500 500F/900F",
+    "fullName": "Boucle Vista en plaquette 500"
+  },
+  {
+    "sku": "BOU-004",
+    "currentName": "Bouc Stainless Steel 1500F/6500F",
+    "fullName": "Boucle Stainless Steel"
+  },
+  {
+    "sku": "BOU-006",
+    "currentName": "Bouc Prince 500F/3500F",
+    "fullName": "Boucle Prince"
+  },
+  {
+    "sku": "BAG-010",
+    "currentName": "Brac avec Bag D,S 1500F/12000F",
+    "fullName": "Bracelet avec bague D,S"
+  },
+  {
+    "sku": "BAG-009",
+    "currentName": "Bag à plaquette 1100F/7500F",
+    "fullName": "Bague à plaquette"
+  },
+  {
+    "sku": "BAG-004",
+    "currentName": "Bag H plusieurs couleurs 800F/5500F",
+    "fullName": "Bague homme plusieurs couleurs"
+  },
+  {
+    "sku": "BAG-008",
+    "currentName": "Bag H 700F/4500F",
+    "fullName": "Bague homme"
+  },
+  {
+    "sku": "BAG-002",
+    "currentName": "Bag F 6000 1000F/6000F",
+    "fullName": "Bague femme 6000"
+  },
+  {
+    "sku": "BAG-001",
+    "currentName": "Bag F 5500 1000F/5500F",
+    "fullName": "Bague femme 5500"
+  },
+  {
+    "sku": "BAG-006",
+    "currentName": "Bag de fiançaille Stainless Steel 1100F/7000F",
+    "fullName": "Bague de fiançaille Stainless Steel"
+  },
+  {
+    "sku": "BAG-007",
+    "currentName": "Bag de fiançaille 1500F/11000F",
+    "fullName": "Bague de fiançaille"
+  },
+  {
+    "sku": "BAG-005",
+    "currentName": "Bag 4000 800F/4000F",
+    "fullName": "Bague 4000"
+  },
+  {
+    "sku": "BAG-003",
+    "currentName": "Bag 2500 500F/2500F",
+    "fullName": "Bague 2500"
+  },
+  {
+    "sku": "PRE-001",
+    "currentName": "Pose Chame Petit 1000F",
+    "fullName": "Pose Chame Petit"
+  },
+  {
+    "sku": "PRE-002",
+    "currentName": "Pose Chame Grand 1500F",
+    "fullName": "Pose Chame Grand"
+  },
+  {
+    "sku": "ACC-004",
+    "currentName": "Pince Chev C 800F/4000F",
+    "fullName": "Pince à cheveux C"
+  },
+  {
+    "sku": "ACC-003",
+    "currentName": "Pince Chev 700F/5000F",
+    "fullName": "Pince à cheveux"
+  },
+  {
+    "sku": "ACC-007",
+    "currentName": "Cintete bandeaux 1500F/10000F",
+    "fullName": "Cintete bandeaux"
+  },
+  {
+    "sku": "ACC-005",
+    "currentName": "Cintete 8700 1000F/8700F",
+    "fullName": "Cintete 8700"
+  },
+  {
+    "sku": "ACC-002",
+    "currentName": "Cintete 6500 800F/6500F",
+    "fullName": "Cintete 6500"
+  },
+  {
+    "sku": "ACC-006",
+    "currentName": "Cintete 6200 700F/6200F",
+    "fullName": "Cintete 6200"
+  },
+  {
+    "sku": "ACC-008",
+    "currentName": "Cintete 5500 1000F/5500F",
+    "fullName": "Cintete 5500"
+  },
+  {
+    "sku": "ACC-001",
+    "currentName": "Broche cheveux 3000F/20000F",
+    "fullName": "Broche cheveux"
+  }
+]

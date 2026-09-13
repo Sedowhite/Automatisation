@@ -3,7 +3,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const input = document.querySelector(".search-box");
   if (!input) return;
 
-  const labels = Array.from(document.querySelectorAll(".label"));
+  // [data-name] plutôt que ".label" : cible aussi bien les étiquettes
+  // (nouveaux/detail) que les lignes du tableau de la page légende, sans
+  // dupliquer la logique de recherche pour cette 3e page.
+  const labels = Array.from(document.querySelectorAll("[data-name]"));
   const sections = Array.from(document.querySelectorAll(".category-section"));
   const noResults = document.querySelector(".search-no-results");
 
@@ -28,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     sections.forEach((section) => {
-      const anyVisible = Array.from(section.querySelectorAll(".label")).some(
+      const anyVisible = Array.from(section.querySelectorAll("[data-name]")).some(
         (l) => l.style.display !== "none"
       );
       section.style.display = anyVisible ? "" : "none";

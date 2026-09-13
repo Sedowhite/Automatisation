@@ -35,6 +35,7 @@ body { font-family: Arial, sans-serif; margin: 20px; background: #fafafa; color:
 }
 .badge-nouveaux { background: #e5e7eb; color: #374151; }
 .badge-detail { background: #dbeafe; color: #1e40af; }
+.badge-legende { background: #fef3c7; color: #92400e; }
 
 .page-header h1 { margin: 4px 0 8px; font-size: 22px; }
 .page-header p { margin: 0 0 6px; color: #4b5563; font-size: 14px; }
@@ -101,6 +102,32 @@ body { font-family: Arial, sans-serif; margin: 20px; background: #fafafa; color:
   border-radius: 6px;
 }
 .label img { width: 96%; height: auto; max-height: 94%; object-fit: contain; }
+
+.legend-table {
+  width: 100%;
+  max-width: 900px;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+.legend-table th, .legend-table td {
+  text-align: left;
+  padding: 10px 14px;
+  font-size: 14px;
+  border-bottom: 1px solid #e5e7eb;
+}
+.legend-table th {
+  background: #f9fafb;
+  color: #6b7280;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.legend-table tbody tr:hover { background: #fafafa; }
+.legend-table .legend-sku { font-family: ui-monospace, Consolas, monospace; font-weight: bold; color: #92400e; white-space: nowrap; }
+.legend-table .legend-muted { color: #6b7280; }
 
 @media (max-width: 480px) {
   body { margin: 12px; }
