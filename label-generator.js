@@ -64,12 +64,16 @@ const PAGES = [
   { key: "legende", label: "Légende", href: "legende.html", bg: "#fef3c7", fg: "#92400e" },
 ];
 
-function loadRecords() {
+// Exportées pour permettre à generate-missing-barcodes.js de resynchroniser
+// le nom/prix des produits EXISTANTS (déjà barcodés) depuis leur nom Loyverse
+// actuel, sans passer par addLabelToPrintSheet (réservée aux nouveaux
+// produits — elle pousse un nouvel enregistrement, pas une mise à jour).
+export function loadRecords() {
   if (!fs.existsSync(RECORDS_PATH)) return [];
   return JSON.parse(fs.readFileSync(RECORDS_PATH, "utf-8"));
 }
 
-function saveRecords(records) {
+export function saveRecords(records) {
   fs.writeFileSync(RECORDS_PATH, JSON.stringify(records, null, 2), "utf-8");
 }
 
