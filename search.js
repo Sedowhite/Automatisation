@@ -20,7 +20,9 @@ document.addEventListener("DOMContentLoaded", () => {
     let visibleCount = 0;
 
     labels.forEach((label) => {
-      const match = query === "" || normalize(label.dataset.name).includes(query);
+      const match = query === ""
+        || normalize(label.dataset.name).includes(query)
+        || normalize(label.dataset.code).includes(query);
       label.style.display = match ? "" : "none";
       if (match) visibleCount++;
     });
