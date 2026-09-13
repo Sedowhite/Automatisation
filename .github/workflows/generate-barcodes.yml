@@ -62,28 +62,24 @@ jobs:
             generated-labels.json
             nouveaux.html
             catalogue-detail.html
+            legende.html
+            legend-data.json
             styles.css
             search.js
             dernier-vidage.json
             category-prefix-map.json
 
-      # nouveaux.html est TOUJOURS écrit par regenerateSheets() (même quand la
-      # liste des nouveautés est vide, il garde nav/titre/style — voir
-      # label-generator.js), donc plus besoin d'un fallback "fichier absent".
-      # Un ancien fallback ici produisait un <h1> brut sans aucun style : si tu
-      # as vu une page vide sans mise en page, c'était ce fallback (probablement
-      # déployé une seule fois, juste après la séparation main/data, avant le
-      # premier remplissage du registre) — supprimé, ce cas ne peut plus se reproduire.
+      # Copie INTÉGRALE de data/ (hors .git), pas une liste de fichiers codée
+      # en dur : cette liste avait été oubliée lors de l'ajout de legende.html/
+      # legend-data.json, causant un 404 permanent sur cette page à chaque
+      # republication par ce workflow (corrigé le 2026-09-13 — voir
+      # publish-only.yml qui utilise déjà cette même méthode depuis le début).
       - name: Préparer le site à publier
         run: |
           mkdir -p site
+          cp -r data/. site/
+          rm -rf site/.git
           cp data/nouveaux.html site/index.html
-          cp data/nouveaux.html site/nouveaux.html
-          for f in catalogue-detail.html styles.css search.js; do
-            if [ -f "data/$f" ]; then
-              cp "data/$f" "site/$f"
-            fi
-          done
 
       - name: Uploader l'artefact GitHub Pages
         uses: actions/upload-pages-artifact@v5
