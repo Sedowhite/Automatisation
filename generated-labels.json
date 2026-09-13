@@ -2814,5 +2814,13 @@
     "priceUnit": 3000,
     "priceWholesale": 20000,
     "generatedAt": "2026-07-28T20:06:38.633Z"
+  },
+  {
+    "name": "Bag 600/5000",
+    "category": "Bijoux > Bagues",
+    "code": "BAG-023",
+    "priceUnit": null,
+    "priceWholesale": null,
+    "generatedAt": "2026-09-13T11:41:08.182Z"
   }
 ]
