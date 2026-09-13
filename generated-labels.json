@@ -363,8 +363,8 @@
     "name": "Geni Spray",
     "category": "Maison > Parfum d'ambiance",
     "code": "PAR-015",
-    "priceUnit": 4000,
-    "priceWholesale": null,
+    "priceUnit": 500,
+    "priceWholesale": 4000,
     "generatedAt": "2026-09-13T03:46:06.000Z"
   },
   {
