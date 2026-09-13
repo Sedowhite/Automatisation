@@ -387,8 +387,8 @@
     "name": "Stom Elix",
     "category": "Maison > Parfum d'ambiance",
     "code": "PAR-013",
-    "priceUnit": 12000,
-    "priceWholesale": null,
+    "priceUnit": 1500,
+    "priceWholesale": 12000,
     "generatedAt": "2026-09-13T03:46:05.000Z"
   },
   {
