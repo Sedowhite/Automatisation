@@ -2822,5 +2822,13 @@
     "priceUnit": null,
     "priceWholesale": null,
     "generatedAt": "2026-09-13T11:41:08.182Z"
+  },
+  {
+    "name": "Boit Bj",
+    "category": "Coffrets & Cadeaux",
+    "code": "COF-012",
+    "priceUnit": 6000,
+    "priceWholesale": null,
+    "generatedAt": "2026-09-13T12:23:59.452Z"
   }
 ]
