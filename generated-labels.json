@@ -2894,5 +2894,13 @@
     "priceUnit": 700,
     "priceWholesale": 7200,
     "generatedAt": "2026-09-14T20:09:02.000Z"
+  },
+  {
+    "name": "Bouc",
+    "category": "Bijoux > Boucles d'oreilles",
+    "code": "BOU-036",
+    "priceUnit": 2500,
+    "priceWholesale": null,
+    "generatedAt": "2026-09-14T21:12:09.299Z"
   }
 ]
