@@ -1195,8 +1195,8 @@
     "name": "Ens 4P",
     "category": "Ensembles > Ensembles bijoux",
     "code": "ENS-055",
-    "priceUnit": 1600,
-    "priceWholesale": 12500,
+    "priceUnit": 12500,
+    "priceWholesale": null,
     "generatedAt": "2026-09-13T03:45:34.000Z"
   },
   {
