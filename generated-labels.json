@@ -307,8 +307,8 @@
     "name": "Déo Adam",
     "category": "Beauté > Hygiène",
     "code": "HYG-002",
-    "priceUnit": 9000,
-    "priceWholesale": null,
+    "priceUnit": 1250,
+    "priceWholesale": 9000,
     "generatedAt": "2026-09-13T03:46:08.000Z"
   },
   {
