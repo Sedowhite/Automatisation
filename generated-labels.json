@@ -1291,7 +1291,7 @@
     "name": "Piercing",
     "category": "Bijoux > Corps",
     "code": "COR-001",
-    "priceUnit": 750,
+    "priceUnit": 500,
     "priceWholesale": 3000,
     "generatedAt": "2026-09-13T03:45:30.000Z"
   },
