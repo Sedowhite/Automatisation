@@ -371,8 +371,8 @@
     "name": "Geni Huil",
     "category": "Maison > Parfum d'ambiance",
     "code": "PAR-014",
-    "priceUnit": 4500,
-    "priceWholesale": null,
+    "priceUnit": 500,
+    "priceWholesale": 4500,
     "generatedAt": "2026-09-13T03:46:06.000Z"
   },
   {
