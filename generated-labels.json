@@ -2862,5 +2862,13 @@
     "priceUnit": 2000,
     "priceWholesale": 18000,
     "generatedAt": "2026-09-14T19:27:54.525Z"
+  },
+  {
+    "name": "Doubl Chai+Bouc 1500F/",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-059",
+    "priceUnit": 11000,
+    "priceWholesale": null,
+    "generatedAt": "2026-09-14T19:39:11.158Z"
   }
 ]
