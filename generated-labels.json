@@ -2878,5 +2878,13 @@
     "priceUnit": 1500,
     "priceWholesale": 11000,
     "generatedAt": "2026-09-14T19:43:28.061Z"
+  },
+  {
+    "name": "Chai Pied 600F/",
+    "category": "Divers",
+    "code": "DIV-018",
+    "priceUnit": 3500,
+    "priceWholesale": null,
+    "generatedAt": "2026-09-14T19:52:25.444Z"
   }
 ]
