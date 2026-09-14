@@ -379,8 +379,8 @@
     "name": "Stom Kids",
     "category": "Maison > Parfum d'ambiance",
     "code": "PAR-009",
-    "priceUnit": 10000,
-    "priceWholesale": null,
+    "priceUnit": 1250,
+    "priceWholesale": 10000,
     "generatedAt": "2026-09-13T03:46:06.000Z"
   },
   {
