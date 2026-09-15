@@ -2984,11 +2984,11 @@
     "generatedAt": "2026-09-15T13:30:20.686Z"
   },
   {
-    "name": "Bracelet 1500F/",
+    "name": "Bracelet",
     "category": "Bijoux > Bracelets",
     "code": "BRA-048",
-    "priceUnit": 12000,
-    "priceWholesale": null,
+    "priceUnit": 1500,
+    "priceWholesale": 12000,
     "generatedAt": "2026-09-15T15:10:21.671Z"
   }
 ]
