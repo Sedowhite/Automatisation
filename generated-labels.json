@@ -2918,5 +2918,13 @@
     "priceUnit": 2000,
     "priceWholesale": 18000,
     "generatedAt": "2026-09-15T08:35:16.650Z"
+  },
+  {
+    "name": "Fond de teint 800F/",
+    "category": "Cosmétiques > Maquillage",
+    "code": "MAQ-020",
+    "priceUnit": 6000,
+    "priceWholesale": null,
+    "generatedAt": "2026-09-15T09:38:29.810Z"
   }
 ]
