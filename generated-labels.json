@@ -2990,5 +2990,13 @@
     "priceUnit": 1500,
     "priceWholesale": 12000,
     "generatedAt": "2026-09-15T15:10:21.671Z"
+  },
+  {
+    "name": "Bouc plaq6",
+    "category": "Bijoux > Boucles d'oreilles",
+    "code": "BOU-039",
+    "priceUnit": 6500,
+    "priceWholesale": null,
+    "generatedAt": "2026-09-15T15:21:05.700Z"
   }
 ]
