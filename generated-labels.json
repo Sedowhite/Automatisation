@@ -3102,5 +3102,13 @@
     "priceUnit": 500,
     "priceWholesale": 4000,
     "generatedAt": "2026-09-15T17:55:45.482Z"
+  },
+  {
+    "name": "Montre 3P 2000F/",
+    "category": "Montres",
+    "code": "MON-055",
+    "priceUnit": 17500,
+    "priceWholesale": null,
+    "generatedAt": "2026-09-15T20:20:21.110Z"
   }
 ]
