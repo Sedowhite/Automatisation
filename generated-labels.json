@@ -3014,5 +3014,13 @@
     "priceUnit": 5000,
     "priceWholesale": null,
     "generatedAt": "2026-09-15T16:00:23.404Z"
+  },
+  {
+    "name": "Braceler Brillant 1250F/",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-049",
+    "priceUnit": 9000,
+    "priceWholesale": null,
+    "generatedAt": "2026-09-15T16:25:17.447Z"
   }
 ]
