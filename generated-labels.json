@@ -3072,11 +3072,11 @@
     "generatedAt": "2026-09-15T17:20:23.626Z"
   },
   {
-    "name": "Bouc Plat6  1000F/",
+    "name": "Bouc Plat6",
     "category": "Bijoux > Boucles d'oreilles",
     "code": "BOU-041",
-    "priceUnit": 12000,
-    "priceWholesale": null,
+    "priceUnit": 1000,
+    "priceWholesale": 12000,
     "generatedAt": "2026-09-15T17:25:21.156Z"
   }
 ]
