@@ -1795,7 +1795,7 @@
     "name": "Bracelet price",
     "category": "Bijoux > Bracelets",
     "code": "BRA-010",
-    "priceUnit": 10000,
+    "priceUnit": 1000,
     "priceWholesale": null,
     "generatedAt": "2026-07-28T20:06:18.162Z"
   },
@@ -3078,5 +3078,13 @@
     "priceUnit": 1000,
     "priceWholesale": 12000,
     "generatedAt": "2026-09-15T17:25:21.156Z"
+  },
+  {
+    "name": "Bracelet 1000F/",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-051",
+    "priceUnit": 10000,
+    "priceWholesale": null,
+    "generatedAt": "2026-09-15T17:45:25.159Z"
   }
 ]
