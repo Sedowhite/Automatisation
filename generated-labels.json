@@ -3056,7 +3056,7 @@
     "generatedAt": "2026-09-15T17:00:26.769Z"
   },
   {
-    "name": "Postice 1200F/8000",
+    "name": "Postiche 1200F/8000",
     "category": "Accessoires > Cheveux",
     "code": "ACC-022",
     "priceUnit": null,
@@ -3064,11 +3064,19 @@
     "generatedAt": "2026-09-15T17:05:22.785Z"
   },
   {
-    "name": "ENS 2P 2000F/",
+    "name": "ENS 2P",
     "category": "Divers",
     "code": "DIV-021",
-    "priceUnit": 18000,
-    "priceWholesale": null,
+    "priceUnit": 2000,
+    "priceWholesale": 18000,
     "generatedAt": "2026-09-15T17:20:23.626Z"
+  },
+  {
+    "name": "Bouc Plat6  1000F/",
+    "category": "Bijoux > Boucles d'oreilles",
+    "code": "BOU-041",
+    "priceUnit": 12000,
+    "priceWholesale": null,
+    "generatedAt": "2026-09-15T17:25:21.156Z"
   }
 ]
