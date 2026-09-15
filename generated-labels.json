@@ -2966,5 +2966,13 @@
     "priceUnit": 9000,
     "priceWholesale": null,
     "generatedAt": "2026-09-15T12:20:38.095Z"
+  },
+  {
+    "name": "Chapeau Bain 600F/",
+    "category": "Divers",
+    "code": "DIV-020",
+    "priceUnit": 5000,
+    "priceWholesale": null,
+    "generatedAt": "2026-09-15T12:50:20.275Z"
   }
 ]
