@@ -3040,11 +3040,19 @@
     "generatedAt": "2026-09-15T16:40:32.097Z"
   },
   {
-    "name": "Pyjama 2400F/",
+    "name": "Pyjama",
     "category": "Vêtements > Sous-vêtements",
     "code": "LIN-027",
-    "priceUnit": 22800,
-    "priceWholesale": null,
+    "priceUnit": 2400,
+    "priceWholesale": 22800,
     "generatedAt": "2026-09-15T16:55:21.041Z"
+  },
+  {
+    "name": "Bracelet Metal 4 en 1  2500F/",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-050",
+    "priceUnit": 24000,
+    "priceWholesale": null,
+    "generatedAt": "2026-09-15T17:00:26.769Z"
   }
 ]
