@@ -3080,11 +3080,11 @@
     "generatedAt": "2026-09-15T17:25:21.156Z"
   },
   {
-    "name": "Bracelet 1000F/",
+    "name": "Bracelet",
     "category": "Bijoux > Bracelets",
     "code": "BRA-051",
-    "priceUnit": 10000,
-    "priceWholesale": null,
+    "priceUnit": 1000,
+    "priceWholesale": 10000,
     "generatedAt": "2026-09-15T17:45:25.159Z"
   }
 ]
