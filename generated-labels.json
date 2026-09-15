@@ -2926,5 +2926,13 @@
     "priceUnit": 800,
     "priceWholesale": 6000,
     "generatedAt": "2026-09-15T09:38:29.810Z"
+  },
+  {
+    "name": "Bouc plaquette",
+    "category": "Bijoux > Boucles d'oreilles",
+    "code": "BOU-037",
+    "priceUnit": 3500,
+    "priceWholesale": null,
+    "generatedAt": "2026-09-15T10:50:22.541Z"
   }
 ]
