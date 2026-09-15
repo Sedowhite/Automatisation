@@ -3048,11 +3048,19 @@
     "generatedAt": "2026-09-15T16:55:21.041Z"
   },
   {
-    "name": "Bracelet Metal 4 en 1  2500F/",
+    "name": "Bracelet Metal 4 en 1",
     "category": "Bijoux > Bracelets",
     "code": "BRA-050",
-    "priceUnit": 24000,
-    "priceWholesale": null,
+    "priceUnit": 2500,
+    "priceWholesale": 24000,
     "generatedAt": "2026-09-15T17:00:26.769Z"
+  },
+  {
+    "name": "Postice 1200F/8000",
+    "category": "Accessoires > Cheveux",
+    "code": "ACC-022",
+    "priceUnit": null,
+    "priceWholesale": null,
+    "generatedAt": "2026-09-15T17:05:22.785Z"
   }
 ]
