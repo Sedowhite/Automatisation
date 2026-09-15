@@ -1640,10 +1640,10 @@
     "generatedAt": "2026-09-13T03:45:17.000Z"
   },
   {
-    "name": "Stick",
+    "name": "Stick Brillant",
     "category": "Divers",
     "code": "DIV-008",
-    "priceUnit": 1500,
+    "priceUnit": 500,
     "priceWholesale": null,
     "generatedAt": "2026-09-13T03:45:16.000Z"
   },
@@ -2934,5 +2934,13 @@
     "priceUnit": 3500,
     "priceWholesale": null,
     "generatedAt": "2026-09-15T10:50:22.541Z"
+  },
+  {
+    "name": "Corset",
+    "category": "Vêtements > Sous-vêtements",
+    "code": "LIN-026",
+    "priceUnit": 5000,
+    "priceWholesale": null,
+    "generatedAt": "2026-09-15T12:00:26.400Z"
   }
 ]
