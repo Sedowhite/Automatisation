@@ -1096,11 +1096,11 @@
     "generatedAt": "2026-09-13T03:45:38.000Z"
   },
   {
-    "name": "FAR 6C",
+    "name": "FAR",
     "category": "Cosmétiques > Maquillage",
     "code": "MAQ-011",
-    "priceUnit": 2000,
-    "priceWholesale": 3500,
+    "priceUnit": 1250,
+    "priceWholesale": 10000,
     "generatedAt": "2026-09-13T03:45:38.000Z"
   },
   {
