@@ -2912,11 +2912,11 @@
     "generatedAt": "2026-09-15T08:25:23.410Z"
   },
   {
-    "name": "Cont Maq 2000F/",
+    "name": "Cont Maq",
     "category": "Cosmétiques > Maquillage",
     "code": "MAQ-019",
-    "priceUnit": 18000,
-    "priceWholesale": null,
+    "priceUnit": 2000,
+    "priceWholesale": 18000,
     "generatedAt": "2026-09-15T08:35:16.650Z"
   }
 ]
