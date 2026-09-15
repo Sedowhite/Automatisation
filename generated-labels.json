@@ -123,8 +123,8 @@
     "name": "Brac",
     "category": "Bijoux > Bracelets",
     "code": "BRA-045",
-    "priceUnit": null,
-    "priceWholesale": null,
+    "priceUnit": 500,
+    "priceWholesale": 4000,
     "generatedAt": "2026-09-13T03:46:15.000Z"
   },
   {
