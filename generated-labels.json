@@ -3088,19 +3088,19 @@
     "generatedAt": "2026-09-15T17:45:25.159Z"
   },
   {
-    "name": "Percing 500F/",
+    "name": "Percing",
     "category": "Divers",
     "code": "DIV-022",
-    "priceUnit": 4000,
-    "priceWholesale": null,
+    "priceUnit": 500,
+    "priceWholesale": 4000,
     "generatedAt": "2026-09-15T17:55:37.855Z"
   },
   {
-    "name": "FAUX PIERCING 500F/",
+    "name": "FAUX PIERCING",
     "category": "Bijoux > Corps",
     "code": "COR-003",
-    "priceUnit": 4000,
-    "priceWholesale": null,
+    "priceUnit": 500,
+    "priceWholesale": 4000,
     "generatedAt": "2026-09-15T17:55:45.482Z"
   }
 ]
