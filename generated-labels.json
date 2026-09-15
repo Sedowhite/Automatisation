@@ -2942,5 +2942,29 @@
     "priceUnit": 5000,
     "priceWholesale": null,
     "generatedAt": "2026-09-15T12:00:26.400Z"
+  },
+  {
+    "name": "Cofret Vide",
+    "category": "Divers",
+    "code": "DIV-019",
+    "priceUnit": 2500,
+    "priceWholesale": null,
+    "generatedAt": "2026-09-15T12:20:20.266Z"
+  },
+  {
+    "name": "Cofret Vide",
+    "category": "Coffrets & Cadeaux",
+    "code": "COF-013",
+    "priceUnit": 1500,
+    "priceWholesale": null,
+    "generatedAt": "2026-09-15T12:20:29.851Z"
+  },
+  {
+    "name": "Cofret Chanel",
+    "category": "Coffrets & Cadeaux",
+    "code": "COF-014",
+    "priceUnit": 9000,
+    "priceWholesale": null,
+    "generatedAt": "2026-09-15T12:20:38.095Z"
   }
 ]
