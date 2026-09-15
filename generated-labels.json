@@ -3022,5 +3022,21 @@
     "priceUnit": 1250,
     "priceWholesale": 9000,
     "generatedAt": "2026-09-15T16:25:17.447Z"
+  },
+  {
+    "name": "TAIGA OUD",
+    "category": "Maison > Parfum d'ambiance",
+    "code": "PAR-020",
+    "priceUnit": 15000,
+    "priceWholesale": null,
+    "generatedAt": "2026-09-15T16:40:24.011Z"
+  },
+  {
+    "name": "Marshmallow",
+    "category": "Maison > Parfum d'ambiance",
+    "code": "PAR-021",
+    "priceUnit": 9000,
+    "priceWholesale": null,
+    "generatedAt": "2026-09-15T16:40:32.097Z"
   }
 ]
