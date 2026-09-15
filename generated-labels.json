@@ -1011,8 +1011,8 @@
     "name": "Crèm Lèvr Rose",
     "category": "Cosmétiques > Lèvres",
     "code": "LEV-016",
-    "priceUnit": 1000,
-    "priceWholesale": 6000,
+    "priceUnit": 600,
+    "priceWholesale": 4800,
     "generatedAt": "2026-09-13T03:45:41.000Z"
   },
   {
@@ -2179,7 +2179,7 @@
     "name": "Crème lèvre rose",
     "category": "Cosmétiques > Lèvres",
     "code": "LEV-008",
-    "priceUnit": 800,
+    "priceUnit": 700,
     "priceWholesale": 6000,
     "generatedAt": "2026-07-28T20:06:04.523Z"
   },
