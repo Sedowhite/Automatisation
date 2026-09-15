@@ -3110,5 +3110,13 @@
     "priceUnit": 2000,
     "priceWholesale": 17500,
     "generatedAt": "2026-09-15T20:20:21.110Z"
+  },
+  {
+    "name": "Montre 2P 2500F/",
+    "category": "Divers",
+    "code": "DIV-023",
+    "priceUnit": 24000,
+    "priceWholesale": null,
+    "generatedAt": "2026-09-15T20:36:55.886Z"
   }
 ]
