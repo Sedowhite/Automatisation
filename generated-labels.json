@@ -3038,5 +3038,13 @@
     "priceUnit": 9000,
     "priceWholesale": null,
     "generatedAt": "2026-09-15T16:40:32.097Z"
+  },
+  {
+    "name": "Pyjama 2400F/",
+    "category": "Vêtements > Sous-vêtements",
+    "code": "LIN-027",
+    "priceUnit": 22800,
+    "priceWholesale": null,
+    "generatedAt": "2026-09-15T16:55:21.041Z"
   }
 ]
