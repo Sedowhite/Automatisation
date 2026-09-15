@@ -1051,8 +1051,8 @@
     "name": "Cray Maq",
     "category": "Cosmétiques > Maquillage",
     "code": "MAQ-013",
-    "priceUnit": 1400,
-    "priceWholesale": 6000,
+    "priceUnit": 1200,
+    "priceWholesale": 11000,
     "generatedAt": "2026-09-13T03:45:39.000Z"
   },
   {
@@ -2904,11 +2904,11 @@
     "generatedAt": "2026-09-14T21:12:09.299Z"
   },
   {
-    "name": "Lingette 800F/",
+    "name": "Lingette",
     "category": "Beauté > Hygiène",
     "code": "HYG-003",
-    "priceUnit": 6500,
-    "priceWholesale": null,
+    "priceUnit": 800,
+    "priceWholesale": 6500,
     "generatedAt": "2026-09-15T08:25:23.410Z"
   }
 ]
