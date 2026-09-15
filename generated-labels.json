@@ -2998,5 +2998,13 @@
     "priceUnit": 6500,
     "priceWholesale": null,
     "generatedAt": "2026-09-15T15:21:05.700Z"
+  },
+  {
+    "name": "ENS 2P",
+    "category": "Ensembles > Ensembles bijoux",
+    "code": "ENS-064",
+    "priceUnit": 4500,
+    "priceWholesale": null,
+    "generatedAt": "2026-09-15T15:30:24.322Z"
   }
 ]
