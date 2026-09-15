@@ -3112,11 +3112,11 @@
     "generatedAt": "2026-09-15T20:20:21.110Z"
   },
   {
-    "name": "Montre 2P 2500F/",
+    "name": "Montre 2P",
     "category": "Divers",
     "code": "DIV-023",
-    "priceUnit": 24000,
-    "priceWholesale": null,
+    "priceUnit": 2500,
+    "priceWholesale": 24000,
     "generatedAt": "2026-09-15T20:36:55.886Z"
   }
 ]
