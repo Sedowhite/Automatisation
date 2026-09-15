@@ -2974,5 +2974,13 @@
     "priceUnit": 600,
     "priceWholesale": 5000,
     "generatedAt": "2026-09-15T12:50:20.275Z"
+  },
+  {
+    "name": "Bouc F JEWER 5500",
+    "category": "Bijoux > Boucles d'oreilles",
+    "code": "BOU-038",
+    "priceUnit": null,
+    "priceWholesale": null,
+    "generatedAt": "2026-09-15T13:30:20.686Z"
   }
 ]
