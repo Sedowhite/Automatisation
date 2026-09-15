@@ -1880,7 +1880,7 @@
     "generatedAt": "2026-07-28T20:05:59.024Z"
   },
   {
-    "name": "Montre 15500",
+    "name": "Montr",
     "category": "Montres",
     "code": "MON-001",
     "priceUnit": 1800,
@@ -3104,11 +3104,11 @@
     "generatedAt": "2026-09-15T17:55:45.482Z"
   },
   {
-    "name": "Montre 3P 2000F/",
+    "name": "Montre 3P",
     "category": "Montres",
     "code": "MON-055",
-    "priceUnit": 17500,
-    "priceWholesale": null,
+    "priceUnit": 2000,
+    "priceWholesale": 17500,
     "generatedAt": "2026-09-15T20:20:21.110Z"
   }
 ]
