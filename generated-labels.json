@@ -3144,10 +3144,10 @@
     "generatedAt": "2026-09-16T16:05:21.637Z"
   },
   {
-    "name": "plaqu 1000f/",
+    "name": "plaqu 1000f/9000f",
     "category": "Bijoux > Boucles d'oreilles",
     "code": "BOU-043",
-    "priceUnit": 9000,
+    "priceUnit": null,
     "priceWholesale": null,
     "generatedAt": "2026-09-16T16:10:21.283Z"
   }
