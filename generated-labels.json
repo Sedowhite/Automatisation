@@ -3136,11 +3136,19 @@
     "generatedAt": "2026-09-16T15:50:23.383Z"
   },
   {
-    "name": "Pinceau maqui 800f/",
+    "name": "Pinceau maqui 800f/6500F",
     "category": "Cosmétiques > Maquillage",
     "code": "MAQ-022",
-    "priceUnit": 6500,
+    "priceUnit": null,
     "priceWholesale": null,
     "generatedAt": "2026-09-16T16:05:21.637Z"
+  },
+  {
+    "name": "plaqu 1000f/",
+    "category": "Bijoux > Boucles d'oreilles",
+    "code": "BOU-043",
+    "priceUnit": 9000,
+    "priceWholesale": null,
+    "generatedAt": "2026-09-16T16:10:21.283Z"
   }
 ]
