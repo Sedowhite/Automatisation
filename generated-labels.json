@@ -3150,5 +3150,13 @@
     "priceUnit": null,
     "priceWholesale": null,
     "generatedAt": "2026-09-16T16:10:21.283Z"
+  },
+  {
+    "name": "huile marq 1000F/",
+    "category": "Maison > Parfum d'ambiance",
+    "code": "PAR-022",
+    "priceUnit": 5000,
+    "priceWholesale": null,
+    "generatedAt": "2026-09-16T18:20:24.973Z"
   }
 ]
