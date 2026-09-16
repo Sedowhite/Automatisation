@@ -3118,5 +3118,13 @@
     "priceUnit": 2500,
     "priceWholesale": 24000,
     "generatedAt": "2026-09-15T20:36:55.886Z"
+  },
+  {
+    "name": "Sac de maqui",
+    "category": "Cosmétiques > Maquillage",
+    "code": "MAQ-021",
+    "priceUnit": 10000,
+    "priceWholesale": null,
+    "generatedAt": "2026-09-16T15:20:20.860Z"
   }
 ]
