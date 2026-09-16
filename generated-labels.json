@@ -3134,5 +3134,13 @@
     "priceUnit": 1000,
     "priceWholesale": 12000,
     "generatedAt": "2026-09-16T15:50:23.383Z"
+  },
+  {
+    "name": "Pinceau maqui 800f/",
+    "category": "Cosmétiques > Maquillage",
+    "code": "MAQ-022",
+    "priceUnit": 6500,
+    "priceWholesale": null,
+    "generatedAt": "2026-09-16T16:05:21.637Z"
   }
 ]
