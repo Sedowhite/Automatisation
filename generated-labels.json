@@ -3158,5 +3158,13 @@
     "priceUnit": 1000,
     "priceWholesale": 5000,
     "generatedAt": "2026-09-16T18:20:24.973Z"
+  },
+  {
+    "name": "Fermoire dent 600f/",
+    "category": "Beauté > Hygiène",
+    "code": "HYG-005",
+    "priceUnit": 3000,
+    "priceWholesale": null,
+    "generatedAt": "2026-09-18T15:26:06.728Z"
   }
 ]
