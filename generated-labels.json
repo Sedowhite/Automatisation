@@ -3166,5 +3166,13 @@
     "priceUnit": null,
     "priceWholesale": null,
     "generatedAt": "2026-09-18T15:26:06.728Z"
+  },
+  {
+    "name": "Cour den 500f/",
+    "category": "Beauté > Hygiène",
+    "code": "HYG-006",
+    "priceUnit": 2500,
+    "priceWholesale": null,
+    "generatedAt": "2026-09-18T17:00:24.047Z"
   }
 ]
