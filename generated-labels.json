@@ -3198,5 +3198,13 @@
     "priceUnit": 5500,
     "priceWholesale": null,
     "generatedAt": "2026-09-23T11:00:27.350Z"
+  },
+  {
+    "name": "Cof bag mar 4000f/",
+    "category": "Coffrets & Cadeaux",
+    "code": "COF-015",
+    "priceUnit": 500,
+    "priceWholesale": null,
+    "generatedAt": "2026-09-23T15:35:28.663Z"
   }
 ]
