@@ -3200,11 +3200,19 @@
     "generatedAt": "2026-09-23T11:00:27.350Z"
   },
   {
-    "name": "Cof bag mar 4000f/",
+    "name": "Cof bag mar 4000f/500f",
     "category": "Coffrets & Cadeaux",
     "code": "COF-015",
-    "priceUnit": 500,
+    "priceUnit": null,
     "priceWholesale": null,
     "generatedAt": "2026-09-23T15:35:28.663Z"
+  },
+  {
+    "name": "Sham bas 1000",
+    "category": "Cosmétiques > Lèvres",
+    "code": "LEV-021",
+    "priceUnit": null,
+    "priceWholesale": null,
+    "generatedAt": "2026-09-23T15:40:22.998Z"
   }
 ]
