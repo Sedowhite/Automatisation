@@ -3182,5 +3182,13 @@
     "priceUnit": null,
     "priceWholesale": null,
     "generatedAt": "2026-09-18T17:45:33.525Z"
+  },
+  {
+    "name": "Mon casio 4500",
+    "category": "Montres",
+    "code": "MON-056",
+    "priceUnit": null,
+    "priceWholesale": null,
+    "generatedAt": "2026-09-23T09:15:25.486Z"
   }
 ]
