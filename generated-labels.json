@@ -3190,5 +3190,13 @@
     "priceUnit": null,
     "priceWholesale": null,
     "generatedAt": "2026-09-23T09:15:25.486Z"
+  },
+  {
+    "name": "Mon ROLEX",
+    "category": "Montres",
+    "code": "MON-057",
+    "priceUnit": 5500,
+    "priceWholesale": null,
+    "generatedAt": "2026-09-23T11:00:27.350Z"
   }
 ]
