@@ -3246,5 +3246,13 @@
     "priceUnit": null,
     "priceWholesale": null,
     "generatedAt": "2026-09-25T16:10:25.489Z"
+  },
+  {
+    "name": "MON ENF 6000f/",
+    "category": "Montres",
+    "code": "MON-058",
+    "priceUnit": 700,
+    "priceWholesale": null,
+    "generatedAt": "2026-09-25T17:55:25.587Z"
   }
 ]
