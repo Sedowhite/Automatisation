@@ -688,11 +688,11 @@
     "generatedAt": "2026-09-13T03:45:54.000Z"
   },
   {
-    "name": "Slip F",
+    "name": "Slip F 7000F/800fr",
     "category": "Vêtements > Sous-vêtements",
     "code": "LIN-023",
-    "priceUnit": 1100,
-    "priceWholesale": 7500,
+    "priceUnit": null,
+    "priceWholesale": null,
     "generatedAt": "2026-09-13T03:45:53.000Z"
   },
   {
