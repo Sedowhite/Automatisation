@@ -1520,11 +1520,11 @@
     "generatedAt": "2026-09-13T03:45:22.000Z"
   },
   {
-    "name": "Bracelet Femme",
+    "name": "Brac H",
     "category": "Bijoux > Bracelets",
     "code": "BRA-022",
-    "priceUnit": 1250,
-    "priceWholesale": 9000,
+    "priceUnit": 1350,
+    "priceWholesale": 10000,
     "generatedAt": "2026-09-13T03:45:21.000Z"
   },
   {
@@ -3254,5 +3254,13 @@
     "priceUnit": null,
     "priceWholesale": null,
     "generatedAt": "2026-09-25T17:55:25.587Z"
+  },
+  {
+    "name": "Bou 300F/",
+    "category": "Bijoux > Boucles d'oreilles",
+    "code": "BOU-044",
+    "priceUnit": 2500,
+    "priceWholesale": null,
+    "generatedAt": "2026-09-25T18:50:21.721Z"
   }
 ]
