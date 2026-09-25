@@ -3232,10 +3232,10 @@
     "generatedAt": "2026-09-25T15:05:25.341Z"
   },
   {
-    "name": "Masq visa 2000f/",
+    "name": "Masq visa 2000f/250f",
     "category": "Cosmétiques > Maquillage",
     "code": "MAQ-023",
-    "priceUnit": 250,
+    "priceUnit": null,
     "priceWholesale": null,
     "generatedAt": "2026-09-25T15:15:21.173Z"
   }
