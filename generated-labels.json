@@ -3224,10 +3224,10 @@
     "generatedAt": "2026-09-25T15:00:28.963Z"
   },
   {
-    "name": "Difuseur 25000f/",
+    "name": "Difuseur 25000f/3000f",
     "category": "Maison > Parfum d'ambiance",
     "code": "PAR-024",
-    "priceUnit": 3000,
+    "priceUnit": null,
     "priceWholesale": null,
     "generatedAt": "2026-09-25T15:05:25.341Z"
   }
