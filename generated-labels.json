@@ -3214,5 +3214,13 @@
     "priceUnit": null,
     "priceWholesale": null,
     "generatedAt": "2026-09-23T15:40:22.998Z"
+  },
+  {
+    "name": "Tag parf 6000f/",
+    "category": "Maison > Parfum d'ambiance",
+    "code": "PAR-023",
+    "priceUnit": 700,
+    "priceWholesale": null,
+    "generatedAt": "2026-09-25T15:00:28.963Z"
   }
 ]
