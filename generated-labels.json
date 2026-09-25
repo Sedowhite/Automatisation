@@ -1080,11 +1080,11 @@
     "generatedAt": "2026-09-13T03:45:38.000Z"
   },
   {
-    "name": "Faux Ongle",
+    "name": "Faux Ongl 500/3500F",
     "category": "Cosmétiques > Ongles",
     "code": "ONG-005",
-    "priceUnit": 1250,
-    "priceWholesale": 3500,
+    "priceUnit": null,
+    "priceWholesale": null,
     "generatedAt": "2026-09-13T03:45:38.000Z"
   },
   {
@@ -1680,7 +1680,7 @@
     "generatedAt": "2026-09-13T03:45:15.000Z"
   },
   {
-    "name": "Bouc",
+    "name": "Bouc 350F/",
     "category": "Bijoux > Boucles d'oreilles",
     "code": "BOU-012",
     "priceUnit": 3000,
