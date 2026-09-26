@@ -3288,11 +3288,11 @@
     "generatedAt": "2026-09-26T11:30:21.268Z"
   },
   {
-    "name": "Chaine 1375F/",
+    "name": "Chaine",
     "category": "Bijoux > Colliers & Chaînes",
     "code": "COL-060",
-    "priceUnit": 10500,
-    "priceWholesale": null,
+    "priceUnit": 1375,
+    "priceWholesale": 10500,
     "generatedAt": "2026-09-26T12:20:23.189Z"
   }
 ]
