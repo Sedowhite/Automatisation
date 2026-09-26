@@ -696,11 +696,11 @@
     "generatedAt": "2026-09-13T03:45:53.000Z"
   },
   {
-    "name": "Bouc Plaq",
+    "name": "Bouc",
     "category": "Bijoux > Boucles d'oreilles",
     "code": "BOU-031",
     "priceUnit": 2500,
-    "priceWholesale": null,
+    "priceWholesale": 300,
     "generatedAt": "2026-09-13T03:45:53.000Z"
   },
   {
