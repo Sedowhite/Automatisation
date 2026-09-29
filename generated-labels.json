@@ -3294,5 +3294,29 @@
     "priceUnit": 1375,
     "priceWholesale": 10500,
     "generatedAt": "2026-09-26T12:20:23.189Z"
+  },
+  {
+    "name": "Gommage ALOES",
+    "category": "Divers",
+    "code": "DIV-026",
+    "priceUnit": 1000,
+    "priceWholesale": null,
+    "generatedAt": "2026-09-29T16:55:27.123Z"
+  },
+  {
+    "name": "ENCENS",
+    "category": "Divers",
+    "code": "DIV-027",
+    "priceUnit": null,
+    "priceWholesale": null,
+    "generatedAt": "2026-09-29T16:55:37.923Z"
+  },
+  {
+    "name": "Crème épila",
+    "category": "Cosmétiques > Maquillage",
+    "code": "MAQ-024",
+    "priceUnit": 1000,
+    "priceWholesale": null,
+    "generatedAt": "2026-09-29T16:55:47.576Z"
   }
 ]
