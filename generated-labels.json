@@ -3360,11 +3360,11 @@
     "generatedAt": "2026-10-04T11:05:21.284Z"
   },
   {
-    "name": "Parfum genie 10000F/",
+    "name": "Parfum genie",
     "category": "Maison > Parfum d'ambiance",
     "code": "PAR-026",
-    "priceUnit": 1250,
-    "priceWholesale": null,
+    "priceUnit": 10000,
+    "priceWholesale": 1250,
     "generatedAt": "2026-10-04T11:10:18.869Z"
   }
 ]
