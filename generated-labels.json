@@ -3392,19 +3392,19 @@
     "generatedAt": "2026-10-05T11:50:25.749Z"
   },
   {
-    "name": "Bando 4000F/",
+    "name": "Bando",
     "category": "Divers",
     "code": "DIV-031",
-    "priceUnit": 600,
-    "priceWholesale": null,
+    "priceUnit": 4000,
+    "priceWholesale": 600,
     "generatedAt": "2026-10-05T11:55:54.232Z"
   },
   {
-    "name": "Elastic à perle 1500F/",
+    "name": "Elastic à perle",
     "category": "Accessoires > Cheveux",
     "code": "ACC-023",
-    "priceUnit": 250,
-    "priceWholesale": null,
+    "priceUnit": 1500,
+    "priceWholesale": 250,
     "generatedAt": "2026-10-05T11:56:05.465Z"
   }
 ]
