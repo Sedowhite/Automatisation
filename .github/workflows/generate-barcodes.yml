@@ -96,3 +96,49 @@ jobs:
       - name: Déployer sur GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
+
+  verify:
+    needs: deploy
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: write
+    steps:
+      - name: Checkout des données (branche data)
+        uses: actions/checkout@v7
+        with:
+          ref: data
+
+      - name: Vérifier que le site publié contient les derniers produits
+        env:
+          SITE: https://sedowhite.github.io/Automatisation
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          codes=$(node -e "const r=require('./generated-labels.json');console.log(r.slice(-3).map(e=>e.code).join(' '))")
+          echo "SKU à vérifier : $codes"
+          check() {
+            curl -s "$SITE/catalogue-detail.html?cb=${GITHUB_RUN_ID}-$1-$RANDOM" -o /tmp/live.html
+            missing=""
+            for c in $codes; do
+              grep -q "data-code=\"$c\"" /tmp/live.html || missing="$missing $c"
+            done
+            echo "$missing"
+          }
+          for i in 1 2 3 4 5 6; do
+            m=$(check $i)
+            [ -z "$m" ] && echo "OK : site à jour" && exit 0
+            echo "Tentative $i : manquants :$m"; sleep 20
+          done
+          echo "::warning::Site périmé, relance de la publication"
+          curl -sI "$SITE/catalogue-detail.html?cb=$RANDOM" | grep -i -E "^(etag|last-modified|age|x-cache|x-served-by|cache-control)" || true
+          last=$(gh run list --workflow publish-only.yml --repo "$GITHUB_REPOSITORY" --limit 1 --json createdAt -q '.[0].createdAt')
+          if [ -n "$last" ] && [ $(( $(date +%s) - $(date -d "$last" +%s) )) -lt 900 ]; then
+            echo "publish-only lancé il y a moins de 15 min, pas de relance"
+          else
+            gh workflow run publish-only.yml --repo "$GITHUB_REPOSITORY"
+          fi
+          sleep 120
+          m=$(check retry)
+          [ -z "$m" ] && echo "OK après relance" && exit 0
+          echo "::error::Site toujours périmé, manquants :$m"
+          exit 1
