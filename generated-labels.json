@@ -3430,5 +3430,13 @@
     "priceUnit": 13500,
     "priceWholesale": 1625,
     "generatedAt": "2026-10-05T15:00:42.052Z"
+  },
+  {
+    "name": "Sautoir + Boucle d'oreille",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-063",
+    "priceUnit": 13500,
+    "priceWholesale": null,
+    "generatedAt": "2026-10-05T15:40:20.317Z"
   }
 ]
