@@ -3414,5 +3414,21 @@
     "priceUnit": 3000,
     "priceWholesale": null,
     "generatedAt": "2026-10-05T12:25:20.853Z"
+  },
+  {
+    "name": "elastique cheveux 1500F/",
+    "category": "Accessoires > Cheveux",
+    "code": "ACC-024",
+    "priceUnit": 250,
+    "priceWholesale": null,
+    "generatedAt": "2026-10-05T15:00:30.788Z"
+  },
+  {
+    "name": "Sautoire+BOUC 13500F/",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-062",
+    "priceUnit": 1625,
+    "priceWholesale": null,
+    "generatedAt": "2026-10-05T15:00:42.052Z"
   }
 ]
