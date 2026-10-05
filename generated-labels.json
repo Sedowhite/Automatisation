@@ -3384,11 +3384,27 @@
     "generatedAt": "2026-10-04T13:10:59.959Z"
   },
   {
-    "name": "Sautoire+boucle 1625F/",
+    "name": "Sautoire+boucle",
     "category": "Bijoux > Colliers & Chaînes",
     "code": "COL-061",
-    "priceUnit": 13500,
-    "priceWholesale": null,
+    "priceUnit": 1625,
+    "priceWholesale": 13500,
     "generatedAt": "2026-10-05T11:50:25.749Z"
+  },
+  {
+    "name": "Bando 4000F/",
+    "category": "Divers",
+    "code": "DIV-031",
+    "priceUnit": 600,
+    "priceWholesale": null,
+    "generatedAt": "2026-10-05T11:55:54.232Z"
+  },
+  {
+    "name": "Elastic à perle 1500F/",
+    "category": "Accessoires > Cheveux",
+    "code": "ACC-023",
+    "priceUnit": 250,
+    "priceWholesale": null,
+    "generatedAt": "2026-10-05T11:56:05.465Z"
   }
 ]
