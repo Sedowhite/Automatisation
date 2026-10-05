@@ -3454,5 +3454,13 @@
     "priceUnit": 4500,
     "priceWholesale": 700,
     "generatedAt": "2026-10-05T18:40:24.944Z"
+  },
+  {
+    "name": "Chaine + boucle 14000F/",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-066",
+    "priceUnit": 1700,
+    "priceWholesale": null,
+    "generatedAt": "2026-10-05T18:55:25.334Z"
   }
 ]
