@@ -3528,11 +3528,11 @@
     "generatedAt": "2026-10-06T11:45:24.781Z"
   },
   {
-    "name": "Chaine+boucle 1425F/",
+    "name": "Chaine+boucle",
     "category": "Ensembles > Ensembles bijoux",
     "code": "ENS-067",
-    "priceUnit": 11000,
-    "priceWholesale": null,
+    "priceUnit": 1425,
+    "priceWholesale": 11000,
     "generatedAt": "2026-10-06T12:00:44.571Z"
   }
 ]
