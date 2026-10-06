@@ -3520,11 +3520,11 @@
     "generatedAt": "2026-10-06T11:40:31.020Z"
   },
   {
-    "name": "vernis grand 2400F/",
+    "name": "vernis grand",
     "category": "Cosmétiques > Ongles",
     "code": "ONG-009",
-    "priceUnit": 200,
-    "priceWholesale": null,
+    "priceUnit": 2400,
+    "priceWholesale": 200,
     "generatedAt": "2026-10-06T11:45:24.781Z"
   }
 ]
