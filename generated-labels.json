@@ -3544,19 +3544,19 @@
     "generatedAt": "2026-10-06T12:10:22.691Z"
   },
   {
-    "name": "COLLIER 1500F/",
+    "name": "COLLIER",
     "category": "Bijoux > Colliers & Chaînes",
     "code": "COL-071",
-    "priceUnit": 12000,
-    "priceWholesale": null,
+    "priceUnit": 1500,
+    "priceWholesale": 12000,
     "generatedAt": "2026-10-06T12:15:24.809Z"
   },
   {
-    "name": "Médaille enfant 300F/",
+    "name": "Médaille enfant",
     "category": "Divers",
     "code": "DIV-033",
-    "priceUnit": 3000,
-    "priceWholesale": null,
+    "priceUnit": 300,
+    "priceWholesale": 3000,
     "generatedAt": "2026-10-06T12:15:36.002Z"
   }
 ]
