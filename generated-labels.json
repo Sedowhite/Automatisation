@@ -3464,19 +3464,19 @@
     "generatedAt": "2026-10-05T18:55:25.334Z"
   },
   {
-    "name": "Chai + Bouc 1300F/",
+    "name": "Chai + Bouc",
     "category": "Bijoux > Colliers & Chaînes",
     "code": "COL-067",
-    "priceUnit": 9500,
-    "priceWholesale": null,
+    "priceUnit": 1300,
+    "priceWholesale": 9500,
     "generatedAt": "2026-10-06T08:00:33.090Z"
   },
   {
-    "name": "Ens Chai Bouc Brac Bag 2500F/",
+    "name": "Ens Chai Bouc Brac Bag",
     "category": "Ensembles > Ensembles bijoux",
     "code": "ENS-065",
-    "priceUnit": 25000,
-    "priceWholesale": null,
+    "priceUnit": 2500,
+    "priceWholesale": 25000,
     "generatedAt": "2026-10-06T08:00:44.112Z"
   }
 ]
