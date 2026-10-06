@@ -3536,11 +3536,27 @@
     "generatedAt": "2026-10-06T12:00:44.571Z"
   },
   {
-    "name": "Chaine simple HF 800F/",
+    "name": "Chaine simple HF",
     "category": "Bijoux > Colliers & Chaînes",
     "code": "COL-070",
-    "priceUnit": 1000,
-    "priceWholesale": null,
+    "priceUnit": 800,
+    "priceWholesale": 1000,
     "generatedAt": "2026-10-06T12:10:22.691Z"
+  },
+  {
+    "name": "COLLIER 1500F/",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-071",
+    "priceUnit": 12000,
+    "priceWholesale": null,
+    "generatedAt": "2026-10-06T12:15:24.809Z"
+  },
+  {
+    "name": "Médaille enfant 300F/",
+    "category": "Divers",
+    "code": "DIV-033",
+    "priceUnit": 3000,
+    "priceWholesale": null,
+    "generatedAt": "2026-10-06T12:15:36.002Z"
   }
 ]
