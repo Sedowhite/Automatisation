@@ -3480,19 +3480,19 @@
     "generatedAt": "2026-10-06T08:00:44.112Z"
   },
   {
-    "name": "Chai+bag+brac+bouc 25000F/",
+    "name": "Chai+bag+brac+bouc",
     "category": "Ensembles > Ensembles bijoux",
     "code": "ENS-066",
-    "priceUnit": 2500,
-    "priceWholesale": null,
+    "priceUnit": 25000,
+    "priceWholesale": 2500,
     "generatedAt": "2026-10-06T10:55:18.262Z"
   },
   {
-    "name": "Chaine Femme 6000F/",
+    "name": "Chaine Femme",
     "category": "Bijoux > Colliers & Chaînes",
     "code": "COL-068",
-    "priceUnit": 1000,
-    "priceWholesale": null,
+    "priceUnit": 6000,
+    "priceWholesale": 1000,
     "generatedAt": "2026-10-06T10:55:29.648Z"
   }
 ]
