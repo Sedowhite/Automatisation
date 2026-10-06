@@ -3494,5 +3494,13 @@
     "priceUnit": 6000,
     "priceWholesale": 1000,
     "generatedAt": "2026-10-06T10:55:29.648Z"
+  },
+  {
+    "name": "Chaine pieds 1000F/",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-069",
+    "priceUnit": 6000,
+    "priceWholesale": null,
+    "generatedAt": "2026-10-06T11:10:22.912Z"
   }
 ]
