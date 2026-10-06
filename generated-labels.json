@@ -3534,5 +3534,13 @@
     "priceUnit": 1425,
     "priceWholesale": 11000,
     "generatedAt": "2026-10-06T12:00:44.571Z"
+  },
+  {
+    "name": "Chaine simple HF 800F/",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-070",
+    "priceUnit": 1000,
+    "priceWholesale": null,
+    "generatedAt": "2026-10-06T12:10:22.691Z"
   }
 ]
