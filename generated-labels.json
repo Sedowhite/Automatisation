@@ -3558,5 +3558,13 @@
     "priceUnit": 300,
     "priceWholesale": 3000,
     "generatedAt": "2026-10-06T12:15:36.002Z"
+  },
+  {
+    "name": "Colier simple HFE 5000F/",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-072",
+    "priceUnit": 800,
+    "priceWholesale": null,
+    "generatedAt": "2026-10-06T14:00:32.913Z"
   }
 ]
