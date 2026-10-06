@@ -3566,5 +3566,21 @@
     "priceUnit": 5000,
     "priceWholesale": 800,
     "generatedAt": "2026-10-06T14:00:32.913Z"
+  },
+  {
+    "name": "Chaine simple 1500F/",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-073",
+    "priceUnit": 1200,
+    "priceWholesale": null,
+    "generatedAt": "2026-10-06T14:10:28.224Z"
+  },
+  {
+    "name": "Faux percing 600F/",
+    "category": "Divers",
+    "code": "DIV-034",
+    "priceUnit": 4000,
+    "priceWholesale": null,
+    "generatedAt": "2026-10-06T14:10:41.251Z"
   }
 ]
