@@ -3606,5 +3606,13 @@
     "priceUnit": null,
     "priceWholesale": null,
     "generatedAt": "2026-10-20T18:24:27.975Z"
+  },
+  {
+    "name": "ARTICLE FICTIF",
+    "category": "Divers",
+    "code": "DIV-036",
+    "priceUnit": 500,
+    "priceWholesale": null,
+    "generatedAt": "2026-10-20T19:10:23.133Z"
   }
 ]
