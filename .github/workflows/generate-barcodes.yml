@@ -13,14 +13,13 @@ permissions:
   pages: write
   id-token: write
 
-# Évite deux exécutions de déploiement Pages en même temps si un run dépasse l'intervalle du cron
-concurrency:
-  group: pages
-  cancel-in-progress: false
-
 jobs:
   generate:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
+    concurrency:
+      group: generate-barcodes
+      cancel-in-progress: false
     steps:
       - name: Checkout du code (branche main)
         uses: actions/checkout@v7
@@ -89,6 +88,10 @@ jobs:
   deploy:
     needs: generate
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+    concurrency:
+      group: pages
+      cancel-in-progress: true
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -100,6 +103,7 @@ jobs:
   verify:
     needs: deploy
     runs-on: ubuntu-latest
+    timeout-minutes: 8
     permissions:
       contents: read
       actions: write
