@@ -3656,11 +3656,11 @@
     "generatedAt": "2026-10-21T11:50:18.860Z"
   },
   {
-    "name": "Bracelets horoscopes 800F/",
+    "name": "Bracelets horoscopes",
     "category": "Bijoux > Bracelets",
     "code": "BRA-054",
-    "priceUnit": 5000,
-    "priceWholesale": null,
+    "priceUnit": 800,
+    "priceWholesale": 5000,
     "generatedAt": "2026-10-21T12:25:23.948Z"
   }
 ]
