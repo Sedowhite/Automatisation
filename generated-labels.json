@@ -3648,11 +3648,11 @@
     "generatedAt": "2026-10-21T11:45:30.285Z"
   },
   {
-    "name": "Coffret Vide bijoux 1500F/",
+    "name": "Coffret Vide bijoux",
     "category": "Coffrets & Cadeaux",
     "code": "COF-020",
-    "priceUnit": 13000,
-    "priceWholesale": null,
+    "priceUnit": 1500,
+    "priceWholesale": 13000,
     "generatedAt": "2026-10-21T11:50:18.860Z"
   }
 ]
