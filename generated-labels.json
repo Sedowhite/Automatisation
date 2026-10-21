@@ -3720,11 +3720,19 @@
     "generatedAt": "2026-10-21T14:35:18.213Z"
   },
   {
-    "name": "Esclave de main 1500F/",
+    "name": "Esclave de main",
     "category": "Bijoux > Bracelets",
     "code": "BRA-055",
-    "priceUnit": 11500,
-    "priceWholesale": null,
+    "priceUnit": 1500,
+    "priceWholesale": 11500,
     "generatedAt": "2026-10-21T15:05:20.180Z"
+  },
+  {
+    "name": "Montre femme CK 5500",
+    "category": "Montres",
+    "code": "MON-062",
+    "priceUnit": null,
+    "priceWholesale": null,
+    "generatedAt": "2026-10-21T15:10:26.561Z"
   }
 ]
