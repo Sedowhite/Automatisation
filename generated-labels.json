@@ -3688,19 +3688,27 @@
     "generatedAt": "2026-10-21T13:50:21.900Z"
   },
   {
-    "name": "Ensemble 4p enfants 1350F/",
+    "name": "Ensemble 4p enfants",
     "category": "Ensembles > Ensembles bijoux",
     "code": "ENS-068",
-    "priceUnit": 10000,
-    "priceWholesale": null,
+    "priceUnit": 1350,
+    "priceWholesale": 10000,
     "generatedAt": "2026-10-21T14:00:24.039Z"
   },
   {
-    "name": "Montre électronique 1600F/",
+    "name": "Montre électronique",
     "category": "Montres",
     "code": "MON-059",
-    "priceUnit": 1300,
-    "priceWholesale": null,
+    "priceUnit": 1600,
+    "priceWholesale": 1300,
     "generatedAt": "2026-10-21T14:00:36.539Z"
+  },
+  {
+    "name": "Montre Jali 1600F/",
+    "category": "Montres",
+    "code": "MON-060",
+    "priceUnit": 13000,
+    "priceWholesale": null,
+    "generatedAt": "2026-10-21T14:05:23.742Z"
   }
 ]
