@@ -3718,5 +3718,13 @@
     "priceUnit": 4000,
     "priceWholesale": null,
     "generatedAt": "2026-10-21T14:35:18.213Z"
+  },
+  {
+    "name": "Esclave de main 1500F/",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-055",
+    "priceUnit": 11500,
+    "priceWholesale": null,
+    "generatedAt": "2026-10-21T15:05:20.180Z"
   }
 ]
