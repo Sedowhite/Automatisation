@@ -3654,5 +3654,13 @@
     "priceUnit": 1500,
     "priceWholesale": 13000,
     "generatedAt": "2026-10-21T11:50:18.860Z"
+  },
+  {
+    "name": "Bracelets horoscopes 800F/",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-054",
+    "priceUnit": 5000,
+    "priceWholesale": null,
+    "generatedAt": "2026-10-21T12:25:23.948Z"
   }
 ]
