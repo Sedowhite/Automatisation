@@ -3670,5 +3670,13 @@
     "priceUnit": 2500,
     "priceWholesale": null,
     "generatedAt": "2026-10-21T13:10:24.536Z"
+  },
+  {
+    "name": "Chaine+boucle Welady",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-074",
+    "priceUnit": 5500,
+    "priceWholesale": null,
+    "generatedAt": "2026-10-21T13:20:25.852Z"
   }
 ]
