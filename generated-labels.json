@@ -3800,19 +3800,19 @@
     "generatedAt": "2026-10-21T16:30:29.425Z"
   },
   {
-    "name": "Gloss porte clé 1200F/",
+    "name": "Gloss porte clé",
     "category": "Cosmétiques > Maquillage",
     "code": "MAQ-029",
-    "priceUnit": 10500,
-    "priceWholesale": null,
+    "priceUnit": 1200,
+    "priceWholesale": 10500,
     "generatedAt": "2026-10-21T16:40:22.446Z"
   },
   {
-    "name": "Gloss karite 900F/",
+    "name": "Gloss karite",
     "category": "Cosmétiques > Maquillage",
     "code": "MAQ-030",
-    "priceUnit": 8000,
-    "priceWholesale": null,
+    "priceUnit": 900,
+    "priceWholesale": 8000,
     "generatedAt": "2026-10-21T16:40:35.546Z"
   }
 ]
