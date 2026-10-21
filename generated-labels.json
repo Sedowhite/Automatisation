@@ -3792,11 +3792,11 @@
     "generatedAt": "2026-10-21T16:25:21.052Z"
   },
   {
-    "name": "Gloss olibolla 1100F/",
+    "name": "Gloss olibolla",
     "category": "Cosmétiques > Maquillage",
     "code": "MAQ-028",
-    "priceUnit": 9000,
-    "priceWholesale": null,
+    "priceUnit": 1100,
+    "priceWholesale": 9000,
     "generatedAt": "2026-10-21T16:30:29.425Z"
   }
 ]
