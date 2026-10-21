@@ -3622,5 +3622,13 @@
     "priceUnit": 5000,
     "priceWholesale": null,
     "generatedAt": "2026-10-21T10:45:22.750Z"
+  },
+  {
+    "name": "Boucle à vice 1000F/",
+    "category": "Bijoux > Boucles d'oreilles",
+    "code": "BOU-046",
+    "priceUnit": 7500,
+    "priceWholesale": null,
+    "generatedAt": "2026-10-21T11:05:20.793Z"
   }
 ]
