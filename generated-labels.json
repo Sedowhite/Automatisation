@@ -3614,5 +3614,13 @@
     "priceUnit": 500,
     "priceWholesale": null,
     "generatedAt": "2026-10-20T19:10:23.133Z"
+  },
+  {
+    "name": "Parfum Kayali",
+    "category": "Maison > Parfum d'ambiance",
+    "code": "PAR-027",
+    "priceUnit": 5000,
+    "priceWholesale": null,
+    "generatedAt": "2026-10-21T10:45:22.750Z"
   }
 ]
