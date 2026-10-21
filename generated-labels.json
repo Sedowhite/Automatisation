@@ -3758,5 +3758,13 @@
     "priceUnit": 500,
     "priceWholesale": null,
     "generatedAt": "2026-10-21T15:35:18.672Z"
+  },
+  {
+    "name": "Bracelet homme marque 3000F/",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-056",
+    "priceUnit": 30000,
+    "priceWholesale": null,
+    "generatedAt": "2026-10-21T15:50:20.863Z"
   }
 ]
