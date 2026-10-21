@@ -3640,11 +3640,19 @@
     "generatedAt": "2026-10-21T11:10:21.124Z"
   },
   {
-    "name": "Coffret vide forme Coeur 1500F/",
+    "name": "Coffret vide forme Coeur",
     "category": "Coffrets & Cadeaux",
     "code": "COF-019",
-    "priceUnit": 9500,
-    "priceWholesale": null,
+    "priceUnit": 1500,
+    "priceWholesale": 9500,
     "generatedAt": "2026-10-21T11:45:30.285Z"
+  },
+  {
+    "name": "Coffret Vide bijoux 1500F/",
+    "category": "Coffrets & Cadeaux",
+    "code": "COF-020",
+    "priceUnit": 13000,
+    "priceWholesale": null,
+    "generatedAt": "2026-10-21T11:50:18.860Z"
   }
 ]
