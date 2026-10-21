@@ -3750,5 +3750,13 @@
     "priceUnit": 1950,
     "priceWholesale": 17000,
     "generatedAt": "2026-10-21T15:25:31.929Z"
+  },
+  {
+    "name": "Boucle à vice",
+    "category": "Bijoux > Boucles d'oreilles",
+    "code": "BOU-048",
+    "priceUnit": 500,
+    "priceWholesale": null,
+    "generatedAt": "2026-10-21T15:35:18.672Z"
   }
 ]
