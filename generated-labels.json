@@ -3784,11 +3784,19 @@
     "generatedAt": "2026-10-21T15:55:34.204Z"
   },
   {
-    "name": "Gloss HUES 1150F/",
+    "name": "Gloss HUES",
     "category": "Cosmétiques > Maquillage",
     "code": "MAQ-027",
-    "priceUnit": 10000,
-    "priceWholesale": null,
+    "priceUnit": 1150,
+    "priceWholesale": 10000,
     "generatedAt": "2026-10-21T16:25:21.052Z"
+  },
+  {
+    "name": "Gloss olibolla 1100F/",
+    "category": "Cosmétiques > Maquillage",
+    "code": "MAQ-028",
+    "priceUnit": 9000,
+    "priceWholesale": null,
+    "generatedAt": "2026-10-21T16:30:29.425Z"
   }
 ]
