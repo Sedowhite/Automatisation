@@ -3734,5 +3734,21 @@
     "priceUnit": null,
     "priceWholesale": null,
     "generatedAt": "2026-10-21T15:10:26.561Z"
+  },
+  {
+    "name": "Chaine + boucle 1500F/",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-076",
+    "priceUnit": 12000,
+    "priceWholesale": null,
+    "generatedAt": "2026-10-21T15:25:23.911Z"
+  },
+  {
+    "name": "Chaine + boucle 1950F/",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-077",
+    "priceUnit": 17000,
+    "priceWholesale": null,
+    "generatedAt": "2026-10-21T15:25:31.929Z"
   }
 ]
