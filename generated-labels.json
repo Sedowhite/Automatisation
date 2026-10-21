@@ -3710,5 +3710,13 @@
     "priceUnit": 1600,
     "priceWholesale": 13000,
     "generatedAt": "2026-10-21T14:05:23.742Z"
+  },
+  {
+    "name": "Montre fusil",
+    "category": "Montres",
+    "code": "MON-061",
+    "priceUnit": 4000,
+    "priceWholesale": null,
+    "generatedAt": "2026-10-21T14:35:18.213Z"
   }
 ]
