@@ -3704,11 +3704,11 @@
     "generatedAt": "2026-10-21T14:00:36.539Z"
   },
   {
-    "name": "Montre Jali 1600F/",
+    "name": "Montre Jali",
     "category": "Montres",
     "code": "MON-060",
-    "priceUnit": 13000,
-    "priceWholesale": null,
+    "priceUnit": 1600,
+    "priceWholesale": 13000,
     "generatedAt": "2026-10-21T14:05:23.742Z"
   }
 ]
