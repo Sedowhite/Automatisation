@@ -3624,11 +3624,19 @@
     "generatedAt": "2026-10-21T10:45:22.750Z"
   },
   {
-    "name": "Boucle à vice 1000F/",
+    "name": "Boucle à vice",
     "category": "Bijoux > Boucles d'oreilles",
     "code": "BOU-046",
-    "priceUnit": 7500,
-    "priceWholesale": null,
+    "priceUnit": 1000,
+    "priceWholesale": 7500,
     "generatedAt": "2026-10-21T11:05:20.793Z"
+  },
+  {
+    "name": "Coffret vide transparent 1000F/",
+    "category": "Divers",
+    "code": "DIV-037",
+    "priceUnit": 7000,
+    "priceWholesale": null,
+    "generatedAt": "2026-10-21T11:10:21.124Z"
   }
 ]
