@@ -3880,11 +3880,19 @@
     "generatedAt": "2026-10-22T09:15:24.368Z"
   },
   {
-    "name": "Chaine + boucle 4p enfants 1350F/",
+    "name": "Chaine + boucle 4p enfants",
     "category": "Ensembles > Ensembles bijoux",
     "code": "ENS-071",
-    "priceUnit": 10000,
-    "priceWholesale": null,
+    "priceUnit": 1350,
+    "priceWholesale": 10000,
     "generatedAt": "2026-10-22T09:20:23.616Z"
+  },
+  {
+    "name": "Chaine+ boucle 4p enfant 1250F/",
+    "category": "Ensembles > Ensembles bijoux",
+    "code": "ENS-072",
+    "priceUnit": 9000,
+    "priceWholesale": null,
+    "generatedAt": "2026-10-22T09:25:23.097Z"
   }
 ]
