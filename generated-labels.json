@@ -3832,11 +3832,11 @@
     "generatedAt": "2026-10-21T17:40:19.969Z"
   },
   {
-    "name": "Chaine simple 1750F/",
+    "name": "Chaine simple",
     "category": "Bijoux > Colliers & Chaînes",
     "code": "COL-080",
-    "priceUnit": 15000,
-    "priceWholesale": null,
+    "priceUnit": 1750,
+    "priceWholesale": 15000,
     "generatedAt": "2026-10-22T08:55:22.378Z"
   },
   {
@@ -3854,5 +3854,13 @@
     "priceUnit": 2500,
     "priceWholesale": null,
     "generatedAt": "2026-10-22T08:55:41.992Z"
+  },
+  {
+    "name": "Chaine + boucle 1350F/",
+    "category": "Ensembles > Ensembles bijoux",
+    "code": "ENS-069",
+    "priceUnit": 10000,
+    "priceWholesale": null,
+    "generatedAt": "2026-10-22T09:00:24.765Z"
   }
 ]
