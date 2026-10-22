@@ -3870,5 +3870,13 @@
     "priceUnit": 1250,
     "priceWholesale": 9000,
     "generatedAt": "2026-10-22T09:05:23.550Z"
+  },
+  {
+    "name": "Bracelets homme 3 en 1 1250F/",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-058",
+    "priceUnit": 9000,
+    "priceWholesale": null,
+    "generatedAt": "2026-10-22T09:15:24.368Z"
   }
 ]
