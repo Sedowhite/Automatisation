@@ -3864,11 +3864,11 @@
     "generatedAt": "2026-10-22T09:00:24.765Z"
   },
   {
-    "name": "Chaine + boucle 1250F/",
+    "name": "Chaine + boucle",
     "category": "Ensembles > Ensembles bijoux",
     "code": "ENS-070",
-    "priceUnit": 9000,
-    "priceWholesale": null,
+    "priceUnit": 1250,
+    "priceWholesale": 9000,
     "generatedAt": "2026-10-22T09:05:23.550Z"
   }
 ]
