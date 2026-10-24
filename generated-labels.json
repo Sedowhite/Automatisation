@@ -3904,11 +3904,11 @@
     "generatedAt": "2026-10-22T09:55:19.440Z"
   },
   {
-    "name": "Bracelets homme 4 en 1 1350F/",
+    "name": "Bracelets homme 4 en 1",
     "category": "Bijoux > Bracelets",
     "code": "BRA-059",
-    "priceUnit": 10000,
-    "priceWholesale": null,
+    "priceUnit": 1350,
+    "priceWholesale": 10000,
     "generatedAt": "2026-10-24T08:45:24.845Z"
   }
 ]
