@@ -3902,5 +3902,13 @@
     "priceUnit": 1250,
     "priceWholesale": 9000,
     "generatedAt": "2026-10-22T09:55:19.440Z"
+  },
+  {
+    "name": "Bracelets homme 4 en 1 1350F/",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-059",
+    "priceUnit": 10000,
+    "priceWholesale": null,
+    "generatedAt": "2026-10-24T08:45:24.845Z"
   }
 ]
