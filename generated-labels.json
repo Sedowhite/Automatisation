@@ -3934,5 +3934,13 @@
     "priceUnit": 7000,
     "priceWholesale": null,
     "generatedAt": "2026-10-30T10:05:42.968Z"
+  },
+  {
+    "name": "Montre femme",
+    "category": "Montres",
+    "code": "MON-066",
+    "priceUnit": 5000,
+    "priceWholesale": null,
+    "generatedAt": "2026-10-30T10:10:25.448Z"
   }
 ]
