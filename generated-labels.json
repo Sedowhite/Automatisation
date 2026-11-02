@@ -3947,12 +3947,12 @@
     "name": "Montre enfants plastiques",
     "category": "Montres",
     "code": "MON-067",
-    "priceUnit": null,
-    "priceWholesale": null,
+    "priceUnit": 1200,
+    "priceWholesale": 13000,
     "generatedAt": "2026-11-02T09:35:25.821Z"
   },
   {
-    "name": "Montre en cuire + bracelet",
+    "name": "Montre en cuire + bracelet 2000f/1750F",
     "category": "Montres",
     "code": "MON-068",
     "priceUnit": null,
