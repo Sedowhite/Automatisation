@@ -4030,5 +4030,13 @@
     "priceUnit": 1300,
     "priceWholesale": 9500,
     "generatedAt": "2026-11-02T16:35:19.267Z"
+  },
+  {
+    "name": "Chaine simple femme 1300F/",
+    "category": "Bijoux > Colliers & Chaînes",
+    "code": "COL-083",
+    "priceUnit": 9000,
+    "priceWholesale": null,
+    "generatedAt": "2026-11-02T17:00:28.799Z"
   }
 ]
