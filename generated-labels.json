@@ -4048,11 +4048,19 @@
     "generatedAt": "2026-11-02T17:35:18.897Z"
   },
   {
-    "name": "Bracelet fatima 400F/",
+    "name": "Bracelet fatima",
     "category": "Bijoux > Bracelets",
     "code": "BRA-060",
-    "priceUnit": 3000,
-    "priceWholesale": null,
+    "priceUnit": 400,
+    "priceWholesale": 3000,
     "generatedAt": "2026-11-02T18:40:21.332Z"
+  },
+  {
+    "name": "Lingerie slip + robe",
+    "category": "Vêtements > Sous-vêtements",
+    "code": "LIN-029",
+    "priceUnit": 5000,
+    "priceWholesale": null,
+    "generatedAt": "2026-11-02T18:45:23.447Z"
   }
 ]
