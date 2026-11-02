@@ -1659,8 +1659,8 @@
     "name": "Bouc",
     "category": "Bijoux > Boucles d'oreilles",
     "code": "BOU-015",
-    "priceUnit": 3000,
-    "priceWholesale": 350,
+    "priceUnit": 350,
+    "priceWholesale": 3000,
     "generatedAt": "2026-09-13T03:45:16.000Z"
   },
   {
@@ -3968,19 +3968,19 @@
     "generatedAt": "2026-11-02T11:45:25.176Z"
   },
   {
-    "name": "Montre homme 2000F/",
+    "name": "Montre homme",
     "category": "Montres",
     "code": "MON-070",
-    "priceUnit": 18000,
-    "priceWholesale": null,
+    "priceUnit": 2000,
+    "priceWholesale": 18000,
     "generatedAt": "2026-11-02T11:50:22.045Z"
   },
   {
-    "name": "Montre+bracelet 2000F/",
+    "name": "Montre+bracelet",
     "category": "Montres",
     "code": "MON-071",
-    "priceUnit": 18000,
-    "priceWholesale": null,
+    "priceUnit": 2000,
+    "priceWholesale": 18000,
     "generatedAt": "2026-11-02T11:50:35.068Z"
   }
 ]
