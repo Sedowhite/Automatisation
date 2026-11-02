@@ -4080,11 +4080,11 @@
     "generatedAt": "2026-11-02T19:15:39.464Z"
   },
   {
-    "name": "Slip femme 1150F/",
+    "name": "Slip femme",
     "category": "Vêtements > Sous-vêtements",
     "code": "LIN-031",
-    "priceUnit": 7500,
-    "priceWholesale": null,
+    "priceUnit": 1150,
+    "priceWholesale": 7500,
     "generatedAt": "2026-11-02T19:35:19.840Z"
   }
 ]
