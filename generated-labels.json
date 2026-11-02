@@ -452,7 +452,7 @@
     "category": "Bijoux > Colliers & Chaînes",
     "code": "COL-039",
     "priceUnit": 1750,
-    "priceWholesale": 15000,
+    "priceWholesale": 14000,
     "generatedAt": "2026-09-13T03:46:03.000Z"
   },
   {
@@ -532,7 +532,7 @@
     "category": "Bijoux > Colliers & Chaînes",
     "code": "COL-037",
     "priceUnit": 1200,
-    "priceWholesale": 8000,
+    "priceWholesale": 11000,
     "generatedAt": "2026-09-13T03:45:59.000Z"
   },
   {
@@ -3984,11 +3984,11 @@
     "generatedAt": "2026-11-02T11:50:35.068Z"
   },
   {
-    "name": "Bandeaux de tête 1450F/",
+    "name": "Bandeaux de tête",
     "category": "Accessoires > Cheveux",
     "code": "ACC-026",
-    "priceUnit": 11000,
-    "priceWholesale": null,
+    "priceUnit": 1450,
+    "priceWholesale": 11000,
     "generatedAt": "2026-11-02T12:25:20.792Z"
   }
 ]
