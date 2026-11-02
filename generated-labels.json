@@ -3998,5 +3998,21 @@
     "priceUnit": 1750,
     "priceWholesale": 15000,
     "generatedAt": "2026-11-02T14:40:27.800Z"
+  },
+  {
+    "name": "Boucle Plaquette",
+    "category": "Bijoux > Boucles d'oreilles",
+    "code": "BOU-049",
+    "priceUnit": 1800,
+    "priceWholesale": null,
+    "generatedAt": "2026-11-02T15:50:27.014Z"
+  },
+  {
+    "name": "Boucle",
+    "category": "Bijoux > Boucles d'oreilles",
+    "code": "BOU-050",
+    "priceUnit": 2000,
+    "priceWholesale": null,
+    "generatedAt": "2026-11-02T15:50:35.357Z"
   }
 ]
