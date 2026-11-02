@@ -4046,5 +4046,13 @@
     "priceUnit": 700,
     "priceWholesale": 4500,
     "generatedAt": "2026-11-02T17:35:18.897Z"
+  },
+  {
+    "name": "Bracelet fatima 400F/",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-060",
+    "priceUnit": 3000,
+    "priceWholesale": null,
+    "generatedAt": "2026-11-02T18:40:21.332Z"
   }
 ]
