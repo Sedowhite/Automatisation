@@ -4062,5 +4062,21 @@
     "priceUnit": 5000,
     "priceWholesale": null,
     "generatedAt": "2026-11-02T18:45:23.447Z"
+  },
+  {
+    "name": "Slip femme 1350F/",
+    "category": "Vêtements > Sous-vêtements",
+    "code": "LIN-030",
+    "priceUnit": 9000,
+    "priceWholesale": null,
+    "generatedAt": "2026-11-02T19:15:25.323Z"
+  },
+  {
+    "name": "Slip femme 1000F/",
+    "category": "Vêtements > Sous-vêtements",
+    "code": "LIN-031",
+    "priceUnit": 7000,
+    "priceWholesale": null,
+    "generatedAt": "2026-11-02T19:15:39.464Z"
   }
 ]
