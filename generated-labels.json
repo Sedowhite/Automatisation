@@ -3958,5 +3958,13 @@
     "priceUnit": null,
     "priceWholesale": null,
     "generatedAt": "2026-11-02T09:35:40.242Z"
+  },
+  {
+    "name": "Montre femme+bracelet 1850F/",
+    "category": "Montres",
+    "code": "MON-069",
+    "priceUnit": 16000,
+    "priceWholesale": null,
+    "generatedAt": "2026-11-02T11:45:25.176Z"
   }
 ]
