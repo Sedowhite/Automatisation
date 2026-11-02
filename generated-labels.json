@@ -3992,11 +3992,11 @@
     "generatedAt": "2026-11-02T12:25:20.792Z"
   },
   {
-    "name": "Collant 1750F/",
+    "name": "Collant",
     "category": "Divers",
     "code": "DIV-038",
-    "priceUnit": 15000,
-    "priceWholesale": null,
+    "priceUnit": 1750,
+    "priceWholesale": 15000,
     "generatedAt": "2026-11-02T14:40:27.800Z"
   }
 ]
