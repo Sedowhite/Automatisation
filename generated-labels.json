@@ -3960,11 +3960,27 @@
     "generatedAt": "2026-11-02T09:35:40.242Z"
   },
   {
-    "name": "Montre femme+bracelet 1850F/",
+    "name": "Montre femme+bracelet",
     "category": "Montres",
     "code": "MON-069",
-    "priceUnit": 16000,
-    "priceWholesale": null,
+    "priceUnit": 1850,
+    "priceWholesale": 16000,
     "generatedAt": "2026-11-02T11:45:25.176Z"
+  },
+  {
+    "name": "Montre homme 2000F/",
+    "category": "Montres",
+    "code": "MON-070",
+    "priceUnit": 18000,
+    "priceWholesale": null,
+    "generatedAt": "2026-11-02T11:50:22.045Z"
+  },
+  {
+    "name": "Montre+bracelet 2000F/",
+    "category": "Montres",
+    "code": "MON-071",
+    "priceUnit": 18000,
+    "priceWholesale": null,
+    "generatedAt": "2026-11-02T11:50:35.068Z"
   }
 ]
