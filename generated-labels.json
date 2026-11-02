@@ -3568,11 +3568,11 @@
     "generatedAt": "2026-10-06T14:00:32.913Z"
   },
   {
-    "name": "Chaine simple",
+    "name": "Chaine+boucle",
     "category": "Bijoux > Colliers & Chaînes",
     "code": "COL-073",
-    "priceUnit": 1500,
-    "priceWholesale": 1200,
+    "priceUnit": 1750,
+    "priceWholesale": 14000,
     "generatedAt": "2026-10-06T14:10:28.224Z"
   },
   {
