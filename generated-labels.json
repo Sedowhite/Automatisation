@@ -4038,5 +4038,13 @@
     "priceUnit": 1300,
     "priceWholesale": 9000,
     "generatedAt": "2026-11-02T17:00:28.799Z"
+  },
+  {
+    "name": "Gloss 700F/",
+    "category": "Cosmétiques > Lèvres",
+    "code": "LEV-022",
+    "priceUnit": 4500,
+    "priceWholesale": null,
+    "generatedAt": "2026-11-02T17:35:18.897Z"
   }
 ]
