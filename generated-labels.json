@@ -4014,5 +4014,13 @@
     "priceUnit": 2000,
     "priceWholesale": null,
     "generatedAt": "2026-11-02T15:50:35.357Z"
+  },
+  {
+    "name": "Boucle plaquette",
+    "category": "Bijoux > Boucles d'oreilles",
+    "code": "BOU-051",
+    "priceUnit": 3000,
+    "priceWholesale": null,
+    "generatedAt": "2026-11-02T15:55:18.331Z"
   }
 ]
