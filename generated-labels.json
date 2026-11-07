@@ -4088,11 +4088,11 @@
     "generatedAt": "2026-11-02T19:35:19.840Z"
   },
   {
-    "name": "Bracelet femme 1100F/",
+    "name": "Bracelet femme",
     "category": "Bijoux > Bracelets",
     "code": "BRA-061",
-    "priceUnit": 6500,
-    "priceWholesale": null,
+    "priceUnit": 1100,
+    "priceWholesale": 6500,
     "generatedAt": "2026-11-07T19:30:21.262Z"
   }
 ]
