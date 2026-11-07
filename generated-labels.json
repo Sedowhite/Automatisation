@@ -4104,11 +4104,11 @@
     "generatedAt": "2026-11-07T20:10:21.014Z"
   },
   {
-    "name": "Bracelets femme 1300F/",
+    "name": "Bracelets femme",
     "category": "Bijoux > Bracelets",
     "code": "BRA-063",
-    "priceUnit": 9500,
-    "priceWholesale": null,
+    "priceUnit": 1300,
+    "priceWholesale": 9500,
     "generatedAt": "2026-11-07T20:15:22.804Z"
   }
 ]
