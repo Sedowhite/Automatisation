@@ -4094,5 +4094,13 @@
     "priceUnit": 1100,
     "priceWholesale": 6500,
     "generatedAt": "2026-11-07T19:30:21.262Z"
+  },
+  {
+    "name": "Bracelet femme 1000F/",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-062",
+    "priceUnit": 6000,
+    "priceWholesale": null,
+    "generatedAt": "2026-11-07T20:10:21.014Z"
   }
 ]
