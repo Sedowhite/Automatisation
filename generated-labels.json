@@ -2952,10 +2952,10 @@
     "generatedAt": "2026-09-15T12:20:20.266Z"
   },
   {
-    "name": "Cofret Vide",
+    "name": "Cofret Vide 2000",
     "category": "Coffrets & Cadeaux",
     "code": "COF-013",
-    "priceUnit": 1500,
+    "priceUnit": null,
     "priceWholesale": null,
     "generatedAt": "2026-09-15T12:20:29.851Z"
   },
@@ -3651,7 +3651,7 @@
     "name": "Coffret Vide bijoux",
     "category": "Coffrets & Cadeaux",
     "code": "COF-020",
-    "priceUnit": 1500,
+    "priceUnit": 2000,
     "priceWholesale": 13000,
     "generatedAt": "2026-10-21T11:50:18.860Z"
   },
