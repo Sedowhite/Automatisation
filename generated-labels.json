@@ -4152,11 +4152,19 @@
     "generatedAt": "2026-11-09T08:05:20.444Z"
   },
   {
-    "name": "Collant percé 1200F/",
+    "name": "Collant percé",
     "category": "Vêtements > Sous-vêtements",
     "code": "LIN-032",
-    "priceUnit": 8000,
-    "priceWholesale": null,
+    "priceUnit": 1200,
+    "priceWholesale": 8000,
     "generatedAt": "2026-11-09T12:15:19.579Z"
+  },
+  {
+    "name": "Slip 1200F/",
+    "category": "Vêtements > Sous-vêtements",
+    "code": "LIN-033",
+    "priceUnit": 8500,
+    "priceWholesale": null,
+    "generatedAt": "2026-11-09T12:20:25.225Z"
   }
 ]
