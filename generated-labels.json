@@ -4110,5 +4110,21 @@
     "priceUnit": 1300,
     "priceWholesale": 9500,
     "generatedAt": "2026-11-07T20:15:22.804Z"
+  },
+  {
+    "name": "Bracelet mixte 1750F/",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-064",
+    "priceUnit": 15000,
+    "priceWholesale": null,
+    "generatedAt": "2026-11-09T07:30:23.168Z"
+  },
+  {
+    "name": "Bracelet homme ou femme 1500F/",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-065",
+    "priceUnit": 12000,
+    "priceWholesale": null,
+    "generatedAt": "2026-11-09T07:30:31.952Z"
   }
 ]
