@@ -4160,11 +4160,11 @@
     "generatedAt": "2026-11-09T12:15:19.579Z"
   },
   {
-    "name": "Slip 1200F/",
+    "name": "Slip",
     "category": "Vêtements > Sous-vêtements",
     "code": "LIN-033",
-    "priceUnit": 8500,
-    "priceWholesale": null,
+    "priceUnit": 1200,
+    "priceWholesale": 8500,
     "generatedAt": "2026-11-09T12:20:25.225Z"
   }
 ]
