@@ -4128,11 +4128,11 @@
     "generatedAt": "2026-11-09T07:30:31.952Z"
   },
   {
-    "name": "Montre plastique 1600F/",
+    "name": "Montre plastique",
     "category": "Bijoux > Bracelets",
     "code": "BRA-066",
-    "priceUnit": 13000,
-    "priceWholesale": null,
+    "priceUnit": 1600,
+    "priceWholesale": 13000,
     "generatedAt": "2026-11-09T07:45:23.427Z"
   }
 ]
