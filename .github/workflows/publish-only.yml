@@ -1,20 +1,32 @@
 name: Publier le site (sans génération)
 
-# Workflow minimal, déclenchable uniquement à la main. Il ne fait AUCUN appel à
-# l'API Loyverse et n'exécute PAS generate-missing-barcodes.js : il se contente
-# d'empaqueter et publier le contenu déjà présent sur la branche "data", tel quel.
-# Créé pour publier manuellement pendant que generate-barcodes.yml reste désactivé
-# (voir README) sans avoir à le réactiver.
+# Workflow minimal, déclenchable à la main (ou par le job verify de
+# generate-barcodes.yml quand le site est périmé). Il ne fait AUCUN appel à
+# l'API Loyverse et n'exécute PAS generate-missing-barcodes.js : il publie le
+# contenu déjà présent sur la branche "data", tel quel.
+#
+# Il crée d'abord un commit vide sur "data" : ce commit sert de version Pages
+# neuve (voir scripts/deploy_pages.py). Republier sous une version déjà
+# utilisée peut être ignoré par GitHub Pages, ce qui a figé le site le 8 nov.
 on:
   workflow_dispatch:
 
 permissions:
+  contents: write
   pages: write
   id-token: write
 
 jobs:
   publish:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+    # Même groupe que le job generate : jamais deux écritures sur "data" en même temps.
+    concurrency:
+      group: generate-barcodes
+      cancel-in-progress: false
+    outputs:
+      data_sha: ${{ steps.version.outputs.sha }}
+      artifact_id: ${{ steps.artifact.outputs.artifact_id }}
     steps:
       - name: Checkout des données persistantes (branche data)
         uses: actions/checkout@v7
@@ -22,10 +34,24 @@ jobs:
           ref: data
           path: data
 
+      - name: Créer une version neuve (commit vide sur data)
+        id: version
+        working-directory: data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit --allow-empty -m "chore: republication du site (version Pages neuve)"
+          for i in 1 2 3; do
+            git push origin HEAD:data && break
+            git pull --rebase origin data
+          done
+          git fetch origin data
+          [ "$(git rev-parse HEAD)" = "$(git rev-parse FETCH_HEAD)" ] || { echo "::error::Push sur data impossible"; exit 1; }
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
       - name: Préparer le site à publier
         # Copie intégrale de tout le contenu de la branche "data" (hors .git),
-        # plutôt qu'une liste de fichiers codée en dur : évite d'oublier un
-        # fichier si la liste de ce qui vit sur "data" change plus tard.
+        # plutôt qu'une liste de fichiers codée en dur.
         run: |
           mkdir -p site
           cp -r data/. site/
@@ -33,6 +59,7 @@ jobs:
           cp data/nouveaux.html site/index.html
 
       - name: Uploader l'artefact GitHub Pages
+        id: artifact
         uses: actions/upload-pages-artifact@v5
         with:
           path: site
@@ -48,6 +75,15 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Déployer sur GitHub Pages
+      - name: Checkout du script de déploiement
+        uses: actions/checkout@v7
+        with:
+          sparse-checkout: scripts
+
+      - name: Déployer sur GitHub Pages (version = commit data)
         id: deployment
-        uses: actions/deploy-pages@v5
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          ARTIFACT_ID: ${{ needs.publish.outputs.artifact_id }}
+          PAGES_BUILD_VERSION: ${{ needs.publish.outputs.data_sha }}
+        run: python3 scripts/deploy_pages.py --artifact-id "$ARTIFACT_ID"

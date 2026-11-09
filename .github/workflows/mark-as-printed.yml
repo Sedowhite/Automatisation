@@ -8,15 +8,18 @@ permissions:
   pages: write
   id-token: write
 
-# Même groupe que generate-barcodes.yml : évite qu'un déploiement Pages de ce
-# workflow et un déploiement du cron se marchent dessus.
-concurrency:
-  group: pages
-  cancel-in-progress: false
-
 jobs:
   reset:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+    # Même groupe que le job generate du cron : jamais deux écritures sur
+    # "data" en même temps (avant : groupe "pages" au niveau du workflow entier).
+    concurrency:
+      group: generate-barcodes
+      cancel-in-progress: false
+    outputs:
+      data_sha: ${{ steps.version.outputs.sha }}
+      artifact_id: ${{ steps.artifact.outputs.artifact_id }}
     steps:
       - name: Checkout du code (branche main)
         uses: actions/checkout@v7
@@ -52,18 +55,22 @@ jobs:
             nouveaux.html
             dernier-vidage.json
 
+      - name: Noter le commit data publié
+        id: version
+        run: echo "sha=$(git -C data rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      # Copie intégrale de data/ comme les 2 autres workflows (l'ancienne liste
+      # oubliait legende.html et legend-data.json : la légende disparaissait du
+      # site après chaque vidage).
       - name: Préparer le site à publier
         run: |
           mkdir -p site
+          cp -r data/. site/
+          rm -rf site/.git
           cp data/nouveaux.html site/index.html
-          cp data/nouveaux.html site/nouveaux.html
-          for f in catalogue-detail.html styles.css search.js; do
-            if [ -f "data/$f" ]; then
-              cp "data/$f" "site/$f"
-            fi
-          done
 
       - name: Uploader l'artefact GitHub Pages
+        id: artifact
         uses: actions/upload-pages-artifact@v5
         with:
           path: site
@@ -71,10 +78,23 @@ jobs:
   deploy:
     needs: reset
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+    concurrency:
+      group: pages
+      cancel-in-progress: true
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Déployer sur GitHub Pages
+      - name: Checkout du script de déploiement
+        uses: actions/checkout@v7
+        with:
+          sparse-checkout: scripts
+
+      - name: Déployer sur GitHub Pages (version = commit data)
         id: deployment
-        uses: actions/deploy-pages@v5
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          ARTIFACT_ID: ${{ needs.reset.outputs.artifact_id }}
+          PAGES_BUILD_VERSION: ${{ needs.reset.outputs.data_sha }}
+        run: python3 scripts/deploy_pages.py --artifact-id "$ARTIFACT_ID"

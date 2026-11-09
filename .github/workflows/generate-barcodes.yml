@@ -20,6 +20,10 @@ jobs:
     concurrency:
       group: generate-barcodes
       cancel-in-progress: false
+    outputs:
+      changed: ${{ steps.commit.outputs.changes_detected }}
+      data_sha: ${{ steps.version.outputs.sha }}
+      artifact_id: ${{ steps.artifact.outputs.artifact_id }}
     steps:
       - name: Checkout du code (branche main)
         uses: actions/checkout@v7
@@ -53,6 +57,7 @@ jobs:
       # générés que dans l'environnement temporaire du run et perdus à la fin :
       # le run suivant repartirait d'un dépôt vide et écraserait tout l'historique.
       - name: Committer l'état mis à jour (registre + pages HTML) sur la branche data
+        id: commit
         uses: stefanzweifel/git-auto-commit-action@v7
         with:
           repository: data
@@ -68,6 +73,13 @@ jobs:
             dernier-vidage.json
             category-prefix-map.json
 
+      # Version Pages = commit de la branche data qui contient ces données (voir
+      # scripts/deploy_pages.py) : unique à chaque changement, contrairement au
+      # commit de main qui ne bouge presque jamais.
+      - name: Noter le commit data publié
+        id: version
+        run: echo "sha=$(git -C data rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
       # Copie INTÉGRALE de data/ (hors .git), pas une liste de fichiers codée
       # en dur : cette liste avait été oubliée lors de l'ajout de legende.html/
       # legend-data.json, causant un 404 permanent sur cette page à chaque
@@ -81,12 +93,16 @@ jobs:
           cp data/nouveaux.html site/index.html
 
       - name: Uploader l'artefact GitHub Pages
+        id: artifact
         uses: actions/upload-pages-artifact@v5
         with:
           path: site
 
+  # Déploie seulement quand les données ont changé : quelques fois par jour au
+  # lieu de 288. Sans changement, le site publié est déjà le bon.
   deploy:
     needs: generate
+    if: needs.generate.outputs.changed == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     concurrency:
@@ -96,9 +112,18 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Déployer sur GitHub Pages
+      - name: Checkout du script de déploiement
+        uses: actions/checkout@v7
+        with:
+          sparse-checkout: scripts
+
+      - name: Déployer sur GitHub Pages (version = commit data)
         id: deployment
-        uses: actions/deploy-pages@v5
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          ARTIFACT_ID: ${{ needs.generate.outputs.artifact_id }}
+          PAGES_BUILD_VERSION: ${{ needs.generate.outputs.data_sha }}
+        run: python3 scripts/deploy_pages.py --artifact-id "$ARTIFACT_ID"
 
   verify:
     needs: deploy
