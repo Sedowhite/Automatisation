@@ -4174,5 +4174,13 @@
     "priceUnit": 1250,
     "priceWholesale": 9000,
     "generatedAt": "2026-11-14T12:35:16.097Z"
+  },
+  {
+    "name": "Perruque",
+    "category": "Divers",
+    "code": "DIV-039",
+    "priceUnit": 13000,
+    "priceWholesale": null,
+    "generatedAt": "2026-11-14T12:55:16.984Z"
   }
 ]
