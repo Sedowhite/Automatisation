@@ -4168,11 +4168,11 @@
     "generatedAt": "2026-11-09T12:20:25.225Z"
   },
   {
-    "name": "Parfum brume 1250F/",
+    "name": "Parfum brume",
     "category": "Maison > Parfum d'ambiance",
     "code": "PAR-028",
-    "priceUnit": 9000,
-    "priceWholesale": null,
+    "priceUnit": 1250,
+    "priceWholesale": 9000,
     "generatedAt": "2026-11-14T12:35:16.097Z"
   }
 ]
