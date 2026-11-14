@@ -4182,5 +4182,29 @@
     "priceUnit": 13000,
     "priceWholesale": null,
     "generatedAt": "2026-11-14T12:55:16.984Z"
+  },
+  {
+    "name": "Perruque",
+    "category": "Divers",
+    "code": "DIV-040",
+    "priceUnit": 20000,
+    "priceWholesale": null,
+    "generatedAt": "2026-11-14T13:55:22.296Z"
+  },
+  {
+    "name": "Perruque",
+    "category": "Divers",
+    "code": "DIV-041",
+    "priceUnit": 7000,
+    "priceWholesale": null,
+    "generatedAt": "2026-11-14T13:55:37.065Z"
+  },
+  {
+    "name": "Perruque",
+    "category": "Divers",
+    "code": "DIV-042",
+    "priceUnit": 10000,
+    "priceWholesale": null,
+    "generatedAt": "2026-11-14T13:55:51.184Z"
   }
 ]
