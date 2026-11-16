@@ -4208,11 +4208,19 @@
     "generatedAt": "2026-11-14T13:55:51.184Z"
   },
   {
-    "name": "Chaine + boucle 1750F/",
+    "name": "Chaine + boucle",
     "category": "Ensembles > Ensembles bijoux",
     "code": "ENS-077",
-    "priceUnit": 15000,
-    "priceWholesale": null,
+    "priceUnit": 1750,
+    "priceWholesale": 15000,
     "generatedAt": "2026-11-16T10:10:40.277Z"
+  },
+  {
+    "name": "Bague mariage 1000F/",
+    "category": "Divers",
+    "code": "DIV-043",
+    "priceUnit": 6000,
+    "priceWholesale": null,
+    "generatedAt": "2026-11-16T10:15:59.941Z"
   }
 ]
