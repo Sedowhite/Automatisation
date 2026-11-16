@@ -4216,11 +4216,27 @@
     "generatedAt": "2026-11-16T10:10:40.277Z"
   },
   {
-    "name": "Bague mariage 1000F/",
+    "name": "Bague mariage",
     "category": "Divers",
     "code": "DIV-043",
-    "priceUnit": 6000,
-    "priceWholesale": null,
+    "priceUnit": 1000,
+    "priceWholesale": 6000,
     "generatedAt": "2026-11-16T10:15:59.941Z"
+  },
+  {
+    "name": "Chaine + boucle+bracelet 11000F/",
+    "category": "Ensembles > Ensembles bijoux",
+    "code": "ENS-078",
+    "priceUnit": 1450,
+    "priceWholesale": null,
+    "generatedAt": "2026-11-16T10:20:20.262Z"
+  },
+  {
+    "name": "Bracelet mixte 1250F/",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-067",
+    "priceUnit": 9000,
+    "priceWholesale": null,
+    "generatedAt": "2026-11-16T10:20:30.480Z"
   }
 ]
