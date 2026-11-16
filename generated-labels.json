@@ -4360,27 +4360,27 @@
     "generatedAt": "2026-11-16T13:00:44.210Z"
   },
   {
-    "name": "Bracelet enfant 1000F/",
+    "name": "Bracelet enfant",
     "category": "Bijoux > Bracelets",
     "code": "BRA-078",
-    "priceUnit": 7000,
-    "priceWholesale": null,
+    "priceUnit": 1000,
+    "priceWholesale": 7000,
     "generatedAt": "2026-11-16T13:05:20.875Z"
   },
   {
-    "name": "Chaine + boucle enfant 1000F/",
+    "name": "Chaine + boucle enfant",
     "category": "Ensembles > Ensembles bijoux",
     "code": "ENS-081",
-    "priceUnit": 7000,
-    "priceWholesale": null,
+    "priceUnit": 1000,
+    "priceWholesale": 7000,
     "generatedAt": "2026-11-16T13:05:32.314Z"
   },
   {
-    "name": "Chaine + boucle + bracelet 1350F/",
+    "name": "Chaine + boucle + bracelet",
     "category": "Ensembles > Ensembles bijoux",
     "code": "ENS-082",
-    "priceUnit": 10000,
-    "priceWholesale": null,
+    "priceUnit": 1350,
+    "priceWholesale": 10000,
     "generatedAt": "2026-11-16T13:05:43.763Z"
   }
 ]
