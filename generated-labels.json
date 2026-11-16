@@ -4240,11 +4240,11 @@
     "generatedAt": "2026-11-16T10:20:30.480Z"
   },
   {
-    "name": "Masques de levre et contours yeux 300F/",
+    "name": "Masques de levre et contours yeux",
     "category": "Divers",
     "code": "DIV-044",
-    "priceUnit": 2000,
-    "priceWholesale": null,
+    "priceUnit": 300,
+    "priceWholesale": 2000,
     "generatedAt": "2026-11-16T10:40:21.365Z"
   }
 ]
