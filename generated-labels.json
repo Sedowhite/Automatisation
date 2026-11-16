@@ -4342,5 +4342,21 @@
     "priceUnit": 1450,
     "priceWholesale": 11000,
     "generatedAt": "2026-11-16T11:50:24.472Z"
+  },
+  {
+    "name": "Chaine + boucle enfants fille 1000F/",
+    "category": "Divers",
+    "code": "DIV-045",
+    "priceUnit": 8500,
+    "priceWholesale": null,
+    "generatedAt": "2026-11-16T13:00:28.590Z"
+  },
+  {
+    "name": "Bracelet 1250F/",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-077",
+    "priceUnit": 9000,
+    "priceWholesale": null,
+    "generatedAt": "2026-11-16T13:00:44.210Z"
   }
 ]
