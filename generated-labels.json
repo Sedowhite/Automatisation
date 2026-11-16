@@ -4248,11 +4248,27 @@
     "generatedAt": "2026-11-16T10:40:21.365Z"
   },
   {
-    "name": "Bracelet homme 600F/",
+    "name": "Bracelet homme",
     "category": "Bijoux > Bracelets",
     "code": "BRA-068",
-    "priceUnit": 4000,
-    "priceWholesale": null,
+    "priceUnit": 600,
+    "priceWholesale": 4000,
     "generatedAt": "2026-11-16T10:50:22.928Z"
+  },
+  {
+    "name": "Bracelet 4 en 1 1500F/",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-069",
+    "priceUnit": 10000,
+    "priceWholesale": null,
+    "generatedAt": "2026-11-16T10:55:21.572Z"
+  },
+  {
+    "name": "Bracelet 3 en 1 1250F/",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-070",
+    "priceUnit": 9000,
+    "priceWholesale": null,
+    "generatedAt": "2026-11-16T10:55:33.360Z"
   }
 ]
