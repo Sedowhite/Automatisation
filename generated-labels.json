@@ -4224,19 +4224,19 @@
     "generatedAt": "2026-11-16T10:15:59.941Z"
   },
   {
-    "name": "Chaine + boucle+bracelet 11000F/",
+    "name": "Chaine + boucle+bracelet",
     "category": "Ensembles > Ensembles bijoux",
     "code": "ENS-078",
-    "priceUnit": 1450,
-    "priceWholesale": null,
+    "priceUnit": 11000,
+    "priceWholesale": 1450,
     "generatedAt": "2026-11-16T10:20:20.262Z"
   },
   {
-    "name": "Bracelet mixte 1250F/",
+    "name": "Bracelet mixte",
     "category": "Bijoux > Bracelets",
     "code": "BRA-067",
-    "priceUnit": 9000,
-    "priceWholesale": null,
+    "priceUnit": 1250,
+    "priceWholesale": 9000,
     "generatedAt": "2026-11-16T10:20:30.480Z"
   }
 ]
