@@ -4304,11 +4304,27 @@
     "generatedAt": "2026-11-16T11:06:01.311Z"
   },
   {
-    "name": "Chaine + boucle 1450F/",
+    "name": "Chaine + boucle",
     "category": "Ensembles > Ensembles bijoux",
     "code": "ENS-079",
-    "priceUnit": 11000,
-    "priceWholesale": null,
+    "priceUnit": 1450,
+    "priceWholesale": 11000,
     "generatedAt": "2026-11-16T11:35:34.157Z"
+  },
+  {
+    "name": "Bracelet couleur 1250F/",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-074",
+    "priceUnit": 9000,
+    "priceWholesale": null,
+    "generatedAt": "2026-11-16T11:40:32.980Z"
+  },
+  {
+    "name": "Chaine + boucle 1250F/",
+    "category": "Ensembles > Ensembles bijoux",
+    "code": "ENS-080",
+    "priceUnit": 9000,
+    "priceWholesale": null,
+    "generatedAt": "2026-11-16T11:40:48.993Z"
   }
 ]
