@@ -4256,19 +4256,51 @@
     "generatedAt": "2026-11-16T10:50:22.928Z"
   },
   {
-    "name": "Bracelet 4 en 1 1500F/",
+    "name": "Bracelet 4 en 1",
     "category": "Bijoux > Bracelets",
     "code": "BRA-069",
-    "priceUnit": 10000,
-    "priceWholesale": null,
+    "priceUnit": 1500,
+    "priceWholesale": 10000,
     "generatedAt": "2026-11-16T10:55:21.572Z"
   },
   {
-    "name": "Bracelet 3 en 1 1250F/",
+    "name": "Bracelet 3 en 1",
     "category": "Bijoux > Bracelets",
     "code": "BRA-070",
-    "priceUnit": 9000,
-    "priceWholesale": null,
+    "priceUnit": 1250,
+    "priceWholesale": 9000,
     "generatedAt": "2026-11-16T10:55:33.360Z"
+  },
+  {
+    "name": "Bracelet homme",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-071",
+    "priceUnit": 2500,
+    "priceWholesale": null,
+    "generatedAt": "2026-11-16T11:05:21.603Z"
+  },
+  {
+    "name": "Bracelet homme",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-072",
+    "priceUnit": 2000,
+    "priceWholesale": null,
+    "generatedAt": "2026-11-16T11:05:35.310Z"
+  },
+  {
+    "name": "Bracelet homme",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-073",
+    "priceUnit": 3500,
+    "priceWholesale": null,
+    "generatedAt": "2026-11-16T11:05:48.245Z"
+  },
+  {
+    "name": "Kit onglerie",
+    "category": "Cosmétiques > Ongles",
+    "code": "ONG-010",
+    "priceUnit": 15000,
+    "priceWholesale": null,
+    "generatedAt": "2026-11-16T11:06:01.311Z"
   }
 ]
