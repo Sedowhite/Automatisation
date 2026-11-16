@@ -4336,11 +4336,11 @@
     "generatedAt": "2026-11-16T11:45:21.132Z"
   },
   {
-    "name": "Bracelet homme 1450F/",
+    "name": "Bracelet homme",
     "category": "Bijoux > Bracelets",
     "code": "BRA-076",
-    "priceUnit": 11000,
-    "priceWholesale": null,
+    "priceUnit": 1450,
+    "priceWholesale": 11000,
     "generatedAt": "2026-11-16T11:50:24.472Z"
   }
 ]
