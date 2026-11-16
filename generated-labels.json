@@ -4312,19 +4312,27 @@
     "generatedAt": "2026-11-16T11:35:34.157Z"
   },
   {
-    "name": "Bracelet couleur 1250F/",
+    "name": "Bracelet couleur",
     "category": "Bijoux > Bracelets",
     "code": "BRA-074",
-    "priceUnit": 9000,
-    "priceWholesale": null,
+    "priceUnit": 1250,
+    "priceWholesale": 9000,
     "generatedAt": "2026-11-16T11:40:32.980Z"
   },
   {
-    "name": "Chaine + boucle 1250F/",
+    "name": "Chaine + boucle",
     "category": "Ensembles > Ensembles bijoux",
     "code": "ENS-080",
+    "priceUnit": 1250,
+    "priceWholesale": 9000,
+    "generatedAt": "2026-11-16T11:40:48.993Z"
+  },
+  {
+    "name": "Bracelet enfant et adultes 1250F/",
+    "category": "Bijoux > Bracelets",
+    "code": "BRA-075",
     "priceUnit": 9000,
     "priceWholesale": null,
-    "generatedAt": "2026-11-16T11:40:48.993Z"
+    "generatedAt": "2026-11-16T11:45:21.132Z"
   }
 ]
